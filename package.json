@@ -1,0 +1,36 @@
+{
+  "name": "sa_portal",
+  "version": "1.0.0",
+  "description": "SA Portal new website",
+  "main": "app.js",
+  "scripts": {
+    "start": "node backend/app.js",
+    "server": "nodemon backend/app.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swciitg/SA_Portal_2021.git"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "mongodb",
+    "react",
+    "express"
+  ],
+  "author": "SWC_IITG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swciitg/SA_Portal_2021/issues"
+  },
+  "homepage": "https://github.com/swciitg/SA_Portal_2021#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.0"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+  }
+}
