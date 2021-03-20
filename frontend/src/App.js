@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useEffect } from "react";
+import "./App.css";
+//import OutlookLogin from "./components/OutlookLogin";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import HomeScreen from "./screens/users/HomeScreen";
+import AdminScreen from "./screens/admin/AdminScreen";
+import "./assets/main.css";
+import { fetchUserAction } from "./actions/auth";
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUserAction());
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/admin" component={AdminScreen} />
+        <Route path="/" component={HomeScreen} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
