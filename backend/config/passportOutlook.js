@@ -18,10 +18,10 @@ passport.deserializeUser(function (id, done) {
 passport.use(
   new OutlookStrategy(
     {
-      identityMetadata: OUTLOOK_TENANT_URL,
+      //identityMetadata: OUTLOOK_TENANT_URL,
       clientID: OUTLOOK_CLIENT_ID,
       clientSecret: OUTLOOK_CLIENT_SECRET,
-      callbackURL: "http://localhost:5000/auth/outlook/callback",
+      callbackURL: "http://localhost:8080/api/auth/outlook/callback",
       passReqToCallback: true,
     },
     async (req, accessToken, refreshToken, profile, done) => {

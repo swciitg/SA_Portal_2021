@@ -1,13 +1,14 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import MicrosoftLogin from "react-microsoft-login";
-import { useHistory, useLocation } from "react-router-dom";
-import { AUTH, LOGOUT, LOGOUT_URL, LOGIN_URL } from "../constants";
-import { signin } from "../actions/auth";
-import { TENANT_URL, CLIENT_ID } from "../config";
-import jwt_decode from "jwt-decode";
+import { LOGOUT_URL, LOGIN_URL } from "../constants";
+import { useSelector } from "react-redux";
 
 const Login = () => {
+  let loginBool = document.cookie.includes("sa-portal-session");
+
+  const auth = useSelector((state) => state.auth);
+
+  console.log(auth.authData);
+  const name = auth.authData?.name.split(" ")[0];
   const logoutHandler = () => {
     window.open(LOGOUT_URL, "_self");
   };
@@ -15,7 +16,17 @@ const Login = () => {
   const loginHandler = () => {
     window.open(LOGIN_URL, "_self");
   };
-  return <button onClick={loginHandler}>Login</button>;
+
+  const btn = loginBool ? (
+    <>
+      <h1 className="mr-2">Hi {name}</h1>
+      <button onClick={logoutHandler}> Logout</button>
+    </>
+  ) : (
+    <button onClick={loginHandler}> Login</button>
+  );
+
+  return btn;
 };
 
 export default Login;

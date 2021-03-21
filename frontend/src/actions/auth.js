@@ -1,17 +1,5 @@
-import { AUTH, GET_USER } from "../constants";
+import { GET_USER } from "../constants";
 import * as api from "../api";
-
-export const signin = (formData, router) => async (dispatch) => {
-  try {
-    const { data } = await api.signIn(formData);
-
-    dispatch({ type: AUTH, data });
-
-    router.push("/admin");
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export const fetchUserAction = () => async (dispatch) => {
   try {

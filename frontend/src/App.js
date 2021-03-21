@@ -7,17 +7,19 @@ import HomeScreen from "./screens/users/HomeScreen";
 import AdminScreen from "./screens/admin/AdminScreen";
 import "./assets/main.css";
 import { fetchUserAction } from "./actions/auth";
+import NotFound from "./components/NotFound";
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchUserAction());
-  }, []);
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/admin" component={AdminScreen} />
         <Route path="/" component={HomeScreen} />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   );
