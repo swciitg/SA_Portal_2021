@@ -40,6 +40,7 @@ passport.use(
           accessToken: accessToken,
           // isverified: true,
         });
+
         if (refresh_token) newUser.refreshToken = refresh_token;
 
         await newUser.save();

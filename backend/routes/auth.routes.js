@@ -6,7 +6,7 @@ const passport = require("passport");
 const User = require("../models/user");
 const { isLoggedIn } = require("../middlewares");
 // const CLIENT_HOME_PAGE_URL = config.get("CLIENT_HOME_PAGE_URL") + "/";
-const CLIENT_HOME_PAGE_URL = "http://localhost:3000";
+const CLIENT_HOME_PAGE_URL = "http://localhost:8080/api/home";
 
 ////// PASSPORT-JS OUTLOOK OAUTH ROUTES
 
@@ -41,7 +41,7 @@ router.get(
   passport.authenticate("azure_ad_oauth2", { failureRedirect: "/failed" }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect(CLIENT_HOME_PAGE_URL + "/admin");
+    res.redirect(CLIENT_HOME_PAGE_URL);
   }
 );
 

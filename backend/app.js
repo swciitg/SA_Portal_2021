@@ -11,7 +11,12 @@ const PORT = 8080 || process.env.PORT;
 //require("./config/passportOutlook");
 require("./config/passportAzure");
 
+const scholarshipRoutes = require("./routes/scholarship.routes");
+const announcementRoutes = require("./routes/announcement.routes");
+const eventRoutes = require("./routes/event.routes");
+const achievementRoutes = require("./routes/achievement.routes");
 const authRoutes = require("./routes/auth.routes");
+
 
 mongoose
   .connect(MONGO_URI, {
@@ -60,7 +65,15 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use("/api/home/scholarship", scholarshipRoutes);
+app.use("/api/home/announcement", announcementRoutes);
+app.use("/api/home/events", eventRoutes);
+app.use("/api/home/achievements", achievementRoutes);
 app.use("/api", authRoutes);
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Server running at PORT ${PORT}`);
