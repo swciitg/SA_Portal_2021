@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import AboutScreen from "./AboutScreen";
 import ContactScreen from "./ContactScreen";
-import NotFound from "../../components/NotFound";
+
 const HomeScreen = () => {
   return (
     <>
