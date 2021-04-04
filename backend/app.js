@@ -24,6 +24,7 @@ const scholarshipRoutes = require("./routes/scholarship.routes");
 const announcementRoutes = require("./routes/announcement.routes");
 const eventRoutes = require("./routes/events/events.routes");
 const achievementRoutes = require("./routes/achievement.routes");
+const aboutRoutes = require("./routes/about.routes");
 const authRoutes = require("./routes/auth.routes");
 
 
@@ -82,11 +83,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use("/api/home/scholarship", scholarshipRoutes);
-app.use("/api/home/announcement", announcementRoutes);
-app.use("/api/home/events", eventRoutes);
-app.use("/api/home/achievements", achievementRoutes);
-app.use("/api", authRoutes);
+app.use("/sa/api/home/scholarship", scholarshipRoutes);
+app.use("/sa/api/home/announcement", announcementRoutes);
+app.use("/sa/api/home/events", eventRoutes);
+app.use("/sa/api/home/achievements", achievementRoutes);
+app.use("/sa/api/about", aboutRoutes);
+app.use("/sa/api", authRoutes);
 
 
 
