@@ -19,8 +19,10 @@ exports.getAbout = async (req, res) => {
 }
 exports.postAbout = async (req, res) => {
     try{
-        const {title,description,imgPath} = req.body;
-        const priority_number = 0;
+        console.log("sss");
+        const {title,description,priority_number} = req.body;
+        var imgPath;
+  if (req.file) imgPath = req.file.filename;
         const newAboutInfo = new About({title,description,imgPath,priority_number});
         const aboutInfo = await newAboutInfo.save();
         if(aboutInfo) return res.status(200).json({ status: "Success", data: aboutInfo });

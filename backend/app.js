@@ -41,14 +41,14 @@ mongoose
 
 
 var corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "http://localhost:8080",
   // origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); //Change this later to restrict it to react app only
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080"); //Change this later to restrict it to react app only
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PATCH, PUT, DELETE"
@@ -62,9 +62,9 @@ app.use((req, res, next) => {
 
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
-app.use("/sa/uploads", express.static(__dirname + "/uploads"));
+app.use(express.static(__dirname + "./uploads"));
+
 app.use(methodOverride("_method"));
 app.use(mongoSanitize());
 
@@ -78,6 +78,14 @@ app.use(
     httpOnly: false,
   })
 );
+app.use(express.json({ limit: "50mb" }));
+app.use(
+  express.urlencoded({
+    limit: "50mb",
+    extended: true,
+    parameterLimit: 50000,
+  })
+);
 
 // passport middleware
 app.use(passport.initialize());
@@ -87,7 +95,7 @@ app.use("/sa/api/home/scholarship", scholarshipRoutes);
 app.use("/sa/api/home/announcement", announcementRoutes);
 app.use("/sa/api/home/events", eventRoutes);
 app.use("/sa/api/home/achievements", achievementRoutes);
-app.use("/sa/api/about", aboutRoutes);
+app.use("/sa/api/home/about", aboutRoutes);
 app.use("/sa/api", authRoutes);
 
 

@@ -11,7 +11,7 @@ const AboutSchema = mongoose.Schema({
     },
     imgPath: {
         type: String,
-        required: true
+        required:true
     },
     priority_number: {
         type: Number,
