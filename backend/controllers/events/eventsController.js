@@ -62,12 +62,12 @@ exports.deleteEvent = async (req, res) => {
 };
 
 exports.updateEvent = async (req, res) => {
-  const { id } = req.params.id;
+  const { id } = req.params;
 
   try {
     const { title, author, topics, imgPath, date } = req.body;
 
-    const updatedEvent = await Event.findByIdAndDelete(
+    const updatedEvent = await Event.findByIdAndUpdate(
       { id },
       { title, author, topics, imgPath, date },
       { new: true }
