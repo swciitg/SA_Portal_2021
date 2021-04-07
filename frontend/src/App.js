@@ -7,6 +7,9 @@ import AdminScreen from "./screens/admin/AdminScreen";
 import "./assets/main.css";
 import { fetchUserAction } from "./actions/auth";
 import NotFound from "./components/NotFound";
+import Footer from "./components/Home/Footer/Footer";
+import EventCard from "./components/Home/Footer/EventCard";
+
 function App() {
   const dispatch = useDispatch();
 
@@ -20,6 +23,8 @@ function App() {
         <Route path="/" component={HomeScreen} />
         <Route path="*" component={NotFound} />
       </Switch>
+      
+     
     </BrowserRouter>
   );
 }
