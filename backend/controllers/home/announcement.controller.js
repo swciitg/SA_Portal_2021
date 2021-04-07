@@ -1,5 +1,5 @@
-const Announcement = require("../models/announcement");
-const factory=require("./handlerFactory");
+const Announcement = require("../../models/home/announcement");
+const factory=require("../handlerFactory");
 
 exports.getAnnouncements = async (req, res) => {
   try {
