@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
-const { isLoggedIn } = require("../middlewares");
-const achievementController = require("../controllers/achievement.controller");
+const { isLoggedIn } = require("../../middlewares");
+const achievementController = require("../../controllers/home/achievement.controller");
 
 
 router.get("/", achievementController.getAchievements);

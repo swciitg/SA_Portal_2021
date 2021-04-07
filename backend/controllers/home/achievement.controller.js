@@ -1,5 +1,5 @@
-const Achievement = require("../models/achievement");
-const factory=require("./handlerFactory");
+const Achievement = require("../../models/home/achievement");
+const factory=require("../handlerFactory");
 const feed= require("feed-read");
 
 exports.getAchievements=factory.getAll(Achievement);

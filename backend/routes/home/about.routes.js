@@ -1,12 +1,12 @@
 const express = require("express");
 const fs = require("fs");
 const router = express.Router({ mergeParams: true });
-const aboutController = require("../controllers/about.controller");
+const aboutController = require("../../controllers/home/about.controller");
 
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "../uploads");
+    cb(null,`${__dirname}/../../uploads`);
   },
   filename: (req, file, cb) => {
     const fileName = file.originalname.replace(/\s/g, "");
@@ -25,9 +25,6 @@ router.route("/")
 router.post(
         "/",
         upload.single("imgPath"),
-        ()=>{
-          console.log("asAS")
-        },
         aboutController.postAbout
       );
 

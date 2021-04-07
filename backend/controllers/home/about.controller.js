@@ -1,4 +1,4 @@
-const About = require("../models/about");
+const About = require("../../models/home/about");
 
 
 //will add priority_number logic later
