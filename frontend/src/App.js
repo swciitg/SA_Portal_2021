@@ -10,7 +10,7 @@ import NotFound from './components/NotFound';
 import Footer from './components/Home/Footer/Footer';
 import EventCard from './components/Home/Footer/EventCard';
 
-const App = () => {
+const App = () => { 
   const dispatch = useDispatch();
 
   useEffect(() => {
