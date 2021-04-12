@@ -10,23 +10,22 @@ import NotFound from "./components/NotFound";
 import Footer from "./components/Home/Footer/Footer";
 import EventCard from "./components/Home/Footer/EventCard";
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchUserAction());
   }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/admin" component={AdminScreen} />
-        <Route path="/" component={HomeScreen} />
-        <Route path="*" component={NotFound} />
+        <Route path="/sa/admin" component={AdminScreen} />
+        <Route path="/sa/" component={HomeScreen} />
+        <Route path="*" exact={true} component={NotFound} />
       </Switch>
-      
-     
     </BrowserRouter>
   );
-}
+};
 
 export default App;

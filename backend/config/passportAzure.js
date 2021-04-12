@@ -3,7 +3,8 @@ const AzureAdOAuth2Strategy = require("passport-azure-ad-oauth2").Strategy;
 const User = require("../models/user");
 const OUTLOOK_CLIENT_ID = process.env.OUTLOOK_CLIENT_ID;
 const OUTLOOK_CLIENT_SECRET = process.env.OUTLOOK_CLIENT_SECRET;
-const OUTLOOK_TENANT_URL = process.env.OUTLOOK_TENANT_URL;
+const BASEAPI = process.env.BASEAPI;
+
 const jwt = require("jsonwebtoken");
 
 passport.serializeUser(function (user, done) {
@@ -19,11 +20,10 @@ passport.deserializeUser(function (id, done) {
 passport.use(
   new AzureAdOAuth2Strategy(
     {
-      //identityMetadata: OUTLOOK_TENANT_URL,
       clientID: OUTLOOK_CLIENT_ID,
       clientSecret: OUTLOOK_CLIENT_SECRET,
-      callbackURL: "http://localhost:8080/api/auth/azureadoauth2/callback",
-      //passReqToCallback: true,
+      callbackURL: `${BASEAPI}/auth/azureadoauth2/callback`,
+      //callbackURL: "http://localhost:8080/sa/api/auth/azureadoauth2/callback",
     },
     async (accessToken, refresh_token, params, profile, done) => {
       try {

@@ -9,7 +9,7 @@ const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const cors = require("cors");
-const bodyParser=require('body-parser');
+const bodyParser = require("body-parser");
 require("dotenv").config();
 const MONGO_URI = "mongodb://localhost/SA_DB";
 const helmet = require("helmet");
@@ -18,7 +18,7 @@ const PORT = 8080 || process.env.PORT;
 //require("./config/passportOutlook");
 require("./config/passportAzure");
 
-const globalErrorHandler=require("./controllers/errorController");
+const globalErrorHandler = require("./controllers/errorController");
 
 const scholarshipRoutes = require("./routes/scholarship.routes");
 const announcementRoutes = require("./routes/home/announcement.routes");
@@ -26,7 +26,7 @@ const eventRoutes = require("./routes/home/events.routes");
 const achievementRoutes = require("./routes/home/achievement.routes");
 const aboutRoutes = require("./routes/home/about.routes");
 const authRoutes = require("./routes/auth.routes");
-
+const BASECLIENT = process.env.BASECLIENT;
 
 mongoose
   .connect(MONGO_URI, {
@@ -38,17 +38,15 @@ mongoose
   .then(() => console.log("Successful DB connection"))
   .catch((err) => console.error("DB connection fail"));
 
-
-
 var corsOptions = {
-  origin: "http://localhost:8080",
-  // origin: "*",
+  origin: BASECLIENT,
+  //origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080"); //Change this later to restrict it to react app only
+  res.setHeader("Access-Control-Allow-Origin", BASECLIENT); //Change this later to restrict it to react app only
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PATCH, PUT, DELETE"
@@ -67,7 +65,6 @@ app.use(express.static(__dirname + "./uploads"));
 
 app.use(methodOverride("_method"));
 app.use(mongoSanitize());
-
 
 // SESSION MIDDLEWARE
 app.use(
@@ -98,11 +95,8 @@ app.use("/sa/api/home/achievements", achievementRoutes);
 app.use("/sa/api/home/about", aboutRoutes);
 app.use("/sa/api", authRoutes);
 
-
-
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(globalErrorHandler);
-
 
 app.listen(PORT, () => {
   console.log(`Server running at PORT ${PORT}`);

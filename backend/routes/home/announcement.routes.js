@@ -6,21 +6,10 @@ const announcementController = require("../../controllers/home/announcement.cont
 
 router.get("/", announcementController.getAnnouncements);
 
+router.post("/", announcementController.postAnnouncement);
 
+router.put("/:id", announcementController.editAnnouncement);
 
-router.post("/",  announcementController.postAnnouncement);
-
-
-
-
-router.put(
-  "/:id",
-  announcementController.editAnnouncement
-);
-
-router.delete(
-  "/:id",
-  announcementController.deleteAnnouncement
-);
+router.delete("/:id", announcementController.deleteAnnouncement);
 
 module.exports = router;

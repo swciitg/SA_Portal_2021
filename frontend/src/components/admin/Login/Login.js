@@ -1,5 +1,5 @@
 import React from "react";
-import { LOGOUT_URL, LOGIN_URL } from "../constants";
+import { LOGOUT_URL, LOGIN_URL } from "../../../constants";
 import { useSelector } from "react-redux";
 
 const Login = () => {
@@ -10,6 +10,7 @@ const Login = () => {
   console.log(auth.authData);
   const name = auth.authData?.name.split(" ")[0];
   const logoutHandler = () => {
+    console.log(LOGOUT_URL);
     window.open(LOGOUT_URL, "_self");
   };
 

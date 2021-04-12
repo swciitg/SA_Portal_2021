@@ -8,12 +8,12 @@ const HomeScreen = () => {
     <>
       <h1>Home</h1>
 
-      <Link to="/about">About Page</Link>
-      <Link to="/contact">Contact Page</Link>
+      <Link to="/sa/about">About Page</Link>
+      <Link to="/sa/contact">Contact Page</Link>
 
       <Switch>
-        <Route exact path="/about" component={AboutScreen} />
-        <Route exact path="/contact" component={ContactScreen} />
+        <Route exact path="/sa/about" component={AboutScreen} />
+        <Route exact path="/sa/contact" component={ContactScreen} />
       </Switch>
     </>
   );

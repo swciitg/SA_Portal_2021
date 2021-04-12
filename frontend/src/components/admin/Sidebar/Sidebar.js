@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Login from "./Login";
-import { LOGOUT_URL, LOGIN_URL } from "../constants";
+import Login from "../Login/Login";
+import { LOGOUT_URL, LOGIN_URL } from "../../../constants";
 
 const Sidebar = ({ children }) => {
   let loginBool = document.cookie.includes("sa-portal-session");
@@ -35,10 +35,10 @@ const Sidebar = ({ children }) => {
         </div>
 
         <nav className="text-white text-base font-semibold pt-3">
-          <Link to="/admin/tables" className={linkSidebar}>
+          <Link to="/sa/admin/tables" className={linkSidebar}>
             Tables
           </Link>
-          <Link to="/admin/forms" className={linkSidebar}>
+          <Link to="/sa/admin/forms" className={linkSidebar}>
             Forms
           </Link>
         </nav>
@@ -76,10 +76,10 @@ const Sidebar = ({ children }) => {
             }
             // className="flex flex-col pt-4"
           >
-            <Link to="/admin/tables" className={linkDropdown}>
+            <Link to="/sa/admin/tables" className={linkDropdown}>
               Tables
             </Link>
-            <Link to="/admin/forms" className={linkDropdown}>
+            <Link to="/sa/admin/forms" className={linkDropdown}>
               Forms
             </Link>
             {authBtn}
