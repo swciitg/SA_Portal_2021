@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BASEURL } from "../constants/index";
 const NotFound = () => {
   return (
     <div>
       Not Found!
       <br />
-      <Link to="/">Home</Link>
+      <Link to={BASEURL}>Home</Link>
     </div>
   );
 };

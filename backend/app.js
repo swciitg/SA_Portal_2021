@@ -15,7 +15,6 @@ const MONGO_URI = "mongodb://localhost/SA_DB";
 const helmet = require("helmet");
 
 const PORT = 8080 || process.env.PORT;
-//require("./config/passportOutlook");
 require("./config/passportAzure");
 
 const globalErrorHandler = require("./controllers/errorController");

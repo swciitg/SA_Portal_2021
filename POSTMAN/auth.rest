@@ -1,4 +1,0 @@
-GET http://localhost:8080/api/current_user
-
-###
-GET http://localhost:8080/api/auth/azureadoauth2

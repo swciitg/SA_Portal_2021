@@ -6,3 +6,4 @@ const API = axios.create({
 });
 
 export const fetchUser = () => API.get("/current_user");
+export const fetchAnnouncement = () => API.get("/home/announcement");

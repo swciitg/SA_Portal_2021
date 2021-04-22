@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Login from "../Login/Login";
-import { LOGOUT_URL, LOGIN_URL } from "../../../constants";
+import { LOGOUT_URL, LOGIN_URL, BASEURL } from "../../../constants";
 
 const Sidebar = ({ children }) => {
   let loginBool = document.cookie.includes("sa-portal-session");
   const [hamburger, setHamburger] = useState(false);
 
   const linkSidebar =
-    "flex items-center text-white opacity-75  hover:opacity-100 py-4 pl-6 nav-item";
+    "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item";
 
   const linkDropdown =
     "flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item";
@@ -35,11 +35,14 @@ const Sidebar = ({ children }) => {
         </div>
 
         <nav className="text-white text-base font-semibold pt-3">
-          <Link to="/sa/admin/tables" className={linkSidebar}>
+          <Link to={`${BASEURL}/admin/tables`} className={linkSidebar}>
             Tables
           </Link>
-          <Link to="/sa/admin/forms" className={linkSidebar}>
+          <Link to={`${BASEURL}/admin/forms`} className={linkSidebar}>
             Forms
+          </Link>
+          <Link to={`${BASEURL}/admin/announcements`} className={linkSidebar}>
+            Announcements
           </Link>
         </nav>
       </aside>
@@ -76,16 +79,24 @@ const Sidebar = ({ children }) => {
             }
             // className="flex flex-col pt-4"
           >
-            <Link to="/sa/admin/tables" className={linkDropdown}>
+            <Link to={`${BASEURL}/admin/tables`} className={linkDropdown}>
               Tables
             </Link>
-            <Link to="/sa/admin/forms" className={linkDropdown}>
+            <Link to={`${BASEURL}/admin/forms`} className={linkDropdown}>
               Forms
+            </Link>
+            <Link
+              to={`${BASEURL}/admin/announcements`}
+              className={linkDropdown}
+            >
+              Announcements
             </Link>
             {authBtn}
           </nav>
         </header>
-        {children}
+        <div className="w-full h-screen overflow-x-hidden border-t flex flex-col">
+          <main className="w-full flex-grow p-6">{children}</main>
+        </div>
       </div>
     </>
   );
