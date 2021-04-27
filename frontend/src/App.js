@@ -24,10 +24,6 @@ const App = () => {
         <Route path="*" exact={true} component={NotFound} />
       </Switch>
     </BrowserRouter>
-    // <>
-    //   <Footer />
-    //   <EventCard />
-    // </>
   );
 };
 

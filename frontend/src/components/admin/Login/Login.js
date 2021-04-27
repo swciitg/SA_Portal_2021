@@ -7,10 +7,10 @@ const Login = () => {
 
   const auth = useSelector((state) => state.auth);
 
-  console.log(auth.authData);
+  //console.log(auth.authData);
   const name = auth.authData?.name.split(" ")[0];
   const logoutHandler = () => {
-    console.log(LOGOUT_URL);
+    //console.log(LOGOUT_URL);
     window.open(LOGOUT_URL, "_self");
   };
 

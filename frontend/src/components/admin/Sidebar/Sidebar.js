@@ -35,12 +35,6 @@ const Sidebar = ({ children }) => {
         </div>
 
         <nav className="text-white text-base font-semibold pt-3">
-          <Link to={`${BASEURL}/admin/tables`} className={linkSidebar}>
-            Tables
-          </Link>
-          <Link to={`${BASEURL}/admin/forms`} className={linkSidebar}>
-            Forms
-          </Link>
           <Link to={`${BASEURL}/admin/announcements`} className={linkSidebar}>
             Announcements
           </Link>
@@ -58,7 +52,7 @@ const Sidebar = ({ children }) => {
         <header className="w-full bg-sidebar py-5 px-6 sm:hidden">
           <div className="flex items-center justify-between">
             <Link
-              to="index.html"
+              to={`${BASEURL}/admin/`}
               className="text-white text-3xl font-semibold uppercase hover:text-gray-300"
             >
               Admin
@@ -79,12 +73,6 @@ const Sidebar = ({ children }) => {
             }
             // className="flex flex-col pt-4"
           >
-            <Link to={`${BASEURL}/admin/tables`} className={linkDropdown}>
-              Tables
-            </Link>
-            <Link to={`${BASEURL}/admin/forms`} className={linkDropdown}>
-              Forms
-            </Link>
             <Link
               to={`${BASEURL}/admin/announcements`}
               className={linkDropdown}

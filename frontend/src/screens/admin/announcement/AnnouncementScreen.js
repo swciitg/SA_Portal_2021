@@ -1,39 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listAnnouncement } from "../../../actions/announcement";
-import AnnouncementForm from "../../../components/admin/AnnouncementForm/AnnouncementForm";
+import { Link } from "react-router-dom";
+import {
+  listAnnouncement,
+  deleteAnnouncement,
+} from "../../../actions/announcement";
+import { BASEURL } from "../../../constants";
 
 const AnnouncementScreen = () => {
+  const announcements = useSelector((state) => state.announcements);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(listAnnouncement());
   }, [dispatch]);
 
-  const editAnnouncementHandler = (title, important, description, link) => {};
-
-  const deleteAnnouncementHandler = () => {};
-
-  const addAnnouncementHandler = () => {};
-
-  const announcements = [
-    { important: false, title: "ABC", creation: 1519211809934 },
-    { important: true, title: "XYZ", creation: 1519711809934 },
-  ];
-
   return (
     <>
       <h1 className="text-3xl text-black pb-6">Announcements</h1>
 
       <div className="mt-6">
-        <a
+        <Link
           className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-          href="/hab/admin/announcement/add"
+          to={`${BASEURL}/admin/announcements/add`}
         >
           Add Announcements
-        </a>
-
-        <AnnouncementForm type="Add" formData={null} />
+        </Link>
       </div>
 
       <div className="w-auto mt-6 overflow-auto">
@@ -46,6 +38,12 @@ const AnnouncementScreen = () => {
                 </th>
                 <th className="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">
                   Title
+                </th>
+                <th className="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">
+                  Description
+                </th>
+                <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
+                  Link
                 </th>
                 <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
                   Important
@@ -61,37 +59,56 @@ const AnnouncementScreen = () => {
 
             <tbody className="text-gray-700" id="myMenu">
               {announcements.map(
-                ({ title, important, description, link }, i) => {
+                ({ creation, title, important, description, link, _id }, i) => {
                   return (
                     <tr key={i}>
                       <td className="text-left py-3 px-4">
-                        {/* {announcement.creation.getFullYear() +
+                        {new Date(creation).getDate() +
                           "/" +
-                          (announcement.creation.getMonth() + 1) +
+                          (new Date(creation).getMonth() + 1) +
                           "/" +
-                          announcement.creation.getDate()} */}
-                        2/2/2
+                          new Date(creation).getFullYear()}
                       </td>
                       <td className="w-1/3 text-left py-3 px-4">{title}</td>
+                      <td className="w-1/3 text-left py-3 px-4">
+                        {description.substring(0, 80) + "..."}
+                      </td>
+                      <td className="text-left py-3 px-4">
+                        <a
+                          className="hover:text-blue-500"
+                          href={link}
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          Link
+                        </a>
+                      </td>
                       <td className="text-left py-3 px-4">
                         {important ? "YES" : "NO"}
                       </td>
                       <td className="text-left py-3 px-4">
-                        <button
-                          onClick={() =>
-                            editAnnouncementHandler(
+                        <Link
+                          to={{
+                            pathname: `${BASEURL}/admin/announcements/${_id}`,
+                            formData: {
                               title,
                               important,
                               description,
-                              link
-                            )
-                          }
+                              link,
+                              _id,
+                            },
+                          }}
                         >
-                          Edit
-                        </button>
+                          <button className="hover:text-blue-500">Edit</button>
+                        </Link>
                       </td>
                       <td className="text-left py-3 px-4">
-                        <button className="hover:text-red-500">Delete</button>
+                        <button
+                          className="hover:text-red-500"
+                          onClick={() => dispatch(deleteAnnouncement(_id))}
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   );

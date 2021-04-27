@@ -7,7 +7,8 @@ import "./AdminScreen.css";
 import ProtectedRoutes from "../../hoc/ProtectedRoutes";
 import { BASEURL } from "../../constants/index";
 import AnnouncementScreen from "./announcement/AnnouncementScreen";
-
+import AddAnnouncementScreen from "./announcement/AddAnnouncementScreen";
+import EditAnnouncementScreen from "./announcement/EditAnnouncementScreen";
 const AdminScreen = () => {
   return (
     <div className="bg-gray-100 font-family-karla flex">
@@ -28,6 +29,18 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/announcements`}
             component={AnnouncementScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/announcements/add`}
+            component={AddAnnouncementScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/announcements/:announcement_id`}
+            component={EditAnnouncementScreen}
           />
         </Switch>
       </Sidebar>
