@@ -9,6 +9,9 @@ import { BASEURL } from "../../constants/index";
 import AnnouncementScreen from "./announcement/AnnouncementScreen";
 import AddAnnouncementScreen from "./announcement/AddAnnouncementScreen";
 import EditAnnouncementScreen from "./announcement/EditAnnouncementScreen";
+import AboutScreen from "./about/AboutScreen";
+import AddAboutScreen from "./about/AddAboutScreen";
+import EditAboutScreen from "./about/EditAboutScreen";
 const AdminScreen = () => {
   return (
     <div className="bg-gray-100 font-family-karla flex">
@@ -23,6 +26,24 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/forms`}
             component={Forms}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/about`}
+            component={AboutScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/about/add`}
+            component={AddAboutScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/about/edit`}
+            component={EditAboutScreen}
           />
 
           <ProtectedRoutes

@@ -35,6 +35,9 @@ const Sidebar = ({ children }) => {
         </div>
 
         <nav className="text-white text-base font-semibold pt-3">
+          <Link to={`${BASEURL}/admin/about`} className={linkSidebar}>
+            About
+          </Link>
           <Link to={`${BASEURL}/admin/announcements`} className={linkSidebar}>
             Announcements
           </Link>
