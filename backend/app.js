@@ -45,7 +45,7 @@ var corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
-/*app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", BASECLIENT); //Change this later to restrict it to react app only
   res.setHeader(
@@ -58,7 +58,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-*/
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.json());
@@ -98,7 +98,6 @@ app.use("/sa/api/forms", formRoutes);
 app.use("/sa/api", authRoutes);
 
 app.use(helmet({ contentSecurityPolicy: false }));
-
 
 app.listen(PORT, () => {
   console.log(`Server running at PORT ${PORT}`);
