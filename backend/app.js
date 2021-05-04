@@ -24,6 +24,8 @@ const announcementRoutes = require("./routes/home/announcement.routes");
 const eventRoutes = require("./routes/home/events.routes");
 const achievementRoutes = require("./routes/home/achievement.routes");
 const aboutRoutes = require("./routes/home/about.routes");
+const formRoutes = require("./routes/forms/form.routes");
+
 const authRoutes = require("./routes/auth.routes");
 const BASECLIENT = process.env.BASECLIENT;
 
@@ -43,7 +45,7 @@ var corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
-app.use(cors(corsOptions));
+/*app.use(cors(corsOptions));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", BASECLIENT); //Change this later to restrict it to react app only
   res.setHeader(
@@ -56,7 +58,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-
+*/
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.json());
@@ -92,10 +94,11 @@ app.use("/sa/api/home/announcement", announcementRoutes);
 app.use("/sa/api/home/events", eventRoutes);
 app.use("/sa/api/home/achievements", achievementRoutes);
 app.use("/sa/api/home/about", aboutRoutes);
+app.use("/sa/api/forms", formRoutes);
 app.use("/sa/api", authRoutes);
 
 app.use(helmet({ contentSecurityPolicy: false }));
-app.use(globalErrorHandler);
+
 
 app.listen(PORT, () => {
   console.log(`Server running at PORT ${PORT}`);

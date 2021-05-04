@@ -12,6 +12,9 @@ exports.getAnnouncements = async (req, res) => {
     });
   } catch (error) {
     console.log(error.message);
+    return res
+      .status(424)
+      .json({ status: "Failed", message: "Request failed" });
   }
 };
 
