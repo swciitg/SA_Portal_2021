@@ -15,6 +15,8 @@ export const ANNOUNCEMENT_CREATE_REQUEST = "ANNOUNCEMENT_CREATE_REQUEST";
 
 export const ANNOUNCEMENT_EDIT_REQUEST = "ANNOUNCEMENT_EDIT_REQUEST";
 
+export const ABOUT_UPDATE_EDITORSTATE = "ABOUT_UPDATE_EDITORSTATE";
+
 export const BASEAPI = "http://localhost:8080/sa/api";
 
 export const LOGIN_URL = `${BASEAPI}/auth/azureadoauth2`;
