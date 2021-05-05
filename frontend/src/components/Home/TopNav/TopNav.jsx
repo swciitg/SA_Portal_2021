@@ -79,6 +79,7 @@ const TopNav = () => {
         className={`${
           isScrolled ? "sticky_nav" : "mt-2"
         } flex md:justify-between w-full`}
+        style={{zIndex: '1000'}}
       >
         <div className="flex flex-grow justify-between" id="nav-content">
           {renderTabNode()}
@@ -114,8 +115,7 @@ const TopNav = () => {
           </a>
         </div> */}
         </div>
-      </div>
-      {showDropDown && (
+        {showDropDown && (
         <DropDownMenu
           boardName={boardData.name}
           boardDescription={boardData.description}
@@ -124,6 +124,8 @@ const TopNav = () => {
           setShowDropDown={setShowDropDown}
         />
       )}
+      </div>
+      
     </>
   );
 };
