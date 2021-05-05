@@ -9,6 +9,10 @@ router.get("/", announcementController.getAnnouncements);
 router.post("/", announcementController.postAnnouncement);
 
 router.put("/:id", announcementController.editAnnouncement);
+router.post(
+    "/find",
+    announcementController.findAnnouncement
+  );
 
 router.delete("/:id", announcementController.deleteAnnouncement);
 
