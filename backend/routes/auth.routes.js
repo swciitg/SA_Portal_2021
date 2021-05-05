@@ -3,8 +3,8 @@ const router = express.Router({ mergeParams: true });
 
 //const { authenticate, isLoggedIn } = require("../middleware/index");
 const passport = require("passport");
-const { isLoggedIn } = require("../middlewares");
-const CLIENT_HOME_PAGE_URL = process.env.CLIENT_HOME_PAGE_URL;
+const { isLoggedIn } = require("../middlewares/auth");
+const { CLIENT_HOME_PAGE_URL } = process.env;
 
 router.get("/auth/azureadoauth2", passport.authenticate("azure_ad_oauth2"));
 
