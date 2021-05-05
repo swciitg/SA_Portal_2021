@@ -1,6 +1,7 @@
 .content {
     position: absolute;
-    z-index: 2;
+    margin-top: 80px;
+    z-index: 5;
     overflow: auto;
     height: 380px;
     width: 95%;
@@ -16,7 +17,7 @@
         display: flex;
         flex-direction: column;
         margin-top: 52px;
-        max-width: 330px;
+        width: 330px;
 
         .name {
             width: auto;
@@ -44,14 +45,13 @@
         display: flex;
         flex-direction: column;
         margin-top: 52px;
-        width: auto;
-        max-width: 330px;
+        width: 330px;
         
         .title {
             display: flex;
             flex-direction: row;
             width: auto;
-
+            cursor: pointer;
             .caption {
                 font-family: Basier Circle;
                 font-style: normal;
@@ -87,6 +87,7 @@
         display: flex;
         flex-direction: column;
         margin-top: 52px;
+        width: 330px;
 
         .image {
             height: 240px;
