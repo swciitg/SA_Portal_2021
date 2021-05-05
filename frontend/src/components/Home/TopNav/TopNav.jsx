@@ -1,35 +1,60 @@
-import React from "react";
+import React, {useState} from "react";
+import TopNavTab from './TopNavTab';
 import "./TopNav.css";
+import {boardList, boardAcronym, sabTabClassName, otherTabClassName,
+        boardDescription, cpImage, chairPerson} from './constants';
+import DropDownMenu from '../DropDownMenu'
 
-function TopNav() {
+const TopNav = () => {
+
+  const [showDropDown, setShowDropDown] = useState(false);
+  const [boardData, setBoardData] = useState({
+    name:'',
+    description:'',
+    imageURL:'',
+    chairPerson:'',
+  })
+  const handleClick = (board) => {
+    console.log(board);
+  }
+  const handleMouseEnter = (board) => {
+    setBoardData({
+      name: board,
+      description: boardDescription[boardAcronym[board]],
+      imageURL: cpImage[boardAcronym[board]],
+      chairPerson: chairPerson[boardAcronym[board]] 
+    })
+    setShowDropDown(true);
+  }
+  const handleMouseLeave = (boardName) => {
+    setShowDropDown(false);
+  }
+  const getClassName = (board) => {
+    if(boardAcronym[board] === "SAB")
+      return sabTabClassName
+    else 
+      return otherTabClassName
+  }
+  const renderTabNode = () => {
+    let node = boardList.map((item, id) => {
+      return (
+        <TopNavTab
+          className={getClassName(item)}
+          boardName={item}
+          handleClick={() => handleClick(item)}
+          handleMouseEnter={() => handleMouseEnter(item)}
+          handleMouseLeave={() => handleMouseLeave(item)}
+        />
+      )        
+    })
+    return node;
+  }
   return (
+    <>
     <div className="flex md:justify-between w-full mt-2">
       <div className="flex flex-grow justify-between" id="nav-content">
-        <div className="flex-grow md:flex items-center justify-center text-sm font-mono h-20 px-2 text-blue-550 hover:bg-gray-100 active-tab">
-          <p className="text-center">STUDENTS AFFAIRS BOARD</p>
-        </div>
-        <div className="hidden flex-grow md:flex items-center justify-center text-sm font-mono text-blue-550 hover:bg-gray-100 h-20 px-2 ">
-          <p className="text-center">HOSTEL AFFAIRS</p>
-        </div>
-        <div className="hidden flex-grow md:flex items-center justify-center text-sm font-mono text-blue-550 hover:bg-gray-100 h-20 px-2">
-          <p className="text-center">TECHNICAL</p>
-        </div>
-        <div className="hidden flex-grow md:flex items-center justify-center text-sm font-mono text-blue-550 hover:bg-gray-100 h-20 px-2">
-          <p className="text-center">SPORTS</p>
-        </div>
-        <div className="hidden flex-grow md:flex items-center justify-center text-sm font-mono text-blue-550 hover:bg-gray-100 h-20 px-2">
-          <p className="text-center">CULTURAL</p>
-        </div>
-        <div className="hidden flex-grow md:flex items-center justify-center text-sm font-mono text-blue-550 hover:bg-gray-100 h-20 px-2">
-          <p className="text-center">WELFARE</p>
-        </div>
-        <div className="hidden flex-grow md:flex items-center justify-center text-sm font-mono text-blue-550 hover:bg-gray-100 h-20 px-2">
-          <p>SAIL</p>
-        </div>
-        <div className="hidden flex-grow md:flex items-center justify-center text-sm font-mono text-blue-550 hover:bg-gray-100 h-20 px-2">
-          <p>SWC</p>
-        </div>
-        <div className="flex px-8 items-center space-x-8 h-20 bg-accent hamberg">
+        { renderTabNode() }
+        {/* <div className="flex px-8 items-center space-x-8 h-20 bg-accent hamberg">
           <svg
             width="24"
             height="24"
@@ -59,9 +84,19 @@ function TopNav() {
               />
             </svg>
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
+      { showDropDown && 
+        <DropDownMenu
+          boardName={boardData.name}
+          boardDescription={boardData.description}
+          imageURL={boardData.imageURL}
+          chairPersonName={boardData.chairPerson}
+          setShowDropDown={setShowDropDown}
+        />}
+    </>
+
   );
 }
 
