@@ -1,4 +1,5 @@
 const Event = require("../../models/home/event");
+const dirname = require("../../dirname");
 
 /**
  *
@@ -7,18 +8,23 @@ const Event = require("../../models/home/event");
  */
 
 exports.createEvent = async (req, res) => {
-  const { title, author, topics, imgPath, date } = req.body;
-
-  if (req.body) {
+  const { title, author, topics } = req.body;
+  console.log("[request body]");
+  console.log(req.body);
+  const imgPath =
+    dirname.dirpath + "/assets/events/thumbnails/" + req.file.filename;
+  if (req.body && imgPath) {
     try {
       const newEvent = await Event.create({
         title,
         author,
         imgPath,
         topics,
-        date,
       });
-
+      /**
+       * Console.log is for testing
+       */
+      console.log("[Success, event created successfully]");
       return res.status(200).json({ status: "Success", data: newEvent });
     } catch (err) {
       console.log(err);
@@ -36,7 +42,10 @@ exports.createEvent = async (req, res) => {
 exports.getAllEvents = async (req, res) => {
   try {
     const events = await Event.find({}).sort("-date");
-
+    /**
+     *All console logs are for api testing
+     */
+    console.log("[Success, getting all events...]");
     return res.status(200).json({ status: "Success", data: events });
   } catch (err) {
     return res
