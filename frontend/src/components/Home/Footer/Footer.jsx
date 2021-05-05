@@ -1,11 +1,12 @@
 import React from "react";
+import swclogo from "./swc-logo.svg";
 
 const Footer = () => {
   return <footer class="body-font"style={{'backgroundColor':'#1E2532'}}>
   <div class="container px-5 pt-8 pb-3 sm:py-10 mx-auto flex items-center sm:flex-row flex-col">
       <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
           href="https://www.facebook.com/swciitg">
-          <img src="/hab/images/svg/swc-logo.svg" alt="swc-logo" class="mr-3 transform scale-110" />
+          <img src={swclogo} alt="swc-logo" class="mr-3 transform scale-110" />
           <span class="text-xl text-white">Students' Web Committee</span>
       </a>
       <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-400 sm:py-2 sm:mt-0 mt-4">©

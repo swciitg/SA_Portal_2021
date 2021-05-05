@@ -12,7 +12,7 @@ function Header() {
             />
           </span>
           <span className="float-left pl-4">
-            <h1 className="text-xs pt-2.5">
+            <h1 className="text-sm pt-2.5">
               INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI
             </h1>
           </span>
