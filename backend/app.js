@@ -11,7 +11,9 @@ const passport = require("passport");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config();
-const MONGO_URI = "mongodb://localhost/SA_DB";
+// const MONGO_URI = "mongodb://localhost/SA_DB";
+const { MONGO_URL } = process.env;
+console.log("[Mongodb Url]", MONGO_URL);
 const helmet = require("helmet");
 
 const PORT = 8080 || process.env.PORT;
@@ -30,7 +32,7 @@ const authRoutes = require("./routes/auth.routes");
 const BASECLIENT = process.env.BASECLIENT;
 
 mongoose
-  .connect(MONGO_URI, {
+  .connect(MONGO_URL, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,

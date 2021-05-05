@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./MiddleNav.css";
 
 function MiddleNav() {
@@ -8,7 +9,9 @@ function MiddleNav() {
         <p>Home</p>
       </div>
       <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-32">
-        <p>Rules</p>
+        <p>
+          <Link to="/sa/rules">Rules</Link>
+        </p>
       </div>
       <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-32">
         <p>Scholarships</p>
