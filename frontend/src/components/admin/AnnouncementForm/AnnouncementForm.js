@@ -8,16 +8,16 @@ import {
 import { BASEURL } from "../../../constants";
 const AnnouncementForm = ({ type, formData }) => {
   const [title, setTitle] = useState(
-    formData ? (formData.title ? formData.title : "") : ""
+    (formData && formData.title) ? formData.title : ""
   );
   const [description, setDescription] = useState(
-    formData ? (formData.description ? formData.description : "") : ""
+    (formData && formData.description) ? formData.description : ""
   );
   const [important, setImportant] = useState(
-    formData ? (formData.important ? formData.important : false) : false
+    (formData && formData.important) ? formData.important : false
   );
   const [link, setLink] = useState(
-    formData ? (formData.link ? formData.link : "") : ""
+    (formData && formData.link) ? formData.link : ""
   );
 
   const announcement_id = formData && formData._id;
