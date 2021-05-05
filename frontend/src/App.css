@@ -6,3 +6,12 @@
   background-color: #fff;
   /* z-index: 100; */
 }
+
+.sticky_nav_mid {
+  position: fixed;
+  top: 80px;
+  width: 100vw;
+  margin: 0 !important;
+  background-color: #fff;
+  /* z-index: 100; */
+}
