@@ -7,18 +7,17 @@ const DropDownMenu = ({
   imageURL = "",
   chairPersonName = "",
   setShowDropDown,
+  isScrolled,
 }) => {
-
-	const getCapitalisedString = (string) => {
-		if(string === "SWC")
-			return string;
-		string = string.toLowerCase()
-		let strings = string.split(' ');
-		string = strings.map((str, id) => {
-			return str.charAt(0).toUpperCase() + str.slice(1);
-		})
-		return string.join(' ') 
-	}
+  const getCapitalisedString = (string) => {
+    if (string === "SWC") return string;
+    string = string.toLowerCase();
+    let strings = string.split(" ");
+    string = strings.map((str, id) => {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    });
+    return string.join(" ");
+  };
   const handleMouseEnter = () => {
     setShowDropDown(true);
   };
@@ -28,6 +27,7 @@ const DropDownMenu = ({
   return (
     <div
       className="content"
+      style={{ top: isScrolled && "-1rem" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -38,19 +38,31 @@ const DropDownMenu = ({
       <div className="externalLinksDiv">
         <div className="title">
           <span className="caption text-base font-semibold">Notices</span>
-          <span className="arrowIcon"><ArrowIcon/></span>
+          <span className="arrowIcon">
+            <ArrowIcon />
+          </span>
         </div>
-        <p className="description text-base">{`View all the recent notices related to ${getCapitalisedString(boardName)}.`}</p>
+        <p className="description text-base">{`View all the recent notices related to ${getCapitalisedString(
+          boardName
+        )}.`}</p>
         <div className="title" style={{ marginTop: "24px" }}>
           <span className="caption text-base font-semibold">Events</span>
-          <span className="arrowIcon"><ArrowIcon/></span>
+          <span className="arrowIcon">
+            <ArrowIcon />
+          </span>
         </div>
-        <p className="description text-base">{`View all the events organised by ${getCapitalisedString(boardName)}.`}</p>
+        <p className="description text-base">{`View all the events organised by ${getCapitalisedString(
+          boardName
+        )}.`}</p>
         <div className="title" style={{ marginTop: "24px" }}>
           <span className="caption text-base font-semibold">Announcements</span>
-          <span className="arrowIcon"><ArrowIcon/></span>
+          <span className="arrowIcon">
+            <ArrowIcon />
+          </span>
         </div>
-        <p className="description text-base">{`View all the announcements related to ${getCapitalisedString(boardName)}.`}</p>
+        <p className="description text-base">{`View all the announcements related to ${getCapitalisedString(
+          boardName
+        )}.`}</p>
       </div>
       <div className="imageDiv">
         <img src={imageURL} className="image" />
