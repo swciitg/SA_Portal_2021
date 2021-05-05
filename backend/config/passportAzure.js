@@ -1,9 +1,7 @@
 const passport = require("passport");
 const AzureAdOAuth2Strategy = require("passport-azure-ad-oauth2").Strategy;
 const User = require("../models/user");
-const OUTLOOK_CLIENT_ID = process.env.OUTLOOK_CLIENT_ID;
-const OUTLOOK_CLIENT_SECRET = process.env.OUTLOOK_CLIENT_SECRET;
-const BASEAPI = process.env.BASEAPI;
+const { OUTLOOK_CLIENT_ID, OUTLOOK_CLIENT_SECRET, BASEAPI } = process.env;
 
 const jwt = require("jsonwebtoken");
 
