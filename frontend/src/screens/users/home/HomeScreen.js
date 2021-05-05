@@ -7,10 +7,9 @@ import Announcement from "../../../components/Home/Announcement/Announcement";
 const HomeScreen = () => {
   return (
     <div>
-      <br />
       <About />
-      <Achievement />
       <Announcement />
+      <Achievement />
       <Event />
     </div>
   );

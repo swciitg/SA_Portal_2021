@@ -1,18 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .sticky_nav {
   position: fixed;
   top: 0;
   width: 100%;
   margin-top: 0;
   background-color: #fff;
-  /* z-index: 100; */
+  transition: all ease 0.15s;
+  z-index: 100;
+}
+
+.sticky_nav .sticky_nav_topTab {
+  height: 4rem !important;
 }
 
 .sticky_nav_mid {
   position: fixed;
-  top: 80px;
+  top: 4rem;
   width: 100vw;
   margin: 0 !important;
   padding: 0 3rem;
   background-color: #fff;
-  /* z-index: 100; */
+  transition: all ease 0.15s;
+  z-index: 100;
+}
+
+.sticky_nav_mid div {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  height: 3rem;
 }

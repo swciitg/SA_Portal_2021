@@ -1,25 +1,10 @@
-.Paragraphs {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 20px;
-  background-color: #ffffff;
-  color: #1e2532;
-  padding: 2px;
-}
-
 .Content {
   font-family: "Red Hat Display";
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 154%;
-
   letter-spacing: 0.62px;
-}
-
-.About {
-  font-weight: bold;
 }
 
 .Heading {
@@ -28,7 +13,5 @@
   font-weight: 600;
   font-size: 34px;
   line-height: 131%;
-  /* or 131% */
-
   letter-spacing: 0.0038em;
 }

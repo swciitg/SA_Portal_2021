@@ -60,7 +60,9 @@ const TopNav = () => {
     let node = boardList.map((item, id) => {
       return (
         <TopNavTab
-          className={getClassName(item)}
+          className={`${isScrolled ? "sticky_nav_topTab" : null} ${getClassName(
+            item
+          )}`}
           boardName={item}
           handleClick={() => handleClick(item)}
           handleMouseEnter={() => handleMouseEnter(item)}
