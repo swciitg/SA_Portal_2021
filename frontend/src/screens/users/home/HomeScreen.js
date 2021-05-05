@@ -4,7 +4,7 @@ import Achievement from "../../../components/Home/Achievement/Achievement";
 import Event from "../../../components/Home/Event/Event";
 import Announcement from "../../../components/Home/Announcement/Announcement";
 
-const HomePage = () => {
+const HomeScreen = () => {
   return (
     <div>
       <br />
@@ -16,4 +16,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default HomeScreen;

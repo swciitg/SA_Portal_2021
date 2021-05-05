@@ -5,9 +5,9 @@ import Header from "../../components/Home/Header/Header";
 import TopNav from "../../components/Home/TopNav/TopNav";
 import Footer from "../../components/Home/Footer/Footer";
 import MiddleNav from "../../components/Home/MiddleNav/MiddleNav";
-import HomePage from "./pages/HomePage";
+import HomeScreen from "./home/HomeScreen";
 
-const HomeScreen = () => {
+const UserScreen = () => {
   return (
     <>
       <Header />
@@ -15,11 +15,11 @@ const HomeScreen = () => {
       <div class="min-h-screen bg-gray-400"></div>
       <MiddleNav />
       <Switch>
-        <Route exact path={`${BASEURL}/`} component={HomePage} />
+        <Route exact path={`${BASEURL}/`} component={HomeScreen} />
       </Switch>
       <Footer />
     </>
   );
 };
 
-export default HomeScreen;
+export default UserScreen;
