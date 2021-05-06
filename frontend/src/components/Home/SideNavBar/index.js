@@ -5,7 +5,7 @@ import {navItemList} from './constants';
 const SideNavBar = ({
     showSideNav=true,
 }) => {
-    
+
     return (
         showSideNav ?
         (<div className="sncontainer">
@@ -18,7 +18,7 @@ const SideNavBar = ({
                 {
                     navItemList.map((item, id) => {
                         return (
-                            <div className="snnavItem" onClick={() => handleClick(item)}>
+                            <div className="snnavItem">
                                 {item}
                             </div>
                         )
