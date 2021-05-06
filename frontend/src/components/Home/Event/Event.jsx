@@ -1,13 +1,14 @@
 import React from "react";
 import SideNavBar from "../SideNavBar";
 import EventCard from "./EventCard";
+import "./Event.css";
 
 function Event() {
   return (
     <>
     <SideNavBar/>
     <div className="text-white" style={{ backgroundColor: "#1E2532" }}>
-      <div className="ml-24 mr-24 pt-24 mb-24 flex justify-between" style={{width: '70%'}}>
+      <div className="ml-5 sm:ml-32 mr-24 pt-24 mb-24 flex justify-between" style={{width: '65%'}}>
         <div className="text-4xl text-semibold">Events at IIT Guwahati</div>
         <div>
           <button
@@ -18,7 +19,10 @@ function Event() {
           </button>
         </div>
       </div>
-      <div className="ml-24 flex gap-4 pb-16" style={{ overflowX: "scroll" }}>
+      <div
+        className="events_container ml-5 sm:ml-32 flex gap-4 pb-16"
+        style={{ overflowX: "scroll" }}
+      >
         <div className="">
           <EventCard />
         </div>

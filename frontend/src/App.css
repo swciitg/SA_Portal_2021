@@ -23,7 +23,7 @@
   top: 4rem;
   width: 100vw;
   margin: 0 !important;
-  padding: 0 3rem;
+  padding: 0 5rem !important;
   background-color: #fff;
   transition: all ease 0.15s;
   z-index: 100;
@@ -33,4 +33,10 @@
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   height: 3rem;
+}
+
+@media only screen and (max-width: 640px) {
+  .sticky_nav_mid {
+    padding: 0 0.25rem;
+  }
 }

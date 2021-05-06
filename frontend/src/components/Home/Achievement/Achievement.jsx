@@ -40,7 +40,7 @@ function Achievement() {
               </div>
             </div>
           </div>
-          
+
           <div className="py-5 border-b-2 border-gray-100 md:max-w-md flex flex-col">
             <img
               src="https://d2g7hq7b13ky76.cloudfront.net/files/2020-02/auto-digest-fleet-cars-photo-by-peter-broomfield-on-unsplash_1.jpg"
