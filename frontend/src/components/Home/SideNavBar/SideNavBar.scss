@@ -1,0 +1,54 @@
+.sncontainer {
+    position: absolute;
+    z-index: 2;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    right: 100px;
+    margin-top: 50px;
+    // right: -1300px;
+    // margin-left: auto;
+    .snseparator {
+        width: 1px;
+        height: 140px;
+        border-left: 1px solid #D7DDE1;
+    }
+    .sncontent {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        .snheading {
+            margin-bottom: 1px;
+            display: flex;
+            flex-direction: row;
+    
+            .snicon {
+                height: 13.5px;
+                width: 15px;
+            }
+            .sntext {
+                font-family: Basier Circle;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 15px;
+                letter-spacing: 0.08em;
+                color: #9FABB7;
+                text-transform: uppercase;
+            }
+        }
+        .snnavItem {
+            margin-top: 12px;
+            font-family: Red Hat Display;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 19px;
+            letter-spacing: 0.12em;
+            color: #9FABB7;
+            text-transform: capitalize;
+        }
+    }
+
+}
