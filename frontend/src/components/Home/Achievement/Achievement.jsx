@@ -2,7 +2,7 @@ import React from "react";
 
 function Achievement() {
   return (
-    <div className="max-w-max flex flex-col items-center m-5 p-1">
+    <div className="max-w-max flex flex-col items-center p-5 sm:py-12 sm:pl-32">
       <div className="flex justify-between w-full">
         <p className="text-3xl font-bold">Student Achievements</p>
         <div className="flex items-center border-2 rounded-md px-6 py-2">
@@ -37,7 +37,7 @@ function Achievement() {
               </div>
             </div>
           </div>
-          
+
           <div className="py-5 border-b-2 border-gray-100 md:max-w-md flex flex-col">
             <img
               src="https://d2g7hq7b13ky76.cloudfront.net/files/2020-02/auto-digest-fleet-cars-photo-by-peter-broomfield-on-unsplash_1.jpg"

@@ -24,10 +24,7 @@ function MiddleNav() {
   }, [isScrolled, setIsScrolled]);
 
   return (
-    <div
-      id="MidNav"
-      class={`scroll flex md:mx-6 lg:mx-10 xl:mx-12 2xl:mx-44 overflow-x-scroll`}
-    >
+    <div id="MidNav" class={`scroll sm:px-14 flex overflow-x-scroll`}>
       <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16 font-blue-550">
         <p>
           <Link to={`${BASEURL}/`}>Home</Link>

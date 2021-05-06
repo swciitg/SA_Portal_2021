@@ -4,7 +4,7 @@ import swclogo from "./swc-logo.svg";
 const Footer = () => {
   return (
     <footer className="body-font" style={{ backgroundColor: "#1E2532" }}>
-      <div className="container px-10 pt-8 pb-3 sm:py-10 mx-auto flex items-center sm:flex-row flex-col">
+      <div className="container px-10 sm:px-12 pt-8 pb-3 sm:py-10 mx-auto flex items-center sm:flex-row flex-col">
         <a
           className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
           href="/sa"

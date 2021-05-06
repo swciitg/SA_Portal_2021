@@ -5,7 +5,7 @@ import "./Event.css";
 function Event() {
   return (
     <div className="text-white" style={{ backgroundColor: "#1E2532" }}>
-      <div className="ml-24 mr-24 pt-24 mb-24 flex justify-between">
+      <div className="ml-5 sm:ml-32 mr-24 pt-24 mb-24 flex justify-between">
         <div className="text-4xl text-semibold">Events at IIT Guwahati</div>
         <div>
           <button
@@ -17,7 +17,7 @@ function Event() {
         </div>
       </div>
       <div
-        className="events_container ml-24 flex gap-4 pb-16"
+        className="events_container ml-5 sm:ml-32 flex gap-4 pb-16"
         style={{ overflowX: "scroll" }}
       >
         <div className="">
