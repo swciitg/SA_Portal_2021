@@ -11,4 +11,21 @@ const isLoggedIn = (req, res, next) => {
   }
 };
 
-module.exports = { isLoggedIn };
+const isAdmin=(req, res, next)=> {
+  console.log("asd");
+  if (req.user.isAdmin) {
+    return next();
+  }
+  else {
+    return res
+      .status(401)
+      .json({
+        status: "Not authorized",
+        msg: "You are not authorized !",
+      });
+  }
+};
+
+
+
+module.exports = { isLoggedIn, isAdmin };
