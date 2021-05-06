@@ -1,7 +1,7 @@
 const Announcement = require("../../models/home/announcement");
 const Category = require("../../models/home/category");
 
-const factory = require("../handlerFactory");
+const factory=require("../handlerFactory");
 
 exports.getAnnouncements = async (req, res) => {
   try {
@@ -9,10 +9,10 @@ exports.getAnnouncements = async (req, res) => {
     var categories = await Category.find({});
 
     res.status(200).json({
-      status: "success",
-      data: {
-        data: announcements,
-      },
+        status: 'success',
+        data:{
+            data:announcements,
+        },
     });
   } catch (error) {
     console.log(error.message);
@@ -26,17 +26,19 @@ exports.findAnnouncement = async (req, res) => {
   try {
     const val1 = req.body.category;
     const announcements = await Announcement.find({
-      category: val1,
+      
+         category: val1 ,
+      
     }).sort("-creation");
     var categories = await Category.find({});
-
+    
     res.status(200).json({
-      status: "success",
-      data: {
-        announcements,
-        categories,
+      status: 'success',
+      data:{
+          announcements,
+          categories
       },
-    });
+  });
   } catch (error) {
     console.log(error.message);
   }
@@ -44,15 +46,14 @@ exports.findAnnouncement = async (req, res) => {
 
 exports.postAnnouncement = async (req, res, next) => {
   try {
+
     var { title, description, category, link } = req.body;
     let name = category.toLowerCase();
 
-    const doc = await new Announcement({
-      title,
+    const doc = await new Announcement({title,
       description,
       category: name,
-      link,
-    }).save();
+      link,}).save();
 
     const savedCategory = await Category.find({ name: name });
     if (savedCategory.length == 0) {
@@ -71,6 +72,8 @@ exports.postAnnouncement = async (req, res, next) => {
   }
 };
 
-exports.editAnnouncement = factory.updateOne(Announcement);
+
+
+exports.editAnnouncement=factory.updateOne(Announcement);
 
 exports.deleteAnnouncement = factory.deleteOne(Announcement);
