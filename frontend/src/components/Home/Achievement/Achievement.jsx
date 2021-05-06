@@ -1,7 +1,10 @@
 import React from "react";
+import SideNavBar from '../SideNavBar';
 
 function Achievement() {
   return (
+    <>
+    <SideNavBar/>
     <div className="max-w-max flex flex-col items-center m-5 p-1">
       <div className="flex justify-between w-full">
         <p className="text-3xl font-bold">Student Achievements</p>
@@ -37,7 +40,7 @@ function Achievement() {
               </div>
             </div>
           </div>
-          
+
           <div className="py-5 border-b-2 border-gray-100 md:max-w-md flex flex-col">
             <img
               src="https://d2g7hq7b13ky76.cloudfront.net/files/2020-02/auto-digest-fleet-cars-photo-by-peter-broomfield-on-unsplash_1.jpg"
@@ -128,6 +131,7 @@ function Achievement() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listAnnouncement } from "../../../actions/announcement";
+import SideNavBar from "../SideNavBar";
+import { renderCards } from "./util";
 
 function Announcement() {
+  const announcements = useSelector((state) => state.announcements);
+  const [aCategory, setACategory] = useState("all");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(listAnnouncement());
+  }, [dispatch]);
+
   return (
-    <div className=" bg-gray-400 w-4/6 h-80 flex flex-col items-center m-5 border-2 p-1">
-      <div class="">
-        <div className="flex content-evenly w-full">
-          <p className="text-3xl font-bold">Announcements</p>
-        </div>
+    <>
+    <SideNavBar
+      showSideNav={false}
+    />
+    <div className="w-full sm:w-7/12 md:w-3/4 p-5 sm:pl-32">
+      <div className="mb-4 sm:mb-8">
+        <p className="text-3xl sm:text-4xl font-semibold">Announcements</p>
+      </div>
+      <div className="annoucement_card_container w-full sm:w-11/12">
+        {renderCards(announcements, aCategory)}
       </div>
     </div>
+    </>
   );
 }
 

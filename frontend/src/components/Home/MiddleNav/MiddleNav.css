@@ -9,6 +9,7 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .scroll {
+  box-shadow: 0px 2px 12px rgba(30, 37, 50, 0.14);
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }

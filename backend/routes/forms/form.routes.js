@@ -11,19 +11,21 @@ const storage = multer.diskStorage({
   },
 });
 const formController = require("../../controllers/forms/form.controller");
+const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
+
 
 const upload = multer({ storage: storage });
 
 router.get("/", formController.getForms);
 
-router.post("/", upload.single("path"), formController.postForm);
+router.post("/",isLoggedIn,isAdmin, upload.single("path"), formController.postForm);
 
 
-router.get("/pdf/:id", formController.getOneForm);
+router.get("/:id", formController.getOneForm);
 
-router.put("/:id", upload.single("path"), formController.editForm);
+router.put("/:id",isLoggedIn,isAdmin, upload.single("path"), formController.editForm);
 
-router.delete("/:id", formController.deleteForm);
+router.delete("/:id",isLoggedIn,isAdmin, formController.deleteForm);
 
 const compare = (a, b) => {
   return b.creation - a.creation;

@@ -1,60 +1,89 @@
-import React, {useState} from "react";
-import TopNavTab from './TopNavTab';
+import React, { useState, useEffect } from "react";
+import TopNavTab from "./TopNavTab";
 import "./TopNav.css";
-import {boardList, boardAcronym, sabTabClassName, otherTabClassName,
-        boardDescription, cpImage, chairPerson} from './constants';
-import DropDownMenu from '../DropDownMenu'
+import {
+  boardList,
+  boardAcronym,
+  sabTabClassName,
+  otherTabClassName,
+  boardDescription,
+  cpImage,
+  chairPerson,
+} from "./constants";
+import DropDownMenu from "../DropDownMenu";
 
 const TopNav = () => {
-
   const [showDropDown, setShowDropDown] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [boardData, setBoardData] = useState({
-    name:'',
-    description:'',
-    imageURL:'',
-    chairPerson:'',
-  })
+    name: "",
+    description: "",
+    imageURL: "",
+    chairPerson: "",
+  });
+
+  useEffect(() => {
+    const onScroll = () => {
+      const topNav = document.getElementById("TopNav");
+      const sticky = topNav.offsetTop;
+      const scrollCheck = window.pageYOffset > sticky;
+      if (scrollCheck !== isScrolled) {
+        setIsScrolled(scrollCheck);
+      }
+    };
+    document.addEventListener("scroll", onScroll);
+    return () => {
+      document.removeEventListener("scroll", onScroll);
+    };
+  }, [isScrolled, setIsScrolled]);
+
   const handleClick = (board) => {
     console.log(board);
-  }
+  };
   const handleMouseEnter = (board) => {
     setBoardData({
       name: board,
       description: boardDescription[boardAcronym[board]],
       imageURL: cpImage[boardAcronym[board]],
-      chairPerson: chairPerson[boardAcronym[board]] 
-    })
+      chairPerson: chairPerson[boardAcronym[board]],
+    });
     setShowDropDown(true);
-  }
+  };
   const handleMouseLeave = (boardName) => {
     setShowDropDown(false);
-  }
+  };
   const getClassName = (board) => {
-    if(boardAcronym[board] === "SAB")
-      return sabTabClassName
-    else 
-      return otherTabClassName
-  }
+    if (boardAcronym[board] === "SAB") return sabTabClassName;
+    else return otherTabClassName;
+  };
   const renderTabNode = () => {
     let node = boardList.map((item, id) => {
       return (
         <TopNavTab
-          className={getClassName(item)}
+          className={`${isScrolled ? "sticky_nav_topTab" : null} ${getClassName(
+            item
+          )}`}
           boardName={item}
           handleClick={() => handleClick(item)}
           handleMouseEnter={() => handleMouseEnter(item)}
           handleMouseLeave={() => handleMouseLeave(item)}
         />
-      )        
-    })
+      );
+    });
     return node;
-  }
+  };
   return (
     <>
-    <div className="flex md:justify-between w-full mt-2">
-      <div className="flex flex-grow justify-between" id="nav-content">
-        { renderTabNode() }
-        {/* <div className="flex px-8 items-center space-x-8 h-20 bg-accent hamberg">
+      <div
+        id="TopNav"
+        className={`${
+          isScrolled ? "sticky_nav" : "mt-2"
+        } flex md:justify-between w-full`}
+        style={{ zIndex: "1000" }}
+      >
+        <div className="flex flex-grow justify-between" id="nav-content">
+          {renderTabNode()}
+          {/* <div className="flex px-8 items-center space-x-8 h-20 bg-accent hamberg">
           <svg
             width="24"
             height="24"
@@ -85,19 +114,20 @@ const TopNav = () => {
             </svg>
           </a>
         </div> */}
+        </div>
+        {showDropDown && (
+          <DropDownMenu
+            boardName={boardData.name}
+            boardDescription={boardData.description}
+            imageURL={boardData.imageURL}
+            chairPersonName={boardData.chairPerson}
+            setShowDropDown={setShowDropDown}
+            isScrolled={isScrolled}
+          />
+        )}
       </div>
-    </div>
-      { showDropDown && 
-        <DropDownMenu
-          boardName={boardData.name}
-          boardDescription={boardData.description}
-          imageURL={boardData.imageURL}
-          chairPersonName={boardData.chairPerson}
-          setShowDropDown={setShowDropDown}
-        />}
     </>
-
   );
-}
+};
 
 export default TopNav;

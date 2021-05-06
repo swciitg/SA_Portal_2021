@@ -6,14 +6,16 @@ const factory=require("../handlerFactory");
 exports.getAnnouncements = async (req, res) => {
   try {
     const announcements = await Announcement.find({}).sort("-creation");
-    var categories = await Category.find({});
 
+    var categories = await Category.find({});
+    
     res.status(200).json({
-        status: 'success',
-        data:{
-            data:announcements,
-        },
-    });
+      status: 'success',
+      data:{
+          announcements,
+          categories
+      },
+  });
   } catch (error) {
     console.log(error.message);
     return res
@@ -71,6 +73,8 @@ exports.postAnnouncement = async (req, res, next) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
+
+exports.getCategories=factory.getAll(Category);
 
 
 

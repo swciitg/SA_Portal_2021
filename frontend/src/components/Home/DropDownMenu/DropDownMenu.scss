@@ -1,12 +1,13 @@
 .content {
     position: absolute;
-    z-index: 2;
+    margin-top: 80px;
+    z-index: 5;
     overflow: auto;
     height: 380px;
     width: 95%;
     left: 30px;
-    background: black;
-    opacity: 0.7;
+    background: #020008;
+    opacity: 0.8;
     border-radius: 8px;
     display: flex;
     flex-direction: row;
@@ -16,7 +17,7 @@
         display: flex;
         flex-direction: column;
         margin-top: 52px;
-        max-width: 330px;
+        width: 330px;
 
         .name {
             width: auto;
@@ -44,14 +45,13 @@
         display: flex;
         flex-direction: column;
         margin-top: 52px;
-        width: auto;
-        max-width: 330px;
+        width: 330px;
         
         .title {
             display: flex;
             flex-direction: row;
             width: auto;
-
+            cursor: pointer;
             .caption {
                 font-family: Basier Circle;
                 font-style: normal;
@@ -62,6 +62,7 @@
                 color: #FFFFFF;
             }
             .arrowIcon {
+                padding-top: 5px;
                 margin-left: 10px;
                 height: 12px;
                 width: 12px;
@@ -86,6 +87,7 @@
         display: flex;
         flex-direction: column;
         margin-top: 52px;
+        width: 330px;
 
         .image {
             height: 240px;
