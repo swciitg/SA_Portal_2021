@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listAnnouncement } from "../../../actions/announcement";
+import SideNavBar from "../SideNavBar";
 import { renderCards } from "./util";
 
 function Announcement() {
@@ -13,6 +14,10 @@ function Announcement() {
   }, [dispatch]);
 
   return (
+    <>
+    <SideNavBar
+      showSideNav={false}
+    />
     <div className="w-full sm:w-7/12 md:w-3/4 p-5 sm:pl-32">
       <div className="mb-4 sm:mb-8">
         <p className="text-3xl sm:text-4xl font-semibold">Announcements</p>
@@ -21,6 +26,7 @@ function Announcement() {
         {renderCards(announcements, aCategory)}
       </div>
     </div>
+    </>
   );
 }
 

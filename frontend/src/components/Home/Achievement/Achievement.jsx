@@ -1,8 +1,11 @@
 import React from "react";
+import SideNavBar from '../SideNavBar';
 
 function Achievement() {
   return (
-    <div className="max-w-max flex flex-col items-center p-5 sm:py-12 sm:pl-32">
+    <>
+    <SideNavBar/>
+    <div className="max-w-max flex flex-col items-center m-5 p-1">
       <div className="flex justify-between w-full">
         <p className="text-3xl font-bold">Student Achievements</p>
         <div className="flex items-center border-2 rounded-md px-6 py-2">
@@ -128,6 +131,7 @@ function Achievement() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
