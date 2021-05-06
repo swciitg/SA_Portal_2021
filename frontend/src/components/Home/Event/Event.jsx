@@ -1,5 +1,6 @@
 import React from "react";
 import EventCard from "./EventCard";
+import "./Event.css";
 
 function Event() {
   return (
@@ -15,7 +16,10 @@ function Event() {
           </button>
         </div>
       </div>
-      <div className="ml-24 flex gap-4 pb-16" style={{ overflowX: "scroll" }}>
+      <div
+        className="events_container ml-24 flex gap-4 pb-16"
+        style={{ overflowX: "scroll" }}
+      >
         <div className="">
           <EventCard />
         </div>
