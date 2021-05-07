@@ -15,14 +15,12 @@ function MiddleNav() {
     function onScroll() {
       if (window.pageYOffset >= sticky) {
         midNav.classList.add("sticky_nav_mid");
-        setSideNavVisibility(true)
       } else {
         midNav.classList.remove("sticky_nav_mid");
-        setSideNavVisibility(false)
       }
-      if(window.pageYOffset > 2200) {
-        setSideNavVisibility(false)
-      }
+      if(window.pageYOffset > 600 && window.pageYOffset < 2200) {
+        setSideNavVisibility(true)
+      } else setSideNavVisibility(false)
     }
     document.addEventListener("scroll", onScroll);
     return () => {
