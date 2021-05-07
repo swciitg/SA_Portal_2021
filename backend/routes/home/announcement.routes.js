@@ -7,11 +7,21 @@ const announcementController = require("../../controllers/home/announcement.cont
 router.get("/", announcementController.getAnnouncements);
 router.get("/categories", announcementController.getCategories);
 
-router.post("/",isLoggedIn,isAdmin, announcementController.postAnnouncement);
+router.post("/", isLoggedIn, isAdmin, announcementController.postAnnouncement);
 
-router.put("/:id",isLoggedIn,isAdmin, announcementController.editAnnouncement);
+router.put(
+  "/:id",
+  isLoggedIn,
+  isAdmin,
+  announcementController.editAnnouncement
+);
 router.post("/find", announcementController.findAnnouncement);
 
-router.delete("/:id",isLoggedIn,isAdmin, announcementController.deleteAnnouncement);
+router.delete(
+  "/:id",
+  isLoggedIn,
+  isAdmin,
+  announcementController.deleteAnnouncement
+);
 
 module.exports = router;

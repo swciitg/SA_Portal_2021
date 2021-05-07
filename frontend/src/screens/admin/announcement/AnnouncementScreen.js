@@ -43,6 +43,9 @@ const AnnouncementScreen = () => {
                   Description
                 </th>
                 <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
+                  Category
+                </th>
+                <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
                   Link
                 </th>
                 <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
@@ -59,7 +62,18 @@ const AnnouncementScreen = () => {
 
             <tbody className="text-gray-700" id="myMenu">
               {announcements.map(
-                ({ creation, title, important, description, link, _id }, i) => {
+                (
+                  {
+                    category,
+                    creation,
+                    title,
+                    important,
+                    description,
+                    link,
+                    _id,
+                  },
+                  i
+                ) => {
                   return (
                     <tr key={i}>
                       <td className="text-left py-3 px-4">
@@ -73,6 +87,7 @@ const AnnouncementScreen = () => {
                       <td className="w-1/3 text-left py-3 px-4">
                         {description.substring(0, 80) + "..."}
                       </td>
+                      <td className="text-left py-3 px-4">{category}</td>
                       <td className="text-left py-3 px-4">
                         <a
                           className="hover:text-blue-500"
@@ -83,14 +98,17 @@ const AnnouncementScreen = () => {
                           Link
                         </a>
                       </td>
+
                       <td className="text-left py-3 px-4">
                         {important ? "YES" : "NO"}
                       </td>
+
                       <td className="text-left py-3 px-4">
                         <Link
                           to={{
                             pathname: `${BASEURL}/admin/announcements/${_id}`,
                             formData: {
+                              category,
                               title,
                               important,
                               description,
