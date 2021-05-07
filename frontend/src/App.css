@@ -37,6 +37,6 @@
 
 @media only screen and (max-width: 640px) {
   .sticky_nav_mid {
-    padding: 0 0.25rem;
+    padding: 0 0.25rem !important;
   }
 }

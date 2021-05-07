@@ -47,14 +47,14 @@ const AboutScreen = () => {
       </div>
 
       <div className="w-full flex flex-col sm:flex-row mt-5">
-        <div className="w-2/3">
+        <div className="w-full sm:w-2/3">
           <p className="text-2xl font-base">Preview</p>
           <div
             id="admin_about_preview"
             className="p-2 pl-0 sm:p-6 sm:pl-0"
           ></div>
         </div>
-        <div className="about_code w-1/3">
+        <div className="about_code w-full sm:w-1/3">
           <p className="text-2xl font-base">Code</p>
           <div className="bg-gray-300 p-2 sm:p-6 font-mono rounded">
             <code>{JSON.parse(editorContent).substring(0, 450)}...</code>

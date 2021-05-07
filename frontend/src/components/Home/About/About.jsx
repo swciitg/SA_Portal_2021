@@ -9,7 +9,7 @@ function About() {
     const getAbout = async () => {
       try {
         const { data } = await fetchAbout();
-        console.log(data.data);
+        //console.log(data.data);
         data.data && setAboutContent(`${JSON.parse(data.data.HTMLString)}`);
       } catch (error) {
         console.log(error);
@@ -19,7 +19,7 @@ function About() {
   }, []);
 
   useEffect(() => {
-    console.log(aboutContent);
+    //console.log(aboutContent);
     document.getElementById("home_about").innerHTML = aboutContent;
   }, [aboutContent]);
 
