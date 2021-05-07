@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Editor from "suneditor-react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { BASEURL } from "../../../constants/index";
+import { BASEURL, BASEAPI } from "../../../constants/index";
 
 const AboutFormSun = ({ type, formData }) => {
   /**
@@ -18,7 +18,7 @@ const AboutFormSun = ({ type, formData }) => {
 
   const submitHandler = () => {
     console.log("Clicked");
-    const url = `http://localhost:8080/sa/api/home/about/`;
+    const url = `${BASEAPI}/home/about/`;
     const formData = {
       HTMLString: editorHtmlString,
     };

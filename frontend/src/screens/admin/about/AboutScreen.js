@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { BASEURL } from "../../../constants";
+import { BASEAPI, BASEURL } from "../../../constants";
 import axios from "axios";
 import "./AboutScreen.css";
 
@@ -14,7 +14,7 @@ const AboutScreen = () => {
   useEffect(() => {
     const apiCall = () => {
       axios
-        .get("http://localhost:8080/sa/api/home/about/")
+        .get(`${BASEAPI}/home/about/`)
         .then(({ data }) => {
           console.log(data);
           data.data && setEditorContent(data.data.HTMLString);
