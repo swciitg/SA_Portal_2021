@@ -1,11 +1,12 @@
 .sncontainer {
-    position: absolute;
-    z-index: 2;
-    width: 200px;
     display: flex;
     flex-direction: row;
+    position: fixed;
+    z-index: 2;
+    width: 200px;
     right: 100px;
-    margin-top: 50px;
+    height: 100%;
+    top: 150px;
     // right: -1300px;
     // margin-left: auto;
     .snseparator {
@@ -50,5 +51,4 @@
             text-transform: capitalize;
         }
     }
-
 }

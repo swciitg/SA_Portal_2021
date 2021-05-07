@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { BASEURL } from "../../../constants/index";
+import SideNavBar from "../SideNavBar";
 import "./MiddleNav.css";
 
 function MiddleNav() {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [sideNavVisibility, setSideNavVisibility] = useState(false);
+  
   useEffect(() => {
     const midNav = document.getElementById("MidNav");
     const sticky = midNav.offsetTop - 100;
@@ -16,6 +18,9 @@ function MiddleNav() {
       } else {
         midNav.classList.remove("sticky_nav_mid");
       }
+      if(window.pageYOffset > 600 && window.pageYOffset < 2200) {
+        setSideNavVisibility(true)
+      } else setSideNavVisibility(false)
     }
     document.addEventListener("scroll", onScroll);
     return () => {
@@ -24,6 +29,7 @@ function MiddleNav() {
   }, [isScrolled, setIsScrolled]);
 
   return (
+    <>
     <div id="MidNav" class={`scroll sm:px-14 flex overflow-x-scroll`}>
       <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16 font-blue-550">
         <p>
@@ -51,6 +57,10 @@ function MiddleNav() {
         <p>Team</p>
       </div>
     </div>
+    <SideNavBar
+      showSideNav={sideNavVisibility}
+    />
+    </>
   );
 }
 
