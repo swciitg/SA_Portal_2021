@@ -1,6 +1,7 @@
 const Event = require("../../models/home/event");
-const Category = require("../../models/home/category");
+const Category = require("../../models/home/eventCategory");
 const dirname = require("../../dirname");
+const factory = require("../handlerFactory");
 
 /**
  *
@@ -133,3 +134,5 @@ exports.updateEvent = async (req, res) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
+
+exports.getCategories = factory.getAll(Category);
