@@ -1,23 +1,30 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
   createAnnouncement,
   editAnnouncement,
 } from "../../../actions/announcement";
+import { listCategories } from "../../../actions/category";
 import { BASEURL } from "../../../constants";
 const AnnouncementForm = ({ type, formData }) => {
+  const categories = useSelector((state) => state.categories);
+  //const categories = [{ name: "c" }, { name: "b" }, { name: "a" }];
+  console.log(categories);
   const [title, setTitle] = useState(
-    (formData && formData.title) ? formData.title : ""
+    formData && formData.title ? formData.title : ""
   );
   const [description, setDescription] = useState(
-    (formData && formData.description) ? formData.description : ""
+    formData && formData.description ? formData.description : ""
   );
   const [important, setImportant] = useState(
-    (formData && formData.important) ? formData.important : false
+    formData && formData.important ? formData.important : false
   );
   const [link, setLink] = useState(
-    (formData && formData.link) ? formData.link : ""
+    formData && formData.link ? formData.link : ""
+  );
+  const [category, setCategory] = useState(
+    formData && formData.category ? formData.category : ""
   );
 
   const announcement_id = formData && formData._id;
@@ -25,12 +32,16 @@ const AnnouncementForm = ({ type, formData }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  useEffect(() => {
+    dispatch(listCategories());
+  }, [dispatch]);
+
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(announcement_id);
-
     if (type === "Add")
-      dispatch(createAnnouncement({ title, description, important, link }));
+      dispatch(
+        createAnnouncement({ title, description, important, link, category })
+      );
     else
       dispatch(
         editAnnouncement(announcement_id, {
@@ -38,6 +49,7 @@ const AnnouncementForm = ({ type, formData }) => {
           description,
           important,
           link,
+          category,
         })
       );
 
@@ -102,13 +114,35 @@ const AnnouncementForm = ({ type, formData }) => {
               placeholder="Your description"
             ></textarea>
           </div>
+
           <div className="mt-2">
-            <label className="block text-sm text-gray-600" htmlFor="imp">
+            <label className="block text-sm text-gray-600" htmlFor="category">
+              Category
+            </label>
+            <input
+              className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
+              list="categories"
+              id="category"
+              type="text"
+              name="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+            />
+            <datalist id="categories">
+              {categories.map((category, key) => {
+                return <option key={key} value={category.name} />;
+              })}
+            </datalist>
+          </div>
+
+          <div className="mt-2">
+            <label className="block text-sm text-gray-600" htmlFor="important">
               <input
                 className="mr-2"
-                id="imp"
+                id="important"
                 type="checkbox"
-                name="imp"
+                name="impprtant"
                 onChange={() => {
                   setImportant(!important);
                 }}

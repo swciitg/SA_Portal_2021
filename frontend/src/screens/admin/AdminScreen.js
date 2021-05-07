@@ -1,14 +1,16 @@
 import React from "react";
 import { Switch } from "react-router-dom";
 import Sidebar from "../../components/admin/Sidebar/Sidebar";
-import Tables from "../../components/admin/Tables/Tables";
-import Forms from "../../components/admin/Forms/Forms";
 import "./AdminScreen.css";
 import ProtectedRoutes from "../../hoc/ProtectedRoutes";
 import { BASEURL } from "../../constants/index";
 import AnnouncementScreen from "./announcement/AnnouncementScreen";
 import AddAnnouncementScreen from "./announcement/AddAnnouncementScreen";
 import EditAnnouncementScreen from "./announcement/EditAnnouncementScreen";
+import FormScreen from "./form/FormScreen";
+import AddFormScreen from "./form/AddFormScreen";
+import EditFormScreen from "./form/EditFormScreen";
+
 import AboutScreen from "./about/AboutScreen";
 import AddAboutScreen from "./about/AddAboutScreen";
 import EditAboutScreen from "./about/EditAboutScreen";
@@ -17,17 +19,6 @@ const AdminScreen = () => {
     <div className="bg-gray-100 font-family-karla flex">
       <Sidebar>
         <Switch>
-          <ProtectedRoutes
-            exact
-            path={`${BASEURL}/admin/tables`}
-            component={Tables}
-          />
-          <ProtectedRoutes
-            exact
-            path={`${BASEURL}/admin/forms`}
-            component={Forms}
-          />
-
           <ProtectedRoutes
             exact
             path={`${BASEURL}/admin/about`}
@@ -62,6 +53,24 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/announcements/:announcement_id`}
             component={EditAnnouncementScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/forms`}
+            component={FormScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/forms/add`}
+            component={AddFormScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/forms/:form_id`}
+            component={EditFormScreen}
           />
         </Switch>
       </Sidebar>

@@ -9,7 +9,10 @@ import * as api from "../api";
 export const listAnnouncement = () => async (dispatch) => {
   try {
     const { data } = await api.fetchAnnouncement();
-    dispatch({ type: ANNOUNCEMENT_LIST_REQUEST, payload: data.data.data });
+    dispatch({
+      type: ANNOUNCEMENT_LIST_REQUEST,
+      payload: data.data.announcements,
+    });
   } catch (error) {
     console.log(error.message);
   }
@@ -27,8 +30,8 @@ export const deleteAnnouncement = (id) => async (dispatch) => {
 export const createAnnouncement = (formData) => async (dispatch) => {
   try {
     const { data } = await api.createAnnouncement(formData);
-    console.log(data.data.data);
-    dispatch({ type: ANNOUNCEMENT_CREATE_REQUEST, payload: data.data.data });
+    console.log(data);
+    dispatch({ type: ANNOUNCEMENT_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
   }

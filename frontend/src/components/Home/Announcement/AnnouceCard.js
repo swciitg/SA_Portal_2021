@@ -14,7 +14,7 @@ const AnnouceCard = ({ creation, title, description, link, category }) => {
       <div className="flex w-full">
         <p className="inline text-base w-11/12">{title}</p>
         <span className="w-1/12 flex justify-end cursor-pointer">
-          <a href={link} target="_blank">
+          <a href={link} rel="noreferrer" target="_blank">
             <img src={arrow} alt="->" />
           </a>
         </span>
