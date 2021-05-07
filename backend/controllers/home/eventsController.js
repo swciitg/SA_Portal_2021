@@ -87,10 +87,10 @@ exports.findEvent = async (req, res) => {
 };
 
 exports.deleteEvent = async (req, res) => {
-  const { id } = req.params.id;
+  const { id } = req.params;
 
   try {
-    await Event.findByIdAndDelete({ id });
+    await Event.findByIdAndDelete({ _id: id });
     return res
       .status(200)
       .json({ status: "Success", message: "Successfully deleted event" });
