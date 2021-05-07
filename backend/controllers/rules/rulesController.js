@@ -46,7 +46,7 @@ exports.editRule = async (req, res) => {
 
     const oldRule = await Rule.findById(id);
     if (oldRule.path.indexOf("https://") == -1) {
-      fs.unlinkSync(`${__dirname}/../../uploads/forms/${oldRule.path}`);
+      fs.unlinkSync(`${__dirname}/../../uploads/rules/${oldRule.path}`);
     }
 
     const rule = await Rule.findByIdAndUpdate(id, data);
@@ -69,6 +69,11 @@ exports.getOneRule = async (req, res) => {
       fs.readFile(filePath, (err, data) => {
         res.contentType("application/pdf");
         return res.send(data);
+      });
+    } else {
+      return res.status(400).json({
+        status: "Failed",
+        message: "Bad request!",
       });
     }
   } catch (error) {

@@ -25,7 +25,7 @@ router.post(
   ruleController.postRule
 );
 
-router.get("/:id", ruleController.getOneRule);
+router.get("/:id", ruleController.getOneRule); //only for rules with pdfs
 
 router.put(
   "/:id",

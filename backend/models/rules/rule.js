@@ -8,4 +8,4 @@ const RuleSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Form", RuleSchema);
+module.exports = mongoose.model("Rule", RuleSchema);
