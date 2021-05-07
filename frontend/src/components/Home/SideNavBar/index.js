@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './SideNavBar.scss'
 import {navItemList} from './constants';
+import ContentsIcon from './ContentsIcon';
 
 const SideNavBar = ({
     showSideNav=true,
@@ -12,8 +13,8 @@ const SideNavBar = ({
             <div className="snseparator"></div>
             <div className="sncontent">
                 <div className="snheading">
-                    <span className="snicon"></span>
-                    <span className="sntext">Content</span>
+                    <span className="snicon"><ContentsIcon/></span>
+                    <span className="sntext">Contents</span>
                 </div>
                 {
                     navItemList.map((item, id) => {

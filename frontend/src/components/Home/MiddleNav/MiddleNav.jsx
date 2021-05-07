@@ -18,7 +18,7 @@ function MiddleNav() {
       } else {
         midNav.classList.remove("sticky_nav_mid");
       }
-      if(window.pageYOffset > 600 && window.pageYOffset < 2200) {
+      if(window.pageYOffset > 600 && window.pageYOffset < 2250) {
         setSideNavVisibility(true)
       } else setSideNavVisibility(false)
     }
