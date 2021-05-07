@@ -11,7 +11,7 @@ const passport = require("passport");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv").config();
-//const MONGO_URI = "mongodb://localhost/SA_DB";
+//const MONGO_URL = "mongodb://localhost/SA_DB";
 const { MONGO_URL } = process.env;
 console.log("[Mongodb Url]", MONGO_URL);
 const helmet = require("helmet");
@@ -21,14 +21,13 @@ require("./config/passportAzure");
 
 const globalErrorHandler = require("./controllers/errorController");
 
-const scholarshipRoutes = require("./routes/scholarship.routes");
+const scholarshipRoutes = require("./routes/scholarship/scholarship.routes");
 const announcementRoutes = require("./routes/home/announcement.routes");
 const eventRoutes = require("./routes/home/events.routes");
 const achievementRoutes = require("./routes/home/achievement.routes");
 const aboutRoutes = require("./routes/home/about.routes");
 const formRoutes = require("./routes/forms/form.routes");
 const utilityRoutes = require("./routes/utilities/link.routes");
-
 const authRoutes = require("./routes/auth.routes");
 const BASECLIENT = process.env.BASECLIENT;
 

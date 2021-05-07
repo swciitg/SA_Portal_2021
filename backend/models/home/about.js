@@ -1,21 +1,9 @@
 const mongoose = require("mongoose");
 
 const AboutSchema = mongoose.Schema({
-    title: {
+    HTMLString: {
         type: String,
         required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    imgPath: {
-        type: String,
-        required:true
-    },
-    priority_number: {
-        type: Number,
-        required : true
     }
 });
 
