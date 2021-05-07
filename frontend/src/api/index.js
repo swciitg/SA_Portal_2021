@@ -16,3 +16,6 @@ export const editAnnouncement = (id, updatedAnnouncement) =>
 export const deleteAnnouncement = (id) =>
   API.delete(`/home/announcement/${id}`);
 export const fetchCategories = () => API.get("/home/announcement/categories");
+
+//ABOUT ROUTES
+export const fetchAbout = () => API.get("/home/about");

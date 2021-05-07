@@ -1,15 +1,34 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BASEURL } from "../../../constants";
+import axios from "axios";
+import "./AboutScreen.css";
 
 const AboutScreen = () => {
-  //   const announcements = useSelector((state) => state.announcements);
-  //   const dispatch = useDispatch();
+  const [editorContent, setEditorContent] = useState(
+    JSON.stringify(
+      '<h3 style="font-size:2rem;font-weight:bold;">Sample Title</h3></br><p>This is a sample paragraph.Add content for about us section in the home page...</p>'
+    )
+  );
 
-  //   useEffect(() => {
-  //     dispatch(listAnnouncement());
-  //   }, [dispatch]);
+  useEffect(() => {
+    const apiCall = () => {
+      axios
+        .get("http://localhost:8080/sa/api/home/about/")
+        .then(({ data }) => {
+          console.log(data);
+          data.data && setEditorContent(data.data.HTMLString);
+        })
+        .catch((err) => console.log(err));
+    };
+    apiCall();
+  }, []);
+
+  useEffect(() => {
+    document.getElementById("admin_about_preview").innerHTML = JSON.parse(
+      editorContent
+    );
+  }, [editorContent]);
 
   return (
     <>
@@ -18,66 +37,28 @@ const AboutScreen = () => {
       <div className="mt-6">
         <Link
           className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-          to={`${BASEURL}/admin/about/add`}
+          to={{
+            pathname: `${BASEURL}/admin/about/add`,
+            formData: { editorContent },
+          }}
         >
-          Add About details
+          Add/Edit About details
         </Link>
       </div>
 
-      <div className="w-auto mt-6 overflow-auto">
-        <div className="bg-white">
-          <table className="min-w-full bg-white">
-            <thead className="bg-gray-800 text-white">
-              <tr>
-                <th className="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">
-                  Title
-                </th>
-                <th className="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">
-                  Description
-                </th>
-                <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
-                  Edit
-                </th>
-                <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
-                  Delete
-                </th>
-              </tr>
-            </thead>
-
-            <tbody className="text-gray-700" id="myMenu">
-              <tr>
-                <td className="w-1/3 text-left py-3 px-4">Title</td>
-                <td className="w-1/3 text-left py-3 px-4">
-                  {/* {description.substring(0, 80) + "..."} */}
-                  Description
-                </td>
-                {/* <td className="text-left py-3 px-4">
-                        <Link
-                          to={{
-                            pathname: `${BASEURL}/admin/about/edit`,
-                            formData: {
-                              title,
-                              important,
-                              description,
-                              link,
-                              _id,
-                            },
-                          }}
-                        >
-                          <button className="hover:text-blue-500">Edit</button>
-                        </Link>
-                      </td> */}
-                {/* <td className="text-left py-3 px-4">
-                        <button
-                          className="hover:text-red-500"
-                          onClick={() => dispatch(deleteAnnouncement(_id))}
-                        >
-                          Delete
-                        </button>
-                      </td> */}
-              </tr>
-            </tbody>
-          </table>
+      <div className="w-full flex flex-col sm:flex-row mt-5">
+        <div className="w-2/3">
+          <p className="text-2xl font-base">Preview</p>
+          <div
+            id="admin_about_preview"
+            className="p-2 pl-0 sm:p-6 sm:pl-0"
+          ></div>
+        </div>
+        <div className="about_code w-1/3">
+          <p className="text-2xl font-base">Code</p>
+          <div className="bg-gray-300 p-2 sm:p-6 font-mono rounded">
+            <code>{JSON.parse(editorContent).substring(0, 450)}...</code>
+          </div>
         </div>
       </div>
     </>
