@@ -15,9 +15,6 @@ function Announcement() {
 
   return (
     <>
-    <SideNavBar
-      showSideNav={false}
-    />
     <div className="w-full sm:w-7/12 md:w-3/4 p-5 sm:pl-32">
       <div className="mb-4 sm:mb-8">
         <p className="text-3xl sm:text-4xl font-semibold">Announcements</p>

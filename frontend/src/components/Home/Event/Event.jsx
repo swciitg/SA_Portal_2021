@@ -6,7 +6,6 @@ import "./Event.css";
 function Event() {
   return (
     <>
-    <SideNavBar/>
     <div className="text-white" style={{ backgroundColor: "#1E2532" }}>
       <div className="ml-5 sm:ml-32 mr-24 pt-24 mb-24 flex justify-between" style={{width: '65%'}}>
         <div className="text-4xl text-semibold">Events at IIT Guwahati</div>
