@@ -1,0 +1,26 @@
+.ds,.dd {
+    position: relative;
+    padding: 0.5em;
+
+  }
+  
+  .ds:after {
+    content: " ";
+    position: absolute;
+    border-left: 1px #000000 solid;
+    top: 20%;
+    right: 0;
+    height: 50%;
+   
+  }
+  
+  .dd:after {
+    content: " ";
+    position: absolute;
+    border-left: 1px #FFFFFF solid;
+    top: 25%;
+    right: 0;
+    height: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
