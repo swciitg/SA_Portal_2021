@@ -41,7 +41,7 @@ export const editAnnouncement = (id, formData) => async (dispatch) => {
   try {
     const { data } = await api.editAnnouncement(id, formData);
     console.log(data);
-    dispatch({ type: ANNOUNCEMENT_EDIT_REQUEST, payload: data });
+    dispatch({ type: ANNOUNCEMENT_EDIT_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
   }

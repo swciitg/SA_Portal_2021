@@ -41,6 +41,9 @@ const Sidebar = ({ children }) => {
           <Link to={`${BASEURL}/admin/announcements`} className={linkSidebar}>
             Announcements
           </Link>
+          <Link to={`${BASEURL}/admin/forms`} className={linkSidebar}>
+            Forms
+          </Link>
         </nav>
       </aside>
 
@@ -74,13 +77,15 @@ const Sidebar = ({ children }) => {
                 ? "flex flex flex-col pt-4"
                 : "hidden flex flex-col pt-4"
             }
-            // className="flex flex-col pt-4"
           >
             <Link
               to={`${BASEURL}/admin/announcements`}
               className={linkDropdown}
             >
               Announcements
+            </Link>
+            <Link to={`${BASEURL}/admin/forms`} className={linkDropdown}>
+              Forms
             </Link>
             {authBtn}
           </nav>

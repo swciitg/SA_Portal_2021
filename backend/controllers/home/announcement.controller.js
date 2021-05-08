@@ -46,7 +46,7 @@ exports.findAnnouncement = async (req, res) => {
 
 exports.postAnnouncement = async (req, res, next) => {
   try {
-    var { title, description, category, link } = req.body;
+    var { title, description, category, link, important } = req.body;
     let name = category.toLowerCase();
 
     const doc = await new Announcement({
@@ -54,6 +54,7 @@ exports.postAnnouncement = async (req, res, next) => {
       description,
       category: name,
       link,
+      important,
     }).save();
 
     const savedCategory = await Category.find({ name: name });

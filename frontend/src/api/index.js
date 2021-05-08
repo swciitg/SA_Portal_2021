@@ -16,3 +16,10 @@ export const editAnnouncement = (id, updatedAnnouncement) =>
 export const deleteAnnouncement = (id) =>
   API.delete(`/home/announcement/${id}`);
 export const fetchCategories = () => API.get("/home/announcement/categories");
+
+//FORM ROUTES
+export const fetchForm = () => API.get("/forms");
+export const createForm = (newForm) => API.post("/forms", newForm);
+export const editForm = (id, updatedForm) =>
+  API.put(`/forms/${id}`, updatedForm);
+export const deleteForm = (id) => API.delete(`/forms/${id}`);

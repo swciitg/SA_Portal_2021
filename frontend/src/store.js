@@ -5,12 +5,14 @@ import auth from "./reducers/auth";
 import announcements from "./reducers/announcements";
 import about from "./reducers/about";
 import categories from "./reducers/category";
+import forms from "./reducers/form";
 
 const reducer = combineReducers({
   auth,
   announcements,
   about,
   categories,
+  forms,
 });
 
 const initialState = {};
