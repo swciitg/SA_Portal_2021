@@ -1,3 +1,26 @@
+#home_about p {
+  font-family: "Red Hat Display";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 154%;
+  letter-spacing: 0.62px;
+}
+
+#home_about h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 131%;
+  letter-spacing: 0.0038em;
+}
+
 .Content {
   font-family: "Red Hat Display";
   font-style: normal;

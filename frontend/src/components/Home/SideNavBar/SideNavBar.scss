@@ -1,55 +1,61 @@
 .sncontainer {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: 2;
+  width: 200px;
+  right: 100px;
+  height: 100%;
+  top: 150px;
+  // right: -1300px;
+  // margin-left: auto;
+  .snseparator {
+    width: 1px;
+    height: 140px;
+    border-left: 1px solid #d7dde1;
+  }
+  .sncontent {
+    width: auto;
     display: flex;
-    flex-direction: row;
-    position: fixed;
-    z-index: 2;
-    width: 200px;
-    right: 100px;
-    height: 100%;
-    top: 150px;
-    // right: -1300px;
-    // margin-left: auto;
-    .snseparator {
-        width: 1px;
-        height: 140px;
-        border-left: 1px solid #D7DDE1;
+    flex-direction: column;
+    margin-left: 20px;
+    .snheading {
+      margin-bottom: 1px;
+      display: flex;
+      flex-direction: row;
+
+      .snicon {
+        height: 13.5px;
+        width: 15px;
+      }
+      .sntext {
+        padding-left: 6px;
+        font-family: Basier Circle;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: 0.08em;
+        color: #9fabb7;
+        text-transform: uppercase;
+      }
     }
-    .sncontent {
-        width: auto;
-        display: flex;
-        flex-direction: column;
-        margin-left: 20px;
-        .snheading {
-            margin-bottom: 1px;
-            display: flex;
-            flex-direction: row;
-    
-            .snicon {
-                height: 13.5px;
-                width: 15px;
-            }
-            .sntext {
-                padding-left: 6px;
-                font-family: Basier Circle;
-                font-style: normal;
-                font-weight: bold;
-                font-size: 12px;
-                line-height: 15px;
-                letter-spacing: 0.08em;
-                color: #9FABB7;
-                text-transform: uppercase;
-            }
-        }
-        .snnavItem {
-            margin-top: 12px;
-            font-family: Red Hat Display;
-            font-style: normal;
-            font-weight: 500;
-            font-size: 12px;
-            line-height: 19px;
-            letter-spacing: 0.12em;
-            color: #9FABB7;
-            text-transform: capitalize;
-        }
+    .snnavItem {
+      margin-top: 12px;
+      font-family: Red Hat Display;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 19px;
+      letter-spacing: 0.12em;
+      color: #9fabb7;
+      text-transform: capitalize;
     }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .sncontainer {
+    display: none;
+  }
 }

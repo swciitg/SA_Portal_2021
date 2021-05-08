@@ -23,3 +23,5 @@ export const createForm = (newForm) => API.post("/forms", newForm);
 export const editForm = (id, updatedForm) =>
   API.put(`/forms/${id}`, updatedForm);
 export const deleteForm = (id) => API.delete(`/forms/${id}`);
+//ABOUT ROUTES
+export const fetchAbout = () => API.get("/home/about");

@@ -65,6 +65,6 @@ export const chairPerson = {
   SWC: "Alan",
 };
 export const sabTabClassName =
-  "flex-grow md:flex items-center justify-center text-sm font-mono h-20 px-2 text-blue-550 hover:bg-gray-100 font-bold active-tab text-xs";
+  "flex-grow md:flex items-center justify-center text-sm font-mono h-20 px-2 text-blue-500 hover:bg-gray-100 font-bold active-tab text-xs";
 export const otherTabClassName =
   "hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs";

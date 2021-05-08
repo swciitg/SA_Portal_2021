@@ -1,120 +1,120 @@
 .content {
-    position: absolute;
-    margin-top: 80px;
-    z-index: 5;
-    overflow: auto;
-    height: 380px;
-    width: 95%;
-    left: 30px;
-    background: #020008;
-    opacity: 0.8;
-    border-radius: 8px;
+  position: absolute;
+  margin-top: 80px;
+  z-index: 5;
+  overflow: auto;
+  height: 380px;
+  width: 95%;
+  left: 30px;
+  background: #0b0f0a;
+  opacity: 0.9;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .infoDiv {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 52px;
+    width: 330px;
 
-    .infoDiv {
-        display: flex;
-        flex-direction: column;
-        margin-top: 52px;
-        width: 330px;
-
-        .name {
-            width: auto;
-            font-family: Basier Circle;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 24px;
-            line-height: 30px;
-            letter-spacing: 0.0322em;
-            color: #FFFFFF;
-        }
-        .description {
-            margin-top: 24px;
-            font-family: Red Hat Display;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 18px;
-            line-height: 28px;
-            letter-spacing: 0.62px;
-            color: #FFFFFF;
-        }
+    .name {
+      width: auto;
+      font-family: Basier Circle;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 30px;
+      letter-spacing: 0.0322em;
+      color: #ffffff;
     }
-    .externalLinksDiv {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        margin-top: 52px;
-        width: 330px;
-        
-        .title {
-            display: flex;
-            flex-direction: row;
-            width: auto;
-            cursor: pointer;
-            .caption {
-                font-family: Basier Circle;
-                font-style: normal;
-                font-weight: 600;
-                font-size: 18px;
-                line-height: 20px;
-                letter-spacing: 0.0322em;
-                color: #FFFFFF;
-            }
-            .arrowIcon {
-                padding-top: 5px;
-                margin-left: 10px;
-                height: 12px;
-                width: 12px;
-            }
-        }
-
-        .description {
-            margin-top: 8px;
-            position: relative;
-            width: auto;
-            max-width: 330px;
-            font-family: Red Hat Display;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 14px;
-            line-height: 24px;
-            letter-spacing: 0.0075em;
-            color: #FFFFFF;
-        }
+    .description {
+      margin-top: 24px;
+      font-family: Red Hat Display;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0.62px;
+      color: #ffffff;
     }
-    .imageDiv {
-        display: flex;
-        flex-direction: column;
-        margin-top: 52px;
-        width: 330px;
+  }
+  .externalLinksDiv {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 52px;
+    width: 330px;
 
-        .image {
-            height: 240px;
-            width: 234px;
-            border-radius: 2px;
-        }
-        .name {
-            margin-top: 24px;
-            font-family: Basier Circle;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 12px;
-            line-height: 15px;
-            letter-spacing: 0.1538em;
-            text-transform: uppercase;
-            color: #FFFFFF;
-        }
-        .description {
-            margin-top: 8px;
-            font-family: Basier Circle;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 8px;
-            line-height: 10px;
-            letter-spacing: 0.1188em;
-            text-transform: uppercase;
-            color: #FFFFFF;
-        }
+    .title {
+      display: flex;
+      flex-direction: row;
+      width: auto;
+      cursor: pointer;
+      .caption {
+        font-family: Basier Circle;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: 0.0322em;
+        color: #ffffff;
+      }
+      .arrowIcon {
+        padding-top: 5px;
+        margin-left: 10px;
+        height: 12px;
+        width: 12px;
+      }
     }
+
+    .description {
+      margin-top: 8px;
+      position: relative;
+      width: auto;
+      max-width: 330px;
+      font-family: Red Hat Display;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.0075em;
+      color: #ffffff;
+    }
+  }
+  .imageDiv {
+    display: flex;
+    flex-direction: column;
+    margin-top: 52px;
+    width: 330px;
+
+    .image {
+      height: 240px;
+      width: 234px;
+      border-radius: 2px;
+    }
+    .name {
+      margin-top: 24px;
+      font-family: Basier Circle;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 0.1538em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .description {
+      margin-top: 8px;
+      font-family: Basier Circle;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 8px;
+      line-height: 10px;
+      letter-spacing: 0.1188em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+  }
 }

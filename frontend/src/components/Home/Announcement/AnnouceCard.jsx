@@ -5,7 +5,7 @@ import arrow from "../../../assets/ArrowRight.svg";
 const AnnouceCard = ({ creation, title, description, link, category }) => {
   return (
     <div
-      className="w-full px-5 py-3 bg-white rounded"
+      className="w-full px-5 py-3 bg-white rounded mb-3"
       style={{ boxShadow: "0px 2px 12px rgba(30, 37, 50, 0.14)" }}
     >
       <p className="text-xs mb-0.5" style={{ color: "#111" }}>

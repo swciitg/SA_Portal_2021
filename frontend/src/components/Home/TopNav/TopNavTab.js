@@ -13,7 +13,7 @@ const TopNavTab = ({
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={{cursor:'pointer'}}
+      style={{ cursor: "pointer" }}
     >
       <p className="text-center">{boardName}</p>
     </div>
