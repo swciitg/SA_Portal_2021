@@ -19,7 +19,7 @@ router.get("/", sacController.getSac);
 
 router.post(
   "/",
-  
+  isLoggedIn, isAdmin ,
   upload.single("path"),
   sacController.postSac
 );
@@ -28,12 +28,12 @@ router.get("/:id", sacController.getOneSac); //only for rules with pdfs
 
 router.put(
   "/:id",
-  
+  isLoggedIn, isAdmin ,
   upload.single("path"),
   sacController.editSac
 );
 
-router.delete("/:id",  sacController.deleteSac);
+router.delete("/:id",isLoggedIn, isAdmin ,  sacController.deleteSac);
 
 const compare = (a, b) => {
   return b.creation - a.creation;
