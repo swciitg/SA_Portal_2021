@@ -6,6 +6,7 @@ import TopNav from "../../components/Home/TopNav/TopNav";
 import Footer from "../../components/Home/Footer/Footer";
 import MiddleNav from "../../components/Home/MiddleNav/MiddleNav";
 import HomeScreen from "./home/HomeScreen";
+import FormScreen from "./Forms/FormScreen";
 
 const UserScreen = () => {
   return (
@@ -16,6 +17,7 @@ const UserScreen = () => {
       <MiddleNav />
       <Switch>
         <Route exact path={`${BASEURL}/`} component={HomeScreen} />
+        <Route exact path={`${BASEURL}/forms`} component={FormScreen} />
       </Switch>
       <Footer />
     </>
