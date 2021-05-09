@@ -3,7 +3,10 @@ import React from "react";
 function Achievement() {
   return (
     <>
-      <div className="w-full sm:w-7/12 md:w-3/4 flex flex-col items-center p-5 sm:py-12 sm:pl-32">
+      <div
+        id="home_achievements"
+        className="w-full sm:w-7/12 md:w-3/4 flex flex-col items-center p-5 sm:py-12 sm:pl-32"
+      >
         <div className="flex justify-between w-full">
           <p className="text-3xl font-bold">Student Achievements</p>
           <div className="flex items-center border-2 rounded-md px-6 py-2">

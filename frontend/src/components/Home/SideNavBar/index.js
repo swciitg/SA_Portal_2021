@@ -15,9 +15,10 @@ const SideNavBar = ({ showSideNav = true }) => {
           <span className="sntext">Contents</span>
         </div>
         {navItemList.map((item, id) => {
+          const { name, src } = item;
           return (
             <div key={id} className="snnavItem">
-              {item}
+              <a href={`#${src}`}>{name}</a>
             </div>
           );
         })}
