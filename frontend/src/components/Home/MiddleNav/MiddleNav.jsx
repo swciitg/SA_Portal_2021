@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BASEURL } from "../../../constants/index";
 import "./MiddleNav.css";
+import { pages } from "./constants";
 
-function MiddleNav() {
+function MiddleNav({ activePath }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -24,42 +24,22 @@ function MiddleNav() {
   }, [isScrolled, setIsScrolled]);
 
   return (
-    <>
-      <div id="MidNav" class={`scroll sm:px-14 flex overflow-x-scroll`}>
-        <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16 font-blue-550">
-          <p className="leading-4 sm:leading-none">
-            <Link to={`${BASEURL}/`}>Home</Link>
-          </p>
-        </div>
-        <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16">
-          <p className="leading-4 sm:leading-none">
-            <Link to={`${BASEURL}/rules`}>Rules</Link>
-          </p>
-        </div>
-        <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16">
-          <p className="leading-4 sm:leading-none">
-            <Link to={`${BASEURL}/forms`}>Forms</Link>
-          </p>
-        </div>
-        <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16">
-          <p className="leading-4 sm:leading-none">
-            <Link to={`${BASEURL}/scholarships`}>Scholarships</Link>
-          </p>
-        </div>
-        <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16">
-          <p className="leading-4 sm:leading-none">SAC</p>
-        </div>
-        <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16 text-center">
-          <p className="leading-4 sm:leading-none">SA Courses</p>
-        </div>
-        <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16">
-          <p className="leading-4 sm:leading-none">Utilities</p>
-        </div>
-        <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16">
-          <p className="leading-4 sm:leading-none">Team</p>
-        </div>
-      </div>
-    </>
+    <div id="MidNav" class={`scroll sm:px-14 flex overflow-x-scroll`}>
+      {pages.map((page, i) => {
+        const { name, path } = page;
+        return (
+          <div
+            className={`flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16 ${
+              path === activePath ? "font-blue-550" : "text-black"
+            }`}
+          >
+            <p className="leading-4 sm:leading-none">
+              <Link to={path}>{name}</Link>
+            </p>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 

@@ -9,13 +9,13 @@ import HomeScreen from "./home/HomeScreen";
 import FormScreen from "./Forms/FormScreen";
 import ScholarshipScreen from "./scholarships/ScholarshipScreen";
 
-const UserScreen = () => {
+const UserScreen = ({ location }) => {
   return (
     <>
       <Header />
       <TopNav />
       <div class="min-h-screen bg-gray-400"></div>
-      <MiddleNav />
+      <MiddleNav activePath={location.pathname} />
       <Switch>
         <Route exact path={`${BASEURL}/`} component={HomeScreen} />
         <Route exact path={`${BASEURL}/forms`} component={FormScreen} />
