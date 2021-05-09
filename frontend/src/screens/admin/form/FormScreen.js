@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { listForms, deleteForm } from "../../../actions/forms";
-import { BASEURL } from "../../../constants";
+import { BASEURL, BASEAPI } from "../../../constants";
 
 const FormScreen = () => {
   const forms = useSelector((state) => state.forms);
@@ -39,9 +39,7 @@ const FormScreen = () => {
                 <th className="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">
                   Subject
                 </th>
-                <th className="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">
-                  Path
-                </th>
+
                 <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
                   Link
                 </th>
@@ -68,16 +66,27 @@ const FormScreen = () => {
                       </td>
                       <td className="text-left py-3 px-4">{formNo}</td>
                       <td className="w-1/3 text-left py-3 px-4">{subject}</td>
-                      <td className="text-left py-3 px-4">{path}</td>
+
                       <td className="text-left py-3 px-4">
-                        <a
-                          className="hover:text-blue-500"
-                          href={link}
-                          rel="noreferrer"
-                          target="_blank"
-                        >
-                          Link
-                        </a>
+                        {path.indexOf("https://") === -1 ? (
+                          <a
+                            className="hover:text-blue-500"
+                            href={`${BASEAPI}/forms/${_id}`}
+                            rel="noreferrer"
+                            target="_blank"
+                          >
+                            View
+                          </a>
+                        ) : (
+                          <a
+                            className="hover:text-blue-500"
+                            href={path}
+                            rel="noreferrer"
+                            target="_blank"
+                          >
+                            View
+                          </a>
+                        )}
                       </td>
 
                       <td className="text-left py-3 px-4">
