@@ -1,9 +1,35 @@
 import AnnounceCard from "./AnnouceCard";
 
 export const renderCards = (announcements, aCategory) => {
-  return announcements && announcements.length !== 0
-    ? aCategory === "all"
-      ? announcements.splice(0, 5).map((announcement, i) => {
+  if (announcements && announcements.length !== 0) {
+    if (aCategory === "all") {
+      return [...announcements].splice(0, 5).map((announcement, i) => {
+        const {
+          creation,
+          title,
+          description,
+          _id,
+          link,
+          category,
+        } = announcement;
+        return (
+          <AnnounceCard
+            key={_id}
+            creation={creation}
+            description={description}
+            title={title}
+            link={link}
+            category={category}
+          />
+        );
+      });
+    } else {
+      const filteredAnn = [...announcements].filter((a) => {
+        return a.category.toLowerCase() === aCategory.toLowerCase();
+      });
+      //console.log("filtered", filteredAnn);
+      return filteredAnn.length !== 0 ? (
+        filteredAnn.map((announcement, i) => {
           const {
             creation,
             title,
@@ -23,31 +49,17 @@ export const renderCards = (announcements, aCategory) => {
             />
           );
         })
-      : announcements
-          .filter((a) => {
-            return a.category.toLowerCase() === aCategory.toLowerCase();
-          })
-          .map((announcement, i) => {
-            const {
-              creation,
-              title,
-              description,
-              _id,
-              link,
-              category,
-            } = announcement;
-            return (
-              <AnnounceCard
-                key={_id}
-                creation={creation}
-                description={description}
-                title={title}
-                link={link}
-                category={category}
-              />
-            );
-          })
-    : "No Announcements";
+      ) : (
+        <span className="text-base text-gray-400">
+          No announcements in the{" "}
+          <span className="font-black font-semibold">{`${aCategory}`}</span>{" "}
+          category
+        </span>
+      );
+    }
+  } else {
+    return <span className="text-base text-gray-400">No announcements</span>;
+  }
 };
 
 export const isoToDate = (creation) => {

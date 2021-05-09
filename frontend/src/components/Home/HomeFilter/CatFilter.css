@@ -1,0 +1,19 @@
+#a_cat {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 19px;
+  letter-spacing: 0.08em;
+  color: #1e2532;
+  background: url(../../../assets/ArrowDown.svg) 97% center no-repeat !important;
+  /* background-position: 97% 50%; */
+}
+
+#a_cat:active,
+#a_cat:focus {
+  outline: none;
+}
