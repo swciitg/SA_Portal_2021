@@ -12,7 +12,12 @@ const AnnouceCard = ({ creation, title, description, link, category }) => {
         {isoToDate(creation)}
       </p>
       <div className="flex w-full">
-        <p className="inline text-base w-11/12">{title}</p>
+        <p
+          className="inline w-11/12 tracking-wide"
+          style={{ fontSize: "1.1rem" }}
+        >
+          {title}
+        </p>
         <span className="w-1/12 flex justify-end cursor-pointer">
           <a href={link} rel="noreferrer" target="_blank">
             <img src={arrow} alt="->" />

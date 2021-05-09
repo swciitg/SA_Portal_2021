@@ -26,8 +26,8 @@ const FormScreen = () => {
           <tr>
             <td class="w-1/8 p-1  text-white dd">Form No.</td>
             <td class="w-1/2 text-white dd">Subject</td>
-            <td class="w-1/8 text-white dd">Format</td>
-            <td class="w-1/8 text-white dd">Date</td>
+            <td class="w-1/8 text-white dd hidden sm:table-cell">Format</td>
+            <td class="w-1/8 text-white dd hidden sm:table-cell">Date</td>
             <td class="w-1/8 text-white">Link</td>
           </tr>
         </tbody>
@@ -44,8 +44,8 @@ const FormScreen = () => {
                   <tr key={i}>
                     <td class=" w-1/8 ds">{formNo}</td>
                     <td class="w-1/2  ds">{subject}</td>
-                    <td class="w-1/8  ds">{format}</td>
-                    <td class="w-1/8  ds">
+                    <td class="w-1/8  ds hidden sm:table-cell">{format}</td>
+                    <td class="w-1/8  ds hidden sm:table-cell">
                       {new Date(creation).getDate() +
                         "/" +
                         (new Date(creation).getMonth() + 1) +

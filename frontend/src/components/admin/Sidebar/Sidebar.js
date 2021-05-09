@@ -44,6 +44,12 @@ const Sidebar = ({ children }) => {
           <Link to={`${BASEURL}/admin/forms`} className={linkSidebar}>
             Forms
           </Link>
+          <Link
+            to={`${BASEURL}/admin/scholarshipEditor`}
+            className={linkSidebar}
+          >
+            Scholarships{`(R&O)`}
+          </Link>
         </nav>
       </aside>
 

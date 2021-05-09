@@ -25,3 +25,6 @@ export const editForm = (id, updatedForm) =>
 export const deleteForm = (id) => API.delete(`/forms/${id}`);
 //ABOUT ROUTES
 export const fetchAbout = () => API.get("/home/about");
+
+//SCHOLARSHIP ROUTES
+export const fetchScholarshipEdtr = () => API.get("/scholarship/editor");

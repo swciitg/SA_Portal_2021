@@ -1,0 +1,26 @@
+#admin_schEdit_preview td {
+  border: 1px solid #999;
+  padding: 3px 6px;
+}
+
+#admin_schEdit_preview ol,
+#admin_schEdit_preview ul {
+  list-style: circle !important;
+}
+
+#admin_schEdit_preview li {
+  list-style-position: inside;
+}
+
+#admin_schEdit_preview tr {
+  width: 100%;
+}
+
+#admin_schEdit_preview table {
+  border: 1.2px solid #555;
+  width: 100%;
+}
+
+#admin_schEdit_preview thead {
+  border-bottom: 2px solid #000;
+}

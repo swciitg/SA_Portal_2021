@@ -4,7 +4,7 @@ import Editor from "suneditor-react";
 import axios from "axios";
 import { BASEURL, BASEAPI } from "../../../constants/index";
 
-const AboutFormSun = ({ type, formData }) => {
+const ScholarshipEditor = ({ type, formData }) => {
   /**
    * @type {React.MutableRefObject<SunEditor>} get type definitions for editor
    */
@@ -18,7 +18,7 @@ const AboutFormSun = ({ type, formData }) => {
 
   const submitHandler = () => {
     console.log("Clicked");
-    const url = `${BASEAPI}/home/about/`;
+    const url = `${BASEAPI}/scholarship/editor`;
     const formData = {
       HTMLString: editorHtmlString,
     };
@@ -32,7 +32,7 @@ const AboutFormSun = ({ type, formData }) => {
       .post(url, formData, config)
       .then((res) => {
         console.log(res);
-        window.location.replace(`${BASEURL}/admin/about`);
+        window.location.replace(`${BASEURL}/admin/scholarshipEditor`);
       })
       .catch((err) => {
         console.log(err);
@@ -41,7 +41,9 @@ const AboutFormSun = ({ type, formData }) => {
 
   return (
     <div>
-      <p className="text-3xl font-bold mb-3">Home About Us</p>
+      <p className="text-3xl font-bold mb-3">
+        Scholarship Rules and Ordinances
+      </p>
       <Editor
         setContents={JSON.parse(formData.editorContent)}
         onChange={changeHandler}
@@ -135,4 +137,4 @@ const AboutFormSun = ({ type, formData }) => {
     </div>
   );
 };
-export default AboutFormSun;
+export default ScholarshipEditor;

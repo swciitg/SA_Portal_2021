@@ -42,7 +42,9 @@ function MiddleNav() {
           </p>
         </div>
         <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16">
-          <p className="leading-4 sm:leading-none">Scholarships</p>
+          <p className="leading-4 sm:leading-none">
+            <Link to={`${BASEURL}/scholarships`}>Scholarships</Link>
+          </p>
         </div>
         <div class="flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16">
           <p className="leading-4 sm:leading-none">SAC</p>

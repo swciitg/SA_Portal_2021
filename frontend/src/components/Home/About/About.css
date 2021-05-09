@@ -13,12 +13,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 34px;
-  line-height: 131%;
-  letter-spacing: 0.0038em;
+  /* font-family: "Raleway", sans-serif !important; */
+  font-style: normal !important;
+  font-weight: 700 !important;
+  /* font-size: 34px;
+  line-height: 131%; */
+  font-size: 1.875rem !important;
+  line-height: 2.25rem !important;
+  letter-spacing: 0.0038em !important;
 }
 
 .Content {

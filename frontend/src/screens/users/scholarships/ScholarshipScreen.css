@@ -1,0 +1,28 @@
+#scholarship_tables td {
+  border: 1px solid #999;
+  padding: 3px 6px;
+}
+
+#scholarship_tables ol,
+#scholarship_tables ul {
+  list-style: circle !important;
+}
+
+#scholarship_tables li {
+  list-style-position: inside;
+}
+
+#scholarship_tables tr {
+  width: 100%;
+}
+
+#scholarship_tables table {
+  border: 1.2px solid #555;
+  width: 100%;
+}
+
+#scholarship_tables thead {
+  border-bottom: 2px solid #000;
+  background-color: rgb(233, 233, 233);
+  text-align: center;
+}

@@ -24,9 +24,7 @@ function Announcement() {
   return (
     <div id="home_announcements" className="w-full sm:w-8/12 p-5 sm:pl-32">
       <div className="flex justify-between w-full mb-4 sm:mb-8">
-        <p className="w-max text-2xl sm:text-4xl font-semibold">
-          Announcements
-        </p>
+        <p className="w-max text-2xl sm:text-3xl font-bold">Announcements</p>
         <CatFilter categories={categories} filterHandler={filterHandler} />
       </div>
       <div className="annoucement_card_container w-full">
