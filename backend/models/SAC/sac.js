@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
-const RuleSchema = new mongoose.Schema(
+const SacSchema = new mongoose.Schema(
   {
+    name: { type:String, required:true},
     path: { type: String, required: true },
     format: { type: String, required: true },
-    name: { type: String, required: true },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Rule", RuleSchema);
+module.exports = mongoose.model("Sac", SacSchema);

@@ -7,7 +7,7 @@ const announcementController = require("../../controllers/home/announcement.cont
 router.get("/", announcementController.getAnnouncements);
 router.get("/categories", announcementController.getCategories);
 
-router.post("/", isLoggedIn, isAdmin, announcementController.postAnnouncement);
+router.post("/", isLoggedIn, isAdmin ,  announcementController.postAnnouncement);
 
 router.put(
   "/:id",

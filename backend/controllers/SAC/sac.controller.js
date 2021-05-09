@@ -1,9 +1,9 @@
-const Rule = require("../../models/rules/rule");
+const Sac = require("../../models/SAC/sac");
 const fs = require("fs");
 
-exports.getRules = async (req, res) => {
+exports.getSac = async (req, res) => {
   try {
-    let query = Rule.find({}).sort("-updatedAt");
+    let query = Sac.find({}).sort("-updatedAt");
     const doc = await query;
     res.status(200).json({
       status: "success",
@@ -18,15 +18,15 @@ exports.getRules = async (req, res) => {
   }
 };
 
-exports.postRule = async (req, res) => {
+exports.postSac = async (req, res) => {
   try {
-    const { link, name } = req.body;
+    const { name,link } = req.body;
     const path = req.file ? req.file.filename : link;
     const format = req.file ? "PDF" : "Link";
-    const newRule = new Rule({ path, format, name });
-    const rule = await newRule.save();
+    const newSac = new Sac({ name, path, format });
+    const sac = await newSac.save();
 
-    if (rule) return res.status(200).json({ status: "Success", data: rule });
+    if (sac) return res.status(200).json({ status: "Success", data: sac });
     else res.status(424).json({ status: "Failed", message: "Invalid Data" });
   } catch (error) {
     console.log(error.message);
@@ -36,21 +36,21 @@ exports.postRule = async (req, res) => {
   }
 };
 
-exports.editRule = async (req, res) => {
+exports.editSac = async (req, res) => {
   try {
-    const { link, name } = req.body;
+    const { name, link } = req.body;
     const path = req.file ? req.file.filename : link;
     const format = req.file ? "PDF" : "Link";
-    const data = { path, format, name };
+    const data = { name, path, format };
     const { id } = req.params;
 
-    const oldRule = await Rule.findById(id);
-    if (oldRule.path.indexOf("https://") == -1) {
-      fs.unlinkSync(`${__dirname}/../../uploads/rules/${oldRule.path}`);
+    const oldSac = await Sac.findById(id);
+    if (oldSac.path.indexOf("https://") == -1) {
+      fs.unlinkSync(`${__dirname}/../../uploads/Sac/${oldSac.path}`);
     }
 
-    const rule = await Rule.findByIdAndUpdate(id, data);
-    if (rule) return res.status(200).json({ status: "Success", data: rule });
+    const sac = await Sac.findByIdAndUpdate(id, data);
+    if (sac) return res.status(200).json({ status: "Success", data: sac });
     else res.status(424).json({ status: "Failed", message: "Invalid Data" });
   } catch (error) {
     console.log(error.message);
@@ -60,12 +60,12 @@ exports.editRule = async (req, res) => {
   }
 };
 
-exports.getOneRule = async (req, res) => {
+exports.getOneSac = async (req, res) => {
   try {
     const { id } = req.params;
-    const rule = await Rule.findById(id);
-    if (rule.path.indexOf("https://") == -1) {
-      const filePath = `${__dirname}/../../uploads/rules/` + rule.path;
+    const sac = await Sac.findById(id);
+    if (sac.path.indexOf("https://") == -1) {
+      const filePath = `${__dirname}/../../uploads/Sac/` + sac.path;
       fs.readFile(filePath, (err, data) => {
         res.contentType("application/pdf");
         return res.send(data);
@@ -78,19 +78,22 @@ exports.getOneRule = async (req, res) => {
     }
   } catch (error) {
     console.log(error.message);
+    return res
+      .status(424)
+      .json({ status: "Failed", message: "Request failed" });
   }
 };
 
-exports.deleteRule = async (req, res) => {
+exports.deleteSac = async (req, res) => {
   try {
     const { id } = req.params;
-    const rule = await Rule.findById(id);
+    const sac = await Sac.findById(id);
 
-    if (rule.path.indexOf("https://") == -1) {
-      fs.unlinkSync(`${__dirname}/../../uploads/rules/${rule.path}`);
+    if (sac.path.indexOf("https://") == -1) {
+      fs.unlinkSync(`${__dirname}/../../uploads/Sac/${sac.path}`);
       console.log("successfully deleted file");
     }
-    await Rule.findByIdAndRemove(id);
+    await Sac.findByIdAndRemove(id);
     return res.status(200).json({ status: "Success" });
   } catch (err) {
     // handle the error

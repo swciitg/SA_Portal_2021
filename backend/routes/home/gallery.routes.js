@@ -3,39 +3,27 @@ const router = express.Router({ mergeParams: true });
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, `${__dirname}/../../uploads/rules`);
+    cb(null, `${__dirname}/../../uploads/gallery`);
   },
   filename: (req, file, cb) => {
     const fileName = file.originalname.replace(/\s/g, "");
     cb(null, Date.now().toString() + fileName);
   },
 });
-const ruleController = require("../../controllers/rules/rules.controller");
+const galleryController = require("../../controllers/home/galleryController");
 const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
 const upload = multer({ storage: storage });
 
-router.get("/", ruleController.getRules);
+router.get("/", galleryController.getImages);
 
-router.post(
-  "/",
-  isLoggedIn,
-  isAdmin,
-  upload.single("path"),
-  ruleController.postRule
-);
+router.post("/", upload.single("path"), galleryController.postImage);
 
-router.get("/:id", ruleController.getOneRule); //only for rules with pdfs
+router.get("/:id", galleryController.getOneImage); //only for rules with pdfs
 
-router.put(
-  "/:id",
-  isLoggedIn,
-  isAdmin,
-  upload.single("path"),
-  ruleController.editRule
-);
+router.put("/:id", upload.single("path"), galleryController.editImage);
 
-router.delete("/:id", isLoggedIn, isAdmin, ruleController.deleteRule);
+router.delete("/:id", galleryController.deleteImage);
 
 const compare = (a, b) => {
   return b.creation - a.creation;

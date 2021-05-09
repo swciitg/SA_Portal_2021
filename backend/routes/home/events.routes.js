@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const eventsController = require("../../controllers/home/eventsController");
+const eventsController = require("../../controllers/home/events.controller");
 const multerMiddleware = require("../../middlewares/multer");
 const { isLoggedIn } = require("../../middlewares/auth");
 

@@ -20,10 +20,10 @@ exports.getRules = async (req, res) => {
 
 exports.postRule = async (req, res) => {
   try {
-    const { link, name } = req.body;
+    const { link } = req.body;
     const path = req.file ? req.file.filename : link;
     const format = req.file ? "PDF" : "Link";
-    const newRule = new Rule({ path, format, name });
+    const newRule = new Rule({ path, format });
     const rule = await newRule.save();
 
     if (rule) return res.status(200).json({ status: "Success", data: rule });
@@ -38,10 +38,10 @@ exports.postRule = async (req, res) => {
 
 exports.editRule = async (req, res) => {
   try {
-    const { link, name } = req.body;
+    const { link } = req.body;
     const path = req.file ? req.file.filename : link;
     const format = req.file ? "PDF" : "Link";
-    const data = { path, format, name };
+    const data = { path, format };
     const { id } = req.params;
 
     const oldRule = await Rule.findById(id);
