@@ -94,8 +94,8 @@ exports.editScholarshipPdf = async (req, res) => {
     const path = req.file.filename;
     const id = req.params.id;
     const Pdf = await ScholarshipPdf.findById(id);
-    fs.unlinkSync(`${__dirname}/../../uploads/scholarship/${Pdf.path}`);
     const UpdatedPdf = await ScholarshipPdf.findByIdAndUpdate(id, { path });
+    fs.unlinkSync(`${__dirname}/../../uploads/scholarship/${Pdf.path}`);
     return res.status(200).json({ status: "Success", data: UpdatedPdf });
   } catch (err) {
     console.log(err);
@@ -109,8 +109,8 @@ exports.deleteScholarshipPdf = async (req, res) => {
   try {
     const id = req.params.id;
     const Pdf = await ScholarshipPdf.findById(id);
-    fs.unlinkSync(`${__dirname}/../../uploads/scholarship/${Pdf.path}`);
     const DeletedPdf = await ScholarshipPdf.findByIdAndDelete(id);
+    fs.unlinkSync(`${__dirname}/../../uploads/scholarship/${Pdf.path}`);
     return res.status(200).json({ status: "Success", data: DeletedPdf });
   } catch (err) {
     console.log(err);
