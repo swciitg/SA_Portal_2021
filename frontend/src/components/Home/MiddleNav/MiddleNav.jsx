@@ -28,15 +28,15 @@ function MiddleNav({ activePath }) {
       {pages.map((page, i) => {
         const { name, path } = page;
         return (
-          <div
-            className={`flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16 ${
-              path === activePath ? "font-bold font-blue-550" : "text-black"
-            } hover:text-blue-500`}
-          >
-            <p className="leading-4 sm:leading-none">
-              <Link to={path}>{name}</Link>
-            </p>
-          </div>
+          <Link to={path}>
+            <div
+              className={`flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16 ${
+                path === activePath ? "font-bold font-blue-550" : "text-black"
+              } hover:text-blue-500`}
+            >
+              <p className="leading-4 sm:leading-none">{name}</p>
+            </div>
+          </Link>
         );
       })}
     </div>

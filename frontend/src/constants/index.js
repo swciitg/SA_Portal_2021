@@ -22,6 +22,11 @@ export const EVENT_EDIT_REQUEST = "EVENT_EDIT_REQUEST";
 
 export const EVENT_CATEGORY_LIST_REQUEST = "EVENT_CATEGORY_LIST_REQUEST";
 
+export const RULE_LIST_REQUEST = "RULE_LIST_REQUEST";
+export const RULE_DELETE_REQUEST = "RULE_DELETE_REQUEST";
+export const RULE_CREATE_REQUEST = "RULE_CREATE_REQUEST";
+export const RULE_EDIT_REQUEST = "RULE_EDIT_REQUEST";
+
 export const BASEAPI = "http://localhost:8080/sa/api";
 
 export const LOGIN_URL = `${BASEAPI}/auth/azureadoauth2`;
