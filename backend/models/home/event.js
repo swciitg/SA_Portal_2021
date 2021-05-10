@@ -8,7 +8,14 @@ const eventSchema = new Schema(
       unique: [true, "Event Name is not unique"],
       required: [true, "A event must have a name"],
     },
-    author: { type: String, required: [true, "Author not specified"] },
+
+    eventDate: {
+      type: Date,
+      required: [true, "A event must have a date"],
+    },
+
+    // author: { type: String, required: [true, "Author not specified"] },
+
     category: {
       type: String,
       required: [true, "A event must have a category"],

@@ -6,11 +6,11 @@ const factory = require("../handlerFactory");
 /**
  *
  * for creating events the body of the request should be-
- * title, author, topics imgPath
+ * title, evnetDate, topics imgPath
  */
 
 exports.createEvent = async (req, res) => {
-  const { title, author } = req.body;
+  const { title, eventDate } = req.body;
   let { category } = req.body;
   category = category.toLowerCase();
   console.log("[request body]");
@@ -21,7 +21,7 @@ exports.createEvent = async (req, res) => {
     try {
       const newEvent = await Event.create({
         title,
-        author,
+        eventDate,
         imgPath,
         category,
       });
@@ -52,7 +52,7 @@ exports.createEvent = async (req, res) => {
 
 exports.getAllEvents = async (req, res) => {
   try {
-    const events = await Event.find({}).sort("-date");
+    const events = await Event.find({}).sort("-eventDate");
     /**
      *All console logs are for api testing
      */
@@ -72,7 +72,7 @@ exports.findEvent = async (req, res) => {
 
     const events = await Event.find({
       category: category,
-    }).sort("-updatedAt");
+    }).sort("-eventDate");
     const categories = await Category.find({});
 
     res.status(200).json({
@@ -108,14 +108,14 @@ exports.updateEvent = async (req, res) => {
   console.log("[ID ]", id);
 
   try {
-    const { title, author, category } = req.body;
+    const { title, eventDate, category } = req.body;
     const imgPath =
       dirname.dirpath + "/assets/events/thumbnails/" + req.file.filename;
 
     if (req.body && req.file.filename) {
       const updatedEvent = await Event.findByIdAndUpdate(
         { _id: id },
-        { title, author, category, imgPath },
+        { title, eventDate, category, imgPath },
         { new: true }
       );
 

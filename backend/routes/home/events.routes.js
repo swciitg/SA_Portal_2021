@@ -3,7 +3,7 @@ const router = express.Router();
 
 const eventsController = require("../../controllers/home/events.controller");
 const multerMiddleware = require("../../middlewares/multer");
-const { isLoggedIn } = require("../../middlewares/auth");
+const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
 /*### Routes which doesn't need authentication ###*/
 router.get("/", eventsController.getAllEvents);
@@ -15,13 +15,15 @@ router.post("/find", eventsController.findEvent);
 router.post(
   "/",
   isLoggedIn,
+  isAdmin,
   multerMiddleware.thumbnailImageUploadMiddleware,
   eventsController.createEvent
 );
-router.delete("/:id", isLoggedIn, eventsController.deleteEvent);
+router.delete("/:id", isLoggedIn, isAdmin, eventsController.deleteEvent);
 router.put(
   "/:id",
   isLoggedIn,
+  isAdmin,
   multerMiddleware.thumbnailImageUploadMiddleware,
   eventsController.updateEvent
 );
