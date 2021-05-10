@@ -20,10 +20,10 @@ exports.getRules = async (req, res) => {
 
 exports.postRule = async (req, res) => {
   try {
-    const { link } = req.body;
+    const { link, name } = req.body;
     const path = req.file ? req.file.filename : link;
     const format = req.file ? "PDF" : "Link";
-    const newRule = new Rule({ path, format });
+    const newRule = new Rule({ path, format, name });
     const rule = await newRule.save();
 
     if (rule) return res.status(200).json({ status: "Success", data: rule });
@@ -38,22 +38,27 @@ exports.postRule = async (req, res) => {
 
 exports.editRule = async (req, res) => {
   try {
-    const { link } = req.body;
+    const { link, name } = req.body;
     const path = req.file ? req.file.filename : link;
     const format = req.file ? "PDF" : "Link";
-    const data = { path, format };
-    const { id } = req.params;
+    let data;
+    if (!req.file && !link) {
+      data = { name };
+    } else {
+      data = { path, format, name };
+      const id = req.params.id;
 
-    const oldRule = await Rule.findById(id);
-    if (oldRule.path.indexOf("https://") == -1) {
-      fs.unlinkSync(`${__dirname}/../../uploads/rules/${oldRule.path}`);
+      const oldRule = await Rule.findById(id);
+      if (oldRule.path.indexOf("https://") == -1) {
+        fs.unlinkSync(`${__dirname}/../../uploads/rules/${oldRule.path}`);
+      }
     }
 
-    const rule = await Rule.findByIdAndUpdate(id, data);
+    const rule = await Rule.findByIdAndUpdate(req.params.id, data);
     if (rule) return res.status(200).json({ status: "Success", data: rule });
     else res.status(424).json({ status: "Failed", message: "Invalid Data" });
   } catch (error) {
-    console.log(error.message);
+    console.log("rules controller edit", error.message);
     return res
       .status(424)
       .json({ status: "Failed", message: "Request failed" });
