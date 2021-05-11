@@ -44,6 +44,9 @@ const Sidebar = ({ children }) => {
           <Link to={`${BASEURL}/admin/forms`} className={linkSidebar}>
             Forms
           </Link>
+          <Link to={`${BASEURL}/admin/events`} className={linkSidebar}>
+            Events
+          </Link>
           <Link
             to={`${BASEURL}/admin/scholarshipEditor`}
             className={linkSidebar}
@@ -92,6 +95,9 @@ const Sidebar = ({ children }) => {
             </Link>
             <Link to={`${BASEURL}/admin/forms`} className={linkDropdown}>
               Forms
+            </Link>
+            <Link to={`${BASEURL}/admin/events`} className={linkDropdown}>
+              Events
             </Link>
             {authBtn}
           </nav>

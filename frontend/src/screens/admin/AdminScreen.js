@@ -13,6 +13,11 @@ import EditFormScreen from "./form/EditFormScreen";
 import ScholarshipEditorScreen from "./scholarshipEditor/ScholarshipEditorScreen";
 import AddScholarshipEditorScreen from "./scholarshipEditor/AddScholarshipEditorScreen";
 
+
+import EventScreen from "./event/EventScreen";
+import AddEventScreen from "./event/AddEventScreen";
+import EditEventScreen from "./event/EditEventScreen";
+
 import AboutScreen from "./about/AboutScreen";
 import AddAboutScreen from "./about/AddAboutScreen";
 const AdminScreen = () => {
@@ -66,6 +71,24 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/forms/:form_id`}
             component={EditFormScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/events`}
+            component={EventScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/events/add`}
+            component={AddEventScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/events/:event_id`}
+            component={EditEventScreen}
           />
 
           <ProtectedRoutes
