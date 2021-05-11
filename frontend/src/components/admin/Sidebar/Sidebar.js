@@ -53,6 +53,9 @@ const Sidebar = ({ children }) => {
           >
             Scholarships{`(R&O)`}
           </Link>
+          <Link to={`${BASEURL}/admin/rules`} className={linkSidebar}>
+            Rules
+          </Link>
         </nav>
       </aside>
 
@@ -87,6 +90,9 @@ const Sidebar = ({ children }) => {
                 : "hidden flex flex-col pt-4"
             }
           >
+            <Link to={`${BASEURL}/admin/about`} className={linkDropdown}>
+              About
+            </Link>
             <Link
               to={`${BASEURL}/admin/announcements`}
               className={linkDropdown}
@@ -96,8 +102,19 @@ const Sidebar = ({ children }) => {
             <Link to={`${BASEURL}/admin/forms`} className={linkDropdown}>
               Forms
             </Link>
+<<<<<<< HEAD
             <Link to={`${BASEURL}/admin/events`} className={linkDropdown}>
               Events
+=======
+            <Link
+              to={`${BASEURL}/admin/scholarshipEditor`}
+              className={linkDropdown}
+            >
+              Scholarships{`(R&O)`}
+            </Link>
+            <Link to={`${BASEURL}/admin/rules`} className={linkDropdown}>
+              Rules
+>>>>>>> 161d83d5a0af34efe09bf683f6657295126db36a
             </Link>
             {authBtn}
           </nav>

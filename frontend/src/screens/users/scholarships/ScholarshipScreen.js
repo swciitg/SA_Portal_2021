@@ -24,7 +24,7 @@ function ScholarshipScreen() {
   }, [schTables]);
 
   return (
-    <div className="container p-6 sm:py-12 sm:px-36">
+    <div className="container w-full mx-auto p-6 sm:py-12 sm:px-36">
       <p className="py-3 text-2xl font-bold">Ordinances and Rules</p>
       <div id="scholarship_tables" className="w-full"></div>
       <p className="py-6 text-2xl font-bold">Other links....</p>
