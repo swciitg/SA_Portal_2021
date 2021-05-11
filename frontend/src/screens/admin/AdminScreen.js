@@ -12,15 +12,12 @@ import AddFormScreen from "./form/AddFormScreen";
 import EditFormScreen from "./form/EditFormScreen";
 import ScholarshipEditorScreen from "./scholarshipEditor/ScholarshipEditorScreen";
 import AddScholarshipEditorScreen from "./scholarshipEditor/AddScholarshipEditorScreen";
-<<<<<<< HEAD
 
 
 import EventScreen from "./event/EventScreen";
 import AddEventScreen from "./event/AddEventScreen";
 import EditEventScreen from "./event/EditEventScreen";
 
-=======
->>>>>>> 161d83d5a0af34efe09bf683f6657295126db36a
 import AboutScreen from "./about/AboutScreen";
 import AddAboutScreen from "./about/AddAboutScreen";
 import RulesScreen from "./rules/RulesScreen";
