@@ -1,9 +1,6 @@
 const ScholarshipPdf = require("../../models/scholarship/scholarship.pdf");
 const SchlolershipEditor = require("../../models/scholarship/scholarship.editor");
 const fs = require("fs");
-const {
-  findByIdAndDelete,
-} = require("../../models/scholarship/scholarship.pdf");
 
 exports.getScholarshipEditorData = async (req, res) => {
   try {
@@ -72,8 +69,9 @@ exports.postScholarshipPdf = async (req, res) => {
         .status(424)
         .json({ status: "Failed", message: "No File Provided" });
     }
+    const {name} = req.body;
     const path = req.file.filename;
-    const newPdfData = new ScholarshipPdf({ path });
+    const newPdfData = new ScholarshipPdf({name, path });
     const PdfData = await newPdfData.save();
     return res.status(200).json({ status: "Success", data: PdfData });
   } catch (err) {
@@ -91,10 +89,11 @@ exports.editScholarshipPdf = async (req, res) => {
         .status(424)
         .json({ status: "Failed", message: "No File Provided" });
     }
+    const {name} = req.body;
     const path = req.file.filename;
     const id = req.params.id;
     const Pdf = await ScholarshipPdf.findById(id);
-    const UpdatedPdf = await ScholarshipPdf.findByIdAndUpdate(id, { path });
+    const UpdatedPdf = await ScholarshipPdf.findByIdAndUpdate(id, {name, path });
     fs.unlinkSync(`${__dirname}/../../uploads/scholarship/${Pdf.path}`);
     return res.status(200).json({ status: "Success", data: UpdatedPdf });
   } catch (err) {

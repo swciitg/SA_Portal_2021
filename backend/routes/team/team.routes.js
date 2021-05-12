@@ -16,10 +16,12 @@ const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
 const upload = multer({ storage: storage });
 
-router.get("/", TeamController.getTeam);
-router.post("/", upload.single("image") , TeamController.postTeam);
+router.get("/", TeamController.getAllMembers);
+router.get("/office/:office", TeamController.getOfficeMembers);
+router.get("/team/:team",TeamController.getTeamMembers);
+router.post("/", upload.single("image") , TeamController.postMember);
 
-router.put("/:id", upload.single("image") , TeamController.editTeam);
-router.delete("/:id", TeamController.deleteTeam);
+router.put("/:id", upload.single("image") , TeamController.editMember);
+router.delete("/:id", TeamController.deleteMember);
 
 module.exports = router;
