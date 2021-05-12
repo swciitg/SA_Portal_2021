@@ -20,7 +20,7 @@ const [eventDate, seteventDate] = useState(
     formData && formData.eventDate ? formData.eventDate : ""
 );
 const [imgPath, setimgPath] = useState(
-    formData && formData.imgPath ? formData.imgPath : ""
+    formData && formData.imgPath ? formData.image : ""
 );
 const [category, setCategory] = useState(
     formData && formData.category ? formData.category : ""
@@ -99,7 +99,7 @@ const event_id = formData && formData._id;
                 <input
                 className="px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   type="Date"
-                  name="imgPath"
+                  name="eventDate"
                   onChange={(e) => seteventDate(e.target.value)}
                   placeholder="Set Image Date"
                 />
@@ -107,7 +107,7 @@ const event_id = formData && formData._id;
 
               
               <div className="mt-2">
-              <label className="block text-sm text-gray-600" htmlFor="eventDate">
+              <label className="block text-sm text-gray-600" htmlFor="imgPath">
                   Upload Event Image
                 </label>
                 <input
