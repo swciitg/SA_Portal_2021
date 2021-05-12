@@ -42,7 +42,7 @@ import {
   
   export const editEvent = (id, formData) => async (dispatch) => {
     try {
-      const { data } = await api.editAnnouncement(id, formData);
+      const { data } = await api.editEvent(id, formData);
       console.log(data);
       dispatch({ type: EVENT_EDIT_REQUEST, payload: data.data });
     } catch (error) {
