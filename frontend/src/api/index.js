@@ -29,12 +29,10 @@ export const fetchAbout = () => API.get("/home/about");
 //Event Routes
 
 export const fetchEvent = () => API.get("/home/events");
-export const createEvent = (newEvent) =>
-  API.post("/home/events", newEvent);
+export const createEvent = (newEvent) => API.post("/home/events", newEvent);
 export const editEvent = (id, updatedEvent) =>
   API.put(`/home/events/${id}`, updatedEvent);
-export const deleteEvent = (id) =>
-  API.delete(`/home/events/${id}`);
+export const deleteEvent = (id) => API.delete(`/home/events/${id}`);
 export const fetchEventCategories = () => API.get("/home/events/categories");
 
 //SCHOLARSHIP ROUTES
@@ -46,3 +44,11 @@ export const createRule = (newForm) => API.post("/rules", newForm);
 export const editRule = (id, updatedForm) =>
   API.put(`/rules/${id}`, updatedForm);
 export const deleteRule = (id) => API.delete(`/rules/${id}`);
+
+//SCHOLARSHIP LINK ROUTES
+export const fetchSchLink = () => API.get("/scholarship/pdf");
+export const createSchLink = (newSchLink) =>
+  API.post("/scholarship/pdf", newSchLink);
+export const editSchLink = (id, updatedSchLink) =>
+  API.put(`/scholarship/pdf/${id}`, updatedSchLink);
+export const deleteSchLink = (id) => API.delete(`/scholarship/pdf/${id}`);
