@@ -8,6 +8,7 @@ import categories from "./reducers/category";
 import forms from "./reducers/form";
 import events from "./reducers/events";
 import rules from "./reducers/rules";
+import links from "./reducers/utilities";
 
 const reducer = combineReducers({
   auth,
@@ -17,6 +18,7 @@ const reducer = combineReducers({
   forms,
   events,
   rules,
+  links,
 });
 
 const initialState = {};

@@ -23,18 +23,16 @@ export const createForm = (newForm) => API.post("/forms", newForm);
 export const editForm = (id, updatedForm) =>
   API.put(`/forms/${id}`, updatedForm);
 export const deleteForm = (id) => API.delete(`/forms/${id}`);
+
 //ABOUT ROUTES
 export const fetchAbout = () => API.get("/home/about");
 
 //Event Routes
-
 export const fetchEvent = () => API.get("/home/events");
-export const createEvent = (newEvent) =>
-  API.post("/home/events", newEvent);
+export const createEvent = (newEvent) => API.post("/home/events", newEvent);
 export const editEvent = (id, updatedEvent) =>
   API.put(`/home/events/${id}`, updatedEvent);
-export const deleteEvent = (id) =>
-  API.delete(`/home/events/${id}`);
+export const deleteEvent = (id) => API.delete(`/home/events/${id}`);
 export const fetchEventCategories = () => API.get("/home/events/categories");
 
 //SCHOLARSHIP ROUTES
@@ -46,3 +44,10 @@ export const createRule = (newForm) => API.post("/rules", newForm);
 export const editRule = (id, updatedForm) =>
   API.put(`/rules/${id}`, updatedForm);
 export const deleteRule = (id) => API.delete(`/rules/${id}`);
+
+//UTILITIES ROUTES
+export const fetchLinks = () => API.get("/utilities");
+export const createLink = (newRule) => API.post("/utilities", newRule);
+export const editLink = (id, updatedRule) =>
+  API.put(`/utilities/${id}`, updatedRule);
+export const deleteLink = (id) => API.delete(`/utilities/${id}`);
