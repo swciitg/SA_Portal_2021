@@ -19,7 +19,6 @@ const helmet = require("helmet");
 const PORT = 8080 || process.env.PORT;
 require("./config/passportAzure");
 
-const globalErrorHandler = require("./controllers/errorController");
 
 const scholarshipRoutes = require("./routes/scholarship/scholarship.routes");
 const announcementRoutes = require("./routes/home/announcement.routes");
@@ -27,6 +26,7 @@ const eventRoutes = require("./routes/home/events.routes");
 const galleryRoutes = require("./routes/home/gallery.routes");
 const rulesRoutes = require("./routes/rules/rules.routes");
 const sacRoutes = require("./routes/SAC/sac.routes");
+const courseRoutes = require("./routes/saCourses/saCourses.routes");
 const achievementRoutes = require("./routes/home/achievement.routes");
 const aboutRoutes = require("./routes/home/about.routes");
 const teamRoutes = require("./routes/team/team.routes");
@@ -65,9 +65,11 @@ app.use((req, res, next) => {
 });
 
 app.use(cookieParser());
-app.use(bodyParser.json({
-  limit : "50mb"
-}));
+app.use(
+  bodyParser.json({
+    limit: "50mb",
+  })
+);
 app.use(express.json());
 app.use(express.static(__dirname + "./uploads"));
 
@@ -103,12 +105,13 @@ app.use("/sa/api/home/rules", rulesRoutes);
 app.use("/sa/api/home/achievements", achievementRoutes);
 app.use("/sa/api/home/about", aboutRoutes);
 app.use("/sa/api/forms", formRoutes);
-app.use("/sa/api/team",teamRoutes);
+app.use("/sa/api/team", teamRoutes);
 app.use("/sa/api/utilities", utilityRoutes);
 app.use("/sa/api/rules", rulesRoutes);
 app.use("/sa/api/gallery", galleryRoutes);
 
 app.use("/sa/api/sac", sacRoutes);
+app.use("/sa/api/saCourse", courseRoutes);
 
 app.use("/sa/api", authRoutes);
 

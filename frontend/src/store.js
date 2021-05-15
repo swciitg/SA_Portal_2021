@@ -9,6 +9,8 @@ import forms from "./reducers/form";
 import events from "./reducers/events";
 import rules from "./reducers/rules";
 import links from "./reducers/utilities";
+import courses from "./reducers/courses";
+import schLinks from "./reducers/schLinks";
 
 const reducer = combineReducers({
   auth,
@@ -19,6 +21,8 @@ const reducer = combineReducers({
   events,
   rules,
   links,
+  courses,
+  schLinks,
 });
 
 const initialState = {};

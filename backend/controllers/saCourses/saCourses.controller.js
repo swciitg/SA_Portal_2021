@@ -1,9 +1,9 @@
-const Rule = require("../../models/rules/rule");
+const Course = require("../../models/saCourses/courses");
 const fs = require("fs");
 
-exports.getRules = async (req, res) => {
+exports.getCourses = async (req, res) => {
   try {
-    let query = Rule.find({}).sort("-updatedAt");
+    let query = Course.find({}).sort("-updatedAt");
     const doc = await query;
     res.status(200).json({
       status: "success",
@@ -18,15 +18,16 @@ exports.getRules = async (req, res) => {
   }
 };
 
-exports.postRule = async (req, res) => {
+exports.postCourse = async (req, res) => {
   try {
     const { link, name } = req.body;
     const path = req.file ? req.file.filename : link;
     const format = req.file ? "PDF" : "Link";
-    const newRule = new Rule({ path, format, name });
-    const rule = await newRule.save();
+    const newCourse = new Course({ path, format, name });
+    const course = await newCourse.save();
 
-    if (rule) return res.status(200).json({ status: "Success", data: rule });
+    if (course)
+      return res.status(200).json({ status: "Success", data: course });
     else res.status(424).json({ status: "Failed", message: "Invalid Data" });
   } catch (error) {
     console.log(error.message);
@@ -36,36 +37,42 @@ exports.postRule = async (req, res) => {
   }
 };
 
-exports.editRule = async (req, res) => {
+exports.editCourse = async (req, res) => {
   try {
     const { link, name } = req.body;
     const path = req.file ? req.file.filename : link;
     const format = req.file ? "PDF" : "Link";
-    const data = { path, format, name };
-    const { id } = req.params;
+    let data;
+    if (!req.file && !link) {
+      data = { name };
+    } else {
+      data = { path, format, name };
+      const id = req.params.id;
 
-    const oldRule = await Rule.findById(id);
-    if (oldRule.path.indexOf("https://") == -1) {
-      fs.unlinkSync(`${__dirname}/../../uploads/rules/${oldRule.path}`);
+      const oldCourse = await Course.findById(id);
+      if (oldCourse.path.indexOf("https://") == -1) {
+        fs.unlinkSync(`${__dirname}/../../uploads/saCourses/${oldCourse.path}`);
+      }
     }
 
-    const rule = await Rule.findByIdAndUpdate(id, data);
-    if (rule) return res.status(200).json({ status: "Success", data: rule });
+    const course = await Course.findByIdAndUpdate(req.params.id, data);
+    if (course)
+      return res.status(200).json({ status: "Success", data: course });
     else res.status(424).json({ status: "Failed", message: "Invalid Data" });
   } catch (error) {
-    console.log(error.message);
+    console.log("course controller edit", error.message);
     return res
       .status(424)
       .json({ status: "Failed", message: "Request failed" });
   }
 };
 
-exports.getOneRule = async (req, res) => {
+exports.getOneCourse = async (req, res) => {
   try {
     const { id } = req.params;
-    const rule = await Rule.findById(id);
-    if (rule.path.indexOf("https://") == -1) {
-      const filePath = `${__dirname}/../../uploads/rules/` + rule.path;
+    const course = await Course.findById(id);
+    if (course.path.indexOf("https://") == -1) {
+      const filePath = `${__dirname}/../../uploads/saCourses/` + course.path;
       fs.readFile(filePath, (err, data) => {
         res.contentType("application/pdf");
         return res.send(data);
@@ -81,16 +88,16 @@ exports.getOneRule = async (req, res) => {
   }
 };
 
-exports.deleteRule = async (req, res) => {
+exports.deleteCourse = async (req, res) => {
   try {
     const { id } = req.params;
-    const rule = await Rule.findById(id);
+    const course = await Course.findById(id);
 
-    if (rule.path.indexOf("https://") == -1) {
-      fs.unlinkSync(`${__dirname}/../../uploads/rules/${rule.path}`);
+    if (course.path.indexOf("https://") == -1) {
+      fs.unlinkSync(`${__dirname}/../../uploads/saCourses/${course.path}`);
       console.log("successfully deleted file");
     }
-    await Rule.findByIdAndRemove(id);
+    await Course.findByIdAndRemove(id);
     return res.status(200).json({ status: "Success" });
   } catch (err) {
     // handle the error

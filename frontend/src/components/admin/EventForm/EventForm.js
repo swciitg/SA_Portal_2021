@@ -29,7 +29,6 @@ const [category, setCategory] = useState(
 const event_id = formData && formData._id;
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
   useEffect(() => {
     dispatch(listEventCategories());
@@ -37,30 +36,23 @@ const event_id = formData && formData._id;
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    // const formData = new FormData();
-    // formData.append("eventDate", eventDate);
-    // formData.append("title", title);
-    // formData.append("category", category);
-    // formData.append("imgPath", imgPath);
+    const formData = new FormData();
+    formData.append("eventDate", eventDate);
+    formData.append("title", title);
+    formData.append("category", category);
+    formData.append("image", imgPath);
 
-    // console.log(formData);
+    console.log(formData);
 
     if (type === "Add")
     // console.log(formData);
       dispatch(
-        createEvent({ title, eventDate, imgPath, category })
+        createEvent(formData)
       );
     else
-      dispatch(
-        editEvent(event_id, {
-            category,
-            title,
-            eventDate,
-            imgPath,
-        })
-      );
+      dispatch(editEvent(event_id, formData));
 
-    history.push(`${BASEURL}/admin/events`);
+      window.location.replace(`${BASEURL}/admin/events`);
   };
 
   return (
@@ -91,21 +83,7 @@ const event_id = formData && formData._id;
                   required
                 />
               </div>
-              <div className="mt-2">
-                <label className="block text-sm text-gray-600" htmlFor="title">
-                  Event Image File Link
-                </label>
-                <input
-                  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="imgPath"
-                  name="imgPath"
-                  type="text"
-                  value={imgPath}
-                  onChange={(e) => setimgPath(e.target.value)}
-                  placeholder="Image Path"
-                  required
-                />
-              </div>
+              
               <div className="mt-2">
               <label className="block text-sm text-gray-600" htmlFor="eventDate">
                   Event Date
@@ -113,24 +91,23 @@ const event_id = formData && formData._id;
                 <input
                 className="px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   type="Date"
-                  name="imgPath"
+                  name="eventDate"
                   onChange={(e) => seteventDate(e.target.value)}
                   placeholder="Set Image Date"
                 />
               </div>
 
               
-              {/* <div className="mt-2">
-              <label className="block text-sm text-gray-600" htmlFor="eventDate">
+              <div className="mt-2">
+              <label className="block text-sm text-gray-600" htmlFor="imgPath">
                   Upload Event Image
                 </label>
                 <input
                   type="file"
-                  name="imgPath"
+                  name="image"
                   onChange={(e) => setimgPath(e.target.files[0])}
-                  placeholder="Image"
                 />
-              </div> */}
+              </div>
 
               <div className="mt-2">
             <label className="block text-sm text-gray-600" htmlFor="category">

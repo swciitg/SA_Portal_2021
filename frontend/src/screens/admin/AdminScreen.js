@@ -13,16 +13,21 @@ import EditFormScreen from "./form/EditFormScreen";
 import ScholarshipEditorScreen from "./scholarshipEditor/ScholarshipEditorScreen";
 import AddScholarshipEditorScreen from "./scholarshipEditor/AddScholarshipEditorScreen";
 
-
+import ScholarshipLinksScreen from "./scholarshipLinks/ScholarshipLinksScreen";
+import AddSchlinksScreen from "./scholarshipLinks/AddSchlinksScreen";
+import EditSchlinksScreen from "./scholarshipLinks/EditSchlinksScreen";
 import EventScreen from "./event/EventScreen";
 import AddEventScreen from "./event/AddEventScreen";
 import EditEventScreen from "./event/EditEventScreen";
-
 import AboutScreen from "./about/AboutScreen";
 import AddAboutScreen from "./about/AddAboutScreen";
 import RulesScreen from "./rules/RulesScreen";
 import AddRulesScreen from "./rules/AddRulesScreen";
 import EditRulesScreen from "./rules/EditRulesScreen";
+import CoursesScreen from "./courses/CoursesScreen";
+import AddCoursesScreen from "./courses/AddCoursesScreen";
+import EditCoursesScreen from "./courses/EditCoursesScreen";
+
 const AdminScreen = () => {
   return (
     <div className="bg-gray-100 font-family-karla flex">
@@ -113,6 +118,37 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/rules/:rule_id`}
             component={EditRulesScreen}
+          />
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/courses`}
+            component={CoursesScreen}
+          />
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/courses/:rule_id`}
+            component={EditCoursesScreen}
+          />
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/courses/add`}
+            component={AddCoursesScreen}
+          />
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/scholarshipLinks`}
+            component={ScholarshipLinksScreen}
+          />
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/scholarshipLinks/add`}
+            component={AddSchlinksScreen}
+          />
+
+          <ProtectedRoutes
+            exact
+            path={`${BASEURL}/admin/scholarshipLinks/:scholarshipLinks_id`}
+            component={EditSchlinksScreen}
           />
         </Switch>
       </Sidebar>

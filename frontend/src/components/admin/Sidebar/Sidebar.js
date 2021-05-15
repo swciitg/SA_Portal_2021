@@ -53,8 +53,17 @@ const Sidebar = ({ children }) => {
           >
             Scholarships{`(R&O)`}
           </Link>
+          <Link
+            to={`${BASEURL}/admin/scholarshipLinks`}
+            className={linkSidebar}
+          >
+            Scholarship Links{`(PDFs)`}
+          </Link>
           <Link to={`${BASEURL}/admin/rules`} className={linkSidebar}>
             Rules
+          </Link>
+          <Link to={`${BASEURL}/admin/courses`} className={linkSidebar}>
+            SA Courses
           </Link>
         </nav>
       </aside>
@@ -104,6 +113,24 @@ const Sidebar = ({ children }) => {
             </Link>
             <Link to={`${BASEURL}/admin/events`} className={linkDropdown}>
               Events
+            </Link>
+            <Link to={`${BASEURL}/admin/courses`} className={linkDropdown}>
+              SA Courses
+            </Link>
+            <Link
+              to={`${BASEURL}/admin/scholarshipEditor`}
+              className={linkDropdown}
+            >
+              Scholarships{`(R&O)`}
+            </Link>
+            <Link
+              to={`${BASEURL}/admin/scholarshipLinks`}
+              className={linkDropdown}
+            >
+              Scholarship Links{`(PDFs)`}
+            </Link>
+            <Link to={`${BASEURL}/admin/rules`} className={linkDropdown}>
+              Rules
             </Link>
             {authBtn}
           </nav>
