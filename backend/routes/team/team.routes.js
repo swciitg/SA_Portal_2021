@@ -11,17 +11,17 @@ const storage = multer.diskStorage({
   },
 });
 
-const TeamController = require("../../controllers/team/team.controller");
+const teamController = require("../../controllers/team/team.controller");
 const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
 const upload = multer({ storage: storage });
 
-router.get("/", TeamController.getAllMembers);
-router.get("/office/:office", TeamController.getOfficeMembers);
-router.get("/team/:team",TeamController.getTeamMembers);
-router.post("/", upload.single("image") , TeamController.postMember);
+router.get("/", teamController.getAllMembers);
+router.get("/office/:office", teamController.getOfficeMembers);
+router.get("/team/:team",teamController.getTeamMembers);
+router.post("/",isLoggedIn, isAdmin, upload.single("image") , teamController.postMember);
 
-router.put("/:id", upload.single("image") , TeamController.editMember);
-router.delete("/:id", TeamController.deleteMember);
+router.put("/:id",isLoggedIn, isAdmin, upload.single("image") , teamController.editMember);
+router.delete("/:id",isLoggedIn, isAdmin, teamController.deleteMember);
 
 module.exports = router;
