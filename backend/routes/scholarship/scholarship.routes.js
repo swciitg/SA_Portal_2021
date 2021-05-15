@@ -19,13 +19,13 @@ router.get("/", ScholarshipController.getScholarshipData);
 router.get("/editor", ScholarshipController.getScholarshipEditorData);
 router.get("/pdf" , ScholarshipController.getScholarshipPdfData);
 
-router.post("/editor",ScholarshipController.postScholarshipEditor);
-router.post("/pdf", upload.single("path"), ScholarshipController.postScholarshipPdf);
+router.post("/editor",isLoggedIn, isAdmin,ScholarshipController.postScholarshipEditor);
+router.post("/pdf",isLoggedIn, isAdmin, upload.single("path"), ScholarshipController.postScholarshipPdf);
 
 
-router.put("/pdf/:id", upload.single("path"), ScholarshipController.editScholarshipPdf);
+router.put("/pdf/:id",isLoggedIn, isAdmin, upload.single("path"), ScholarshipController.editScholarshipPdf);
 
-router.delete("/pdf/:id", ScholarshipController.deleteScholarshipPdf);
+router.delete("/pdf/:id",isLoggedIn, isAdmin, ScholarshipController.deleteScholarshipPdf);
 
 const compare = (a, b) => {
   return b.creation - a.creation;
