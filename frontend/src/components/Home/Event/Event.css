@@ -5,5 +5,5 @@
 /* Hide scrollbar for IE, Edge and Firefox */
 .events_container {
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
 }

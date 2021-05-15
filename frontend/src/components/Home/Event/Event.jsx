@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect, useState} from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { listEvent } from "../../../actions/event";
+import { listEventCategories } from "../../../actions/eventcategory";
 import EventCard from "./EventCard";
-import "./Event.css";
+import { eventallCards } from "./eventutil";
+// import "./Event.css";
 
-function Event() {
+const  Event = () => {
+
+  const events = useSelector((state) => state.events);
+    const categories = useSelector((state) => state.categories);
+    const [allCategory, setACategory] = useState("all");
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(listEvent());
+        dispatch(listEventCategories());
+    }, [dispatch]);
+
   return (
     <div
       id="home_events"
@@ -10,11 +25,11 @@ function Event() {
       style={{ backgroundColor: "#1E2532" }}
     >
       <div
-        className="ml-5 sm:ml-32 mr-24 pt-24 mb-24 flex justify-between"
+        className=" sm:ml-32 mr-24 pt-10 mb-12 flex justify-between"
         style={{ width: "65%" }}
       >
-        <div className="text-4xl text-semibold">Events at IIT Guwahati</div>
-        <div>
+        <div className="text-lg md:text-4xl text-semibold">Events at IIT Guwahati</div>
+        <div >
           <button
             className="px-6 py-1.5 font-medium"
             style={{ border: "1px solid #6A96EC", borderRadius: "4px" }}
@@ -24,19 +39,11 @@ function Event() {
         </div>
       </div>
       <div
-        className="events_container ml-5 sm:ml-32 flex gap-4 pb-16"
-        style={{ overflowX: "scroll" }}
+        className="events_container overflow-x-auto ml-5 sm:ml-32 flex gap-4 pb-4"
       >
-        <div className="">
-          <EventCard />
-        </div>
-        <div className="">
-          <EventCard />
-        </div>
-
-        <div className="">
-          <EventCard />
-        </div>
+        
+        {eventallCards(events, allCategory)}
+        
       </div>
     </div>
   );

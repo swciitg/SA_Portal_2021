@@ -51,3 +51,11 @@ export const createCourse = (newForm) => API.post("/saCourse", newForm);
 export const editCourse = (id, updatedForm) =>
   API.put(`/saCourse/${id}`, updatedForm);
 export const deleteCourse = (id) => API.delete(`/saCourse/${id}`);
+
+//SCHOLARSHIP LINK ROUTES
+export const fetchSchLink = () => API.get("/scholarship/pdf");
+export const createSchLink = (newSchLink) =>
+  API.post("/scholarship/pdf", newSchLink);
+export const editSchLink = (id, updatedSchLink) =>
+  API.put(`/scholarship/pdf/${id}`, updatedSchLink);
+export const deleteSchLink = (id) => API.delete(`/scholarship/pdf/${id}`);

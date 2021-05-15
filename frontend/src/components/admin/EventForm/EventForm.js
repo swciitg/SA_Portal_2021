@@ -20,7 +20,7 @@ const [eventDate, seteventDate] = useState(
     formData && formData.eventDate ? formData.eventDate : ""
 );
 const [imgPath, setimgPath] = useState(
-    formData && formData.imgPath ? formData.image : ""
+    formData && formData.imgPath ? formData.imgPath : ""
 );
 const [category, setCategory] = useState(
     formData && formData.category ? formData.category : ""
@@ -29,7 +29,6 @@ const [category, setCategory] = useState(
 const event_id = formData && formData._id;
 
   const dispatch = useDispatch();
-  const history = useHistory();
 
   useEffect(() => {
     dispatch(listEventCategories());
@@ -41,26 +40,19 @@ const event_id = formData && formData._id;
     formData.append("eventDate", eventDate);
     formData.append("title", title);
     formData.append("category", category);
-    formData.append("imgPath", imgPath);
+    formData.append("image", imgPath);
 
     console.log(formData);
 
     if (type === "Add")
     // console.log(formData);
       dispatch(
-        createEvent({ title, eventDate, imgPath, category })
+        createEvent(formData)
       );
     else
-      dispatch(
-        editEvent(event_id, {
-            category,
-            title,
-            eventDate,
-            imgPath,
-        })
-      );
+      dispatch(editEvent(event_id, formData));
 
-    history.push(`${BASEURL}/admin/events`);
+      window.location.replace(`${BASEURL}/admin/events`);
   };
 
   return (
@@ -114,7 +106,6 @@ const event_id = formData && formData._id;
                   type="file"
                   name="image"
                   onChange={(e) => setimgPath(e.target.files[0])}
-                  placeholder="Image"
                 />
               </div>
 
