@@ -5,7 +5,7 @@ const aboutController = require("../../controllers/home/about.controller");
 const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
 router
-  .get("/",isLoggedIn, isAdmin,aboutController.getAbout)
+  .get("/",aboutController.getAbout)
   .post("/",isLoggedIn, isAdmin,aboutController.postAbout);
 
 module.exports = router;
