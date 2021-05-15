@@ -27,6 +27,11 @@ export const RULE_DELETE_REQUEST = "RULE_DELETE_REQUEST";
 export const RULE_CREATE_REQUEST = "RULE_CREATE_REQUEST";
 export const RULE_EDIT_REQUEST = "RULE_EDIT_REQUEST";
 
+export const COURSE_LIST_REQUEST = "COURSE_LIST_REQUEST";
+export const COURSE_DELETE_REQUEST = "COURSE_DELETE_REQUEST";
+export const COURSE_CREATE_REQUEST = "COURSE_CREATE_REQUEST";
+export const COURSE_EDIT_REQUEST = "COURSE_EDIT_REQUEST";
+
 export const BASEAPI = "http://localhost:8080/sa/api";
 
 export const LOGIN_URL = `${BASEAPI}/auth/azureadoauth2`;
