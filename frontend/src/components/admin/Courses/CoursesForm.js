@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 //import { useHistory } from "react-router-dom";
-import { createForm, editForm } from "../../../actions/forms";
-
+import { createCourse, editCourse } from "../../../actions/courses";
 import { BASEURL } from "../../../constants";
-const Form = ({ type, formData }) => {
-  const [formNo, setFormNo] = useState(
-    formData && formData.formNo ? formData.formNo : ""
-  );
 
-  const [subject, setSubject] = useState(
-    formData && formData.subject ? formData.subject : ""
+const CoursesForm = ({ type, formData }) => {
+  const [name, setName] = useState(
+    formData && formData.name ? formData.name : ""
   );
 
   const [link, setLink] = useState(
@@ -30,27 +26,26 @@ const Form = ({ type, formData }) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("path", file);
-    formData.append("formNo", formNo);
-    formData.append("subject", subject);
+    formData.append("name", name);
     formData.append("link", link);
 
-    console.log(formData);
+    //console.log(formData, form_id);
 
-    if (type === "Add") dispatch(createForm(formData));
-    else dispatch(editForm(form_id, formData));
+    if (type === "Add") dispatch(createCourse(formData));
+    else dispatch(editCourse(form_id, formData));
 
     //history.push(`${BASEURL}/admin/forms`);
-    window.location.replace(`${BASEURL}/admin/forms`);
+    window.location.replace(`${BASEURL}/admin/courses`);
   };
 
   return (
     <>
-      <h1 class="text-3xl text-black pb-6">{type} Forms</h1>
+      <h1 class="text-3xl text-black pb-6">{type} SA Courses</h1>
 
       <div class="flex flex-wrap justify-center">
         <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
           <p class="text-xl pb-6 flex items-center">
-            <i class="fas fa-list mr-3"></i> {type} Forms
+            <i class="fas fa-list mr-3"></i> {type} SA Courses
           </p>
           <div
             class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3"
@@ -87,45 +82,17 @@ const Form = ({ type, formData }) => {
             >
               <div className="mt-2">
                 <label className="block text-sm text-gray-600" htmlFor="formNo">
-                  Form Number
+                  Courses Name
                 </label>
                 <input
                   className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   id="formNo"
                   name="formNo"
                   type="text"
-                  value={formNo}
-                  onChange={(e) => setFormNo(e.target.value)}
-                  placeholder="formNo"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Name"
                   required
-                />
-              </div>
-
-              <div className="mt-2">
-                <label
-                  className="block text-sm text-gray-600"
-                  htmlFor="subject"
-                >
-                  Subject
-                </label>
-                <input
-                  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                  placeholder="Subject"
-                  required
-                />
-              </div>
-
-              <div className="mt-2">
-                <input
-                  type="file"
-                  name="form"
-                  onChange={(e) => setFile(e.target.files[0])}
-                  placeholder="Subject"
                 />
               </div>
 
@@ -141,6 +108,15 @@ const Form = ({ type, formData }) => {
                   value={link}
                   onChange={(e) => setLink(e.target.value)}
                   placeholder="Link"
+                />
+              </div>
+
+              <div className="mt-2">
+                <input
+                  type="file"
+                  name="course"
+                  onChange={(e) => setFile(e.target.files[0])}
+                  placeholder="file"
                 />
               </div>
 
@@ -160,4 +136,4 @@ const Form = ({ type, formData }) => {
   );
 };
 
-export default Form;
+export default CoursesForm;

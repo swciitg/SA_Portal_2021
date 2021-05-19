@@ -19,7 +19,6 @@ const helmet = require("helmet");
 const PORT = 8080 || process.env.PORT;
 require("./config/passportAzure");
 
-const globalErrorHandler = require("./controllers/errorController");
 
 const scholarshipRoutes = require("./routes/scholarship/scholarship.routes");
 const announcementRoutes = require("./routes/home/announcement.routes");

@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import {
-    createEvent,
-    editEvent,
-  } from "../../../actions/event";
+import { createEvent, editEvent } from "../../../actions/event";
 import { listEventCategories } from "../../../actions/eventcategory";
 import { BASEURL } from "../../../constants";
 
@@ -13,19 +10,19 @@ const categories = useSelector((state) => state.categories);
 console.log(categories);
 const [title, setTitle] = useState(
     formData && formData.title ? formData.title : ""
-);
+  );
 
-const [eventDate, seteventDate] = useState(
+  const [eventDate, seteventDate] = useState(
     formData && formData.eventDate ? formData.eventDate : ""
-);
-const [imgPath, setimgPath] = useState(
+  );
+  const [imgPath, setimgPath] = useState(
     formData && formData.imgPath ? formData.imgPath : ""
-);
-const [category, setCategory] = useState(
+  );
+  const [category, setCategory] = useState(
     formData && formData.category ? formData.category : ""
-);
+  );
 
-const event_id = formData && formData._id;
+  const event_id = formData && formData._id;
 
   const dispatch = useDispatch();
 
@@ -44,24 +41,22 @@ const event_id = formData && formData._id;
     console.log(formData);
 
     if (type === "Add")
-    // console.log(formData);
-      dispatch(
-        createEvent(formData)
-      );
-    else
-      dispatch(editEvent(event_id, formData));
+      // console.log(formData);
+      dispatch(createEvent(formData));
+    else dispatch(editEvent(event_id, formData));
 
-      window.location.replace(`${BASEURL}/admin/events`);
+    window.location.replace(`${BASEURL}/admin/events`);
   };
 
   return (
     <>
+      <h1 class="text-3xl text-black pb-6">{type} Event</h1>
       <div class="flex flex-wrap justify-center">
         <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
           <p class="text-xl pb-6 flex items-center">
             <i class="fas fa-list mr-3"></i> {type} Events
           </p>
-          
+
           <div className="leading-loose">
             <form
               className="p-10 bg-white rounded shadow-xl"
@@ -82,13 +77,16 @@ const event_id = formData && formData._id;
                   required
                 />
               </div>
-              
+
               <div className="mt-2">
-              <label className="block text-sm text-gray-600" htmlFor="eventDate">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="eventDate"
+                >
                   Event Date
                 </label>
                 <input
-                className="px-5 py-1 text-gray-700 bg-gray-200 rounded"
+                  className="px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   type="Date"
                   name="eventDate"
                   onChange={(e) => seteventDate(e.target.value)}
@@ -97,9 +95,11 @@ const event_id = formData && formData._id;
                 />
               </div>
 
-              
               <div className="mt-2">
-              <label className="block text-sm text-gray-600" htmlFor="imgPath">
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="imgPath"
+                >
                   Upload Event Image
                 </label>
                 <input

@@ -17,13 +17,13 @@ const upload = multer({ storage: storage });
 
 router.get("/", galleryController.getImages);
 
-router.post("/", upload.single("path"), galleryController.postImage);
+router.post("/",isLoggedIn, isAdmin, upload.single("path"), galleryController.postImage);
 
-router.get("/:id", galleryController.getOneImage); //only for rules with pdfs
+router.get("/:id", galleryController.getOneImage); 
 
-router.put("/:id", upload.single("path"), galleryController.editImage);
+router.put("/:id",isLoggedIn, isAdmin, upload.single("path"), galleryController.editImage);
 
-router.delete("/:id", galleryController.deleteImage);
+router.delete("/:id",isLoggedIn, isAdmin, galleryController.deleteImage);
 
 const compare = (a, b) => {
   return b.creation - a.creation;

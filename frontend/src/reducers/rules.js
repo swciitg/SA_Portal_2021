@@ -11,7 +11,7 @@ const rules = (rules = [], action) => {
     case RULE_CREATE_REQUEST:
       return [...rules, action.payload];
     case RULE_DELETE_REQUEST:
-      return rules.filter((form) => form._id !== action.payload);
+      return rules.filter((rule) => rule._id !== action.payload);
     default:
       return rules;
   }

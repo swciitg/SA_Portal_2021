@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router({ mergeParams: true });
 const aboutController = require("../../controllers/home/about.controller");
 
+const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
-router.route("/")
-  .get(aboutController.getAbout)
-  .post(aboutController.postAbout);
+router
+  .get("/",aboutController.getAbout)
+  .post("/",isLoggedIn, isAdmin,aboutController.postAbout);
 
 module.exports = router;
