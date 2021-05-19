@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BASEURL } from "../../../constants";
 import { useDispatch, useSelector } from "react-redux";
+import { listLinks, deleteLink } from "../../../actions/utilities";
 
 const UtilitiesScreen = () => {
+  const links = useSelector((state) => state.links);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(listLinks());
+  }, [dispatch]);
+
   return (
     <>
       <h1 className="text-3xl text-black pb-6">Links</h1>
@@ -11,7 +19,7 @@ const UtilitiesScreen = () => {
       <div className="mt-6">
         <Link
           className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-          to={`${BASEURL}/admin/links/add`}
+          to={`${BASEURL}/admin/utilities/add`}
         >
           Add Links
         </Link>
@@ -38,34 +46,43 @@ const UtilitiesScreen = () => {
             </thead>
 
             <tbody className="text-gray-700">
-              <tr>
-                <td className="text-left py-3 px-4"> link.name </td>
-                <td className="text-left py-3 px-4">
-                  <a
-                    className="hover:text-blue-500"
-                    href="/hab/admin/links/<%=link.id%>/sublinks"
-                  >
-                    View
-                  </a>
-                </td>
-                <td className="text-left py-3 px-4">
-                  <a
-                    className="hover:text-blue-500"
-                    href="/hab/admin/links/<%=link.id%>"
-                  >
-                    Edit
-                  </a>
-                </td>
-                <td className="text-left py-3 px-4">
-                  <form
-                    className="mx-2"
-                    action="/hab/admin/links/<%=link.id%>?_method=DELETE"
-                    method="POST"
-                  >
-                    <button className="hover:text-red-500">Delete</button>
-                  </form>
-                </td>
-              </tr>
+              {links.map(({ _id, name, priority_number }) => {
+                return (
+                  <tr key={_id}>
+                    <td className="text-left py-3 px-4"> {name} </td>
+                    <td className="text-left py-3 px-4">
+                      <Link
+                        className="hover:text-blue-500"
+                        to={`${BASEURL}/admin/utilities/${_id}`}
+                      >
+                        View
+                      </Link>
+                    </td>
+                    <td className="text-left py-3 px-4">
+                      <Link
+                        to={{
+                          pathname: `${BASEURL}/admin/utilities/edit/${_id}`,
+                          formData: {
+                            name,
+                            priority_number,
+                            _id,
+                          },
+                        }}
+                      >
+                        <button className="hover:text-blue-500">Edit</button>
+                      </Link>
+                    </td>
+                    <td className="text-left py-3 px-4">
+                      <button
+                        className="hover:text-red-500"
+                        onClick={() => dispatch(deleteLink(_id))}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

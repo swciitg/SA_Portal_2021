@@ -10,7 +10,7 @@ const RulesScreen = () => {
 
   useEffect(() => {
     dispatch(listRules());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="container w-full mx-auto p-6 sm:py-12 sm:px-36">

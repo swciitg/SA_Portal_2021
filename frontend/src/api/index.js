@@ -51,6 +51,15 @@ export const createLink = (newRule) => API.post("/utilities", newRule);
 export const editLink = (id, updatedRule) =>
   API.put(`/utilities/${id}`, updatedRule);
 export const deleteLink = (id) => API.delete(`/utilities/${id}`);
+
+export const fetchSublinks = (id) => API.get(`/utilities/${id}/sublinks`);
+export const createSublink = (id, newSublink) =>
+  API.post(`/utilities/${id}/sublinks`, newSublink);
+export const editSublink = (id, sublink_id, newSublink) =>
+  API.put(`/utilities/${id}/sublinks/${sublink_id}`, newSublink);
+export const deleteSublink = (id, sublink_id) =>
+  API.delete(`/utilities/${id}/sublinks/${sublink_id}`);
+
 //COURSES ROUTES
 export const fetchCourse = () => API.get("/saCourse");
 export const createCourse = (newForm) => API.post("/saCourse", newForm);

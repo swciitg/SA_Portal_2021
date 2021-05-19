@@ -2,13 +2,13 @@ const Link = require("../../models/utilities/link");
 
 exports.getAllLinks = async (req, res) => {
   try {
-    const links = await Link.find({}).sort("priority");
+    const links = await Link.find({}).sort("priority_number");
     res.status(200).json({
-      status: 'success',
-      data:{
-          data: links
+      status: "success",
+      data: {
+        data: links,
       },
-  });
+    });
   } catch (err) {
     console.log(err.message);
     return res
@@ -16,7 +16,6 @@ exports.getAllLinks = async (req, res) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
-
 
 exports.postLink = async (req, res) => {
   try {
@@ -26,15 +25,15 @@ exports.postLink = async (req, res) => {
     const link = await newLink.save();
     if (!link) {
       return res
-      .status(424)
-      .json({ status: "Failed", message: "Invalid data" });
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
     }
     res.status(200).json({
-      status: 'success',
-      data:{
-          data: link
+      status: "success",
+      data: {
+        data: link,
       },
-  });
+    });
   } catch (error) {
     console.log(error.message);
     return res
@@ -43,7 +42,6 @@ exports.postLink = async (req, res) => {
   }
 };
 
-
 exports.editLink = async (req, res) => {
   try {
     const { name, priority_number } = req.body;
@@ -51,17 +49,17 @@ exports.editLink = async (req, res) => {
     const link = await Link.findByIdAndUpdate(req.params.link_id, update);
     if (!link) {
       return res
-      .status(424)
-      .json({ status: "Failed", message: "Invalid data" });
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
     }
     const link_id = req.params.link_id;
     const newLink = await Link.findById(link_id);
     res.status(200).json({
-      status: 'success',
-      data:{
-          data: newLink
+      status: "success",
+      data: {
+        data: newLink,
       },
-  });
+    });
   } catch (error) {
     console.log(error.message);
     return res
@@ -72,9 +70,12 @@ exports.editLink = async (req, res) => {
 
 exports.deleteLink = async (req, res) => {
   try {
-    const deletedLink=await Link.findByIdAndRemove(req.params.link_id);
-    if(deletedLink) return res.status(200).json({status:"Success", message:"Successfully deleted"});
-        else res.status(424).json({status:"Failed", message:"Invalid Data"});
+    const deletedLink = await Link.findByIdAndRemove(req.params.link_id);
+    if (deletedLink)
+      return res
+        .status(200)
+        .json({ status: "Success", message: "Successfully deleted" });
+    else res.status(424).json({ status: "Failed", message: "Invalid Data" });
   } catch (error) {
     console.log(error.message);
     return res
@@ -89,18 +90,18 @@ exports.getAllSublinks = async (req, res) => {
     const link = await Link.findById(link_id);
     if (!link) {
       return res
-      .status(424)
-      .json({ status: "Failed", message: "Invalid data" });
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
     }
     const sublinks = link.sublinks;
     sublinks.sort(compare);
     res.status(200).json({
-      status: 'success',
-      data:{
-          link,
-          sublinks
+      status: "success",
+      data: {
+        link,
+        sublinks,
       },
-  });
+    });
   } catch (error) {
     console.log(error.message);
     return res
@@ -109,7 +110,6 @@ exports.getAllSublinks = async (req, res) => {
   }
 };
 
-
 exports.postSublink = async (req, res) => {
   try {
     const link_id = req.params.link_id;
@@ -117,8 +117,8 @@ exports.postSublink = async (req, res) => {
     const link = await Link.findById(link_id);
     if (!link) {
       return res
-      .status(424)
-      .json({ status: "Failed", message: "Invalid data" });
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
     }
     const sublink = { name, url, priority_number };
     let newSublink = link.sublinks.create(sublink);
@@ -128,15 +128,15 @@ exports.postSublink = async (req, res) => {
 
     if (!updatedLink) {
       return res
-      .status(424)
-      .json({ status: "Failed", message: "Invalid data" });
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
     }
     res.status(200).json({
       status: "success",
-      data:{
-          updatedLink
+      data: {
+        updatedLink,
       },
-  });
+    });
   } catch (error) {
     console.log(error.message);
     return res
@@ -144,7 +144,6 @@ exports.postSublink = async (req, res) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
-
 
 exports.editSublink = async (req, res) => {
   try {
@@ -156,8 +155,8 @@ exports.editSublink = async (req, res) => {
 
     if (!link) {
       return res
-      .status(424)
-      .json({ status: "Failed", message: "Invalid data" });
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
     }
 
     let sublinks = link.sublinks;
@@ -173,7 +172,7 @@ exports.editSublink = async (req, res) => {
     await link.save();
     res.status(200).json({
       status: "success",
-  });
+    });
   } catch (error) {
     console.log(error.message);
     return res
@@ -190,8 +189,8 @@ exports.deleteSublink = async (req, res) => {
     const link = await Link.findById(link_id);
     if (!link) {
       return res
-      .status(424)
-      .json({ status: "Failed", message: "Invalid data" });
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
     }
     let sublinks = link.sublinks;
     sublinks = sublinks.filter((sublink) => sublink.id != sublink_id);
@@ -199,8 +198,8 @@ exports.deleteSublink = async (req, res) => {
     await link.save();
     res.status(200).json({
       status: "success",
-      message: "successfully deleted"
-  });
+      message: "successfully deleted",
+    });
   } catch (error) {
     console.log(error.message);
     return res

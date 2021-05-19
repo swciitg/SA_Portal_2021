@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Table from "../../../components/Home/Form/Form";
 import "./FormScreen.css";
 import { listForms } from "../../../actions/forms";
 import { BASEAPI } from "../../../constants";

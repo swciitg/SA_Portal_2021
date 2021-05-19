@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import { createForm, editForm } from "../../../actions/forms";
 
 import { BASEURL } from "../../../constants";
@@ -24,7 +24,7 @@ const Form = ({ type, formData }) => {
   const form_id = formData && formData._id;
 
   const dispatch = useDispatch();
-  const history = useHistory();
+  //const history = useHistory();
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
