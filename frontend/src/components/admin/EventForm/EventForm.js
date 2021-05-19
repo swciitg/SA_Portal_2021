@@ -10,7 +10,6 @@ import { BASEURL } from "../../../constants";
 
 const EventForm = ({ type, formData }) => {
 const categories = useSelector((state) => state.categories);
-//const categories = [{ name: "c" }, { name: "b" }, { name: "a" }];
 console.log(categories);
 const [title, setTitle] = useState(
     formData && formData.title ? formData.title : ""
@@ -94,6 +93,7 @@ const event_id = formData && formData._id;
                   name="eventDate"
                   onChange={(e) => seteventDate(e.target.value)}
                   placeholder="Set Image Date"
+                  required
                 />
               </div>
 
@@ -106,6 +106,7 @@ const event_id = formData && formData._id;
                   type="file"
                   name="image"
                   onChange={(e) => setimgPath(e.target.files[0])}
+                  
                 />
               </div>
 
@@ -125,7 +126,7 @@ const event_id = formData && formData._id;
             />
             <datalist id="categories">
               {categories.map((category, key) => {
-                return <option key={key} value={category.name} />;
+                return <option key={key} value={category.category} />;
               })}
             </datalist>
           </div>

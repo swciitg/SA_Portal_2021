@@ -3,7 +3,7 @@ import EventCard from "./EventCard";
 export const eventallCards = (events, allCategory) => {
     if (events && events.length !== 0) {
       if (allCategory === "all") {
-        return [...events].splice(0, 5).map((event, i) => {
+        return [...events].map((event, i) => {
           const {
             title,
             _id,
@@ -26,6 +26,7 @@ export const eventallCards = (events, allCategory) => {
         const filteredEve = [...events].filter((a) => {
           return a.category.toLowerCase() === allCategory.toLowerCase();
         });
+        console.log("filtered", filteredEve);
         return filteredEve.length !== 0 ? (
             filteredEve.map((event, i) => {
             const {
@@ -46,7 +47,7 @@ export const eventallCards = (events, allCategory) => {
             );
           })
         ) : (
-          <span className="text-base text-gray-400">
+          <span className="text-base text-white">
             No Events in the{" "}
             <span className="font-black font-semibold">{`${allCategory}`}</span>{" "}
             category

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import moment from 'moment';
 import {
   listEvent,
   deleteEvent,
@@ -71,7 +72,7 @@ const EventScreen = () => {
                   return (
                     <tr key={i}>
                       
-                      <td className="w-1/3 text-left py-3 px-4">{eventDate}</td>
+                      <td className="w-1/3 text-left py-3 px-4">{moment(eventDate).format('DD MMM YYYY')}</td>
                       <td className="text-left py-3 px-4">{title}</td>
                       <td className="text-left py-3 px-4">{category}</td>
                       <td className="text-left py-3 px-4">

@@ -52,7 +52,7 @@ exports.createEvent = async (req, res) => {
 
 exports.getAllEvents = async (req, res) => {
   try {
-    const events = await Event.find({}).sort("-eventDate");
+    const events = await Event.find({}).sort("eventDate");
     /**
      *All console logs are for api testing
      */
