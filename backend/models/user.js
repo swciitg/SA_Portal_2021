@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
   isAdmin: { type: Boolean, default: false },
   role: { type: String, default: "NA" },
-  accessToken: { type: String, required: true },
+  accessToken: { type: String, required: true,select: false },
   outlookId: { type: String, required: true },
   contact: { type: Number, length: 10 },
 });
