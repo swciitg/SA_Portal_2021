@@ -23,8 +23,8 @@ export const eventallCards = (events, allCategory) => {
           );
         });
       } else {
-        const filteredEve = [...events].filter((a) => {
-          return a.category.toLowerCase() === allCategory.toLowerCase();
+        const filteredEve = [...events].filter((e) => {
+          return e.category.toLowerCase() === allCategory.toLowerCase();
         });
         console.log("filtered", filteredEve);
         return filteredEve.length !== 0 ? (
@@ -46,7 +46,7 @@ export const eventallCards = (events, allCategory) => {
               />
             );
           })
-        ) : (
+          ) : (
           <span className="text-base text-white">
             No Events in the{" "}
             <span className="font-black font-semibold">{`${allCategory}`}</span>{" "}
