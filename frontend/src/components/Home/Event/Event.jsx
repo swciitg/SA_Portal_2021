@@ -10,7 +10,7 @@ const  Event = () => {
 
   const events = useSelector((state) => state.events);
     const categories = useSelector((state) => state.categories);
-    const [allCategory, setACategory] = useState("all");
+    const [allCategory, setAllCategory] = useState("all");
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const  Event = () => {
 
     const filterHandler = (e) => {
       let selectedCat = e.target.value;
-      setACategory(selectedCat);
+      setAllCategory(selectedCat);
     };
 
   return (
