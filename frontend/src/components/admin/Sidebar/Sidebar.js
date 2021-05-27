@@ -68,6 +68,9 @@ const Sidebar = ({ children }) => {
           <Link to={`${BASEURL}/admin/utilities`} className={linkSidebar}>
             Utilities
           </Link>
+          <Link to={`${BASEURL}/admin/users`} className={linkSidebar}>
+            Users
+          </Link>
         </nav>
       </aside>
 
@@ -137,6 +140,9 @@ const Sidebar = ({ children }) => {
             </Link>
             <Link to={`${BASEURL}/admin/utilities`} className={linkDropdown}>
               Utilities
+            </Link>
+            <Link to={`${BASEURL}/admin/users`} className={linkDropdown}>
+              Users
             </Link>
             {authBtn}
           </nav>

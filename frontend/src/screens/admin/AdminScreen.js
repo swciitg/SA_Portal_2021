@@ -32,7 +32,7 @@ import EditUtilitiesScreen from "./utilities/EditUtilitiesScreen";
 import SublinkScreen from "./utilities/SublinkScreen";
 import AddSublinkScreen from "./utilities/AddSublinkScreen";
 import EditSublinkScreen from "./utilities/EditSublinkScreen";
-
+import UserScreen from "./users/UserScreen";
 const AdminScreen = () => {
   return (
     <div className="bg-gray-100 font-family-karla flex">
@@ -198,6 +198,13 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/utilities/:link_id/edit/:sublink_id`}
             component={EditSublinkScreen}
+          />
+
+          {/* User Routes */}
+          <ProtectedRoute
+            exact
+            path={`${BASEURL}/admin/users`}
+            component={UserScreen}
           />
         </Switch>
       </Sidebar>

@@ -74,3 +74,8 @@ export const createSchLink = (newSchLink) =>
 export const editSchLink = (id, updatedSchLink) =>
   API.put(`/scholarship/pdf/${id}`, updatedSchLink);
 export const deleteSchLink = (id) => API.delete(`/scholarship/pdf/${id}`);
+
+//USERS-CHANGING ROUTES
+export const fetchUsers = () => API.get("/users");
+export const changeAdminStatus = (id) => API.put(`/users/${id}`);
+export const deleteUser = (id) => API.delete(`/users/${id}`);
