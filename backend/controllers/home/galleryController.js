@@ -64,7 +64,7 @@ exports.getOneImage = async (req, res) => {
     if (image) {
       const filePath = `${__dirname}/../../uploads/gallery/` + image.path;
       fs.readFile(filePath, (err, data) => {
-        res.contentType(mime[path.extname(image.path).substring(1)]);
+        res.contentType("image/jpeg");
         return res.send(data);
       });
     } else {
