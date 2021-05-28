@@ -44,6 +44,9 @@ const Sidebar = ({ children }) => {
           <Link to={`${BASEURL}/admin/forms`} className={linkSidebar}>
             Forms
           </Link>
+          <Link to={`${BASEURL}/admin/gallery`} className={linkSidebar}>
+            Gallery
+          </Link>
           <Link to={`${BASEURL}/admin/events`} className={linkSidebar}>
             Events
           </Link>
@@ -70,6 +73,7 @@ const Sidebar = ({ children }) => {
           </Link>
           <Link to={`${BASEURL}/admin/teams`} className={linkSidebar}>
             Teams
+          </Link>
           <Link to={`${BASEURL}/admin/users`} className={linkSidebar}>
             Users
           </Link>
@@ -119,6 +123,9 @@ const Sidebar = ({ children }) => {
             <Link to={`${BASEURL}/admin/forms`} className={linkDropdown}>
               Forms
             </Link>
+            <Link to={`${BASEURL}/admin/gallery`} className={linkDropdown}>
+              Gallery
+            </Link>
             <Link to={`${BASEURL}/admin/events`} className={linkDropdown}>
               Events
             </Link>
@@ -143,13 +150,11 @@ const Sidebar = ({ children }) => {
             <Link to={`${BASEURL}/admin/utilities`} className={linkDropdown}>
               Utilities
             </Link>
-<<<<<<< HEAD
             <Link to={`${BASEURL}/admin/teams`} className={linkDropdown}>
               Teams
-=======
+            </Link>
             <Link to={`${BASEURL}/admin/users`} className={linkDropdown}>
               Users
->>>>>>> 24b92cb941b16254a7703ba5342b44a688cb5be7
             </Link>
             {authBtn}
           </nav>
