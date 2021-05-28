@@ -32,7 +32,7 @@ const GalleryScreen = () => {
               <div className="flex flex-wrap -m-4">
                 {images.map(({ path, _id }) => {
                   return (
-                    <div className="p-2 lg:w-1/2">
+                    <div className="p-2 lg:w-1/2" key={_id}>
                       <div className="h-full border-2 rounded-lg border-gray-200 border-opacity-70 p-1  items-center sm:justify-start justify-center">
                         <img
                           alt="upload"
