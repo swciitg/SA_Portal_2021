@@ -19,7 +19,6 @@ const helmet = require("helmet");
 const PORT = 8080 || process.env.PORT;
 require("./config/passportAzure");
 
-
 const scholarshipRoutes = require("./routes/scholarship/scholarship.routes");
 const announcementRoutes = require("./routes/home/announcement.routes");
 const eventRoutes = require("./routes/home/events.routes");
@@ -32,7 +31,7 @@ const aboutRoutes = require("./routes/home/about.routes");
 const teamRoutes = require("./routes/team/team.routes");
 const formRoutes = require("./routes/forms/form.routes");
 const utilityRoutes = require("./routes/utilities/link.routes");
-const userRoutes=require("./routes/users/user.routes");
+const userRoutes = require("./routes/users/user.routes");
 const authRoutes = require("./routes/auth.routes");
 
 mongoose
@@ -110,7 +109,7 @@ app.use("/sa/api/team", teamRoutes);
 app.use("/sa/api/utilities", utilityRoutes);
 app.use("/sa/api/rules", rulesRoutes);
 app.use("/sa/api/gallery", galleryRoutes);
-app.use("/sa/api/users",userRoutes);
+app.use("/sa/api/users", userRoutes);
 
 app.use("/sa/api/sac", sacRoutes);
 app.use("/sa/api/saCourse", courseRoutes);

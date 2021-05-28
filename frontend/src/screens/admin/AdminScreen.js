@@ -33,6 +33,8 @@ import SublinkScreen from "./utilities/SublinkScreen";
 import AddSublinkScreen from "./utilities/AddSublinkScreen";
 import EditSublinkScreen from "./utilities/EditSublinkScreen";
 import UserScreen from "./users/UserScreen";
+import GalleryScreen from "./gallery/GalleryScreen";
+import AddGalleryScreen from "./gallery/AddGalleryScreen";
 const AdminScreen = () => {
   return (
     <div className="bg-gray-100 font-family-karla flex">
@@ -205,6 +207,18 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/users`}
             component={UserScreen}
+          />
+
+          {/*Gallery Routes*/}
+          <ProtectedRoute
+            exact
+            path={`${BASEURL}/admin/gallery`}
+            component={GalleryScreen}
+          />
+          <ProtectedRoute
+            exact
+            path={`${BASEURL}/admin/gallery/add`}
+            component={AddGalleryScreen}
           />
         </Switch>
       </Sidebar>

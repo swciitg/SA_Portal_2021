@@ -50,6 +50,10 @@ export const USER_LIST_REQUEST = "USER_LIST_REQUEST";
 export const USER_DELETE_REQUEST = "USER_DELETE_REQUEST";
 export const USER_EDIT_REQUEST = "USER_EDIT_REQUEST";
 
+export const GALLERY_LIST_REQUEST = "GALLERY_LIST_REQUEST";
+export const GALLERY_CREATE_REQUEST = "GALLERY_CREATE_REQUEST";
+export const GALLERY_DELETE_REQUEST = "GALLERY_DELETE_REQUEST";
+
 export const BASEAPI = "http://localhost:8080/sa/api";
 
 export const LOGIN_URL = `${BASEAPI}/auth/azureadoauth2`;

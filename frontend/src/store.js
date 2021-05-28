@@ -13,6 +13,7 @@ import sublinks from "./reducers/sublinks";
 import courses from "./reducers/courses";
 import schLinks from "./reducers/schLinks";
 import users from "./reducers/user";
+import images from "./reducers/gallery";
 
 const reducer = combineReducers({
   auth,
@@ -27,6 +28,7 @@ const reducer = combineReducers({
   schLinks,
   sublinks,
   users,
+  images,
 });
 
 const initialState = {};
