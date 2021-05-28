@@ -46,6 +46,11 @@ export const SCHLINK_DELETE_REQUEST = "SCHLINK_DELETE_REQUEST";
 export const SCHLINK_CREATE_REQUEST = "SCHLINK_CREATE_REQUEST";
 export const SCHLINK_EDIT_REQUEST = "SCHLINK_EDIT_REQUEST";
 
+export const TEAM_LIST_REQUEST = "TEAM_LIST_REQUEST";
+export const TEAM_DELETE_REQUEST = "TEAM_DELETE_REQUEST";
+export const TEAM_CREATE_REQUEST = "TEAM_CREATE_REQUEST";
+export const TEAM_EDIT_REQUEST = "TEAM_EDIT_REQUEST";
+
 export const BASEAPI = "http://localhost:8080/sa/api";
 
 export const LOGIN_URL = `${BASEAPI}/auth/azureadoauth2`;
