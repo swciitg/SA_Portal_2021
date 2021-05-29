@@ -7,6 +7,12 @@ const GallerySchema = new mongoose.Schema(
       unique: [true, "File path is not unique"],
       required: [true, "Path not specified"],
     },
+    img_height:{
+      type:Number,
+    },
+    img_width:{
+      type:Number,
+    },
   },
   { timestamps: true }
 );

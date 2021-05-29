@@ -100,3 +100,8 @@ export const deleteCounselling = (id) => API.delete(`/team/counselling/${id}`);
 export const fetchUsers = () => API.get("/users");
 export const changeAdminStatus = (id) => API.put(`/users/${id}`);
 export const deleteUser = (id) => API.delete(`/users/${id}`);
+
+//GALLERY ROUTES
+export const fetchImages = () => API.get("/gallery");
+export const createImage = (newImg) => API.post("gallery", newImg);
+export const deleteImage = (id) => API.delete(`/gallery/${id}`);

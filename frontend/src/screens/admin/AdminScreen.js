@@ -2,7 +2,8 @@ import React from "react";
 import { Switch } from "react-router-dom";
 import Sidebar from "../../components/admin/Sidebar/Sidebar";
 import "./AdminScreen.css";
-import ProtectedRoute from "../../hoc/ProtectedRoute";
+//import ProtectedRoute from "../../hoc/ProtectedRoute";
+import AdminRoute from "../../hoc/AdminRoute";
 import { BASEURL } from "../../constants/index";
 import AnnouncementScreen from "./announcement/AnnouncementScreen";
 import AddAnnouncementScreen from "./announcement/AddAnnouncementScreen";
@@ -37,168 +38,170 @@ import CounsellingScreen from "./TeamCounselling/CounsellingScreen";
 import EditCounsellingScreen from "./TeamCounselling/EditCounsellingScreen";
 import AddCounsellingScreen from "./TeamCounselling/AddCounsellingScreen";
 import UserScreen from "./users/UserScreen";
+import GalleryScreen from "./gallery/GalleryScreen";
+import AddGalleryScreen from "./gallery/AddGalleryScreen";
 const AdminScreen = () => {
   return (
     <div className="bg-gray-100 font-family-karla flex">
       <Sidebar>
         <Switch>
           {/* About Routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/about`}
             component={AboutScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/about/add`}
             component={AddAboutScreen}
           />
           {/* Announcement Routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/announcements`}
             component={AnnouncementScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/announcements/add`}
             component={AddAnnouncementScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/announcements/:announcement_id`}
             component={EditAnnouncementScreen}
           />
 
           {/* Forms Routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/forms`}
             component={FormScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/forms/add`}
             component={AddFormScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/forms/:form_id`}
             component={EditFormScreen}
           />
 
           {/* Events Routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/events`}
             component={EventScreen}
           />
 
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/events/add`}
             component={AddEventScreen}
           />
 
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/events/:event_id`}
             component={EditEventScreen}
           />
 
           {/* Scholarship Routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/scholarshipEditor`}
             component={ScholarshipEditorScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/scholarshipEditor/add`}
             component={AddScholarshipEditorScreen}
           />
 
           {/* Rules Routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/rules`}
             component={RulesScreen}
           />
 
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/rules/add`}
             component={AddRulesScreen}
           />
 
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/rules/:rule_id`}
             component={EditRulesScreen}
           />
 
           {/* Courses Routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/courses`}
             component={CoursesScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/courses/:rule_id`}
             component={EditCoursesScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/courses/add`}
             component={AddCoursesScreen}
           />
 
           {/* Scholarship Routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/scholarshipLinks`}
             component={ScholarshipLinksScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/scholarshipLinks/add`}
             component={AddSchlinksScreen}
           />
 
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/scholarshipLinks/:scholarshipLinks_id`}
             component={EditSchlinksScreen}
           />
 
           {/* Link Routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/utilities`}
             component={UtilitiesScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/utilities/add`}
             component={AddUtilitiesScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/utilities/edit/:link_id`}
             component={EditUtilitiesScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/utilities/:link_id`}
             component={SublinkScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/utilities/:link_id/add`}
             component={AddSublinkScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/utilities/:link_id/edit/:sublink_id`}
             component={EditSublinkScreen}
@@ -228,10 +231,22 @@ const AdminScreen = () => {
           />          
 
           {/* User Routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/users`}
             component={UserScreen}
+          />
+
+          {/*Gallery Routes*/}
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/gallery`}
+            component={GalleryScreen}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/gallery/add`}
+            component={AddGalleryScreen}
           />
         </Switch>
       </Sidebar>
