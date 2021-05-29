@@ -11,13 +11,14 @@ import ScholarshipScreen from "./scholarships/ScholarshipScreen";
 import RulesScreen from "./rules/RulesScreen";
 import CoursesScreen from "./courses/CoursesScreen";
 import TeamScreen from "./Teams/TeamScreen";
-
+import GalleryCart from "../../components/Home/GalleryCart/GalleryCart";
 const UserScreen = ({ location }) => {
   return (
     <>
       <Header />
       <TopNav />
-      <div class="min-h-screen bg-gray-400"></div>
+      {/* <div class="min-h-screen bg-gray-400"></div> */}
+      <GalleryCart />
       <MiddleNav activePath={location.pathname} />
       <Switch>
         <Route exact path={`${BASEURL}/`} component={HomeScreen} />
