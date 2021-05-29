@@ -1,0 +1,20 @@
+.main_img_gallery_container {
+  height: 70vh;
+  overflow: scroll;
+  padding-bottom: 0 !important;
+}
+
+.main_img_gallery_container::-webkit-scrollbar {
+  width: 5px;
+  /* display: none; */
+}
+
+.main_img_gallery_container::-webkit-scrollbar-thumb {
+  background: gray;
+}
+
+@media only screen and (max-width: 640px) {
+  .main_img_gallery_container {
+    max-height: 50vh;
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import "./GalleryCart.css";
 import Gallery from "react-photo-gallery";
 import { BASEAPI } from "../../../constants";
 import { listImages } from "../../../actions/gallery";
@@ -37,9 +38,10 @@ const GalleryCart = () => {
   };
 
   return (
-    <div>
+    <div class="main_img_gallery_container bg-blue-50">
       <Gallery
         photos={photos}
+        margin={5}
         //onClick={openLightbox}
       />
       {/* <ModalGateway>
