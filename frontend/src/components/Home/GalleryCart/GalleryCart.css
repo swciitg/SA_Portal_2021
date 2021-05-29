@@ -9,6 +9,12 @@
   /* display: none; */
 }
 
+.react-images__view--isModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .main_img_gallery_container::-webkit-scrollbar-thumb {
   background: gray;
 }
