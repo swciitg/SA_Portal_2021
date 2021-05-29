@@ -32,6 +32,10 @@ import EditUtilitiesScreen from "./utilities/EditUtilitiesScreen";
 import SublinkScreen from "./utilities/SublinkScreen";
 import AddSublinkScreen from "./utilities/AddSublinkScreen";
 import EditSublinkScreen from "./utilities/EditSublinkScreen";
+import TeamsScreen from "./Teams/TeamsScreen"
+import CounsellingScreen from "./TeamCounselling/CounsellingScreen";
+import EditCounsellingScreen from "./TeamCounselling/EditCounsellingScreen";
+import AddCounsellingScreen from "./TeamCounselling/AddCounsellingScreen";
 import UserScreen from "./users/UserScreen";
 const AdminScreen = () => {
   return (
@@ -199,6 +203,29 @@ const AdminScreen = () => {
             path={`${BASEURL}/admin/utilities/:link_id/edit/:sublink_id`}
             component={EditSublinkScreen}
           />
+
+
+          {/* Teams routes */}
+          <ProtectedRoute
+            exact
+            path={`${BASEURL}/admin/team`}
+            component={TeamsScreen}
+          />
+          <ProtectedRoute
+            exact
+            path={`${BASEURL}/admin/team/counselling`}
+            component={CounsellingScreen}
+          />
+          <ProtectedRoute
+            exact
+            path={`${BASEURL}/admin/team/counselling/add`}
+            component={AddCounsellingScreen}
+          />
+          <ProtectedRoute
+            exact
+            path={`${BASEURL}/admin/team/counselling/:counselling_id`}
+            component={EditCounsellingScreen}
+          />          
 
           {/* User Routes */}
           <ProtectedRoute
