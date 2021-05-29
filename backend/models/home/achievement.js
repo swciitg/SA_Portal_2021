@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 
-const AchievementSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  description: { type: String, required: true },
-  img: { type: String, required: true },
-  link: { type: String,},
+const AchievementSchema = mongoose.Schema({
+    HTMLString: {
+        type: String,
+        required: true
+    },
+    creation: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("Achievement", AchievementSchema);
-
-
+module.exports = mongoose.model("Achievement",AchievementSchema);

@@ -74,3 +74,34 @@ export const createSchLink = (newSchLink) =>
 export const editSchLink = (id, updatedSchLink) =>
   API.put(`/scholarship/pdf/${id}`, updatedSchLink);
 export const deleteSchLink = (id) => API.delete(`/scholarship/pdf/${id}`);
+
+
+
+//Teams
+export const fetchGymkhana = () => API.get("/team/gymkhana");
+export const fetchCounselling = () => API.get("/team/counselling");
+
+export const createGymkhana = (newGymkhana) =>
+  API.post("/team/gymkhana", newGymkhana);
+export const createCounselling = (newCounselling) =>
+  API.post("/team/counselling", newCounselling);
+
+export const editGymkhana = (id, updatedGymkhana) =>
+  API.put(`/team/gymkhana/${id}`, updatedGymkhana);
+export const editCounselling = (id, updatedCounselling) =>
+  API.put(`/team/counselling/${id}`, updatedCounselling);
+
+export const deleteGymkhana = (id) => API.delete(`/team/gymkhana/${id}`);
+export const deleteCounselling = (id) => API.delete(`/team/counselling/${id}`);
+
+
+
+//USERS-CHANGING ROUTES
+export const fetchUsers = () => API.get("/users");
+export const changeAdminStatus = (id) => API.put(`/users/${id}`);
+export const deleteUser = (id) => API.delete(`/users/${id}`);
+
+//GALLERY ROUTES
+export const fetchImages = () => API.get("/gallery");
+export const createImage = (newImg) => API.post("gallery", newImg);
+export const deleteImage = (id) => API.delete(`/gallery/${id}`);

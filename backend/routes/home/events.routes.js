@@ -8,6 +8,7 @@ const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 /*### Routes which doesn't need authentication ###*/
 router.get("/", eventsController.getAllEvents);
 router.get("/categories", eventsController.getCategories);
+router.get("/:id", eventsController.getOneImage);
 
 router.post("/find", eventsController.findEvent);
 

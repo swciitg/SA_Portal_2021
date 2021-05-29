@@ -4,6 +4,8 @@ const { mime } = require("../../utils/mime");
 const mongoose = require("mongoose");
 const path = require("path");
 
+const sizeOf=require("image-size");
+
 exports.getImages = async (req, res) => {
   try {
     let query = Gallery.find({}).sort("-updatedAt");
@@ -21,12 +23,19 @@ exports.getImages = async (req, res) => {
   }
 };
 
+
+
 exports.postImage = async (req, res) => {
   try {
     const path = req.file.filename;
-    const newImage = new Gallery({ path });
-    const image = await newImage.save();
+    
+    const filePath = `${__dirname}/../../uploads/gallery/` + path;
+   var dimensions=sizeOf(filePath);
+   const img_width=dimensions.width;
+   const img_height=dimensions.height;
 
+    const newImage = new Gallery({ path,img_width,img_height });
+    const image = await newImage.save();
     if (image) return res.status(200).json({ status: "Success", data: image });
     else res.status(424).json({ status: "Failed", message: "Invalid Data" });
   } catch (error) {
@@ -36,6 +45,7 @@ exports.postImage = async (req, res) => {
       .json({ status: "Failed", message: "Request failed" });
   }
 };
+
 
 exports.editImage = async (req, res) => {
   try {
@@ -64,7 +74,7 @@ exports.getOneImage = async (req, res) => {
     if (image) {
       const filePath = `${__dirname}/../../uploads/gallery/` + image.path;
       fs.readFile(filePath, (err, data) => {
-        res.contentType(mime[path.extname(image.path).substring(1)]);
+        res.contentType("image/jpeg");
         return res.send(data);
       });
     } else {

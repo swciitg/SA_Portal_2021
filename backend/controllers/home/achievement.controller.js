@@ -1,8 +1,15 @@
 const Achievement = require("../../models/home/achievement");
 const factory=require("../handlerFactory");
-const fs = require("fs");
 
 
+exports.getAchievements= factory.getAll(Achievement);
+
+exports.postAchievement=factory.createOne(Achievement);
+
+exports.editAchievement=factory.updateOne(Achievement);
+
+exports.deleteAchievement=factory.deleteOne(Achievement);
+/*
 exports.getAchievements=async (req, res, next) => {
   try {
     let query = Achievement.find({});
@@ -89,4 +96,4 @@ exports.postAchievement=async (req, res) => {
         .json({ status: "Failed", message: "Request failed" });
     }
   };
-  
+  */

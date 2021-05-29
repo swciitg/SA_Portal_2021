@@ -13,16 +13,17 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 //const MONGO_URL = "mongodb://localhost/SA_DB";
 const { MONGO_URL, BASECLIENT } = process.env;
+console.log({ MONGO_URL, BASECLIENT });
 // console.log("[Mongodb Url]", MONGO_URL);
 const helmet = require("helmet");
 
 const PORT = 8080 || process.env.PORT;
 require("./config/passportAzure");
 
-
 const scholarshipRoutes = require("./routes/scholarship/scholarship.routes");
 const announcementRoutes = require("./routes/home/announcement.routes");
 const eventRoutes = require("./routes/home/events.routes");
+const navigationRoutes = require("./routes/home/navigation.routes");
 const galleryRoutes = require("./routes/home/gallery.routes");
 const rulesRoutes = require("./routes/rules/rules.routes");
 const sacRoutes = require("./routes/SAC/sac.routes");
@@ -32,6 +33,7 @@ const aboutRoutes = require("./routes/home/about.routes");
 const teamRoutes = require("./routes/team/team.routes");
 const formRoutes = require("./routes/forms/form.routes");
 const utilityRoutes = require("./routes/utilities/link.routes");
+const userRoutes = require("./routes/users/user.routes");
 const authRoutes = require("./routes/auth.routes");
 
 mongoose
@@ -101,6 +103,7 @@ app.use(passport.session());
 app.use("/sa/api/scholarship", scholarshipRoutes);
 app.use("/sa/api/home/announcement", announcementRoutes);
 app.use("/sa/api/home/events", eventRoutes);
+app.use("/sa/api/home/navigation", navigationRoutes);
 app.use("/sa/api/home/rules", rulesRoutes);
 app.use("/sa/api/home/achievements", achievementRoutes);
 app.use("/sa/api/home/about", aboutRoutes);
@@ -109,6 +112,7 @@ app.use("/sa/api/team", teamRoutes);
 app.use("/sa/api/utilities", utilityRoutes);
 app.use("/sa/api/rules", rulesRoutes);
 app.use("/sa/api/gallery", galleryRoutes);
+app.use("/sa/api/users", userRoutes);
 
 app.use("/sa/api/sac", sacRoutes);
 app.use("/sa/api/saCourse", courseRoutes);

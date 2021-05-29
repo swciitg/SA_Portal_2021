@@ -7,11 +7,15 @@ import about from "./reducers/about";
 import categories from "./reducers/category";
 import forms from "./reducers/form";
 import events from "./reducers/events";
+import eventscategory from "./reducers/eventscategory";
 import rules from "./reducers/rules";
 import links from "./reducers/utilities";
 import sublinks from "./reducers/sublinks";
 import courses from "./reducers/courses";
 import schLinks from "./reducers/schLinks";
+import teams from "./reducers/teams";
+import users from "./reducers/user";
+import images from "./reducers/gallery";
 
 const reducer = combineReducers({
   auth,
@@ -20,11 +24,15 @@ const reducer = combineReducers({
   categories,
   forms,
   events,
+  eventscategory,
   rules,
   links,
   courses,
   schLinks,
   sublinks,
+  teams,
+  users,
+  images,
 });
 
 const initialState = {};

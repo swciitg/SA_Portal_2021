@@ -2,7 +2,6 @@ const passport = require("passport");
 const AzureAdOAuth2Strategy = require("passport-azure-ad-oauth2").Strategy;
 const User = require("../models/user");
 const { OUTLOOK_CLIENT_ID, OUTLOOK_CLIENT_SECRET, BASEAPI } = process.env;
-
 const jwt = require("jsonwebtoken");
 
 passport.serializeUser(function (user, done) {

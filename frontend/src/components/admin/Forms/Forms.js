@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 //import { useHistory } from "react-router-dom";
 import { createForm, editForm } from "../../../actions/forms";
-
 import { BASEURL } from "../../../constants";
+
 const Form = ({ type, formData }) => {
   const [formNo, setFormNo] = useState(
     formData && formData.formNo ? formData.formNo : ""
@@ -125,7 +125,7 @@ const Form = ({ type, formData }) => {
                   type="file"
                   name="form"
                   onChange={(e) => setFile(e.target.files[0])}
-                  placeholder="Subject"
+                  placeholder="File"
                 />
               </div>
 
