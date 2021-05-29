@@ -1,3 +1,4 @@
+const fs = require("fs");
 const Event = require("../../models/home/event");
 const Category = require("../../models/home/eventCategory");
 const dirname = require("../../dirname");
@@ -15,8 +16,7 @@ exports.createEvent = async (req, res) => {
   category = category.toLowerCase();
   console.log("[request body]");
   console.log(req.body);
-  const imgPath =
-    dirname.dirpath + "/assets/events/thumbnails/" + req.file.filename;
+  const imgPath = "/assets/events/thumbnails/" + req.file.filename;
   if (req.body && req.file.filename) {
     try {
       const newEvent = await Event.create({
@@ -52,7 +52,7 @@ exports.createEvent = async (req, res) => {
 
 exports.getAllEvents = async (req, res) => {
   try {
-    const events = await Event.find({}).sort("eventDate");
+    const events = await Event.find({}).sort("-eventDate");
     /**
      *All console logs are for api testing
      */
@@ -62,6 +62,26 @@ exports.getAllEvents = async (req, res) => {
     return res
       .status(424)
       .json({ status: "Failed", message: "Request failed" });
+  }
+};
+
+exports.getOneImage = async (req, res) => {
+  try {
+    let { id } = req.params;
+    const image = await Event.findById(id);
+    if (image) {
+      const filePath = dirname.dirpath + image.imgPath;
+      fs.readFile(filePath, (err, data) => {
+        res.contentType("image/jpeg");
+        return res.send(data);
+      });
+    } else {
+      return res
+        .status(400)
+        .json({ status: "Failed", message: "Bad request!" });
+    }
+  } catch (error) {
+    console.log(error.message);
   }
 };
 
@@ -109,8 +129,7 @@ exports.updateEvent = async (req, res) => {
 
   try {
     const { title, eventDate, category } = req.body;
-    const imgPath =
-      dirname.dirpath + "/assets/events/thumbnails/" + req.file.filename;
+    const imgPath = "/assets/events/thumbnails/" + req.file.filename;
 
     if (req.body && req.file.filename) {
       const updatedEvent = await Event.findByIdAndUpdate(

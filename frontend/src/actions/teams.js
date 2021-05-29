@@ -8,7 +8,7 @@ import {
 
   export const listTeam = () => async (dispatch) => {
     try {
-      const { data } = await api.fetchForm();
+      const { data } = await api.fetchCounselling();
       dispatch({
         type: TEAM_LIST_REQUEST,
         payload: data.data.data,
@@ -20,7 +20,7 @@ import {
   
   export const deleteTeam = (id) => async (dispatch) => {
     try {
-      await api.deleteForm(id);
+      await api.deleteCounselling(id);
       dispatch({ type: TEAM_DELETE_REQUEST, payload: id });
     } catch (error) {
       console.log(error.message);
@@ -29,7 +29,7 @@ import {
   
   export const createTeam = (formData) => async (dispatch) => {
     try {
-      const { data } = await api.createForm(formData);
+      const { data } = await api.createCounselling(formData);
       console.log(data);
       dispatch({ type: TEAM_CREATE_REQUEST, payload: data.data });
     } catch (error) {
@@ -39,7 +39,7 @@ import {
   
   export const editTeam = (id, formData) => async (dispatch) => {
     try {
-      const { data } = await api.editForm(id, formData);
+      const { data } = await api.editCounselling(id, formData);
       console.log(data);
       dispatch({ type: TEAM_EDIT_REQUEST, payload: data.data });
     } catch (error) {

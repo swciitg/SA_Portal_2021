@@ -9,7 +9,7 @@ import CatFilter from "./EventCatfilter";
 const  Event = () => {
 
   const events = useSelector((state) => state.events);
-    const categories = useSelector((state) => state.categories);
+    const categories = useSelector((state) => state.eventscategory);
     const [allCategory, setAllCategory] = useState("all");
     const dispatch = useDispatch();
 
