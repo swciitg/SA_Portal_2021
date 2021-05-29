@@ -33,7 +33,7 @@ import EditUtilitiesScreen from "./utilities/EditUtilitiesScreen";
 import SublinkScreen from "./utilities/SublinkScreen";
 import AddSublinkScreen from "./utilities/AddSublinkScreen";
 import EditSublinkScreen from "./utilities/EditSublinkScreen";
-import TeamsScreen from "./Teams/TeamsScreen"
+import TeamsScreen from "./Teams/TeamsScreen";
 import CounsellingScreen from "./TeamCounselling/CounsellingScreen";
 import EditCounsellingScreen from "./TeamCounselling/EditCounsellingScreen";
 import AddCounsellingScreen from "./TeamCounselling/AddCounsellingScreen";
@@ -207,28 +207,27 @@ const AdminScreen = () => {
             component={EditSublinkScreen}
           />
 
-
           {/* Teams routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/team`}
             component={TeamsScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/team/counselling`}
             component={CounsellingScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/team/counselling/add`}
             component={AddCounsellingScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/team/counselling/:counselling_id`}
             component={EditCounsellingScreen}
-          />          
+          />
 
           {/* User Routes */}
           <AdminRoute
