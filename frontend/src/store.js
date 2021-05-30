@@ -13,7 +13,7 @@ import links from "./reducers/utilities";
 import sublinks from "./reducers/sublinks";
 import courses from "./reducers/courses";
 import schLinks from "./reducers/schLinks";
-import teams from "./reducers/teams";
+import counsellingteam from "./reducers/counsellingteams";
 import users from "./reducers/user";
 import images from "./reducers/gallery";
 import achievements from "./reducers/achievements";
@@ -32,7 +32,7 @@ const reducer = combineReducers({
   courses,
   schLinks,
   sublinks,
-  teams,
+  counsellingteam,
   users,
   images,
   achievements,
