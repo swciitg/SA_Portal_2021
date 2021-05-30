@@ -53,7 +53,7 @@ const Sidebar = ({ children }) => {
           <Link to={`${BASEURL}/admin/events`} className={linkSidebar}>
             Events
           </Link>
-          <Link to={`${BASEURL}/admin/events`} className={linkSidebar}>
+          <Link to={`${BASEURL}/admin/navigation`} className={linkSidebar}>
             Navigation
           </Link>
           <Link
@@ -138,7 +138,7 @@ const Sidebar = ({ children }) => {
             <Link to={`${BASEURL}/admin/events`} className={linkDropdown}>
               Events
             </Link>
-            <Link to={`${BASEURL}/admin/events`} className={linkDropdown}>
+            <Link to={`${BASEURL}/admin/navigation`} className={linkDropdown}>
               Navigation
             </Link>
             <Link to={`${BASEURL}/admin/courses`} className={linkDropdown}>

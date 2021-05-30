@@ -10,6 +10,7 @@ exports.createNavigation = async (req, res) => {
     notices,
     events,
     announcements,
+    boardShort,
   } = req.body;
 
   console.log("[request body]");
@@ -26,6 +27,7 @@ exports.createNavigation = async (req, res) => {
         events,
         announcements,
         path,
+        boardShort,
       });
 
       /**
@@ -83,10 +85,10 @@ exports.getNavigationImage = async (req, res) => {
 
 exports.findNavigation = async (req, res) => {
   try {
-    const { boardName } = req.body;
+    const { boardShort } = req.body;
 
     const navigation = await Navigation.find({
-      boardName,
+      boardShort,
     }).sort("-updatedAt");
 
     res.status(200).json({
@@ -130,35 +132,34 @@ exports.updateNavigation = async (req, res) => {
       notices,
       events,
       announcements,
+      boardShort,
     } = req.body;
 
-    if (req.body && req.file.filename) {
-      const imgPath = req.file.filename;
-      const oldImage = await Navigation.findById(id);
-      if (oldImage) {
-        fs.unlinkSync(
-          path.resolve(`${__dirname}/../../uploads/navigation/${oldImage.path}`)
-        );
+    const imgPath = req.file && req.file.filename;
+    const oldImage = await Navigation.findById(id);
 
-        const updatedNavigation = await Navigation.findByIdAndUpdate(
-          { _id: id },
-          {
-            boardName,
-            description,
-            chairmanName,
-            notices,
-            events,
-            announcements,
-            path: imgPath,
-          },
-          { new: true }
-        );
+    const formData = {
+      boardName,
+      description,
+      chairmanName,
+      notices,
+      events,
+      announcements,
+      boardShort,
+    };
 
-        return res
-          .status(200)
-          .json({ status: "Success", data: updatedNavigation });
-      }
+    if (imgPath) {
+      fs.unlinkSync(
+        path.resolve(`${__dirname}/../../uploads/navigation/${oldImage.path}`)
+      );
+      formData["path"] = imgPath;
     }
+
+    const updatedNavigation = await Navigation.findByIdAndUpdate(id, formData, {
+      new: true,
+    });
+
+    return res.status(200).json({ status: "Success", data: updatedNavigation });
   } catch (err) {
     console.log(err);
     return res

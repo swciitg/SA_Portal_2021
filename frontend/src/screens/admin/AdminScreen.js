@@ -43,6 +43,8 @@ import AddGalleryScreen from "./gallery/AddGalleryScreen";
 import AchievementScreen from "./achievement/AchievementScreen";
 import AddAchievementScreen from "./achievement/AddAchievementScreen";
 import EditAchievementScreen from "./achievement/EditAchievementScreen";
+import NavigationScreen from "./navigation/NavigationScreen";
+import NavigationFormScreen from "./navigation/NavigationFormScreen";
 const AdminScreen = () => {
   return (
     <div className="bg-gray-100 font-family-karla flex">
@@ -267,6 +269,17 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/achievements/:achievement_id`}
             component={EditAchievementScreen}
+          />
+          {/*Navigation Screen*/}
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/navigation`}
+            component={NavigationScreen}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/navigation/:boardShort`}
+            component={NavigationFormScreen}
           />
         </Switch>
       </Sidebar>

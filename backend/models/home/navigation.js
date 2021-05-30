@@ -11,14 +11,15 @@ const NavigationSchema = new mongoose.Schema(
     boardName: {
       type: String,
       required: [true, "Board Name is required"],
-      enum: [
-        "HOSTEL AFFAIRS BOARD",
-        "TECHNICAL BOARD",
-        "CULTURAL BOARD",
-        "WELFARE BOARD",
-        "SPORTS BOARD",
-      ],
+      // enum: [
+      //   "HOSTEL AFFAIRS BOARD",
+      //   "TECHNICAL BOARD",
+      //   "CULTURAL BOARD",
+      //   "WELFARE BOARD",
+      //   "SPORTS BOARD",
+      // ],
     },
+    boardShort: { type: String, required: true },
     description: { type: String, required: true },
     notices: { type: String, required: true },
     events: { type: String, required: true },

@@ -18,6 +18,7 @@ import users from "./reducers/user";
 import images from "./reducers/gallery";
 import achievements from "./reducers/achievements";
 
+import navigations from "./reducers/navigation";
 const reducer = combineReducers({
   auth,
   announcements,
@@ -35,6 +36,7 @@ const reducer = combineReducers({
   users,
   images,
   achievements,
+  navigations,
 });
 
 const initialState = {};

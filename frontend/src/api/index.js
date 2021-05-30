@@ -102,11 +102,6 @@ export const fetchImages = () => API.get("/gallery");
 export const createImage = (newImg) => API.post("gallery", newImg);
 export const deleteImage = (id) => API.delete(`/gallery/${id}`);
 
-//Navigation routes
-export const fetchNavigation = () => API.get("/home/navigation");
-export const createNavigation = (newNav) =>
-  API.post("/home/navigation", newNav);
-
 //ACHIEVEMENTS ROUTES
 export const fetchAchievement = () => API.get("/home/achievements");
 export const createAchievement = (achievement) =>
@@ -114,3 +109,11 @@ export const createAchievement = (achievement) =>
 export const editAchievement = (id, newAchievement) =>
   API.put(`/home/achievements/${id}`, newAchievement);
 export const deleteAchievement = (id) => API.delete(`/home/achievements/${id}`);
+
+//Navigation routes
+export const fetchNavigation = () => API.get("/home/navigation");
+export const createNavigation = (newNav) =>
+  API.post("/home/navigation", newNav);
+export const editNavigation = (id, updatedNav) =>
+  API.put(`/home/navigation/${id}`, updatedNav);
+export const deleteNavigation = (id) => API.delete(`/home/navigation/${id}`);
