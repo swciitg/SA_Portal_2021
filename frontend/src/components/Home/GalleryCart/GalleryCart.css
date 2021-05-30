@@ -1,0 +1,30 @@
+.main_img_gallery_container {
+  height: 70vh;
+  overflow: scroll;
+  padding-bottom: 0 !important;
+}
+
+.react-images__view--isModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_img_gallery_container::-webkit-scrollbar {
+  width: 5px;
+  /* display: none; */
+}
+
+.main_img_gallery_container::-webkit-scrollbar-thumb {
+  background: gray;
+}
+
+@media only screen and (max-width: 640px) {
+  .main_img_gallery_container {
+    max-height: 70vh;
+  }
+
+  .main_img_gallery_container::-webkit-scrollbar {
+    display: none;
+  }
+}

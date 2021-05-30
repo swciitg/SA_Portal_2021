@@ -24,7 +24,7 @@ const Sidebar = ({ children }) => {
   );
   return (
     <>
-      <aside className="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+      <aside className="relative bg-sidebar  w-64 hidden sm:block shadow-xl">
         <div className="p-6">
           <Link
             to="index.html"
@@ -41,6 +41,9 @@ const Sidebar = ({ children }) => {
           <Link to={`${BASEURL}/admin/announcements`} className={linkSidebar}>
             Announcements
           </Link>
+          <Link to={`${BASEURL}/admin/achievements`} className={linkSidebar}>
+            Achievements
+          </Link>
           <Link to={`${BASEURL}/admin/forms`} className={linkSidebar}>
             Forms
           </Link>
@@ -49,6 +52,9 @@ const Sidebar = ({ children }) => {
           </Link>
           <Link to={`${BASEURL}/admin/events`} className={linkSidebar}>
             Events
+          </Link>
+          <Link to={`${BASEURL}/admin/navigation`} className={linkSidebar}>
+            Navigation
           </Link>
           <Link
             to={`${BASEURL}/admin/scholarshipEditor`}
@@ -73,14 +79,14 @@ const Sidebar = ({ children }) => {
           </Link>
           <Link to={`${BASEURL}/admin/team`} className={linkSidebar}>
             Team
-            </Link>
+          </Link>
           <Link to={`${BASEURL}/admin/users`} className={linkSidebar}>
             Users
           </Link>
         </nav>
       </aside>
 
-      <div className="relative w-full flex flex-col h-screen overflow-y-hidden">
+      <div className="relative w-full flex flex-col overflow-y-hidden">
         <header className="w-full items-center bg-white py-2 px-6 hidden sm:flex">
           <div className="w-1/2"></div>
           <div className="relative w-1/2 flex justify-end">
@@ -120,6 +126,9 @@ const Sidebar = ({ children }) => {
             >
               Announcements
             </Link>
+            <Link to={`${BASEURL}/admin/achievements`} className={linkDropdown}>
+              Achievements
+            </Link>
             <Link to={`${BASEURL}/admin/forms`} className={linkDropdown}>
               Forms
             </Link>
@@ -128,6 +137,9 @@ const Sidebar = ({ children }) => {
             </Link>
             <Link to={`${BASEURL}/admin/events`} className={linkDropdown}>
               Events
+            </Link>
+            <Link to={`${BASEURL}/admin/navigation`} className={linkDropdown}>
+              Navigation
             </Link>
             <Link to={`${BASEURL}/admin/courses`} className={linkDropdown}>
               SA Courses

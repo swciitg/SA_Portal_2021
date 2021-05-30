@@ -33,13 +33,18 @@ import EditUtilitiesScreen from "./utilities/EditUtilitiesScreen";
 import SublinkScreen from "./utilities/SublinkScreen";
 import AddSublinkScreen from "./utilities/AddSublinkScreen";
 import EditSublinkScreen from "./utilities/EditSublinkScreen";
-import TeamsScreen from "./Teams/TeamsScreen"
+import TeamsScreen from "./Teams/TeamsScreen";
 import CounsellingScreen from "./TeamCounselling/CounsellingScreen";
 import EditCounsellingScreen from "./TeamCounselling/EditCounsellingScreen";
 import AddCounsellingScreen from "./TeamCounselling/AddCounsellingScreen";
 import UserScreen from "./users/UserScreen";
 import GalleryScreen from "./gallery/GalleryScreen";
 import AddGalleryScreen from "./gallery/AddGalleryScreen";
+import AchievementScreen from "./achievement/AchievementScreen";
+import AddAchievementScreen from "./achievement/AddAchievementScreen";
+import EditAchievementScreen from "./achievement/EditAchievementScreen";
+import NavigationScreen from "./navigation/NavigationScreen";
+import NavigationFormScreen from "./navigation/NavigationFormScreen";
 const AdminScreen = () => {
   return (
     <div className="bg-gray-100 font-family-karla flex">
@@ -207,28 +212,27 @@ const AdminScreen = () => {
             component={EditSublinkScreen}
           />
 
-
           {/* Teams routes */}
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/team`}
             component={TeamsScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/team/counselling`}
             component={CounsellingScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/team/counselling/add`}
             component={AddCounsellingScreen}
           />
-          <ProtectedRoute
+          <AdminRoute
             exact
             path={`${BASEURL}/admin/team/counselling/:counselling_id`}
             component={EditCounsellingScreen}
-          />          
+          />
 
           {/* User Routes */}
           <AdminRoute
@@ -247,6 +251,35 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/gallery/add`}
             component={AddGalleryScreen}
+          />
+
+          {/* Achievements Routes */}
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/achievements`}
+            component={AchievementScreen}
+          />
+
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/achievements/add`}
+            component={AddAchievementScreen}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/achievements/:achievement_id`}
+            component={EditAchievementScreen}
+          />
+          {/*Navigation Screen*/}
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/navigation`}
+            component={NavigationScreen}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/navigation/:boardShort`}
+            component={NavigationFormScreen}
           />
         </Switch>
       </Sidebar>

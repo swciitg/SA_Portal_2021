@@ -15,6 +15,7 @@ const AddGalleryScreen = () => {
     formData.append("path", file);
     dispatch(createImage(formData));
     history.push(`${BASEURL}/admin/gallery`);
+    // window.location.replace(`${BASEURL}/admin/gallery`);
   };
   return (
     <>

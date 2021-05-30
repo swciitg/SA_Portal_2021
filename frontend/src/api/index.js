@@ -75,8 +75,6 @@ export const editSchLink = (id, updatedSchLink) =>
   API.put(`/scholarship/pdf/${id}`, updatedSchLink);
 export const deleteSchLink = (id) => API.delete(`/scholarship/pdf/${id}`);
 
-
-
 //Teams
 export const fetchCounselling = () => API.get("/team/counselling");
 export const fetchGymkhana = () => API.get("/team/gymkhana");
@@ -95,8 +93,6 @@ export const editGymkhana = (id, updatedGymkhana) =>
 export const deleteCounselling = (id) => API.delete(`/team/counselling/${id}`);
 export const deleteGymkhana = (id) => API.delete(`/team/gymkhana/${id}`);
 
-
-
 //USERS-CHANGING ROUTES
 export const fetchUsers = () => API.get("/users");
 export const changeAdminStatus = (id) => API.put(`/users/${id}`);
@@ -106,3 +102,19 @@ export const deleteUser = (id) => API.delete(`/users/${id}`);
 export const fetchImages = () => API.get("/gallery");
 export const createImage = (newImg) => API.post("gallery", newImg);
 export const deleteImage = (id) => API.delete(`/gallery/${id}`);
+
+//ACHIEVEMENTS ROUTES
+export const fetchAchievement = () => API.get("/home/achievements");
+export const createAchievement = (achievement) =>
+  API.post("/home/achievements", achievement);
+export const editAchievement = (id, newAchievement) =>
+  API.put(`/home/achievements/${id}`, newAchievement);
+export const deleteAchievement = (id) => API.delete(`/home/achievements/${id}`);
+
+//Navigation routes
+export const fetchNavigation = () => API.get("/home/navigation");
+export const createNavigation = (newNav) =>
+  API.post("/home/navigation", newNav);
+export const editNavigation = (id, updatedNav) =>
+  API.put(`/home/navigation/${id}`, updatedNav);
+export const deleteNavigation = (id) => API.delete(`/home/navigation/${id}`);
