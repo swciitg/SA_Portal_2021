@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import Editor from "suneditor-react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
-import { BASEURL, BASEAPI } from "../../../constants/index";
+import { useDispatch } from "react-redux";
+import {
+  createAchievement,
+  editAchievement,
+} from "../../../actions/achievement";
+import { BASEURL } from "../../../constants/index";
 
-const ScholarshipEditor = ({ type, formData }) => {
+const AchievementForm = ({ type, formData }) => {
   /**
    * @type {React.MutableRefObject<SunEditor>} get type definitions for editor
    */
   const [editorHtmlString, setEditorHtmlString] = useState("");
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const achievement_id = formData && formData._id;
 
   const changeHandler = (content) => {
     console.log(content);
@@ -18,35 +25,21 @@ const ScholarshipEditor = ({ type, formData }) => {
 
   const submitHandler = () => {
     console.log("Clicked");
-    const url = `${BASEAPI}/scholarship/editor`;
     const formData = {
       HTMLString: editorHtmlString,
     };
-    const config = {
-      headers: {
-        "content-type": "application/json",
-      },
-      withCredentials: true,
-    };
-    axios
-      .post(url, formData, config)
-      .then((res) => {
-        console.log(res);
-        history.push(`${BASEURL}/admin/scholarshipEditor`);
-        //window.location.replace(`${BASEURL}/admin/scholarshipEditor`);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (type === "Add") dispatch(createAchievement(formData));
+    else if (type === "Edit")
+      dispatch(editAchievement(achievement_id, formData));
+
+    history.push(`${BASEURL}/admin/achievements`);
   };
 
   return (
     <div>
-      <p className="text-3xl font-bold mb-3">
-        Scholarship Rules and Ordinances
-      </p>
+      <p className="text-3xl font-bold mb-3">Achievement Form</p>
       <Editor
-        setContents={JSON.parse(formData.editorContent)}
+        setContents={type === "Edit" && JSON.parse(formData.HTMLString)}
         onChange={changeHandler}
         enableToolbar={true}
         showToolbar={true}
@@ -133,9 +126,10 @@ const ScholarshipEditor = ({ type, formData }) => {
         className="my-3 px-3 py-1 bg-gray-900 text-white rounded-md"
         onClick={submitHandler}
       >
-        ADD
+        {type === "Add" ? "ADD" : "EDIT"}
       </button>
     </div>
   );
 };
-export default ScholarshipEditor;
+
+export default AchievementForm;

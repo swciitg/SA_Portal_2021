@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { createSchLink, editSchLink } from "../../../actions/schLinks";
 import { BASEURL } from "../../../constants";
 
@@ -15,7 +16,7 @@ const SchLinksForm = ({ type, formData }) => {
   const form_id = formData && formData._id;
 
   const dispatch = useDispatch();
-  //const history = useHistory();
+  const history = useHistory();
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -28,8 +29,8 @@ const SchLinksForm = ({ type, formData }) => {
     if (type === "Add") dispatch(createSchLink(formData));
     else dispatch(editSchLink(form_id, formData));
 
-    //history.push(`${BASEURL}/admin/forms`);
-    window.location.replace(`${BASEURL}/admin/scholarshipLinks`);
+    history.push(`${BASEURL}/admin/scholarshipLinks`);
+    //window.location.replace(`${BASEURL}/admin/scholarshipLinks`);
   };
 
   return (
