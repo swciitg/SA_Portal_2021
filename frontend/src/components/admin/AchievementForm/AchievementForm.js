@@ -28,11 +28,14 @@ const AchievementForm = ({ type, formData }) => {
     const formData = {
       HTMLString: editorHtmlString,
     };
-    if (type === "Add") dispatch(createAchievement(formData));
+    if (type === "Add")
+      dispatch(createAchievement(formData)).then(() => {
+        history.push(`${BASEURL}/admin/achievements`);
+      });
     else if (type === "Edit")
-      dispatch(editAchievement(achievement_id, formData));
-
-    history.push(`${BASEURL}/admin/achievements`);
+      dispatch(editAchievement(achievement_id, formData)).then(() => {
+        history.push(`${BASEURL}/admin/achievements`);
+      });
   };
 
   return (
