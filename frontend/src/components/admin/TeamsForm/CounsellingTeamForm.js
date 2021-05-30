@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createTeam, editTeam } from "../../../actions/teams";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createTeam, editTeam } from "../../../actions/counsellingteams";
 import { BASEURL } from "../../../constants";
 
 const CounsellingForm = ({type, formData}) => {
@@ -13,6 +13,9 @@ const CounsellingForm = ({type, formData}) => {
     );
     const [post, setpost] = useState(
         formData && formData.post ? formData.post : ""
+    );
+    const [priority_number,setpriority_number] = useState(
+        formData && formData.priority_number ? formData.priority_number : ""  
     );
     const [contactNo,setcontactNo] = useState(
         formData && formData.contactNo ? formData.contactNo : ""  
@@ -32,8 +35,9 @@ const CounsellingForm = ({type, formData}) => {
         formData.append("email", email);
         formData.append("post", post);
         formData.append("contactNo", contactNo);
+        formData.append("priority_number",priority_number);
         formData.append("image", imagePath);
-    
+            
         console.log(formData);
     
         if (type === "Add")
@@ -119,6 +123,22 @@ const CounsellingForm = ({type, formData}) => {
                         value={contactNo}
                         onChange={(e) => setcontactNo(e.target.value)}
                         placeholder="Contact No."
+                        required
+                        />
+                    </div>
+
+                    <div className="mt-2">
+                        <label className="block text-sm text-gray-600" htmlFor="priority_number">
+                        Priority Number
+                        </label>
+                        <input
+                        className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+                        id="priority_number"
+                        name="priority_number"
+                        type="text"
+                        value={priority_number}
+                        onChange={(e) => setpriority_number(e.target.value)}
+                        placeholder="Priority Number"
                         required
                         />
                     </div>

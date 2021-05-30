@@ -5,16 +5,16 @@ import { BASEURL } from "../../../constants";
 import {
     listTeam,
     deleteTeam,
-  } from "../../../actions/teams";
+  } from "../../../actions/counsellingteams";
 
 const CounsellingScreen = () =>{
-    const teams = useSelector((state) => state.teams);
+    const teams = useSelector((state) => state.counsellingteam);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(listTeam());
     }, [dispatch]);
-
+    console.log(teams);
     return (
         <>
             <h1 className="text-3xl text-black pb-6">Counselling Cell Members</h1>
@@ -46,7 +46,10 @@ const CounsellingScreen = () =>{
                     <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
                         Post
                     </th>
-                    <th className="w-1/3 text-center py-3 px-4 uppercase font-semibold text-sm">
+                    <th className="text-center py-3 px-4 uppercase font-semibold text-sm">
+                        Priority No.
+                    </th>
+                    <th className=" text-center py-3 px-4 uppercase font-semibold text-sm">
                         Image
                     </th>
                     <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
@@ -68,6 +71,7 @@ const CounsellingScreen = () =>{
                                 contactNo,
                                 imagePath,
                                 post,
+                                priority_number,
                                 _id,
                             },
                             i
@@ -79,6 +83,7 @@ const CounsellingScreen = () =>{
                                 <td className="text-left py-3 px-4">{email}</td>
                                 <td className="text-left py-3 px-4">{contactNo}</td>
                                 <td className="text-left py-3 px-4">{post}</td>
+                                <td className="text-center py-3 px-4">{priority_number}</td>
                                 <td className="text-center py-3 px-4">
                                     <a
                                     className="hover:text-blue-500"
@@ -100,6 +105,7 @@ const CounsellingScreen = () =>{
                                             contactNo,
                                             imagePath,
                                             post,
+                                            priority_number,
                                             _id,
                                         },
                                     }}
