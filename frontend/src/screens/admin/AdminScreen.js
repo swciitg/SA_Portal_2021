@@ -40,6 +40,8 @@ import AddCounsellingScreen from "./TeamCounselling/AddCounsellingScreen";
 import UserScreen from "./users/UserScreen";
 import GalleryScreen from "./gallery/GalleryScreen";
 import AddGalleryScreen from "./gallery/AddGalleryScreen";
+import NavigationScreen from "./navigation/NavigationScreen";
+import NavigationFormScreen from "./navigation/NavigationFormScreen";
 const AdminScreen = () => {
   return (
     <div className="bg-gray-100 font-family-karla flex">
@@ -246,6 +248,18 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/gallery/add`}
             component={AddGalleryScreen}
+          />
+
+          {/*Navigation Screen*/}
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/navigation`}
+            component={NavigationScreen}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/navigation/:boardShort`}
+            component={NavigationFormScreen}
           />
         </Switch>
       </Sidebar>

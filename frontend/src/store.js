@@ -16,7 +16,7 @@ import schLinks from "./reducers/schLinks";
 import teams from "./reducers/teams";
 import users from "./reducers/user";
 import images from "./reducers/gallery";
-
+import navigations from "./reducers/navigation";
 const reducer = combineReducers({
   auth,
   announcements,
@@ -33,6 +33,7 @@ const reducer = combineReducers({
   teams,
   users,
   images,
+  navigations,
 });
 
 const initialState = {};

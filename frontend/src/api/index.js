@@ -106,3 +106,6 @@ export const deleteImage = (id) => API.delete(`/gallery/${id}`);
 export const fetchNavigation = () => API.get("/home/navigation");
 export const createNavigation = (newNav) =>
   API.post("/home/navigation", newNav);
+export const editNavigation = (id, updatedNav) =>
+  API.put(`/home/navigation/${id}`, updatedNav);
+export const deleteNavigation = (id) => API.delete(`/home/navigation/${id}`);
