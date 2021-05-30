@@ -16,6 +16,7 @@ import schLinks from "./reducers/schLinks";
 import teams from "./reducers/teams";
 import users from "./reducers/user";
 import images from "./reducers/gallery";
+import achievements from "./reducers/achievements";
 
 const reducer = combineReducers({
   auth,
@@ -33,6 +34,7 @@ const reducer = combineReducers({
   teams,
   users,
   images,
+  achievements,
 });
 
 const initialState = {};

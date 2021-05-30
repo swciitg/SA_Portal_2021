@@ -4,15 +4,15 @@
   padding-bottom: 0 !important;
 }
 
-.main_img_gallery_container::-webkit-scrollbar {
-  width: 5px;
-  /* display: none; */
-}
-
 .react-images__view--isModal {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.main_img_gallery_container::-webkit-scrollbar {
+  width: 5px;
+  /* display: none; */
 }
 
 .main_img_gallery_container::-webkit-scrollbar-thumb {
@@ -21,6 +21,10 @@
 
 @media only screen and (max-width: 640px) {
   .main_img_gallery_container {
-    max-height: 50vh;
+    max-height: 70vh;
+  }
+
+  .main_img_gallery_container::-webkit-scrollbar {
+    display: none;
   }
 }

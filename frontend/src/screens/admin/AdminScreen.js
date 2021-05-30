@@ -40,6 +40,9 @@ import AddCounsellingScreen from "./TeamCounselling/AddCounsellingScreen";
 import UserScreen from "./users/UserScreen";
 import GalleryScreen from "./gallery/GalleryScreen";
 import AddGalleryScreen from "./gallery/AddGalleryScreen";
+import AchievementScreen from "./achievement/AchievementScreen";
+import AddAchievementScreen from "./achievement/AddAchievementScreen";
+import EditAchievementScreen from "./achievement/EditAchievementScreen";
 const AdminScreen = () => {
   return (
     <div className="bg-gray-100 font-family-karla flex">
@@ -246,6 +249,24 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/gallery/add`}
             component={AddGalleryScreen}
+          />
+
+          {/* Achievements Routes */}
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/achievements`}
+            component={AchievementScreen}
+          />
+
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/achievements/add`}
+            component={AddAchievementScreen}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/achievements/:achievement_id`}
+            component={EditAchievementScreen}
           />
         </Switch>
       </Sidebar>
