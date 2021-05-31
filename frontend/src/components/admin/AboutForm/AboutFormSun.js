@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Editor from "suneditor-react";
-//import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { BASEURL, BASEAPI } from "../../../constants/index";
 
@@ -9,7 +9,7 @@ const AboutFormSun = ({ type, formData }) => {
    * @type {React.MutableRefObject<SunEditor>} get type definitions for editor
    */
   const [editorHtmlString, setEditorHtmlString] = useState("");
-  //const history = useHistory();
+  const history = useHistory();
 
   const changeHandler = (content) => {
     console.log(content);
@@ -32,7 +32,8 @@ const AboutFormSun = ({ type, formData }) => {
       .post(url, formData, config)
       .then((res) => {
         console.log(res);
-        window.location.replace(`${BASEURL}/admin/about`);
+        history.push(`${BASEURL}/admin/about`);
+        //window.location.replace(`${BASEURL}/admin/about`);
       })
       .catch((err) => {
         console.log(err);

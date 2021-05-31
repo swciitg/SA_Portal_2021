@@ -10,6 +10,7 @@ const NavigationScreen = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    //document.title = "Navigation";
     dispatch(listNavs());
   }, [dispatch]);
 

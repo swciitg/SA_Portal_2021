@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-//import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { createRule, editRule } from "../../../actions/rules";
 import { BASEURL } from "../../../constants";
 
@@ -20,7 +20,7 @@ const RulesForm = ({ type, formData }) => {
   const form_id = formData && formData._id;
 
   const dispatch = useDispatch();
-  //const history = useHistory();
+  const history = useHistory();
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -34,8 +34,8 @@ const RulesForm = ({ type, formData }) => {
     if (type === "Add") dispatch(createRule(formData));
     else dispatch(editRule(form_id, formData));
 
-    //history.push(`${BASEURL}/admin/forms`);
-    window.location.replace(`${BASEURL}/admin/rules`);
+    history.push(`${BASEURL}/admin/rules`);
+    //window.location.replace(`${BASEURL}/admin/rules`);
   };
 
   return (

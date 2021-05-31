@@ -20,6 +20,22 @@
   background: #2170e8;
 }
 
+.topNavTab {
+  position: relative;
+}
+
+.topNavTab:hover::after {
+  content: "";
+  border-left: 0.6rem solid transparent;
+  border-right: 0.6rem solid transparent;
+  border-bottom: 0.6rem solid rgb(56, 56, 56);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @media (max-width: 768px) {
   .active-tab,
   .active-tab:hover {

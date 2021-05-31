@@ -7,6 +7,9 @@ const DropDownMenu = ({
   imageURL = "",
   chairPersonName = "",
   setShowDropDown,
+  notices = "",
+  events = "",
+  announcements = "",
   isScrolled,
 }) => {
   const getCapitalisedString = (string) => {
@@ -36,36 +39,44 @@ const DropDownMenu = ({
         <p className="description text-lg">{boardDescription}</p>
       </div>
       <div className="externalLinksDiv">
-        <div className="title">
-          <span className="caption text-base font-semibold">Notices</span>
-          <span className="arrowIcon">
-            <ArrowIcon />
-          </span>
-        </div>
+        <a href={notices} target="_blank" rel="noreferrer">
+          <div className="title">
+            <span className="caption text-base font-semibold">Notices</span>
+            <span className="arrowIcon">
+              <ArrowIcon />
+            </span>
+          </div>
+        </a>
         <p className="description text-base">{`View all the recent notices related to ${getCapitalisedString(
           boardName
         )}.`}</p>
-        <div className="title" style={{ marginTop: "24px" }}>
-          <span className="caption text-base font-semibold">Events</span>
-          <span className="arrowIcon">
-            <ArrowIcon />
-          </span>
-        </div>
+        <a href={events} target="_blank" rel="noreferrer">
+          <div className="title" style={{ marginTop: "24px" }}>
+            <span className="caption text-base font-semibold">Events</span>
+            <span className="arrowIcon">
+              <ArrowIcon />
+            </span>
+          </div>
+        </a>
         <p className="description text-base">{`View all the events organised by ${getCapitalisedString(
           boardName
         )}.`}</p>
-        <div className="title" style={{ marginTop: "24px" }}>
-          <span className="caption text-base font-semibold">Announcements</span>
-          <span className="arrowIcon">
-            <ArrowIcon />
-          </span>
-        </div>
+        <a href={announcements} target="_blank" rel="noreferrer">
+          <div className="title" style={{ marginTop: "24px" }}>
+            <span className="caption text-base font-semibold">
+              Announcements
+            </span>
+            <span className="arrowIcon">
+              <ArrowIcon />
+            </span>
+          </div>
+        </a>
         <p className="description text-base">{`View all the announcements related to ${getCapitalisedString(
           boardName
         )}.`}</p>
       </div>
       <div className="imageDiv">
-        <img src={imageURL} className="image" />
+        <img src={imageURL} className="image" alt="" />
         <span className="name font-sm">{chairPersonName}</span>
         <span className="description font-xs">{`Chairman ${boardName}`}</span>
       </div>
