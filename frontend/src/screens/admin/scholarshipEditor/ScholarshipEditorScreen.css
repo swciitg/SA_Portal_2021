@@ -1,6 +1,32 @@
+/* admin_schEdit_preview */
+#admin_schEdit_preview table {
+  border: 1.2px solid #555;
+  width: 100%;
+}
+
+#admin_schEdit_preview thead {
+  background-color: #636870;
+  color: #fff;
+  text-align: center;
+}
+
+#admin_schEdit_preview thead th {
+  padding: 0.4rem 0.9rem;
+  font-family: "Red Hat Display";
+}
+
+#admin_schEdit_preview tr {
+  width: 100%;
+}
+
 #admin_schEdit_preview td {
   border: 1px solid #999;
-  padding: 3px 6px;
+  padding: 0.65rem 1.25rem;
+  font-family: "Red Hat Display";
+}
+
+#admin_schEdit_preview tr td:nth-of-type(1) {
+  width: 5% !important;
 }
 
 #admin_schEdit_preview ol,
@@ -10,17 +36,4 @@
 
 #admin_schEdit_preview li {
   list-style-position: inside;
-}
-
-#admin_schEdit_preview tr {
-  width: 100%;
-}
-
-#admin_schEdit_preview table {
-  border: 1.2px solid #555;
-  width: 100%;
-}
-
-#admin_schEdit_preview thead {
-  border-bottom: 2px solid #000;
 }
