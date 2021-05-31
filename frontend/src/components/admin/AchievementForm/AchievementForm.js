@@ -53,7 +53,7 @@ const AchievementForm = ({ type, formData }) => {
           buttonList: [
             ["undo", "redo"],
             ["font", "fontSize", "formatBlock"],
-            ["table", "link", "image", "video"],
+            ["table", "link"],
             ["bold", "underline", "italic", "strike"],
             ["fontColor", "hiliteColor", "textStyle"],
             ["removeFormat"],
@@ -66,7 +66,7 @@ const AchievementForm = ({ type, formData }) => {
               [
                 ["undo", "redo"],
                 ["font", "fontSize", "formatBlock"],
-                ["table", "link", "image", "video"],
+                ["table", "link"],
                 ["bold", "underline", "italic", "strike"],
                 [
                   ":r-More Rich-default.more_plus",
@@ -96,7 +96,7 @@ const AchievementForm = ({ type, formData }) => {
                   "fontSize",
                   "formatBlock",
                 ],
-                ["table", "link", "image", "video"],
+                ["table", "link"],
                 [
                   ":r-More Rich-default.more_plus",
                   "bold",

@@ -55,7 +55,7 @@ const AboutFormSun = ({ type, formData }) => {
           buttonList: [
             ["undo", "redo"],
             ["font", "fontSize", "formatBlock"],
-            ["table", "link", "image", "video"],
+            ["table", "link"],
             ["bold", "underline", "italic", "strike"],
             ["fontColor", "hiliteColor", "textStyle"],
             ["removeFormat"],
@@ -68,7 +68,7 @@ const AboutFormSun = ({ type, formData }) => {
               [
                 ["undo", "redo"],
                 ["font", "fontSize", "formatBlock"],
-                ["table", "link", "image", "video"],
+                ["table", "link"],
                 ["bold", "underline", "italic", "strike"],
                 [
                   ":r-More Rich-default.more_plus",
@@ -98,7 +98,7 @@ const AboutFormSun = ({ type, formData }) => {
                   "fontSize",
                   "formatBlock",
                 ],
-                ["table", "link", "image", "video"],
+                ["table", "link"],
                 [
                   ":r-More Rich-default.more_plus",
                   "bold",
