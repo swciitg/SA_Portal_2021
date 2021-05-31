@@ -10,15 +10,12 @@ const FormScreen = () => {
     dispatch(listForms());
   });
   return (
-    <div className="container mx-auto px-4 md:px-48 py-5">
-      <div
-        class="md:ml-10"
-        style={{ "font-weight": "600", "font-size": "34px" }}
-      >
-        Forms
+    <div className="container mx-auto p-6 sm:py-12 sm:px-36">
+      <div className="flex justify-between w-full mb-4 sm:mb-6">
+        <p className="text-2xl sm:text-3xl font-bold">Forms</p>
       </div>
       <table
-        class="table-fixed w-full md:mx-5 my-4 text-center"
+        class="table-fixed w-full my-4 text-center"
         style={{ "box-shadow": "rgba(0, 0, 0, 0.25) 0px 5px 15px" }}
       >
         <tbody class=" h-5 bg-gray-500">
@@ -33,7 +30,7 @@ const FormScreen = () => {
       </table>
       <div>
         <table
-          class="table-fixed w-full md:mx-5 my-5 text-center"
+          class="table-fixed w-full my-5 text-center"
           style={{ "box-shadow": "rgba(0, 0, 0, 0.25) 0px 5px 15px" }}
         >
           <tbody class="ls">
