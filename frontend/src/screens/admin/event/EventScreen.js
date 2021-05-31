@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from 'moment';
+import { BASEAPI } from "../../../constants";
+
 import {
   listEvent,
   deleteEvent,
@@ -72,18 +74,24 @@ const EventScreen = () => {
                   return (
                     <tr key={i}>
                       
-                      <td className="w-1/3 text-left py-3 px-4">{moment(eventDate).format('DD MMM YYYY')}</td>
+                      <td className="text-left py-3 px-4">{moment(eventDate).format('DD MMM YYYY')}</td>
                       <td className="text-left py-3 px-4">{title}</td>
                       <td className="text-left py-3 px-4">{category}</td>
                       <td className="text-left py-3 px-4">
-                        <a
+                        {/* <a
                           className="hover:text-blue-500"
                           href={imgPath}
                           rel="noreferrer"
                           target="_blank"
                         >
                           Img
-                        </a>
+                        </a> */}
+                        <div>
+                          <div>
+                              <img style={{'width': '100px', 'height':'100px'}} src={`${BASEAPI}/home/events/${_id}`}
+                              alt=" image" />
+                          </div>
+                        </div>
                       </td>
 
                       <td className="text-left py-3 px-4">

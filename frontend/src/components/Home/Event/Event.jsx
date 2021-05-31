@@ -39,7 +39,7 @@ const Event = () => {
           <CatFilter categories={categories} filterHandler={filterHandler} />
         </div>
       </div>
-      <div className=" overflow-x-auto mx-10 md:mx-24  flex gap-4 pb-4">
+      <div className=" overflow-x-auto mx-10 md:mx-24  flex gap-4 pb-10">
         {eventallCards(events, allCategory)}
       </div>
     </div>
