@@ -1,10 +1,10 @@
 #scholarship_tables table {
-  border: 1.2px solid #555;
+  border: 1.2px solid #c5c9cc;
   width: 100%;
 }
 
 #scholarship_tables thead {
-  background-color: #636870;
+  background-color: #848a94;
   color: #fff;
   text-align: center;
 }
@@ -19,7 +19,7 @@
 }
 
 #scholarship_tables td {
-  border: 1px solid #999;
+  border: 1px solid #c5c9cc;
   padding: 0.65rem 1.25rem;
   font-family: "Red Hat Display";
 }
