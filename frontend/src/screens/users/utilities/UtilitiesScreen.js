@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./UtilitiesScreen.css";
 import { useDispatch, useSelector } from "react-redux";
-import { BASEAPI } from "../../../constants";
 import { listLinks } from "../../../actions/utilities";
 import LinkCard from "./LinkCard";
 
