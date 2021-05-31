@@ -2,7 +2,6 @@ import React from "react";
 import { Switch } from "react-router-dom";
 import Sidebar from "../../components/admin/Sidebar/Sidebar";
 import "./AdminScreen.css";
-import ProtectedRoute from "../../hoc/ProtectedRoute";
 import AdminRoute from "../../hoc/AdminRoute";
 import { BASEURL } from "../../constants/index";
 import AnnouncementScreen from "./announcement/AnnouncementScreen";
@@ -153,13 +152,13 @@ const AdminScreen = () => {
           />
           <AdminRoute
             exact
-            path={`${BASEURL}/admin/courses/:rule_id`}
-            component={EditCoursesScreen}
+            path={`${BASEURL}/admin/courses/add`}
+            component={AddCoursesScreen}
           />
           <AdminRoute
             exact
-            path={`${BASEURL}/admin/courses/add`}
-            component={AddCoursesScreen}
+            path={`${BASEURL}/admin/courses/:rule_id`}
+            component={EditCoursesScreen}
           />
 
           {/* Scholarship Routes */}

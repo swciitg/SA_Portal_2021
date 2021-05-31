@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-//import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { createCourse, editCourse } from "../../../actions/courses";
 import { BASEURL } from "../../../constants";
 
@@ -20,7 +20,7 @@ const CoursesForm = ({ type, formData }) => {
   const form_id = formData && formData._id;
 
   const dispatch = useDispatch();
-  //const history = useHistory();
+  const history = useHistory();
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -31,11 +31,17 @@ const CoursesForm = ({ type, formData }) => {
 
     //console.log(formData, form_id);
 
-    if (type === "Add") dispatch(createCourse(formData));
-    else dispatch(editCourse(form_id, formData));
+    if (type === "Add")
+      dispatch(createCourse(formData)).then(() => {
+        history.push(`${BASEURL}/admin/courses`);
+      });
+    else
+      dispatch(editCourse(form_id, formData)).then(() => {
+        history.push(`${BASEURL}/admin/courses`);
+      });
 
     //history.push(`${BASEURL}/admin/forms`);
-    window.location.replace(`${BASEURL}/admin/courses`);
+    //window.location.replace(`${BASEURL}/admin/courses`);
   };
 
   return (
