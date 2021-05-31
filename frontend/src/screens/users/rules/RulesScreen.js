@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./RulesScreen.css";
 import { listRules } from "../../../actions/rules";
 import { BASEAPI } from "../../../constants";
+import ColorMarker from "../../../components/Home/ColorMarker/ColorMarker";
 
 const RulesScreen = () => {
   const rules = useSelector((state) => state.rules);
@@ -13,8 +14,11 @@ const RulesScreen = () => {
   }, [dispatch]);
 
   return (
-    <div className="container w-full mx-auto p-6 sm:py-12 sm:px-36">
-      <p className="text-2xl sm:text-3xl font-bold mb-6">Rules</p>
+    <div className="rules_cont container w-full mx-auto p-6 sm:py-12 sm:px-36">
+      <div className="flex justify-between w-full mb-4 sm:mb-6">
+        <p className="text-2xl sm:text-3xl font-bold">Rules</p>
+        <ColorMarker />
+      </div>
       {rules.map((rule, idx) => {
         const { _id, name, path, format } = rule;
         return (

@@ -12,6 +12,7 @@ import RulesScreen from "./rules/RulesScreen";
 import CoursesScreen from "./courses/CoursesScreen";
 import TeamScreen from "./Teams/TeamScreen";
 import GalleryCart from "../../components/Home/GalleryCart/GalleryCart";
+import UtilitiesScreen from "./utilities/UtilitiesScreen";
 const UserScreen = ({ location }) => {
   return (
     <>
@@ -30,6 +31,11 @@ const UserScreen = ({ location }) => {
           exact
           path={`${BASEURL}/scholarships`}
           component={ScholarshipScreen}
+        />
+        <Route
+          exact
+          path={`${BASEURL}/utilities`}
+          component={UtilitiesScreen}
         />
       </Switch>
       <Footer />
