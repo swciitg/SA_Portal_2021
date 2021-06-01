@@ -25,10 +25,10 @@ function MiddleNav({ activePath }) {
 
   return (
     <div id="MidNav" class={`scroll sm:px-14 flex overflow-x-scroll`}>
-      {pages.map((page, i) => {
+      {pages.map((page, idx) => {
         const { name, path } = page;
         return (
-          <Link to={path}>
+          <Link key={idx} to={path}>
             <div
               className={`flex-initial hover:bg-gray-100 text-base px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-14 py-5 h-16 ${
                 path === activePath ? "font-bold font-blue-550" : "text-black"

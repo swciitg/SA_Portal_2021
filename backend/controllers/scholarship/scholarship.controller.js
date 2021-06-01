@@ -28,6 +28,30 @@ exports.getScholarshipPdfData = async (req, res) => {
   }
 };
 
+exports.getOneScholarshipPdf = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const Pdf = await ScholarshipPdf.findById(id);
+    if(Pdf){
+      const PdfPath = `${__dirname}/../../uploads/scholarship/${Pdf.path}`;
+      fs.readFile(PdfPath,(err, data) => {
+        res.contentType("application/pdf");
+        return res.send(data);
+      });
+    }
+    else{
+      return res
+      .status(424)
+      .json({ status: "Failed", message: "Request failed" });
+    }
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(424)
+      .json({ status: "Failed", message: "Request failed" });
+  }
+};
+
 exports.getScholarshipData = async (req, res) => {
   try {
     const EditorData = await SchlolershipEditor.find({});

@@ -1,4 +1,5 @@
 const Team = require("../../models/team/team");
+const dirname = require("../../dirname");
 const fs = require("fs");
 
 exports.getTeamMembers = async (req, res) => {
@@ -6,6 +7,31 @@ exports.getTeamMembers = async (req, res) => {
         const { team } = req.params;
         const TeamMembersData = await Team.find({team : team});
         return res.status(200).json({status:"Success", data: TeamMembersData});
+    }
+    catch(err){
+        console.log(err);
+        return res
+            .status(424)
+            .json({status:"Failed", message:"Request failed"});
+    }
+};
+
+exports.getOneMemberImage = async (req, res) => {
+    try{
+        const { id } = req.params;
+        const Member = await Team.findById(id);
+        if(Member) {
+            const ImagePath = `${__dirname}/../../uploads/team/${Member.imagePath}`;
+            fs.readFile(ImagePath,(err, data) => {
+                res.contentType("image/jpeg");
+                return res.send(data);
+            });
+        }
+        else{
+            return res
+                .status(424)
+                .json({status:"Failed", message:"Request failed"});
+        }
     }
     catch(err){
         console.log(err);
