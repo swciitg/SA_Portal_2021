@@ -1,27 +1,25 @@
 import TeamCard from "./TeamCard";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listTeam } from "../../../actions/counsellingteams";
+import { listTeam } from "../../../actions/teams";
 import { pages } from "./constants";
-import teamsbg from "../../../assets/teamsbg.png";
 
-const TeamNav = () => {
-  const teams = useSelector((state) => state.counsellingteam);
+const TeamScreen = () => {
+  const teams = useSelector((state) => state.team);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listTeam());
   }, [dispatch]);
-
   return (
     <div>
       <div
         style={{
           backgroundImage:
-            "url(https://media.discordapp.net/attachments/826942452539588638/842125739691081838/unknown.png)",
+            "url(https://media.discordapp.net/attachments/826942452539588638/842125739691081838/unknown.png?width=1440&height=488)",
         }}
         class=" h-96"
       >
-        <div class=" text-4xl md:left-32 font-semibold text-white top-8 md:top-28 relative w-64">
+        <div class=" text-4xl md:left-32 font-semibold text-white top-8 md:top-28 relative">
           Team Structure
         </div>
         <div class="md:ml-32 top-20 md:top-36 relative">
@@ -34,7 +32,7 @@ const TeamNav = () => {
       </div>
       <div class="flex flex-wrap justify-center mb-14">
         {teams.map((team, idx) => {
-          const { _id, name, post, email, contactNo, imagePath } = team;
+          const { _id, name, post, email, contactNo } = team;
           return (
             <TeamCard
               key={_id}
@@ -42,7 +40,6 @@ const TeamNav = () => {
               post={post}
               email={email}
               contactNo={contactNo}
-              imagePath={imagePath}
             />
           );
         })}
@@ -52,4 +49,4 @@ const TeamNav = () => {
   );
 };
 
-export default TeamNav;
+export default TeamScreen;

@@ -7,9 +7,7 @@ const TeamScreen = () => {
     <div>
       <TeamNav />
        <div class="flex flex-wrap justify-center mb-14">
-        <TeamCard />
-        <TeamCard />
-        <TeamCard />
+        
       </div>
     </div>
   );

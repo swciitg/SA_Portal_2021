@@ -3,10 +3,10 @@ import teamimage from "../../../assets/team.jpg";
 
 const TeamCard = (props) => {
   return (
-    <div className="bg-blue-600 w-full md:w-96 md:ml-8 mt-2 rounded-md">
-      <img src={props.imagePath} alt="ProfilePic" className="h-80" />
+    <div className="bg-blue-600 w-full md:w-min md:ml-8 mt-14 rounded-md">
+      <img src={teamimage} alt="ProfilePic" />
       <div className="h-28">
-        <div className="flex flex-row justify-between mt-2 mb-3 mx-1">
+        <div className="flex flex-row justify-center space-x-48 mt-2 mb-3">
           <div className="text-white text-2xl">{props.name}</div>
           <div className="text-white text-lg">{props.post}</div>
         </div>
@@ -27,7 +27,7 @@ const TeamCard = (props) => {
             stroke-linecap="round"
           />
         </svg>
-        <div className="flex justify-between space-x-12 mt-3 mx-1">
+        <div className="flex justify-center space-x-12 mt-3">
           <div className="text-white text-lg">{props.email}</div>
           <div className="text-white text-lg">+91-{props.contactNo}</div>
         </div>
