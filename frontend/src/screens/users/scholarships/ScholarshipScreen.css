@@ -1,6 +1,31 @@
+#scholarship_tables table {
+  border: 1.2px solid #c5c9cc;
+  width: 100%;
+}
+
+#scholarship_tables thead {
+  background-color: #848a94;
+  color: #fff;
+  text-align: center;
+}
+
+#scholarship_tables thead th {
+  padding: 0.4rem 0.9rem;
+  font-family: "Red Hat Display";
+}
+
+#scholarship_tables tr {
+  width: 100%;
+}
+
 #scholarship_tables td {
-  border: 1px solid #999;
-  padding: 3px 6px;
+  border: 1px solid #c5c9cc;
+  padding: 0.65rem 1.25rem;
+  font-family: "Red Hat Display";
+}
+
+#scholarship_tables tr td:nth-of-type(1) {
+  width: 5% !important;
 }
 
 #scholarship_tables ol,
@@ -10,19 +35,4 @@
 
 #scholarship_tables li {
   list-style-position: inside;
-}
-
-#scholarship_tables tr {
-  width: 100%;
-}
-
-#scholarship_tables table {
-  border: 1.2px solid #555;
-  width: 100%;
-}
-
-#scholarship_tables thead {
-  border-bottom: 2px solid #000;
-  background-color: rgb(233, 233, 233);
-  text-align: center;
 }
