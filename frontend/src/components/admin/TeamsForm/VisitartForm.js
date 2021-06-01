@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createTeam, editTeam } from "../../../actions/visitartteams";
 import { BASEURL } from "../../../constants";
+import { useHistory } from "react-router-dom";
 
 const VisitartForm = ({type, formData}) => {
+    const history = useHistory();
+
     const [name, setname] = useState(
         formData && formData.name ? formData.name : ""
     );
@@ -41,11 +44,12 @@ const VisitartForm = ({type, formData}) => {
         console.log(formData);
     
         if (type === "Add")
-          // console.log(formData);
-          dispatch(createTeam(formData));
-        else dispatch(editTeam(visitart_id, formData));
-    
-        window.location.replace(`${BASEURL}/admin/team/visitart`);
+            dispatch(createTeam(formData)).then(() => {            
+            });
+        else dispatch(editTeam(visitart_id, formData)).then(() => {
+        });
+        history.push(`${BASEURL}/admin/team/visitart`);
+        // window.location.replace(`${BASEURL}/admin/team/visitart`);
     };
 
     return (

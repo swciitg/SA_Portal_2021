@@ -1,12 +1,17 @@
+import { isMoment } from "moment";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createEvent, editEvent } from "../../../actions/event";
 import { listEventCategories } from "../../../actions/eventcategory";
 import { BASEURL } from "../../../constants";
+import moment from 'moment';
+import { useHistory } from "react-router-dom";
 
 const EventForm = ({ type, formData }) => {
 const categories = useSelector((state) => state.categories);
 console.log(categories);
+const history = useHistory();
+
 const [title, setTitle] = useState(
     formData && formData.title ? formData.title : ""
   );
@@ -39,12 +44,19 @@ const [title, setTitle] = useState(
 
     console.log(formData);
 
-    if (type === "Add")
-      // console.log(formData);
-      dispatch(createEvent(formData));
-    else dispatch(editEvent(event_id, formData));
+    // if (type === "Add")
+    //   dispatch(createEvent(formData));
+    // else dispatch(editEvent(event_id, formData));
 
-    window.location.replace(`${BASEURL}/admin/events`);
+    // window.location.replace(`${BASEURL}/admin/events`);
+    if (type === "Add")
+      dispatch(createEvent(formData)).then(() => {
+        
+      });
+    else if (type === "Edit")
+      dispatch(editEvent(event_id, formData)).then(() => {
+      });
+      history.push(`${BASEURL}/admin/events`);
   };
 
   return (
@@ -88,6 +100,7 @@ const [title, setTitle] = useState(
                   className="px-5 py-1 text-gray-700 bg-gray-200 rounded"
                   type="Date"
                   name="eventDate"
+                  value={moment(eventDate).format("YYYY-MM-DD")}
                   onChange={(e) => seteventDate(e.target.value)}
                   placeholder="Set Image Date"
                   required
