@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listTeam } from "../../../actions/counsellingteams";
 import { pages } from "./constants";
+import teamsbg from "../../../assets/teamsbg.png";
 
 const TeamScreen = () => {
   const teams = useSelector((state) => state.counsellingteam);
@@ -20,7 +21,7 @@ const TeamScreen = () => {
         }}
         class=" h-96"
       >
-        <div class=" text-4xl md:left-32 font-semibold text-white top-8 md:top-28 relative w-min">
+        <div class=" text-4xl md:left-32 font-semibold text-white top-8 md:top-28 relative w-64">
           Team Structure
         </div>
         <div class="md:ml-32 top-20 md:top-36 relative">

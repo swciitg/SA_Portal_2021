@@ -9,7 +9,6 @@ function About() {
     const getAbout = async () => {
       try {
         const { data } = await fetchAbout();
-        //console.log(data.data);
         data.data && setAboutContent(`${JSON.parse(data.data.HTMLString)}`);
       } catch (error) {
         console.log(error);
