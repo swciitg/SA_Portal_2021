@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from 'moment';
-import { BASEAPI } from "../../../constants";
+import { BASEAPI ,BASEURL} from "../../../constants";
 
 import {
   listEvent,
   deleteEvent,
 } from "../../../actions/event";
-import { BASEURL } from "../../../constants";
 
 const EventScreen = () => {
   const events = useSelector((state) => state.events);
@@ -87,10 +86,8 @@ const EventScreen = () => {
                           Img
                         </a> */}
                         <div>
-                          <div>
-                              <img style={{'width': '100px', 'height':'100px'}} src={`${BASEAPI}/home/events/${_id}`}
-                              alt=" image" />
-                          </div>
+                          <img style={{'width': '100px', 'height':'100px'}} src={`${BASEAPI}/home/events/${_id}`}
+                          alt=" image" />
                         </div>
                       </td>
 

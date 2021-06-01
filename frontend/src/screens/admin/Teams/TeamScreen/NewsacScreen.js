@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { BASEURL } from "../../../../constants";
+import { BASEURL ,BASEAPI} from "../../../../constants";
 import {
     listTeam,
     deleteTeam,
@@ -92,10 +92,8 @@ const NewsacScreen = () =>{
                                     Img
                                     </a> */}
                                     <div>
-                                        <div class="flex-shrink-0 w-10 h-10">
-                                            <img class="w-full h-full rounded-full" src={`/uploads/team/${imagePath}`}
+                                        <img style={{'width': '100px', 'height':'100px'}} src={`${BASEAPI}/team/newsac/${_id}`}
                                             alt=" image" />
-                                        </div>
                                     </div>
                                 </td>
 
