@@ -2,18 +2,17 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
     listTeam,
-  } from "../../../actions/counsellingteams";
+  } from "../../../actions/newsacteams";
 import TeamNav from "./TeamNav";
 import {TeamAllCards} from "./TeamUtil";
 
-const CounsellingScreen = () => {
-    const teams = useSelector((state) => state.counsellingteam);
+const NewsacScreen = () => {
+    const teams = useSelector((state) => state.newsacteam);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(listTeam());
     }, [dispatch]);
-    console.log(teams);
     return (
         <div>
           <TeamNav />
@@ -23,4 +22,4 @@ const CounsellingScreen = () => {
         </div>
     );
 };
-export default CounsellingScreen;
+export default NewsacScreen;

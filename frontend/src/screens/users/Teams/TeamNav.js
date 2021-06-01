@@ -5,7 +5,7 @@ import { listTeam } from "../../../actions/counsellingteams";
 import { pages } from "./constants";
 import teamsbg from "../../../assets/teamsbg.png";
 
-const TeamScreen = () => {
+const TeamNav = () => {
   const teams = useSelector((state) => state.counsellingteam);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -52,4 +52,4 @@ const TeamScreen = () => {
   );
 };
 
-export default TeamScreen;
+export default TeamNav;

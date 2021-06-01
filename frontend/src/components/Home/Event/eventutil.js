@@ -1,4 +1,5 @@
 import EventCard from "./EventCard";
+import { SwiperSlide } from "swiper/react";
 
 export const eventallCards = (events, allCategory) => {
     if (events && events.length !== 0) {
@@ -12,7 +13,7 @@ export const eventallCards = (events, allCategory) => {
             category,
           } = event;
           return (
-            
+           <SwiperSlide>           
             <EventCard
               _id={_id}
               title={title}
@@ -20,6 +21,7 @@ export const eventallCards = (events, allCategory) => {
               eventDate={eventDate}
               category={category}
             />
+            </SwiperSlide> 
           );
         });
       } else {
