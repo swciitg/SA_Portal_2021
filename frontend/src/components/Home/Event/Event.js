@@ -52,22 +52,16 @@ const Event = () => {
           <CatFilter categories={categories} filterHandler={filterHandler} />
         </div>
       </div>
+      <div className="px-16">
+        <Swiper slidesPerView={3} spaceBetween={1} freeMode={true} pagination={{
+          "clickable": true
+          }} className="mySwiper">
 
-      <Swiper slidesPerView={3} spaceBetween={50} freeMode={true} pagination={{
-        "clickable": true
-        }} className="mySwiper">
-
-        {/* <div className=" o mx-10 md:mx-24  flex gap-4 pb-10"> */}
-        <SwiperSlide  className="  mx-10 md:mx-24  flex gap-4 pb-10">
-          {eventallCards(events, allCategory)}
-        </SwiperSlide>
-          
-        {/* </div> */}
-      </Swiper>
-
-      {/* <div className=" overflow-x-auto mx-10 md:mx-24  flex gap-4 pb-10">
-        {eventallCards(events, allCategory)}
-      </div> */}
+          <div className=" overflow-x-auto mx-10 md:mx-32  flex gap-4 pb-10">
+            {eventallCards(events, allCategory)}
+          </div>
+        </Swiper>
+      </div>
 
     </div>
   );
