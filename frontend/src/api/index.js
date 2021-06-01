@@ -78,20 +78,37 @@ export const deleteSchLink = (id) => API.delete(`/scholarship/pdf/${id}`);
 //Teams
 export const fetchCounselling = () => API.get("/team/counselling");
 export const fetchGymkhana = () => API.get("/team/gymkhana");
+export const fetchVisitart = () => API.get("/team/visitart");
+export const fetchNewsac = () => API.get("/team/newsac");
+export const fetchHostel = () => API.get("/team/hostels");
 
 export const createCounselling = (newCounselling) =>
   API.post("/team/counselling", newCounselling);
-
 export const createGymkhana = (newGymkhana) =>
   API.post("/team/gymkhana", newGymkhana);
+export const createVisitart = (newVisitart) =>
+  API.post("/team/visitart", newVisitart);
+export const createNewsac = (newNewsac) =>
+  API.post("/team/newsac", newNewsac);
+export const createHostel = (newHostel) =>
+  API.post("/team/hostels", newHostel);
 
 export const editCounselling = (id, updatedCounselling) =>
   API.put(`/team/counselling/${id}`, updatedCounselling);
 export const editGymkhana = (id, updatedGymkhana) =>
   API.put(`/team/gymkhana/${id}`, updatedGymkhana);
+export const editVisitart = (id, updatedVisitart) =>
+  API.put(`/team/visitart/${id}`, updatedVisitart);
+export const editNewsac = (id, updatedNewsac) =>
+  API.put(`/team/newsac/${id}`, updatedNewsac);
+export const editHostel = (id, updatedHostel) =>
+  API.put(`/team/hostels/${id}`, updatedHostel);
 
 export const deleteCounselling = (id) => API.delete(`/team/counselling/${id}`);
 export const deleteGymkhana = (id) => API.delete(`/team/gymkhana/${id}`);
+export const deleteVisitart = (id) => API.delete(`/team/visitart/${id}`);
+export const deleteNewsac = (id) => API.delete(`/team/newsac/${id}`);
+export const deleteHostel = (id) => API.delete(`/team/hostels/${id}`);
 
 //USERS-CHANGING ROUTES
 export const fetchUsers = () => API.get("/users");

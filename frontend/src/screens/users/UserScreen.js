@@ -10,8 +10,13 @@ import FormScreen from "./Forms/FormScreen";
 import ScholarshipScreen from "./scholarships/ScholarshipScreen";
 import RulesScreen from "./rules/RulesScreen";
 import CoursesScreen from "./courses/CoursesScreen";
-import TeamScreen from "./Teams/TeamScreen";
+import SaScreen from "./Teams/SaScreen";
+import CounsellingScreen from "./Teams/CounsellingScreen";
+import GymkhanaScreen from "./Teams/GymkhanaScreen";
 import GalleryCart from "../../components/Home/GalleryCart/GalleryCart";
+import NewsacScreen from "./Teams/NewsacScreen";
+import VisitartScreen from "./Teams/VisitartScreen";
+import HostelScreen from "./Teams/HostelScreen";
 const UserScreen = ({ location }) => {
   return (
     <>
@@ -25,7 +30,12 @@ const UserScreen = ({ location }) => {
         <Route exact path={`${BASEURL}/forms`} component={FormScreen} />
         <Route exact path={`${BASEURL}/rules`} component={RulesScreen} />
         <Route exact path={`${BASEURL}/sa_courses`} component={CoursesScreen} />
-        <Route exact path={`${BASEURL}/team`} component={TeamScreen} />
+        <Route exact path={`${BASEURL}/team`} component={SaScreen} />
+        <Route exact path={`${BASEURL}/team/counselling`} component={CounsellingScreen} />
+        <Route exact path={`${BASEURL}/team/gymkhana`} component={GymkhanaScreen} />
+        <Route exact path={`${BASEURL}/team/newsac`} component={NewsacScreen} />
+        <Route exact path={`${BASEURL}/team/visitart`} component={VisitartScreen} />
+        <Route exact path={`${BASEURL}/team/hostels`} component={HostelScreen} />
         <Route
           exact
           path={`${BASEURL}/scholarships`}

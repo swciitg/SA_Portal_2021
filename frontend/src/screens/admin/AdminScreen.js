@@ -33,10 +33,16 @@ import EditUtilitiesScreen from "./utilities/EditUtilitiesScreen";
 import SublinkScreen from "./utilities/SublinkScreen";
 import AddSublinkScreen from "./utilities/AddSublinkScreen";
 import EditSublinkScreen from "./utilities/EditSublinkScreen";
+
 import TeamsScreen from "./Teams/TeamsScreen";
-import CounsellingScreen from "./TeamCounselling/CounsellingScreen";
-import EditCounsellingScreen from "./TeamCounselling/EditCounsellingScreen";
-import AddCounsellingScreen from "./TeamCounselling/AddCounsellingScreen";
+import GymkhanaScreen from "./Teams/TeamScreen/GymkhanaScreen";
+import CounsellingScreen from "./Teams/TeamScreen/CounsellingScreen";
+import NewsacScreen from "./Teams/TeamScreen/NewsacScreen";
+import VisitartScreen from "./Teams/TeamScreen/VisitartScreen";
+import HostelScreen from "./Teams/TeamScreen/HostelScreen";
+import {AddGymkhanaForm,AddCounsellingForm,AddNewsacForm,AddHostelForm,AddVisitartForm} from "./Teams/AddTeam/AddTeamScreen";
+import {EditGymkhanaForm,EditCounsellingForm,EditNewsacForm,EditHostelForm,EditVisitartForm} from "./Teams/EditTeam/EditTeamScreen";
+
 import UserScreen from "./users/UserScreen";
 import GalleryScreen from "./gallery/GalleryScreen";
 import AddGalleryScreen from "./gallery/AddGalleryScreen";
@@ -220,18 +226,78 @@ const AdminScreen = () => {
           />
           <AdminRoute
             exact
+            path={`${BASEURL}/admin/team/gymkhana`}
+            component={GymkhanaScreen}
+          />
+          <AdminRoute
+            exact
             path={`${BASEURL}/admin/team/counselling`}
             component={CounsellingScreen}
           />
           <AdminRoute
             exact
+            path={`${BASEURL}/admin/team/newsac`}
+            component={NewsacScreen}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/visitart`}
+            component={VisitartScreen}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/hostels`}
+            component={HostelScreen}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/gymkhana/add`}
+            component={AddGymkhanaForm}
+          />
+          <AdminRoute
+            exact
             path={`${BASEURL}/admin/team/counselling/add`}
-            component={AddCounsellingScreen}
+            component={AddCounsellingForm}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/newsac/add`}
+            component={AddNewsacForm}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/visitart/add`}
+            component={AddVisitartForm}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/hostels/add`}
+            component={AddHostelForm}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/gymkhana/:gymkhana_id`}
+            component={EditGymkhanaForm}
           />
           <AdminRoute
             exact
             path={`${BASEURL}/admin/team/counselling/:counselling_id`}
-            component={EditCounsellingScreen}
+            component={EditCounsellingForm}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/newsac/:newsac_id`}
+            component={EditNewsacForm}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/visitart/:visitart_id`}
+            component={EditVisitartForm}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/hostels/:hostel_id`}
+            component={EditHostelForm}
           />
 
           {/* User Routes */}

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { BASEURL } from "../../../constants";
+import { BASEURL } from "../../../../constants";
 import {
     listTeam,
     deleteTeam,
-  } from "../../../actions/counsellingteams";
+  } from "../../../../actions/counsellingteams";
 
 const CounsellingScreen = () =>{
     const teams = useSelector((state) => state.counsellingteam);

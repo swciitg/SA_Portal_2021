@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css"
+import "./styles.css";
+import SwiperCore, {
+  Pagination
+} from 'swiper/core';
+
 import { listEvent } from "../../../actions/event";
 import { listEventCategories } from "../../../actions/eventcategory";
 import { eventallCards } from "./eventutil";
 import CatFilter from "./EventCatfilter";
+
+
+// SwiperCore.use([Pagination]);
 // import "./Event.css";
+
 
 const Event = () => {
   const events = useSelector((state) => state.events);
@@ -39,9 +52,23 @@ const Event = () => {
           <CatFilter categories={categories} filterHandler={filterHandler} />
         </div>
       </div>
-      <div className=" overflow-x-auto mx-10 md:mx-24  flex gap-4 pb-10">
+
+      <Swiper slidesPerView={3} spaceBetween={50} freeMode={true} pagination={{
+        "clickable": true
+        }} className="mySwiper">
+
+        {/* <div className=" o mx-10 md:mx-24  flex gap-4 pb-10"> */}
+        <SwiperSlide  className="  mx-10 md:mx-24  flex gap-4 pb-10">
+          {eventallCards(events, allCategory)}
+        </SwiperSlide>
+          
+        {/* </div> */}
+      </Swiper>
+
+      {/* <div className=" overflow-x-auto mx-10 md:mx-24  flex gap-4 pb-10">
         {eventallCards(events, allCategory)}
-      </div>
+      </div> */}
+
     </div>
   );
 };
