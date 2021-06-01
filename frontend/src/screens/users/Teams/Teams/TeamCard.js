@@ -4,7 +4,7 @@ import teamimage from "../../../assets/team.jpg";
 const TeamCard = (props) => {
   return (
     <div className="bg-blue-600 w-full md:w-min md:ml-8 mt-14 rounded-md">
-      <img src={props.imagePath} alt="ProfilePic" />
+      <img src={teamimage} alt="ProfilePic" />
       <div className="h-28">
         <div className="flex flex-row justify-center space-x-48 mt-2 mb-3">
           <div className="text-white text-2xl">{props.name}</div>
