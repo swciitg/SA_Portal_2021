@@ -18,6 +18,7 @@ const upload = multer({ storage: storage });
 router.get("/", ScholarshipController.getScholarshipData);
 router.get("/editor", ScholarshipController.getScholarshipEditorData);
 router.get("/pdf" , ScholarshipController.getScholarshipPdfData);
+router.get("/pdf/:id" , ScholarshipController.getOneScholarshipPdf);
 
 router.post("/editor",isLoggedIn, isAdmin,ScholarshipController.postScholarshipEditor);
 router.post("/pdf",isLoggedIn, isAdmin, upload.single("path"), ScholarshipController.postScholarshipPdf);
