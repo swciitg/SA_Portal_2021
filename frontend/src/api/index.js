@@ -88,10 +88,8 @@ export const createGymkhana = (newGymkhana) =>
   API.post("/team/gymkhana", newGymkhana);
 export const createVisitart = (newVisitart) =>
   API.post("/team/visitart", newVisitart);
-export const createNewsac = (newNewsac) =>
-  API.post("/team/newsac", newNewsac);
-export const createHostel = (newHostel) =>
-  API.post("/team/hostels", newHostel);
+export const createNewsac = (newNewsac) => API.post("/team/newsac", newNewsac);
+export const createHostel = (newHostel) => API.post("/team/hostels", newHostel);
 
 export const editCounselling = (id, updatedCounselling) =>
   API.put(`/team/counselling/${id}`, updatedCounselling);
@@ -135,3 +133,9 @@ export const createNavigation = (newNav) =>
 export const editNavigation = (id, updatedNav) =>
   API.put(`/home/navigation/${id}`, updatedNav);
 export const deleteNavigation = (id) => API.delete(`/home/navigation/${id}`);
+
+//SAC Routes
+export const fetchSAC = () => API.get("/sac");
+export const createSAC = (newForm) => API.post("/sac", newForm);
+export const editSAC = (id, updatedForm) => API.put(`/sac/${id}`, updatedForm);
+export const deleteSAC = (id) => API.delete(`/sac/${id}`);

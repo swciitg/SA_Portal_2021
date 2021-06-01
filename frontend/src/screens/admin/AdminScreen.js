@@ -32,6 +32,9 @@ import EditUtilitiesScreen from "./utilities/EditUtilitiesScreen";
 import SublinkScreen from "./utilities/SublinkScreen";
 import AddSublinkScreen from "./utilities/AddSublinkScreen";
 import EditSublinkScreen from "./utilities/EditSublinkScreen";
+import SACScreen from "./sac/SACScreen";
+import AddSACScreen from "./sac/AddSACScreen";
+import EditSACScreen from "./sac/EditSACScreen";
 
 import TeamsScreen from "./Teams/TeamsScreen";
 import GymkhanaScreen from "./Teams/TeamScreen/GymkhanaScreen";
@@ -39,8 +42,20 @@ import CounsellingScreen from "./Teams/TeamScreen/CounsellingScreen";
 import NewsacScreen from "./Teams/TeamScreen/NewsacScreen";
 import VisitartScreen from "./Teams/TeamScreen/VisitartScreen";
 import HostelScreen from "./Teams/TeamScreen/HostelScreen";
-import {AddGymkhanaForm,AddCounsellingForm,AddNewsacForm,AddHostelForm,AddVisitartForm} from "./Teams/AddTeam/AddTeamScreen";
-import {EditGymkhanaForm,EditCounsellingForm,EditNewsacForm,EditHostelForm,EditVisitartForm} from "./Teams/EditTeam/EditTeamScreen";
+import {
+  AddGymkhanaForm,
+  AddCounsellingForm,
+  AddNewsacForm,
+  AddHostelForm,
+  AddVisitartForm,
+} from "./Teams/AddTeam/AddTeamScreen";
+import {
+  EditGymkhanaForm,
+  EditCounsellingForm,
+  EditNewsacForm,
+  EditHostelForm,
+  EditVisitartForm,
+} from "./Teams/EditTeam/EditTeamScreen";
 
 import UserScreen from "./users/UserScreen";
 import GalleryScreen from "./gallery/GalleryScreen";
@@ -148,6 +163,25 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/rules/:rule_id`}
             component={EditRulesScreen}
+          />
+
+          {/* SAC Routes */}
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/sac`}
+            component={SACScreen}
+          />
+
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/sac/add`}
+            component={AddSACScreen}
+          />
+
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/sac/:sac_id`}
+            component={EditSACScreen}
           />
 
           {/* Courses Routes */}

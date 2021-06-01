@@ -8,7 +8,6 @@ function Achievement() {
     const getAchievement = async () => {
       try {
         const { data } = await fetchAchievement();
-        //console.log(data.data);
         var i=0;
         for (const [key, value] of Object.entries(data.data)) {
           value && setAchievement(`${JSON.parse(value.HTMLString)}`);
