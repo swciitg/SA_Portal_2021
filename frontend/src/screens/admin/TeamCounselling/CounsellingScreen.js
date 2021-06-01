@@ -14,7 +14,6 @@ const CounsellingScreen = () =>{
     useEffect(() => {
         dispatch(listTeam());
     }, [dispatch]);
-    console.log(teams);
     return (
         <>
             <h1 className="text-3xl text-black pb-6">Counselling Cell Members</h1>
@@ -85,14 +84,20 @@ const CounsellingScreen = () =>{
                                 <td className="text-left py-3 px-4">{post}</td>
                                 <td className="text-center py-3 px-4">{priority_number}</td>
                                 <td className="text-center py-3 px-4">
-                                    <a
+                                    {/* <a
                                     className="hover:text-blue-500"
                                     href={imagePath}
                                     rel="noreferrer"
                                     target="_blank"
                                     >
                                     Img
-                                    </a>
+                                    </a> */}
+                                    <div>
+                                        <div class="flex-shrink-0 w-10 h-10">
+                                            <img class="w-full h-full rounded-full" src={`/uploads/team/${imagePath}`}
+                                            alt=" image" />
+                                        </div>
+                                    </div>
                                 </td>
 
                                 <td className="text-left py-3 px-4">

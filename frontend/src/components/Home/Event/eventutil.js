@@ -14,7 +14,7 @@ export const eventallCards = (events, allCategory) => {
           return (
             
             <EventCard
-              key={_id}
+              _id={_id}
               title={title}
               imgPath={imgPath}
               eventDate={eventDate}
@@ -38,7 +38,7 @@ export const eventallCards = (events, allCategory) => {
             } = event;
             return (
                 <EventCard
-                key={_id}
+                _id={_id}
                 title={title}
                 imgPath={imgPath}
                 eventDate={eventDate}

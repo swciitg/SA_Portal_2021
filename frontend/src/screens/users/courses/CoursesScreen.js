@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { listCourses } from "../../../actions/courses";
 import { BASEAPI } from "../../../constants";
+import ColorMarker from "../../../components/Home/ColorMarker/ColorMarker";
 
 const CoursesScreen = () => {
   const courses = useSelector((state) => state.courses);
@@ -13,7 +14,10 @@ const CoursesScreen = () => {
 
   return (
     <div className="container w-full mx-auto p-6 sm:py-12 sm:px-36">
-      <p className="text-2xl sm:text-3xl font-bold mb-6">SA Courses</p>
+      <div className="flex justify-between w-full mb-4 sm:mb-6">
+        <p className="text-2xl sm:text-3xl font-bold">SA Courses</p>
+        <ColorMarker />
+      </div>
       {courses.map((course, idx) => {
         const { _id, name, path, format } = course;
         return (
