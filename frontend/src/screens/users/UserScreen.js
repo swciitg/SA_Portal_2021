@@ -9,6 +9,7 @@ import HomeScreen from "./home/HomeScreen";
 import FormScreen from "./Forms/FormScreen";
 import ScholarshipScreen from "./scholarships/ScholarshipScreen";
 import RulesScreen from "./rules/RulesScreen";
+import SACScreen from "./sac/SACScreen";
 import CoursesScreen from "./courses/CoursesScreen";
 import SaScreen from "./Teams/SaScreen";
 import GalleryCart from "../../components/Home/GalleryCart/GalleryCart";
@@ -26,6 +27,7 @@ const UserScreen = ({ location }) => {
         <Route exact path={`${BASEURL}/forms`} component={FormScreen} />
         <Route exact path={`${BASEURL}/rules`} component={RulesScreen} />
         <Route exact path={`${BASEURL}/sa_courses`} component={CoursesScreen} />
+        <Route exact path={`${BASEURL}/sac`} component={SACScreen} />
         <Route exact path={`${BASEURL}/team`} component={SaScreen} />
         <Route
           exact

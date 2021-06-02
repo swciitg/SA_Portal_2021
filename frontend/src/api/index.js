@@ -84,13 +84,6 @@ export const editTeam = (ts,id, updatedTeam) =>
   API.put(`/team/${ts}/${id}`, updatedTeam);
 export const deleteTeam = (ts,id) => API.delete(`/team/${ts}/${id}`);
 
-
-export const fetchCounselling = () => API.get("/team/counselling");
-export const fetchGymkhana = () => API.get("/team/gymkhana");
-export const fetchVisitart = () => API.get("/team/visitart");
-export const fetchNewsac = () => API.get("/team/newsac");
-export const fetchHostel = () => API.get("/team/hostels");
-
 //USERS-CHANGING ROUTES
 export const fetchUsers = () => API.get("/users");
 export const changeAdminStatus = (id) => API.put(`/users/${id}`);
@@ -116,3 +109,9 @@ export const createNavigation = (newNav) =>
 export const editNavigation = (id, updatedNav) =>
   API.put(`/home/navigation/${id}`, updatedNav);
 export const deleteNavigation = (id) => API.delete(`/home/navigation/${id}`);
+
+//SAC Routes
+export const fetchSAC = () => API.get("/sac");
+export const createSAC = (newForm) => API.post("/sac", newForm);
+export const editSAC = (id, updatedForm) => API.put(`/sac/${id}`, updatedForm);
+export const deleteSAC = (id) => API.delete(`/sac/${id}`);

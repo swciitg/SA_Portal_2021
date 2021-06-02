@@ -50,6 +50,9 @@ const Sidebar = ({ children }) => {
           <Link to={`${BASEURL}/admin/gallery`} className={linkSidebar}>
             Gallery
           </Link>
+          <Link to={`${BASEURL}/admin/sac`} className={linkSidebar}>
+            SAC
+          </Link>
           <Link to={`${BASEURL}/admin/events`} className={linkSidebar}>
             Events
           </Link>

@@ -1,17 +1,11 @@
-import { ABOUT_UPDATE_EDITORSTATE } from "../constants/index";
-import { EditorState } from "draft-js";
+import { ABOUT_GET_REQUEST } from "../constants/index";
 
-const defaultState = {
-  editorState: EditorState.createEmpty(),
-};
-
-const about = (aboutContent = defaultState, { type, payload }) => {
-  //console.log("about", payload);
+const about = (about = "", { type, payload }) => {
   switch (type) {
-    case ABOUT_UPDATE_EDITORSTATE:
-      return { ...aboutContent, payload };
+    case ABOUT_GET_REQUEST:
+      return payload;
     default:
-      return aboutContent;
+      return about;
   }
 };
 

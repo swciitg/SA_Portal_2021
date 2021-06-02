@@ -32,6 +32,9 @@ import EditUtilitiesScreen from "./utilities/EditUtilitiesScreen";
 import SublinkScreen from "./utilities/SublinkScreen";
 import AddSublinkScreen from "./utilities/AddSublinkScreen";
 import EditSublinkScreen from "./utilities/EditSublinkScreen";
+import SACScreen from "./sac/SACScreen";
+import AddSACScreen from "./sac/AddSACScreen";
+import EditSACScreen from "./sac/EditSACScreen";
 
 import TeamsScreen from "./Teams/TeamScreen/TeamScreen";
 import {AddTeamForm} from "./Teams/TeamScreen/AddTeamScreen";
@@ -144,6 +147,25 @@ const AdminScreen = () => {
             exact
             path={`${BASEURL}/admin/rules/:rule_id`}
             component={EditRulesScreen}
+          />
+
+          {/* SAC Routes */}
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/sac`}
+            component={SACScreen}
+          />
+
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/sac/add`}
+            component={AddSACScreen}
+          />
+
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/sac/:sac_id`}
+            component={EditSACScreen}
           />
 
           {/* Courses Routes */}

@@ -9,6 +9,7 @@ import forms from "./reducers/form";
 import events from "./reducers/events";
 import eventscategory from "./reducers/eventscategory";
 import rules from "./reducers/rules";
+import sacs from "./reducers/sac";
 import links from "./reducers/utilities";
 import sublinks from "./reducers/sublinks";
 import courses from "./reducers/courses";
@@ -31,6 +32,7 @@ const reducer = combineReducers({
   rules,
   links,
   courses,
+  sacs,
   schLinks,
   sublinks,
   teams,
