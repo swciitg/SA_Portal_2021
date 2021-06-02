@@ -52,7 +52,7 @@ const Event = () => {
           <CatFilter categories={categories} filterHandler={filterHandler} />
         </div>
       </div>
-      <div className="px-16">
+      <div className="px-4 md:px-16">
         <Swiper slidesPerView={3} spaceBetween={1} freeMode={true} pagination={{
           "clickable": true
           }} className="mySwiper">
