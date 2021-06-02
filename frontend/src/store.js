@@ -13,11 +13,7 @@ import links from "./reducers/utilities";
 import sublinks from "./reducers/sublinks";
 import courses from "./reducers/courses";
 import schLinks from "./reducers/schLinks";
-import counsellingteam from "./reducers/counsellingteams";
-import gymkhanateam from "./reducers/gymkhanateams";
-import newsacteam from "./reducers/newsacteam";
-import visitartteam from "./reducers/visitartteam";
-import hostelteam from "./reducers/hostelteam";
+import teams from "./reducers/teams";
 
 import users from "./reducers/user";
 import images from "./reducers/gallery";
@@ -37,11 +33,7 @@ const reducer = combineReducers({
   courses,
   schLinks,
   sublinks,
-  gymkhanateam,
-  counsellingteam,
-  newsacteam,
-  visitartteam,
-  hostelteam,
+  teams,
   users,
   images,
   achievements,

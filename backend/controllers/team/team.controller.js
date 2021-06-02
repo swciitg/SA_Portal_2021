@@ -5,7 +5,7 @@ const fs = require("fs");
 exports.getTeamMembers = async (req, res) => {
     try{
         const { team } = req.params;
-        const TeamMembersData = await Team.find({team : team});
+        const TeamMembersData = await Team.find({team : team}).sort("priority_number");
         return res.status(200).json({status:"Success", data: TeamMembersData});
     }
     catch(err){

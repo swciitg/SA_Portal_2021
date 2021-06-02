@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createTeam, editTeam } from "../../../actions/gymkhanateams";
+import { createTeam, editTeam } from "../../../actions/teams";
 import { BASEURL } from "../../../constants";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import {teams} from "../../../screens/admin/Teams/TeamScreen/constant";
 
-const GymkhanaForm = ({type, formData}) => {
+const TeamForm = ({type,team, formData}) => {
     const history = useHistory();
-
+    const ts=useParams().team;
     const [name, setname] = useState(
         formData && formData.name ? formData.name : ""
     );
@@ -27,7 +28,7 @@ const GymkhanaForm = ({type, formData}) => {
         formData && formData.imagePath ? formData.imagePath : ""
     );
     
-    const gymkhana_id = formData && formData._id;
+    const team_id = formData && formData._id;
 
     const dispatch = useDispatch();
 
@@ -44,17 +45,19 @@ const GymkhanaForm = ({type, formData}) => {
         console.log(formData);
     
         if (type === "Add")
-          dispatch(createTeam(formData)).then(() => {            
+          dispatch(createTeam(ts,formData)).then(() => {
+            history.push(`${BASEURL}/admin/team/${ts}`);
           });
-        else dispatch(editTeam(gymkhana_id, formData)).then(() => {
+        else dispatch(editTeam(ts,team_id, formData)).then(() => {
+            history.push(`${BASEURL}/admin/team/${ts}`);
         });
-        history.push(`${BASEURL}/admin/team/gymkhana`);
-        // window.location.replace(`${BASEURL}/admin/team/gymkhana`);
+        // history.push(`${BASEURL}/admin/team/counselling`);
+        // window.location.replace(`${BASEURL}/admin/team/counselling`);
     };
 
     return (
         <>
-            <h1 class="text-3xl text-black pb-6">{type} Gymkhana Member</h1>
+            <h1 class="text-3xl text-black pb-6">{type} {team} Member</h1>
 
             <div class="flex flex-wrap justify-center">
                 <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
@@ -178,4 +181,4 @@ const GymkhanaForm = ({type, formData}) => {
     )
 };
 
-export default GymkhanaForm;
+export default TeamForm;

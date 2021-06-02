@@ -1,12 +1,12 @@
 import TeamCard from "./TeamCard";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { listTeam } from "../../../actions/counsellingteams";
+import { listTeam } from "../../../actions/teams";
 import { pages } from "./constants";
 import teamsbg from "../../../assets/teamsbg.png";
 
 const TeamNav = () => {
-  const teams = useSelector((state) => state.counsellingteam);
+  const teams = useSelector((state) => state.teams);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listTeam());
@@ -33,7 +33,7 @@ const TeamNav = () => {
         </div>
       </div>
       <div class="flex flex-wrap justify-center mb-14">
-        {teams.map((team, idx) => {
+        {/* {teams.map((team, idx) => {
           const { _id, name, post, email, contactNo, imagePath } = team;
           return (
             <TeamCard
@@ -46,7 +46,7 @@ const TeamNav = () => {
             />
           );
         })}
-        ;
+        ; */}
       </div>
     </div>
   );

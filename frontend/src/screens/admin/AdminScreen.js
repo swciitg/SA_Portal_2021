@@ -33,14 +33,10 @@ import SublinkScreen from "./utilities/SublinkScreen";
 import AddSublinkScreen from "./utilities/AddSublinkScreen";
 import EditSublinkScreen from "./utilities/EditSublinkScreen";
 
-import TeamsScreen from "./Teams/TeamsScreen";
-import GymkhanaScreen from "./Teams/TeamScreen/GymkhanaScreen";
-import CounsellingScreen from "./Teams/TeamScreen/CounsellingScreen";
-import NewsacScreen from "./Teams/TeamScreen/NewsacScreen";
-import VisitartScreen from "./Teams/TeamScreen/VisitartScreen";
-import HostelScreen from "./Teams/TeamScreen/HostelScreen";
-import {AddGymkhanaForm,AddCounsellingForm,AddNewsacForm,AddHostelForm,AddVisitartForm} from "./Teams/AddTeam/AddTeamScreen";
-import {EditGymkhanaForm,EditCounsellingForm,EditNewsacForm,EditHostelForm,EditVisitartForm} from "./Teams/EditTeam/EditTeamScreen";
+import TeamsScreen from "./Teams/TeamScreen/TeamScreen";
+import {AddTeamForm} from "./Teams/TeamScreen/AddTeamScreen";
+import {EditTeamForm} from "./Teams/TeamScreen/EditTeamScreen";
+import AllTeamsScreen from "./Teams/AllTeamScreen";
 
 import UserScreen from "./users/UserScreen";
 import GalleryScreen from "./gallery/GalleryScreen";
@@ -218,85 +214,28 @@ const AdminScreen = () => {
           />
 
           {/* Teams routes */}
+
+          
+
           <AdminRoute
             exact
             path={`${BASEURL}/admin/team`}
+            component={AllTeamsScreen}
+          />
+          <AdminRoute
+            exact
+            path={`${BASEURL}/admin/team/:team`}
             component={TeamsScreen}
           />
           <AdminRoute
             exact
-            path={`${BASEURL}/admin/team/gymkhana`}
-            component={GymkhanaScreen}
+            path={`${BASEURL}/admin/team/:team/add`}
+            component={AddTeamForm}
           />
           <AdminRoute
             exact
-            path={`${BASEURL}/admin/team/counselling`}
-            component={CounsellingScreen}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/newsac`}
-            component={NewsacScreen}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/visitart`}
-            component={VisitartScreen}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/hostels`}
-            component={HostelScreen}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/gymkhana/add`}
-            component={AddGymkhanaForm}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/counselling/add`}
-            component={AddCounsellingForm}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/newsac/add`}
-            component={AddNewsacForm}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/visitart/add`}
-            component={AddVisitartForm}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/hostels/add`}
-            component={AddHostelForm}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/gymkhana/:gymkhana_id`}
-            component={EditGymkhanaForm}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/counselling/:counselling_id`}
-            component={EditCounsellingForm}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/newsac/:newsac_id`}
-            component={EditNewsacForm}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/visitart/:visitart_id`}
-            component={EditVisitartForm}
-          />
-          <AdminRoute
-            exact
-            path={`${BASEURL}/admin/team/hostels/:hostel_id`}
-            component={EditHostelForm}
+            path={`${BASEURL}/admin/team/:team/:team_id`}
+            component={EditTeamForm}
           />
 
           {/* User Routes */}

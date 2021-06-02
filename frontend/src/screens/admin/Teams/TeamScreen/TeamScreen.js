@@ -1,26 +1,35 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { BASEURL ,BASEAPI} from "../../../../constants";
+import { Link, useParams } from "react-router-dom";
+import { BASEURL ,BASEAPI} from "../../../../constants"; 
+import {teams} from "./constant";
 import {
     listTeam,
     deleteTeam,
-  } from "../../../../actions/gymkhanateams";
-const GymkhanaScreen = () =>{
-    const teams = useSelector((state) => state.gymkhanateam);
+  } from "../../../../actions/teams";
+
+const TeamScreen = () =>{
+    const ts = useParams().team;
+    const singleteam= (teams.find((t) => t.ts===ts)).team;
+    // console.log(singleteam);
+    const teamm = useSelector((state) => state.teams);
+    console.log(teamm);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(listTeam());
+        dispatch(listTeam(ts));
     }, [dispatch]);
     return (
         <>
-            <h1 className="text-3xl text-black pb-6">Gymkhana Office Members</h1>
+            <h1 className="text-3xl text-black pb-6">{singleteam} Members</h1>
 
             <div className="mt-6">
             <Link
                 className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-                to={`${BASEURL}/admin/team/gymkhana/add`}
+                to={{
+                    pathname:`${BASEURL}/admin/team/${ts}/add`,
+                    teamname: `${singleteam}`
+                }}
             >
                 Add Members
             </Link>
@@ -61,7 +70,7 @@ const GymkhanaScreen = () =>{
                 </thead>
                     
                 <tbody className="text-gray-700" id="myMenu">
-                        {teams.map(
+                        {teamm.map(
                             (
                             {
                                 name,
@@ -92,15 +101,16 @@ const GymkhanaScreen = () =>{
                                     Img
                                     </a> */}
                                     <div>
-                                        <img style={{'width': '100px', 'height':'100px'}} src={`${BASEAPI}/team/gymkhana/${_id}`}
-                                            alt=" image" />
+                                        <img style={{'width': '100px', 'height':'100px'}} src={`${BASEAPI}/team/${ts}/${_id}`}
+                                        alt=" image" />
                                     </div>
                                 </td>
 
                                 <td className="text-left py-3 px-4">
                                     <Link
                                     to={{
-                                        pathname: `${BASEURL}/admin/team/gymkhana/${_id}`,
+                                        pathname:`${BASEURL}/admin/team/${ts}/${_id}`,
+                                        teamname: `${singleteam}`,
                                         formData: {
                                             name,
                                             email,
@@ -118,7 +128,7 @@ const GymkhanaScreen = () =>{
                                 <td className="text-left py-3 px-4">
                                     <button
                                     className="hover:text-red-500"
-                                    onClick={() => dispatch(deleteTeam(_id))}
+                                    onClick={() => dispatch(deleteTeam(ts,_id))}
                                     >
                                     Delete
                                     </button>
@@ -137,4 +147,4 @@ const GymkhanaScreen = () =>{
     )
 }
 
-export default GymkhanaScreen;
+export default TeamScreen;
