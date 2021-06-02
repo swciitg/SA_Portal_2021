@@ -41,7 +41,9 @@ const AnnouncementForm = ({ type, formData }) => {
     if (type === "Add")
       dispatch(
         createAnnouncement({ title, description, important, link, category })
-      );
+      ).then(() => {
+        history.push(`${BASEURL}/admin/announcements`);
+      });
     else
       dispatch(
         editAnnouncement(announcement_id, {
@@ -51,9 +53,9 @@ const AnnouncementForm = ({ type, formData }) => {
           link,
           category,
         })
-      );
-
-    history.push(`${BASEURL}/admin/announcements`);
+      ).then(() => {
+        history.push(`${BASEURL}/admin/announcements`);
+      });
   };
 
   return (

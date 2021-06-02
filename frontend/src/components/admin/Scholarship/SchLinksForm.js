@@ -26,10 +26,12 @@ const SchLinksForm = ({ type, formData }) => {
 
     //console.log(formData, form_id);
 
-    if (type === "Add") dispatch(createSchLink(formData));
-    else dispatch(editSchLink(form_id, formData));
-
-    history.push(`${BASEURL}/admin/scholarshipLinks`);
+    if (type === "Add") dispatch(createSchLink(formData)).then(() => {
+      history.push(`${BASEURL}/admin/scholarshipLinks`);
+    });
+    else dispatch(editSchLink(form_id, formData)).then(() => {
+      history.push(`${BASEURL}/admin/scholarshipLinks`);
+    });
     //window.location.replace(`${BASEURL}/admin/scholarshipLinks`);
   };
 

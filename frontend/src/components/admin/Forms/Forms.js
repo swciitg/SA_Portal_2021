@@ -36,10 +36,12 @@ const Form = ({ type, formData }) => {
 
     console.log(formData);
 
-    if (type === "Add") dispatch(createForm(formData));
-    else dispatch(editForm(form_id, formData));
-
-    history.push(`${BASEURL}/admin/forms`);
+    if (type === "Add") dispatch(createForm(formData)).then(() => {
+      history.push(`${BASEURL}/admin/forms`);
+    });
+    else dispatch(editForm(form_id, formData)).then(() => {
+      history.push(`${BASEURL}/admin/forms`);
+    });
     //window.location.replace(`${BASEURL}/admin/forms`);
   };
 

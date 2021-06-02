@@ -31,10 +31,12 @@ const RulesForm = ({ type, formData }) => {
 
     //console.log(formData, form_id);
 
-    if (type === "Add") dispatch(createRule(formData));
-    else dispatch(editRule(form_id, formData));
-
-    history.push(`${BASEURL}/admin/rules`);
+    if (type === "Add") dispatch(createRule(formData)).then (() => {
+      history.push(`${BASEURL}/admin/rules`);
+    });
+    else dispatch(editRule(form_id, formData)).then (() => {
+      history.push(`${BASEURL}/admin/rules`);
+    });
     //window.location.replace(`${BASEURL}/admin/rules`);
   };
 

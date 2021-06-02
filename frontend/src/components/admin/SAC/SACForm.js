@@ -31,10 +31,12 @@ const SACsForm = ({ type, formData }) => {
 
     //console.log(formData, form_id);
 
-    if (type === "Add") dispatch(createSAC(formData));
-    else dispatch(editSAC(form_id, formData));
-
-    history.push(`${BASEURL}/admin/sac`);
+    if (type === "Add") dispatch(createSAC(formData)).then(() => {
+      history.push(`${BASEURL}/admin/sac`);
+    });
+    else dispatch(editSAC(form_id, formData)).then(() => {
+      history.push(`${BASEURL}/admin/sac`);
+    });
     //window.location.replace(`${BASEURL}/admin/sac`);
   };
 

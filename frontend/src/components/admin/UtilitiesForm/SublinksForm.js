@@ -33,14 +33,15 @@ const SublinksForm = ({ type, formData }) => {
     //   );
 
     if (type === "Add")
-      dispatch(createSublink(link_id, { name, priority_number, url }));
-    else {
+      dispatch(createSublink(link_id, { name, priority_number, url })).then(() => {
+        history.push(`${BASEURL}/admin/utilities/${link_id}`);
+      });
+    else 
       dispatch(
         editSublink(link_id, sublink_id, { name, priority_number, url })
-      );
-    }
-
-    history.push(`${BASEURL}/admin/utilities/${link_id}`);
+      ).then(() => {
+        history.push(`${BASEURL}/admin/utilities/${link_id}`);
+      });
     //window.location.replace(`${BASEURL}/admin/utilities/${link_id}`);
   };
 

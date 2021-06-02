@@ -55,10 +55,14 @@ const NavigationFormScreen = ({ location }) => {
 
     console.log(formData);
 
-    if (type === "Add") dispatch(createNav(formData));
-    else dispatch(editNav(boardId, formData));
-
-    history.push(`${BASEURL}/admin/navigation`);
+    if (type === "Add") 
+      dispatch(createNav(formData)).then(() => {
+        history.push(`${BASEURL}/admin/navigation`);
+    });
+    else 
+      dispatch(editNav(boardId, formData)).then(() => {
+        history.push(`${BASEURL}/admin/navigation`);
+    });
     //window.location.replace(`${BASEURL}/admin/forms`);
   };
 

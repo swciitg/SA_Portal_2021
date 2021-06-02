@@ -51,12 +51,12 @@ const [title, setTitle] = useState(
     // window.location.replace(`${BASEURL}/admin/events`);
     if (type === "Add")
       dispatch(createEvent(formData)).then(() => {
-        
+        history.push(`${BASEURL}/admin/events`);
       });
     else if (type === "Edit")
       dispatch(editEvent(event_id, formData)).then(() => {
+        history.push(`${BASEURL}/admin/events`);
       });
-      history.push(`${BASEURL}/admin/events`);
   };
 
   return (

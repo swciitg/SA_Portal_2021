@@ -20,16 +20,18 @@ const UtilitiesForm = ({ type, formData }) => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    if (type === "Add") dispatch(createLink({ name, priority_number }));
+    if (type === "Add") dispatch(createLink({ name, priority_number })).then(() => {
+      history.push(`${BASEURL}/admin/utilities`);
+    });
     else
       dispatch(
         editLink(link_id, {
           name,
           priority_number,
         })
-      );
-
-    history.push(`${BASEURL}/admin/utilities`);
+      ).then(() => {
+        history.push(`${BASEURL}/admin/utilities`);
+      });
     //window.location.replace(`${BASEURL}/admin/utilities`);
   };
 
