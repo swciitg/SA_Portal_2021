@@ -16,7 +16,7 @@ exports.createEvent = async (req, res) => {
   category = category.toLowerCase();
   console.log("[request body]");
   console.log(req.body);
-  const imgPath = "/assets/events/thumbnails/" + req.file.filename;
+  const imgPath = "/uploads/events/" + req.file.filename;
   if (req.body && req.file.filename) {
     try {
       const newEvent = await Event.create({
@@ -130,7 +130,7 @@ exports.updateEvent = async (req, res) => {
 
   try {
     const { title, eventDate, category, link } = req.body;
-    const imgPath = "/assets/events/thumbnails/" + req.file.filename;
+    const imgPath = "/uploads/events/" + req.file.filename;
 
     if (req.body && req.file.filename) {
       const updatedEvent = await Event.findByIdAndUpdate(
