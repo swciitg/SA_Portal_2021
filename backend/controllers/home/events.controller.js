@@ -138,15 +138,21 @@ exports.updateEvent = async (req, res) => {
         { title, eventDate, category, imgPath, link },
         { new: true }
       );
-
-      const savedCategory = await Category.find({ name: category });
-      if (savedCategory.length == 0) {
-        const newCategory = new Category({ name: category });
-        await newCategory.save();
-      }
-
-      return res.status(200).json({ status: "Success", data: updatedEvent });
+    } else {
+      const updatedEvent = await Event.findByIdAndUpdate(
+        { _id: id },
+        { title, eventDate, category, link },
+        { new: true }
+      );
     }
+
+    const savedCategory = await Category.find({ name: category });
+    if (savedCategory.length == 0) {
+      const newCategory = new Category({ name: category });
+      await newCategory.save();
+    }
+
+    return res.status(200).json({ status: "Success", data: updatedEvent });
   } catch (err) {
     console.log(err);
     return res
