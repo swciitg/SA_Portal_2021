@@ -1,19 +1,22 @@
-import { isMoment } from "moment";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createEvent, editEvent } from "../../../actions/event";
 import { listEventCategories } from "../../../actions/eventcategory";
 import { BASEURL } from "../../../constants";
-import moment from 'moment';
+import moment from "moment";
 import { useHistory } from "react-router-dom";
 
 const EventForm = ({ type, formData }) => {
-const categories = useSelector((state) => state.categories);
-console.log(categories);
-const history = useHistory();
+  const categories = useSelector((state) => state.categories);
+  console.log(categories);
+  const history = useHistory();
 
-const [title, setTitle] = useState(
+  const [title, setTitle] = useState(
     formData && formData.title ? formData.title : ""
+  );
+
+  const [link, setLink] = useState(
+    formData && formData.link ? formData.link : ""
   );
 
   const [eventDate, seteventDate] = useState(
@@ -39,6 +42,7 @@ const [title, setTitle] = useState(
     const formData = new FormData();
     formData.append("eventDate", eventDate);
     formData.append("title", title);
+    formData.append("link", link);
     formData.append("category", category);
     formData.append("image", imgPath);
 
@@ -90,6 +94,22 @@ const [title, setTitle] = useState(
               </div>
 
               <div className="mt-2">
+                <label className="block text-sm text-gray-600" htmlFor="link">
+                  link
+                </label>
+                <input
+                  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+                  id="link"
+                  name="link"
+                  type="text"
+                  value={link}
+                  onChange={(e) => setLink(e.target.value)}
+                  placeholder="Link"
+                  required
+                />
+              </div>
+
+              <div className="mt-2">
                 <label
                   className="block text-sm text-gray-600"
                   htmlFor="eventDate"
@@ -118,30 +138,32 @@ const [title, setTitle] = useState(
                   type="file"
                   name="image"
                   onChange={(e) => setimgPath(e.target.files[0])}
-                  
                 />
               </div>
 
               <div className="mt-2">
-            <label className="block text-sm text-gray-600" htmlFor="category">
-              Event Category
-            </label>
-            <input
-              className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
-              list="categories"
-              id="category"
-              type="text"
-              name="category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              required
-            />
-            <datalist id="categories">
-              {categories.map((category, key) => {
-                return <option key={key} value={category.category} />;
-              })}
-            </datalist>
-          </div>
+                <label
+                  className="block text-sm text-gray-600"
+                  htmlFor="category"
+                >
+                  Event Category
+                </label>
+                <input
+                  className="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded"
+                  list="categories"
+                  id="category"
+                  type="text"
+                  name="category"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                  required
+                />
+                <datalist id="categories">
+                  {categories.map((category, key) => {
+                    return <option key={key} value={category.category} />;
+                  })}
+                </datalist>
+              </div>
 
               <div className="mt-6">
                 <button

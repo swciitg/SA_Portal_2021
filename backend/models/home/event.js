@@ -8,6 +8,7 @@ const eventSchema = new Schema(
       unique: [true, "Event Name is not unique"],
       required: [true, "A event must have a name"],
     },
+    link: { type: String, required: true },
 
     eventDate: {
       type: Date,

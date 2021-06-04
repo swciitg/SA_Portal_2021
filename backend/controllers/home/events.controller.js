@@ -11,7 +11,7 @@ const factory = require("../handlerFactory");
  */
 
 exports.createEvent = async (req, res) => {
-  const { title, eventDate } = req.body;
+  const { title, eventDate, link } = req.body;
   let { category } = req.body;
   category = category.toLowerCase();
   console.log("[request body]");
@@ -23,6 +23,7 @@ exports.createEvent = async (req, res) => {
         title,
         eventDate,
         imgPath,
+        link,
         category,
       });
 
@@ -128,13 +129,13 @@ exports.updateEvent = async (req, res) => {
   console.log("[ID ]", id);
 
   try {
-    const { title, eventDate, category } = req.body;
+    const { title, eventDate, category, link } = req.body;
     const imgPath = "/assets/events/thumbnails/" + req.file.filename;
 
     if (req.body && req.file.filename) {
       const updatedEvent = await Event.findByIdAndUpdate(
         { _id: id },
-        { title, eventDate, category, imgPath },
+        { title, eventDate, category, imgPath, link },
         { new: true }
       );
 

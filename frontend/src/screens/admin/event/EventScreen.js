@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import moment from 'moment';
-import { BASEAPI ,BASEURL} from "../../../constants";
+import moment from "moment";
+import { BASEAPI, BASEURL } from "../../../constants";
 
-import {
-  listEvent,
-  deleteEvent,
-} from "../../../actions/event";
+import { listEvent, deleteEvent } from "../../../actions/event";
 
 const EventScreen = () => {
   const events = useSelector((state) => state.events);
@@ -41,14 +38,16 @@ const EventScreen = () => {
                 <th className="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">
                   Title
                 </th>
-                
+                <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
+                  Link
+                </th>
                 <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
                   Category
                 </th>
                 <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
                   Image
                 </th>
-                
+
                 <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
                   Edit
                 </th>
@@ -60,34 +59,26 @@ const EventScreen = () => {
 
             <tbody className="text-gray-700" id="myMenu">
               {events.map(
-                (
-                  {
-                    category,
-                    title,
-                    eventDate,
-                    imgPath,
-                    _id,
-                  },
-                  i
-                ) => {
+                ({ category, title, link, eventDate, imgPath, _id }, i) => {
                   return (
                     <tr key={i}>
-                      
-                      <td className="text-left py-3 px-4">{moment(eventDate).format('DD MMM YYYY')}</td>
+                      <td className="text-left py-3 px-4">
+                        {moment(eventDate).format("DD MMM YYYY")}
+                      </td>
                       <td className="text-left py-3 px-4">{title}</td>
+                      <td className="text-left py-3 px-4">
+                        <a href={link} target="_blank" rel="noreferrer">
+                          View
+                        </a>
+                      </td>
                       <td className="text-left py-3 px-4">{category}</td>
                       <td className="text-left py-3 px-4">
-                        {/* <a
-                          className="hover:text-blue-500"
-                          href={imgPath}
-                          rel="noreferrer"
-                          target="_blank"
-                        >
-                          Img
-                        </a> */}
                         <div>
-                          <img style={{'width': '100px', 'height':'100px'}} src={`${BASEAPI}/home/events/${_id}`}
-                          alt=" image" />
+                          <img
+                            style={{ width: "100px", height: "100px" }}
+                            src={`${BASEAPI}/home/events/${_id}`}
+                            alt="img"
+                          />
                         </div>
                       </td>
 
@@ -96,11 +87,12 @@ const EventScreen = () => {
                           to={{
                             pathname: `${BASEURL}/admin/events/${_id}`,
                             formData: {
-                                category,
-                                title,
-                                eventDate,
-                                imgPath,
-                                _id,
+                              category,
+                              title,
+                              eventDate,
+                              imgPath,
+                              link,
+                              _id,
                             },
                           }}
                         >

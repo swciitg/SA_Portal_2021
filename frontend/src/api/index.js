@@ -1,6 +1,5 @@
 import axios from "axios";
 import { BASEAPI } from "../constants";
-import {teams} from "../screens/admin/Teams/TeamScreen/constant";
 
 const API = axios.create({
   baseURL: `${BASEAPI}`,
@@ -78,11 +77,10 @@ export const deleteSchLink = (id) => API.delete(`/scholarship/pdf/${id}`);
 
 //Teams
 export const fetchTeam = (ts) => API.get(`/team/${ts}`);
-export const createTeam = (ts,newTeam) =>
-  API.post(`/team/${ts}`, newTeam);
-export const editTeam = (ts,id, updatedTeam) =>
+export const createTeam = (ts, newTeam) => API.post(`/team/${ts}`, newTeam);
+export const editTeam = (ts, id, updatedTeam) =>
   API.put(`/team/${ts}/${id}`, updatedTeam);
-export const deleteTeam = (ts,id) => API.delete(`/team/${ts}/${id}`);
+export const deleteTeam = (ts, id) => API.delete(`/team/${ts}/${id}`);
 
 //USERS-CHANGING ROUTES
 export const fetchUsers = () => API.get("/users");
