@@ -11,7 +11,7 @@ import ScholarshipScreen from "./scholarships/ScholarshipScreen";
 import RulesScreen from "./rules/RulesScreen";
 import SACScreen from "./sac/SACScreen";
 import CoursesScreen from "./courses/CoursesScreen";
-import SaScreen from "./Teams/SaScreen";
+import Teams from "./Teams/Teams";
 import GalleryCart from "../../components/Home/GalleryCart/GalleryCart";
 import UtilitiesScreen from "./utilities/UtilitiesScreen";
 const UserScreen = ({ location }) => {
@@ -28,7 +28,7 @@ const UserScreen = ({ location }) => {
         <Route exact path={`${BASEURL}/rules`} component={RulesScreen} />
         <Route exact path={`${BASEURL}/sa_courses`} component={CoursesScreen} />
         <Route exact path={`${BASEURL}/sac`} component={SACScreen} />
-        <Route exact path={`${BASEURL}/team`} component={SaScreen} />
+        <Route exact path={`${BASEURL}/team`} component={Teams} />
         <Route
           exact
           path={`${BASEURL}/scholarships`}

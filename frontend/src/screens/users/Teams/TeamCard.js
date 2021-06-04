@@ -1,15 +1,18 @@
 import React from "react";
-import teamimage from "../../../assets/team.jpg";
-
+import { BASEAPI } from "../../../constants";
 const TeamCard = (props) => {
   return (
-    <div className="bg-blue-600 w-full md:w-96 md:ml-8 mt-2 rounded-md">
-      <img src={props.imagePath} alt="ProfilePic" className="h-80" />
-      <div className="h-28">
-        <div className="flex flex-row justify-between mt-2 mb-3 mx-1">
-          <div className="text-white text-2xl">{props.name}</div>
-          <div className="text-white text-lg">{props.post}</div>
-        </div>
+    <div className="bg-blue-600 w-96 md:ml-8 mt-8 rounded-md">
+      <img
+        src={`${BASEAPI}/team/sa/${props.id}`}
+        alt="ProfilePic"
+        className="h-80 w-96 rounded-md"
+      />
+      <div className="h-16">
+        <div className="flex flex-row justify-between pt-6 mb-3 mx-1">
+          <div className="text-white text-2xl w-48 truncate">{props.name}</div>
+          <div className="text-white text-lg w-48 text-right truncate">{props.post}</div>
+        </div></div>
         <svg
           className="mx-2.5"
           width="360"
@@ -27,9 +30,10 @@ const TeamCard = (props) => {
             stroke-linecap="round"
           />
         </svg>
-        <div className="flex justify-between space-x-12 mt-3 mx-1">
-          <div className="text-white text-lg">{props.email}</div>
-          <div className="text-white text-lg">+91-{props.contactNo}</div>
+        <div className="h-16">
+        <div className="flex justify-between mt-3 mx-1 mb-3">
+          <div className="text-white text-lg w-48 truncate">{props.email}</div>
+          <div className="text-white text-lg w-48 text-right">+91-{props.contactNo}</div>
         </div>
       </div>
     </div>

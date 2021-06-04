@@ -1,26 +1,26 @@
 export const pages = [
   {
     name: "Students Affairs Office",
-    team: "",
+    ts: "sa",
   },
   {
     name: "Gymkhana Office",
-    team: "gymkhanateam",
+    ts: "gymkhana",
   },
   {
     name: "Counselling Cell",
-    team: "counsellingteam",
+    ts: "counselling",
   },
   {
     name: "Visiting Artists-in-residence",
-    team: "visitartteam",
+    ts: "visitart",
   },
   {
     name: "New SAC Building",
-    team: "newsacteam",
+    ts: "newsac",
   },
   {
     name: "Hostels",
-    team: "hostelteam",
+    ts: "hostels",
   },
 ];
