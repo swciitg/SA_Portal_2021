@@ -131,22 +131,28 @@ exports.updateEvent = async (req, res) => {
   try {
     const { title, eventDate, category, link } = req.body;
     const imgPath = "/uploads/events/" + req.file.filename;
-
+    let updatedEvent;
     if (req.body && req.file.filename) {
-      const updatedEvent = await Event.findByIdAndUpdate(
+      updatedEvent = await Event.findByIdAndUpdate(
         { _id: id },
         { title, eventDate, category, imgPath, link },
         { new: true }
       );
-
-      const savedCategory = await Category.find({ name: category });
-      if (savedCategory.length == 0) {
-        const newCategory = new Category({ name: category });
-        await newCategory.save();
-      }
-
-      return res.status(200).json({ status: "Success", data: updatedEvent });
+    } else {
+      updatedEvent = await Event.findByIdAndUpdate(
+        { _id: id },
+        { title, eventDate, category, link },
+        { new: true }
+      );
     }
+
+    const savedCategory = await Category.find({ name: category });
+    if (savedCategory.length == 0) {
+      const newCategory = new Category({ name: category });
+      await newCategory.save();
+    }
+
+    return res.status(200).json({ status: "Success", data: updatedEvent });
   } catch (err) {
     console.log(err);
     return res
