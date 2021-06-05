@@ -7,7 +7,6 @@ import TeamCard from "./TeamCard";
 
 const Teams = () => {
   const teamm = useSelector((state) => state.teams);
-  console.log(teamm);
   const dispatch = useDispatch();
   const [ts, setTs] = useState("sa");
   const pageHandler = (ts) => {
@@ -41,7 +40,7 @@ const Teams = () => {
       </div>
 
       <div class="flex flex-wrap justify-center mb-14">
-        {teamm.map((team, idx) => {
+        {teamm.map((team) => {
           const { _id, name, post, email, contactNo, imagePath } = team;
           return (
             <TeamCard
@@ -53,7 +52,6 @@ const Teams = () => {
               contactNo={contactNo}
               imagePath={imagePath}
             />
-            
           );
         })}
         ;
