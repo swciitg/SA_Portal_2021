@@ -53,6 +53,7 @@ const Teams = () => {
               contactNo={contactNo}
               imagePath={imagePath}
             />
+            
           );
         })}
         ;

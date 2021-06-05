@@ -1,31 +1,9 @@
 import React,{useEffect,useState} from "react";
 import AchievementCard from "./AchievementCard";
-import { fetchAchievement } from "../../../api/index";
+import useAchievementFetch from "./hooks/useAchievementFetch";
 
 function Achievement() {
-  const [achievement, setAchievement] = useState("");
-  useEffect(() => {
-    const getAchievement = async () => {
-      try {
-        const { data } = await fetchAchievement();
-        var i=0;
-        for (const [key, value] of Object.entries(data.data)) {
-          value && setAchievement(`${JSON.parse(value.HTMLString)}`);
-          i = i+1;
-          if(i===4){
-            break;
-          }
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getAchievement();
-  }, []);
-  useEffect(() => {
-    //console.log(aboutContent);
-    document.getElementById("home_achievements").innerHTML += achievement;
-  }, [achievement]);
+  const achievementContent = useAchievementFetch();
   return (  
     <>
       <div
@@ -39,7 +17,16 @@ function Achievement() {
             <span></span>
           </div>
         </div>
-        <div className="flex flex-wrap justify-between pt-5"><div id="home_achievements" ></div></div></div>
+        <div className="flex flex-wrap justify-between pt-5"><div id="home_achievements" >
+        {achievementContent.map((achievement,idx) => {
+          const {HTMLString} = achievement;
+          return (
+            <>
+            {console.log(HTMLString)}
+            </>);
+          })}
+        
+        </div></div></div>
     </>
   );
 }
