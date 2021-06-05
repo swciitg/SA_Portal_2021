@@ -131,15 +131,15 @@ exports.updateEvent = async (req, res) => {
   try {
     const { title, eventDate, category, link } = req.body;
     const imgPath = "/uploads/events/" + req.file.filename;
-
+    let updatedEvent;
     if (req.body && req.file.filename) {
-      const updatedEvent = await Event.findByIdAndUpdate(
+      updatedEvent = await Event.findByIdAndUpdate(
         { _id: id },
         { title, eventDate, category, imgPath, link },
         { new: true }
       );
     } else {
-      const updatedEvent = await Event.findByIdAndUpdate(
+      updatedEvent = await Event.findByIdAndUpdate(
         { _id: id },
         { title, eventDate, category, link },
         { new: true }
