@@ -11,23 +11,14 @@ const Teams = () => {
   const [ts, setTs] = useState("sa");
 
   const pageHandler = (tk) => {
-    document.getElementById(ts).classList.add("bg-white");
-    document.getElementById(ts).classList.remove("bg-black");
-    document.getElementById(ts).classList.add("text-black");
-    document.getElementById(ts).classList.remove("text-white");
     setTs(tk);
-    document.getElementById(tk).classList.add("bg-black");
-    document.getElementById(tk).classList.remove("bg-white");
-    document.getElementById(tk).classList.add("text-white");
-    document.getElementById(tk).classList.remove("text-black");
   };
 
   useEffect(() => {
     dispatch(listTeam(ts));
   }, [dispatch, ts]);
   const mystyle = {
-    backgroundImage:
-      "url(https://cdn.discordapp.com/attachments/826942452539588638/842125739691081838/unknown.png)",
+    backgroundImage: `url(${teamsbg})`,
   };
   return (
     <>
@@ -36,17 +27,12 @@ const Teams = () => {
           Team Structure
         </div>
         <div className=" md:ml-36 pt-4">
-          <button
-            id="sa"
-            class="bg-black px-4 h-9 rounded-lg text-sm m-1.5 text-white focus:outline-none"
-            onClick={() => pageHandler("sa")}
-          >
-            Students Affairs Office
-          </button>
           {pages.map((page) => (
             <button
               id={page.ts}
-              class="bg-white px-4 h-9 rounded-lg text-sm m-1.5 focus:outline-none"
+              class={`${
+                ts === page.ts ? "bg-black text-white" : "bg-white text-black"
+              }  px-4 h-9 rounded-lg text-sm m-1.5 focus:outline-none`}
               onClick={() => pageHandler(page.ts)}
             >
               {page.name}

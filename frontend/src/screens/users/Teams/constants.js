@@ -1,5 +1,9 @@
 export const pages = [
   {
+    name: "Student Affairs Office",
+    ts: "sa",
+  },
+  {
     name: "Gymkhana Office",
     ts: "gymkhana",
   },
