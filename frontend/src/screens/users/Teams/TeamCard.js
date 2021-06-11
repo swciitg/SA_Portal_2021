@@ -2,12 +2,14 @@ import React from "react";
 import { BASEAPI } from "../../../constants";
 const TeamCard = (props) => {
   return (
-    <div className="bg-blue-600 w-9/12 sm:w-96  md:ml-8 mt-8 rounded-md">
-      <img
-        src={`${BASEAPI}/team/sa/${props.id}`}
-        alt="ProfilePic"
-        className="h-80 w-9/12 sm:w-96 rounded-md"
-      />
+    <div className="bg-blue-600 w-9/12 sm:w-96  md:ml-8 mt-8 rounded-md border-2 border-black">
+      <div className="bg-gray-200">
+        <img
+          src={`${BASEAPI}/team/sa/${props.id}`}
+          alt="ProfilePic"
+          className="h-80  w-full object-contain rounded-sm"
+        />
+      </div>
       <div className="h-16">
         <div className="flex flex-row justify-between pt-6 mb-3 mx-1">
           <div className="text-white text-2xl w-48 truncate">{props.name}</div>

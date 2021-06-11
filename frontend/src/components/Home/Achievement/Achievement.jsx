@@ -38,7 +38,7 @@ function Achievement() {
           <Filter years={years} filterHandler={filterChange} />
         </div>
         <div className="flex flex-wrap justify-between">
-          {achievements.map((achievement, idx) => {
+          {[...achievements].splice(0, 4).map((achievement, idx) => {
             const { HTMLString, _id } = achievement;
             const newString = HTMLString.replace('"', "");
             const newString1 = newString.replace('"', "");
