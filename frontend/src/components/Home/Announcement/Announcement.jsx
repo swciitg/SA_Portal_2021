@@ -5,6 +5,14 @@ import { listCategories } from "../../../actions/category";
 import CatFilter from "../HomeFilter/CatFilter";
 import { renderCards } from "./util";
 
+import { Swiper } from "swiper/react";
+import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css"
+import SwiperCore, {
+  Mousewheel,Pagination
+} from 'swiper/core';
+SwiperCore.use([Mousewheel,Pagination]);
+
 function Announcement() {
   const announcements = useSelector((state) => state.announcements);
   const categories = useSelector((state) => state.categories);
@@ -21,15 +29,23 @@ function Announcement() {
     setACategory(selectedCat);
   };
 
+  
   return (
     <div id="home_announcements" className="w-full sm:w-8/12 p-5 sm:pl-32">
       <div className="flex justify-between w-full mb-4 sm:mb-8">
         <p className="w-max text-2xl sm:text-3xl font-bold">Announcements</p>
         <CatFilter categories={categories} filterHandler={filterHandler} />
       </div>
-      <div className="annoucement_card_container w-full">
-        {renderCards(announcements, aCategory)}
-      </div>
+      <Swiper direction={'vertical'} slidesPerView={4} mousewheel={true} pagination={{
+        "clickable": true
+      }} className="mySwiper h-96 px-5">
+        {/* <SwiperSlide> */}
+        <div className="annoucement_card_container w-full ">
+          {renderCards(announcements, aCategory)}
+        </div>
+        {/* </SwiperSlide> */}
+      </Swiper>
+      
     </div>
   );
 }
