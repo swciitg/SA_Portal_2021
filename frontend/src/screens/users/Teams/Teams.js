@@ -23,51 +23,100 @@ const Teams = () => {
   };
   return (
     <>
-      <div style={mystyle} className="pb-20">
-        <div class=" text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28  w-64">
-          Team Structure
+      <div className="hidden sm:block">
+        <div style={mystyle} className="pb-20 ">
+          <div class=" text-xl md:text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28  w-64">
+            Team Structure
+          </div>
+          <div className=" md:ml-36 pt-4">
+            {pages.map((page) => (
+              <button
+                id={page.ts}
+                class={`${
+                  ts === page.ts ? "bg-black text-white" : "bg-white text-black"
+                }  px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none`}
+                onClick={() => pageHandler(page.ts)}
+              >
+                {page.name}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className=" md:ml-36 pt-4">
-          {pages.map((page) => (
-            <button
-              id={page.ts}
-              class={`${
-                ts === page.ts ? "bg-black text-white" : "bg-white text-black"
-              }  px-4 h-9 rounded-lg text-sm m-1.5 focus:outline-none`}
-              onClick={() => pageHandler(page.ts)}
-            >
-              {page.name}
-            </button>
-          ))}
+      </div>
+      <div className="block sm:hidden flex justify-between pt-8">
+        <div class=" text-xl  font-semibold py-2 ">Team Structure</div>
+        <div class="relative inline-block  ">
+          <select class=" border-2 bg-black text-white rounded-md py-2">
+            {pages.map((page) => (
+              <option className="bg-white text-black text-xs">
+                {page.name}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
       {teamm.map((team, idx) => {
+        const dean = team.data[0];
+
         return (
           <>
-            {ts === pages[0].ts ? (
-              <div className="text-4xl md:ml-32 font-bold text-black">
-                {pages[0].tk[idx]}
-              </div>
-            ) : (
-              ""
-            )}
-
-            <div className="flex flex-wrap justify-center mb-8">
-              {team.data.map((team1) => {
-                const { _id, name, post, imagePath, contactNo, email } = team1;
-                return (
-                  <TeamCard
-                    key={_id}
-                    id={_id}
-                    name={name}
-                    post={post}
-                    imagePath={imagePath}
-                    contactNo={contactNo}
-                    email={email}
-                  />
-                );
-              })}
+            <div className=" text-black ml-5 text-xl md:text-4xl md:ml-32 font-semibold">
+              {pages[0].tk[idx]}
             </div>
+            {(idx === 0 || idx === 3) && ts === pages[0].ts ? (
+              <>
+                <div>
+                  <TeamCard
+                    key={dean._id}
+                    id={dean._id}
+                    name={dean.name}
+                    post={dean.post}
+                    imagePath={dean.imagePath}
+                    contactNo={dean.contactNo}
+                    email={dean.email}
+                  />
+                  <div className="flex flex-wrap justify-between mb-8">
+                    {team.data.splice(1).map((team1) => {
+                      const { _id, name, post, imagePath, contactNo, email } =
+                        team1;
+                      return (
+                        <>
+                          <TeamCard
+                            key={_id}
+                            id={_id}
+                            name={name}
+                            post={post}
+                            imagePath={imagePath}
+                            contactNo={contactNo}
+                            email={email}
+                          />
+                        </>
+                      );
+                    })}
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="flex flex-wrap justify-between mb-8">
+                {team.data.map((team1) => {
+                  const { _id, name, post, imagePath, contactNo, email } =
+                    team1;
+                  return (
+                    <>
+                      <TeamCard
+                        key={_id}
+                        id={_id}
+                        name={name}
+                        post={post}
+                        imagePath={imagePath}
+                        contactNo={contactNo}
+                        email={email}
+                      />
+                    </>
+                  );
+                })}
+              </div>
+            )}
           </>
         );
       })}
