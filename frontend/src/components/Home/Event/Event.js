@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
 import "./styles.css";
-import SwiperCore, {
-  Pagination
-} from 'swiper/core';
 
 import { listEvent } from "../../../actions/event";
 import { listEventCategories } from "../../../actions/eventcategory";
 import { eventallCards } from "./eventutil";
 import CatFilter from "./EventCatfilter";
-
-
-// SwiperCore.use([Pagination]);
-// import "./Event.css";
-
 
 const Event = () => {
   const events = useSelector((state) => state.events);
