@@ -24,6 +24,7 @@ const TeamCard = (props) => {
             {props.post}
           </div>
           <svg
+            className="mx-4"
             width="513"
             height="2"
             viewBox="0 0 513 2"
@@ -59,7 +60,7 @@ const TeamCard = (props) => {
             <div className="text-white text-lg ml-4">{props.post}</div>
           </div>
           <svg
-            className="mx-2.5"
+            className="mx-2.5 "
             width="360"
             height="1"
             viewBox="0 0 360 1"

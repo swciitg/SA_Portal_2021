@@ -10,9 +10,7 @@ const Teams = () => {
   const dispatch = useDispatch();
   const [ts, setTs] = useState(pages[0].ts);
   const pageHandler = (tk) => {
-    console.log(tk);
     setTs(tk);
-    console.log(ts);
   };
 
   useEffect(() => {
@@ -46,9 +44,18 @@ const Teams = () => {
       <div className="block sm:hidden flex justify-between pt-8">
         <div class=" text-xl  font-semibold py-2 ">Team Structure</div>
         <div class="relative inline-block  ">
-          <select class=" border-2 bg-black text-white rounded-md py-2">
+          <select
+            class=" border-2 bg-black text-white rounded-md py-2"
+            onChange={(e) => {
+              pageHandler(JSON.parse(e.target.value));
+            }}
+          >
             {pages.map((page) => (
-              <option className="bg-white text-black text-xs">
+              <option
+                className="bg-white text-black text-xs"
+                key={page.ts}
+                value={JSON.stringify(page.ts)}
+              >
                 {page.name}
               </option>
             ))}
