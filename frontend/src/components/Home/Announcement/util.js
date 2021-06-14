@@ -45,14 +45,16 @@ export const renderCards = (announcements, aCategory) => {
             category,
           } = announcement;
           return (
-            <AnnounceCard
-              key={_id}
-              creation={creation}
-              description={description}
-              title={title}
-              link={link}
-              category={category}
-            />
+            <SwiperSlide >
+              <AnnounceCard
+                key={_id}
+                creation={creation}
+                description={description}
+                title={title}
+                link={link}
+                category={category}
+              />
+            </SwiperSlide>
           );
         })
       ) : (
