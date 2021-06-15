@@ -5,28 +5,19 @@ export const renderCards = (announcements, aCategory) => {
   if (announcements && announcements.length !== 0) {
     if (aCategory === "all") {
       return [...announcements].map((announcement, i) => {
-        const {
-          creation,
-          title,
-          description,
-          _id,
-          link,
-          category,
-        } = announcement;
-        return (      
-          <SwiperSlide >
-
+        const { creation, title, description, _id, link, category } =
+          announcement;
+        return (
+          <SwiperSlide>
             <AnnounceCard
-            key={_id}
-            creation={creation}
-            description={description}
-            title={title}
-            link={link}
-            category={category}
-          />
-                 
+              key={_id}
+              creation={creation}
+              description={description}
+              title={title}
+              link={link}
+              category={category}
+            />
           </SwiperSlide>
-          
         );
       });
     } else {
@@ -36,17 +27,12 @@ export const renderCards = (announcements, aCategory) => {
       //console.log("filtered", filteredAnn);
       return filteredAnn.length !== 0 ? (
         filteredAnn.map((announcement, i) => {
-          const {
-            creation,
-            title,
-            description,
-            _id,
-            link,
-            category,
-          } = announcement;
+          const { creation, title, description, _id, link, category } =
+            announcement;
           return (
             <AnnounceCard
               key={_id}
+              id={_id}
               creation={creation}
               description={description}
               title={title}
