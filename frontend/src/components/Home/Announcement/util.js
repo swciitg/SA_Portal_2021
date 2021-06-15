@@ -30,15 +30,16 @@ export const renderCards = (announcements, aCategory) => {
           const { creation, title, description, _id, link, category } =
             announcement;
           return (
-            <AnnounceCard
-              key={_id}
-              id={_id}
-              creation={creation}
-              description={description}
-              title={title}
-              link={link}
-              category={category}
-            />
+            <SwiperSlide>
+              <AnnounceCard
+                key={_id}
+                creation={creation}
+                description={description}
+                title={title}
+                link={link}
+                category={category}
+              />
+            </SwiperSlide>
           );
         })
       ) : (

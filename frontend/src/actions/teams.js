@@ -10,7 +10,6 @@ import * as api from "../api";
 export const listTeam = (ts) => async (dispatch) => {
   try {
     const { data } = await api.fetchTeam(ts);
-    console.log(data);
     dispatch({
       type: TEAM_LIST_REQUEST,
       payload: data.data,
@@ -32,7 +31,7 @@ export const deleteTeam = (ts, id) => async (dispatch) => {
 export const createTeam = (ts, formData) => async (dispatch) => {
   try {
     const { data } = await api.createTeam(ts, formData);
-    console.log(data);
+
     dispatch({ type: TEAM_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -42,7 +41,7 @@ export const createTeam = (ts, formData) => async (dispatch) => {
 export const editTeam = (ts, id, formData) => async (dispatch) => {
   try {
     const { data } = await api.editTeam(ts, id, formData);
-    console.log(data);
+
     dispatch({ type: TEAM_EDIT_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -50,7 +49,6 @@ export const editTeam = (ts, id, formData) => async (dispatch) => {
 };
 export const listTeams = (ts) => async (dispatch) => {
   try {
-    console.log(ts);
     var wholedata = [];
 
     for (var i = 0; i < ts.length; i++) {
