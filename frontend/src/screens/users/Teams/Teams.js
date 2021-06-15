@@ -82,7 +82,7 @@ const Teams = () => {
                     contactNo={dean.contactNo}
                     email={dean.email}
                   />
-                  <div className="flex flex-wrap justify-between mb-8">
+                  <div className="md:flex md:flex-wrap  mb-8">
                     {team.data.splice(1).map((team1) => {
                       const { _id, name, post, imagePath, contactNo, email } =
                         team1;
@@ -104,7 +104,7 @@ const Teams = () => {
                 </div>
               </>
             ) : (
-              <div className="flex flex-wrap justify-between mb-8">
+              <div className="md:flex md:flex-wrap  mb-8">
                 {team.data.map((team1) => {
                   const { _id, name, post, imagePath, contactNo, email } =
                     team1;

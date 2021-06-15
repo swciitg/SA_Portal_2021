@@ -2,8 +2,8 @@ import React from "react";
 import { BASEAPI } from "../../../constants";
 const TeamCard = (props) => {
   const teamcardwidth = {
-    width: "564px",
-    height: "580px",
+    width: "500px",
+    height: "540px",
   };
   return (
     <>
@@ -19,10 +19,8 @@ const TeamCard = (props) => {
               className="h-96  w-full object-contain rounded-sm "
             />
           </div>
-          <div className="ml-8 text-2xl text-white mt-6">{props.name}</div>
-          <div className="ml-8 text-lg text-white mt-2.5 mb-6">
-            {props.post}
-          </div>
+          <div className="ml-8 text-2xl text-white mt-2">{props.name}</div>
+          <div className="ml-8 text-lg text-white mt-1 mb-4">{props.post}</div>
           <svg
             className="mx-4"
             width="513"
@@ -40,19 +38,19 @@ const TeamCard = (props) => {
               stroke-linecap="round"
             />
           </svg>
-          <div className="flex justify-between mx-8 my-6">
+          <div className="flex justify-between mx-8 my-2">
             <div className="text-lg text-white">{props.email}</div>
             <div className="text-lg text-white">{props.contactNo}</div>
           </div>
         </div>
       </div>
-      <div className="block md:hidden ">
-        <div className="bg-blue-600 w-9/12 sm:w-96  md:ml-8 mt-8 rounded-md border-2 border-black">
-          <div className="bg-gray-200">
+      <div className="block md:hidden flex justify-center">
+        <div className="bg-blue-600 w-9/12  mt-8 rounded-md border-2 border-black">
+          <div className="bg-gray-200 flex justify-center">
             <img
               src={`${BASEAPI}/team/sa/${props.id}`}
               alt="ProfilePic"
-              className="h-80  w-full object-contain rounded-sm"
+              className="h-64  w-auto object-contain rounded-sm "
             />
           </div>
           <div className="h-16">
