@@ -74,15 +74,19 @@ const Teams = () => {
               {(idx === 0 || idx === 3) && ts === pages[0].ts ? (
                 <>
                   <div>
-                    <TeamCard
-                      key={dean._id}
-                      id={dean._id}
-                      name={dean.name}
-                      post={dean.post}
-                      imagePath={dean.imagePath}
-                      contactNo={dean.contactNo}
-                      email={dean.email}
-                    />
+                    {dean ? (
+                      <TeamCard
+                        key={dean._id}
+                        id={dean._id}
+                        name={dean.name}
+                        post={dean.post}
+                        imagePath={dean.imagePath}
+                        contactNo={dean.contactNo}
+                        email={dean.email}
+                      />
+                    ) : (
+                      ""
+                    )}
                     <div className="md:flex md:flex-wrap  mb-8">
                       {team.data.splice(1).map((team1) => {
                         const { _id, name, post, imagePath, contactNo, email } =
