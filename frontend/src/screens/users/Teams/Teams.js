@@ -22,11 +22,11 @@ const Teams = () => {
   return (
     <>
       <div className="hidden sm:block">
-        <div style={mystyle} className="pb-20 ">
-          <div class=" text-xl md:text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28  w-64">
+        <div style={mystyle} className="pb-20 h-96">
+          <div class=" text-xl sm:text-2xl sm:ml-8 md:text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28  w-64">
             Team Structure
           </div>
-          <div className=" md:ml-36 pt-4">
+          <div className=" sm:ml-10 md:ml-36 pt-4">
             {pages.map((page) => (
               <button
                 id={page.ts}
@@ -67,63 +67,65 @@ const Teams = () => {
 
         return (
           <>
-            <div className=" text-black ml-5 text-xl md:text-4xl md:ml-32 font-semibold">
-              {pages[0].tk[idx]}
-            </div>
-            {(idx === 0 || idx === 3) && ts === pages[0].ts ? (
-              <>
-                <div>
-                  <TeamCard
-                    key={dean._id}
-                    id={dean._id}
-                    name={dean.name}
-                    post={dean.post}
-                    imagePath={dean.imagePath}
-                    contactNo={dean.contactNo}
-                    email={dean.email}
-                  />
-                  <div className="md:flex md:flex-wrap  mb-8">
-                    {team.data.splice(1).map((team1) => {
-                      const { _id, name, post, imagePath, contactNo, email } =
-                        team1;
-                      return (
-                        <>
-                          <TeamCard
-                            key={_id}
-                            id={_id}
-                            name={name}
-                            post={post}
-                            imagePath={imagePath}
-                            contactNo={contactNo}
-                            email={email}
-                          />
-                        </>
-                      );
-                    })}
-                  </div>
-                </div>
-              </>
-            ) : (
-              <div className="md:flex md:flex-wrap  mb-8">
-                {team.data.map((team1) => {
-                  const { _id, name, post, imagePath, contactNo, email } =
-                    team1;
-                  return (
-                    <>
-                      <TeamCard
-                        key={_id}
-                        id={_id}
-                        name={name}
-                        post={post}
-                        imagePath={imagePath}
-                        contactNo={contactNo}
-                        email={email}
-                      />
-                    </>
-                  );
-                })}
+            <div className="sm:relative sm:-top-40">
+              <div className=" text-black ml-5 text-xl md:text-4xl md:ml-32 font-semibold">
+                {pages[0].tk[idx]}
               </div>
-            )}
+              {(idx === 0 || idx === 3) && ts === pages[0].ts ? (
+                <>
+                  <div>
+                    <TeamCard
+                      key={dean._id}
+                      id={dean._id}
+                      name={dean.name}
+                      post={dean.post}
+                      imagePath={dean.imagePath}
+                      contactNo={dean.contactNo}
+                      email={dean.email}
+                    />
+                    <div className="md:flex md:flex-wrap  mb-8">
+                      {team.data.splice(1).map((team1) => {
+                        const { _id, name, post, imagePath, contactNo, email } =
+                          team1;
+                        return (
+                          <>
+                            <TeamCard
+                              key={_id}
+                              id={_id}
+                              name={name}
+                              post={post}
+                              imagePath={imagePath}
+                              contactNo={contactNo}
+                              email={email}
+                            />
+                          </>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="md:flex md:flex-wrap  mb-8">
+                  {team.data.map((team1) => {
+                    const { _id, name, post, imagePath, contactNo, email } =
+                      team1;
+                    return (
+                      <>
+                        <TeamCard
+                          key={_id}
+                          id={_id}
+                          name={name}
+                          post={post}
+                          imagePath={imagePath}
+                          contactNo={contactNo}
+                          email={email}
+                        />
+                      </>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           </>
         );
       })}

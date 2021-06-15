@@ -2,12 +2,12 @@ import React from "react";
 import { BASEAPI } from "../../../constants";
 const TeamCard = (props) => {
   const teamcardwidth = {
-    width: "500px",
-    height: "540px",
+    width: "460px",
+    height: "480px",
   };
   return (
     <>
-      <div className="hidden md:block overflow-hidden">
+      <div className="hidden sm:block overflow-hidden">
         <div
           style={teamcardwidth}
           className="bg-blue-600  rounded-md border-2 border-black mt-16 mx-24"
@@ -16,7 +16,7 @@ const TeamCard = (props) => {
             <img
               src={`${BASEAPI}/team/sa/${props.id}`}
               alt="ProfilePic"
-              className="h-96  w-full object-contain rounded-sm "
+              className="h-80  w-full object-contain rounded-sm "
             />
           </div>
           <div className="ml-8 text-2xl text-white mt-2">{props.name}</div>
@@ -44,7 +44,7 @@ const TeamCard = (props) => {
           </div>
         </div>
       </div>
-      <div className="block md:hidden flex justify-center">
+      <div className="block sm:hidden flex justify-center">
         <div className="bg-blue-600 w-9/12  mt-8 rounded-md border-2 border-black">
           <div className="bg-gray-200 flex justify-center">
             <img
