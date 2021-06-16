@@ -23,7 +23,7 @@ const Teams = () => {
     <>
       <div className="hidden sm:block">
         <div style={mystyle} className="pb-20 h-96">
-          <div class=" text-xl sm:text-2xl sm:ml-8 md:text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28  w-64">
+          <div class=" text-xl sm:text-2xl sm:ml-8 md:text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28 ">
             Team Structure
           </div>
           <div className=" sm:ml-10 md:ml-36 pt-4">

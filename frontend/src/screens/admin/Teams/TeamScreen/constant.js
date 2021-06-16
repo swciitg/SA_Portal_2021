@@ -4,6 +4,10 @@ export const teams = [
     ts: "sa",
   },
   {
+    team: "Students Affairs Staff",
+    ts: "saf",
+  },
+  {
     team: "Well Being",
     ts: "wellbeing",
   },

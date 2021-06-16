@@ -11,6 +11,11 @@ export const pages = [
     ],
   },
   {
+    name: "Student Affairs Staff",
+    ts: ["saf"],
+    ts1: "saf",
+  },
+  {
     name: "Gymkhana Office",
     ts: ["gymkhana"],
     ts1: "gymkhana",
