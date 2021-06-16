@@ -4,7 +4,7 @@ export const pages = [
     ts: ["sa", "wellbeing", "personality", "acf"],
     ts1: "sa",
     tk: [
-      "Student Affairs Office",
+      "",
       "Center of Well Being",
       "Personality Development",
       "Accomodation and Food",
