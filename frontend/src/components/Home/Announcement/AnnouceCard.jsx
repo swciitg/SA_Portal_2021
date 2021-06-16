@@ -1,30 +1,44 @@
 import React from "react";
 import { isoToDate } from "./util";
 import arrow from "../../../assets/ArrowRight.svg";
+import ReactTooltip from "react-tooltip";
+import styles from "./styles.css";
 
-const AnnouceCard = ({ creation, title, description, link, category }) => {
+const AnnouceCard = ({ id, creation, title, description, link, category }) => {
   return (
-    <div
-      className="w-full px-5 py-3 bg-white rounded mb-3"
-      style={{ boxShadow: "0px 2px 12px rgba(30, 37, 50, 0.14)" }}
-    >
-      <p className="text-xs mb-0.5" style={{ color: "#111" }}>
-        {isoToDate(creation)}
-      </p>
-      <div className="flex w-full">
-        <p
-          className="inline w-11/12 tracking-wide"
-          style={{ fontSize: "1.1rem" }}
-        >
-          {title}
-        </p>
-        <span className="w-1/12 flex justify-end cursor-pointer">
-          <a href={link} rel="noreferrer" target="_blank">
-            <img src={arrow} alt="->" />
-          </a>
-        </span>
+    <>
+      <div
+        className="w-full px-5 py-3 bg-white rounded mb-3"
+        style={{ boxShadow: "0px 2px 12px rgba(30, 37, 50, 0.14)" }}
+      >
+        <a data-for={id} data-tip={description}>
+          <p className="text-xs mb-0.5" style={{ color: "#111" }}>
+            {isoToDate(creation)}
+          </p>
+          <div className="flex w-full">
+            <p
+              className="inline w-11/12 tracking-wide"
+              style={{ fontSize: "1.1rem" }}
+            >
+              {title}
+            </p>
+            <span className="w-1/12 flex justify-end cursor-pointer">
+              <a href={link} rel="noreferrer" target="_blank">
+                <img src={arrow} alt="->" />
+              </a>
+            </span>
+          </div>
+        </a>
+        <ReactTooltip
+          id={id}
+          place="bottom"
+          type="info"
+          className={`${styles.extraClass}`}
+          delayHide={1000}
+          effect="solid"
+        />
       </div>
-    </div>
+    </>
   );
 };
 

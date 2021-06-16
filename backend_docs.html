@@ -1,0 +1,1754 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Affairs Portal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.configure({
+            tabReplace: '    ',
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>body {
+    position: relative;
+}
+
+h1 {
+    margin-top: 5px;
+}
+
+h1, h2, h3, h4 {
+    color: #2b2b2b;
+}
+
+h2:after {
+    content: ' ';
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    display: none;
+    position: absolute;
+    margin-left: 8px;
+}
+
+h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
+    color: #a5a5a5;
+    display: initial;
+}
+
+.nav.nav-tabs > li > a {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.tab-content {
+    padding-top: 8px;
+}
+
+.table {
+    margin-bottom: 8px;
+}
+
+pre {
+    border-radius: 0px;
+    border: none;
+}
+
+pre code {
+    margin: -9.5px;
+}
+
+.request {
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.response-text-sample {
+    padding: 0px !important;
+}
+
+.response-text-sample pre {
+    margin-bottom: 0px;
+}
+
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #2b2b2b;
+    padding-top: 20px;
+}
+
+#sidebar-wrapper ul {
+    width: 250px;
+}
+
+#sidebar-wrapper ul li {
+    margin-right: 10px;
+}
+
+#sidebar-wrapper ul li a:hover {
+    background: inherit;
+    text-decoration: none;
+}
+
+#sidebar-wrapper ul li a {
+    display: block;
+    color: #ECF0F1;
+    padding: 6px 15px;
+}
+
+#sidebar-wrapper ul li ul {
+    padding-left: 25px;
+}
+
+#sidebar-wrapper ul li ul li a {
+    padding: 1px 0px;
+}
+
+#sidebar-wrapper ul li a:hover,
+#sidebar-wrapper ul li a:focus {
+    color: #e0c46c;
+    border-right: solid 1px #e0c46c;
+}
+
+#sidebar-wrapper ul li.active > a {
+    color: #e0c46c;
+    border-right: solid 3px #e0c46c;
+}
+
+#sidebar-wrapper ul li:not(.active) ul {
+    display: none;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px 15px 15px 250px;
+}
+</style>
+</head>
+<body data-spy="scroll" data-target=".scrollspy">
+<div id="sidebar-wrapper">
+    <div class="scrollspy">
+    <ul id="main-menu" data-spy="affix" class="nav">
+        <li>
+            <a href="#doc-general-notes">General notes</a>
+        </li>
+        
+        <li>
+            <a href="#doc-api-detail">API detail</a>
+        </li>
+        
+        
+        
+        <li>
+            <a href="#folder-home">Home</a>
+            <ul>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-rules">Rules</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-rules-get-all-rules">Get All Rules</a>
+                </li>
+                
+                <li>
+                    <a href="#request-rules-create-a-rule">Create a rule</a>
+                </li>
+                
+                <li>
+                    <a href="#request-rules-get-one-rule-only-for-rules-with-pdfs">Get One Rule (Only for rules with PDFs)</a>
+                </li>
+                
+                <li>
+                    <a href="#request-rules-update-rule">Update Rule</a>
+                </li>
+                
+                <li>
+                    <a href="#request-rules-delete-a-rule">Delete a rule</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-sa-courses">Sa Courses</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-sa-courses-get-all-courses">Get All Courses</a>
+                </li>
+                
+                <li>
+                    <a href="#request-sa-courses-create-a-course">Create a Course</a>
+                </li>
+                
+                <li>
+                    <a href="#request-sa-courses-get-one-course-only-for-course-with-pdfs">Get One Course (Only for course with PDFs)</a>
+                </li>
+                
+                <li>
+                    <a href="#request-sa-courses-update-course">Update Course</a>
+                </li>
+                
+                <li>
+                    <a href="#request-sa-courses-delete-a-course">Delete a Course</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-sac">SAC</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-sac-get-all-sac-links">Get All Sac Links</a>
+                </li>
+                
+                <li>
+                    <a href="#request-sac-add-sac-link">Add Sac Link</a>
+                </li>
+                
+                <li>
+                    <a href="#request-sac-edit-sac-link">Edit Sac Link</a>
+                </li>
+                
+                <li>
+                    <a href="#request-sac-delete-sac-link">Delete Sac Link</a>
+                </li>
+                
+                <li>
+                    <a href="#request-sac-get-one-sac-link-pdf-only">Get one Sac Link(Pdf only)</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-gallery">Gallery</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-gallery-upload-image">Upload Image</a>
+                </li>
+                
+                <li>
+                    <a href="#request-gallery-get-images-ids">Get images ids</a>
+                </li>
+                
+                <li>
+                    <a href="#request-gallery-get-image">Get image</a>
+                </li>
+                
+                <li>
+                    <a href="#request-gallery-update-image">Update image</a>
+                </li>
+                
+                <li>
+                    <a href="#request-gallery-delete-image">Delete image</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-utilities">Utilities</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-utilities-create-link">Create Link</a>
+                </li>
+                
+                <li>
+                    <a href="#request-utilities-get-all-links">Get All Links</a>
+                </li>
+                
+                <li>
+                    <a href="#request-utilities-edit-link">Edit Link</a>
+                </li>
+                
+                <li>
+                    <a href="#request-utilities-delete-link">Delete Link</a>
+                </li>
+                
+                <li>
+                    <a href="#request-utilities-create-sublink">Create Sublink</a>
+                </li>
+                
+                <li>
+                    <a href="#request-utilities-get-all-sublinks">Get all sublinks</a>
+                </li>
+                
+                <li>
+                    <a href="#request-utilities-edit-sublink">Edit Sublink</a>
+                </li>
+                
+                <li>
+                    <a href="#request-utilities-delete-sublink">Delete Sublink</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-forms">Forms</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-forms-get-forms">Get forms</a>
+                </li>
+                
+                <li>
+                    <a href="#request-forms-create-a-form">Create a form</a>
+                </li>
+                
+                <li>
+                    <a href="#request-forms-get-one-form-for-pdfs-only">Get one Form (for PDFs only)</a>
+                </li>
+                
+                <li>
+                    <a href="#request-forms-edit-form">Edit form</a>
+                </li>
+                
+                <li>
+                    <a href="#request-forms-delete-form">Delete form</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-users">Users</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-users-get-all-users">Get all users</a>
+                </li>
+                
+                <li>
+                    <a href="#request-users-change-admin">Change admin</a>
+                </li>
+                
+                <li>
+                    <a href="#request-users-delete-user">Delete user</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-scholarship">Scholarship</a>
+            <ul>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-about-us">About Us</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-about-us-new-request">New Request</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+    </ul>
+</div>
+
+</div>
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Student Affairs Portal</h1>
+
+                <h2 id="doc-general-notes">
+                    General notes
+                    <a href="#doc-general-notes"><i class="glyphicon glyphicon-link"></i></a>
+                </h2>
+
+                <p>Students&rsquo; Affairs Board (SAB), IIT Guwahati, is a student body for all academic-related issues of IIT Guwahati students. The SAB is intended as a student forum that will strive to redress the academic problems and concerns of the entire student community of IIT Gu ahati. It is a link unit between the students and the administration and is responsible for redirecting the Academic issues of the students to the appropriate administrative authority.</p>
+
+
+                
+
+                <h2 id="doc-api-detail">
+                    API detail
+                    <a href="#doc-api-detail"><i class="glyphicon glyphicon-link"></i></a>
+                </h2>
+
+                
+
+
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-home">
+                        Home
+                        <a href="#folder-home"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div><p>Landing page Api endpoints of the SA Portal.</p>
+</div>
+
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-rules">
+                        Rules
+                        <a href="#folder-rules"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-rules-get-all-rules">
+                            Get All Rules
+                            <a href="#request-rules-get-all-rules"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get all rules.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-rules-get-all-rules-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-rules-get-all-rules-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-rules-get-all-rules-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/rules"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-rules-get-all-rules-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/rules HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-rules-create-a-rule">
+                            Create a rule
+                            <a href="#request-rules-create-a-rule"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create one rule use a PDF or a link.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-rules-create-a-rule-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-rules-create-a-rule-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-rules-create-a-rule-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST "{{url}}{{baseUrl}}/rules"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-rules-create-a-rule-example-http">
+                                    <pre><code class="hljs http">POST %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/rules HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-rules-get-one-rule-only-for-rules-with-pdfs">
+                            Get One Rule (Only for rules with PDFs)
+                            <a href="#request-rules-get-one-rule-only-for-rules-with-pdfs"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get one rule PDF (Only for rules having PDF file)</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-rules-get-one-rule-only-for-rules-with-pdfs-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-rules-get-one-rule-only-for-rules-with-pdfs-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-rules-get-one-rule-only-for-rules-with-pdfs-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/rules/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-rules-get-one-rule-only-for-rules-with-pdfs-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/rules/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-rules-update-rule">
+                            Update Rule
+                            <a href="#request-rules-update-rule"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update a rule based on its id.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-rules-update-rule-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-rules-update-rule-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-rules-update-rule-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT "{{url}}{{baseUrl}}/rules/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-rules-update-rule-example-http">
+                                    <pre><code class="hljs http">PUT %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/rules/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-rules-delete-a-rule">
+                            Delete a rule
+                            <a href="#request-rules-delete-a-rule"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete a rule based on its id.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-rules-delete-a-rule-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-rules-delete-a-rule-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-rules-delete-a-rule-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "{{url}}{{baseUrl}}/rules/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-rules-delete-a-rule-example-http">
+                                    <pre><code class="hljs http">DELETE %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/rules/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-sa-courses">
+                        Sa Courses
+                        <a href="#folder-sa-courses"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-sa-courses-get-all-courses">
+                            Get All Courses
+                            <a href="#request-sa-courses-get-all-courses"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get all rules.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-sa-courses-get-all-courses-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-sa-courses-get-all-courses-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-sa-courses-get-all-courses-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/saCourse"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-sa-courses-get-all-courses-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/saCourse HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-sa-courses-create-a-course">
+                            Create a Course
+                            <a href="#request-sa-courses-create-a-course"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create one rule use a PDF or a link.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-sa-courses-create-a-course-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-sa-courses-create-a-course-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-sa-courses-create-a-course-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST "{{url}}{{baseUrl}}/saCourse"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-sa-courses-create-a-course-example-http">
+                                    <pre><code class="hljs http">POST %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/saCourse HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-sa-courses-get-one-course-only-for-course-with-pdfs">
+                            Get One Course (Only for course with PDFs)
+                            <a href="#request-sa-courses-get-one-course-only-for-course-with-pdfs"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get one rule PDF (Only for rules having PDF file)</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-sa-courses-get-one-course-only-for-course-with-pdfs-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-sa-courses-get-one-course-only-for-course-with-pdfs-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-sa-courses-get-one-course-only-for-course-with-pdfs-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/saCourse/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-sa-courses-get-one-course-only-for-course-with-pdfs-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/saCourse/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-sa-courses-update-course">
+                            Update Course
+                            <a href="#request-sa-courses-update-course"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update a rule based on its id.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-sa-courses-update-course-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-sa-courses-update-course-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-sa-courses-update-course-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT "{{url}}{{baseUrl}}/saCourse/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-sa-courses-update-course-example-http">
+                                    <pre><code class="hljs http">PUT %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/saCourse/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-sa-courses-delete-a-course">
+                            Delete a Course
+                            <a href="#request-sa-courses-delete-a-course"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete a rule based on its id.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-sa-courses-delete-a-course-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-sa-courses-delete-a-course-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-sa-courses-delete-a-course-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "{{url}}{{baseUrl}}/saCourse/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-sa-courses-delete-a-course-example-http">
+                                    <pre><code class="hljs http">DELETE %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/saCourse/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-sac">
+                        SAC
+                        <a href="#folder-sac"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-sac-get-all-sac-links">
+                            Get All Sac Links
+                            <a href="#request-sac-get-all-sac-links"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get list of all Sac Links/pdfs</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-sac-get-all-sac-links-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-sac-get-all-sac-links-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-sac-get-all-sac-links-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/sac"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-sac-get-all-sac-links-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/sac HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-sac-add-sac-link">
+                            Add Sac Link
+                            <a href="#request-sac-add-sac-link"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create a sac link, you can only give either a pdf or a link. The link should start with &ldquo;https://&ldquo;. If you are adding a pdf, use &ldquo;path&rdquo; field, otherwise use &ldquo;link&rdquo;</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-sac-add-sac-link-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-sac-add-sac-link-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-sac-add-sac-link-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST "{{url}}{{baseUrl}}/sac"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-sac-add-sac-link-example-http">
+                                    <pre><code class="hljs http">POST %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/sac HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-sac-edit-sac-link">
+                            Edit Sac Link
+                            <a href="#request-sac-edit-sac-link"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Edit a Sac Link using its id. You can only add a pdf or a link. If you are adding a pdf, use &ldquo;path&rdquo; field, otherwise use &ldquo;link&rdquo;</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-sac-edit-sac-link-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-sac-edit-sac-link-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-sac-edit-sac-link-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT "{{url}}{{baseUrl}}/sac/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-sac-edit-sac-link-example-http">
+                                    <pre><code class="hljs http">PUT %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/sac/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-sac-delete-sac-link">
+                            Delete Sac Link
+                            <a href="#request-sac-delete-sac-link"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete a Sac link using its id</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-sac-delete-sac-link-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-sac-delete-sac-link-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-sac-delete-sac-link-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "{{url}}{{baseUrl}}/sac/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-sac-delete-sac-link-example-http">
+                                    <pre><code class="hljs http">DELETE %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/sac/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-sac-get-one-sac-link-pdf-only">
+                            Get one Sac Link(Pdf only)
+                            <a href="#request-sac-get-one-sac-link-pdf-only"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get a Sac PDF using its id. Only for PDFs</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-sac-get-one-sac-link-pdf-only-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-sac-get-one-sac-link-pdf-only-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-sac-get-one-sac-link-pdf-only-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/sac/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-sac-get-one-sac-link-pdf-only-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/sac/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-gallery">
+                        Gallery
+                        <a href="#folder-gallery"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-gallery-upload-image">
+                            Upload Image
+                            <a href="#request-gallery-upload-image"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Upload image for gallery.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-gallery-upload-image-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-gallery-upload-image-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-gallery-upload-image-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST "{{url}}{{baseUrl}}/gallery"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-gallery-upload-image-example-http">
+                                    <pre><code class="hljs http">POST %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/gallery HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-gallery-get-images-ids">
+                            Get images ids
+                            <a href="#request-gallery-get-images-ids"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get all images details.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-gallery-get-images-ids-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-gallery-get-images-ids-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-gallery-get-images-ids-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/gallery"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-gallery-get-images-ids-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/gallery HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-gallery-get-image">
+                            Get image
+                            <a href="#request-gallery-get-image"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Download/get image.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-gallery-get-image-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-gallery-get-image-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-gallery-get-image-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/gallery/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-gallery-get-image-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/gallery/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-gallery-update-image">
+                            Update image
+                            <a href="#request-gallery-update-image"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Update existing image.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-gallery-update-image-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-gallery-update-image-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-gallery-update-image-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT "{{url}}{{baseUrl}}/gallery/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-gallery-update-image-example-http">
+                                    <pre><code class="hljs http">PUT %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/gallery/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-gallery-delete-image">
+                            Delete image
+                            <a href="#request-gallery-delete-image"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete a image using it&rsquo;s id.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-gallery-delete-image-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-gallery-delete-image-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-gallery-delete-image-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "{{url}}{{baseUrl}}/gallery/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-gallery-delete-image-example-http">
+                                    <pre><code class="hljs http">DELETE %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/gallery/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-utilities">
+                        Utilities
+                        <a href="#folder-utilities"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-utilities-create-link">
+                            Create Link
+                            <a href="#request-utilities-create-link"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create a link with priority</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-utilities-create-link-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-utilities-create-link-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-utilities-create-link-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "name=Link1&priority_number=3" "{{url}}{{baseUrl}}/utilities"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-utilities-create-link-example-http">
+                                    <pre><code class="hljs http">POST %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/utilities HTTP/1.1
+Host: 
+Content-Type: application/x-www-form-urlencoded
+
+name=Link1&priority_number=3</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-utilities-get-all-links">
+                            Get All Links
+                            <a href="#request-utilities-get-all-links"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get all the links(also shows their subinks)</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-utilities-get-all-links-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-utilities-get-all-links-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-utilities-get-all-links-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/utilities"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-utilities-get-all-links-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/utilities HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-utilities-edit-link">
+                            Edit Link
+                            <a href="#request-utilities-edit-link"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Edit a link using its id</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-utilities-edit-link-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-utilities-edit-link-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-utilities-edit-link-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT -H "Content-Type: application/x-www-form-urlencoded" -d "name=LinkNew&priority_number=1" "{{url}}{{baseUrl}}/utilities/:link_id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-utilities-edit-link-example-http">
+                                    <pre><code class="hljs http">PUT %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/utilities/:link_id HTTP/1.1
+Host: 
+Content-Type: application/x-www-form-urlencoded
+
+name=LinkNew&priority_number=1</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-utilities-delete-link">
+                            Delete Link
+                            <a href="#request-utilities-delete-link"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete a link using its id</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-utilities-delete-link-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-utilities-delete-link-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-utilities-delete-link-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "{{url}}{{baseUrl}}/utilities/:link_id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-utilities-delete-link-example-http">
+                                    <pre><code class="hljs http">DELETE %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/utilities/:link_id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-utilities-create-sublink">
+                            Create Sublink
+                            <a href="#request-utilities-create-sublink"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create sublink to a link using link&rsquo;s id. The url must start with &ldquo;https://&rdquo;</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-utilities-create-sublink-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-utilities-create-sublink-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-utilities-create-sublink-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "name=sublink1&url=https://url&priority_number=1" "{{url}}{{baseUrl}}/utilities/:link_id/sublinks"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-utilities-create-sublink-example-http">
+                                    <pre><code class="hljs http">POST %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/utilities/:link_id/sublinks HTTP/1.1
+Host: 
+Content-Type: application/x-www-form-urlencoded
+
+name=sublink1&url=https://url&priority_number=1</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-utilities-get-all-sublinks">
+                            Get all sublinks
+                            <a href="#request-utilities-get-all-sublinks"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get all sublinks to a link</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-utilities-get-all-sublinks-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-utilities-get-all-sublinks-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-utilities-get-all-sublinks-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/utilities/:link_id/sublinks"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-utilities-get-all-sublinks-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/utilities/:link_id/sublinks HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-utilities-edit-sublink">
+                            Edit Sublink
+                            <a href="#request-utilities-edit-sublink"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Edit the sublink using the link id and its sublink id. The url must start with &ldquo;https://&rdquo;</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-utilities-edit-sublink-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-utilities-edit-sublink-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-utilities-edit-sublink-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT -H "Content-Type: application/x-www-form-urlencoded" -d "name=sublinkNew&url=https://urlNew&priority_number=1" "{{url}}{{baseUrl}}/utilities/:link_id/sublinks/:sublink_id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-utilities-edit-sublink-example-http">
+                                    <pre><code class="hljs http">PUT %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/utilities/:link_id/sublinks/:sublink_id HTTP/1.1
+Host: 
+Content-Type: application/x-www-form-urlencoded
+
+name=sublinkNew&url=https://urlNew&priority_number=1</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-utilities-delete-sublink">
+                            Delete Sublink
+                            <a href="#request-utilities-delete-sublink"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delele a sublink using the link id and its sublink id</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-utilities-delete-sublink-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-utilities-delete-sublink-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-utilities-delete-sublink-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "{{url}}{{baseUrl}}/utilities/:link_id/sublinks/:sublink_id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-utilities-delete-sublink-example-http">
+                                    <pre><code class="hljs http">DELETE %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/utilities/:link_id/sublinks/:sublink_id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-forms">
+                        Forms
+                        <a href="#folder-forms"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-forms-get-forms">
+                            Get forms
+                            <a href="#request-forms-get-forms"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get all forms (Links or PDFs)</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-forms-get-forms-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-forms-get-forms-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-forms-get-forms-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/forms"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-forms-get-forms-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/forms HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-forms-create-a-form">
+                            Create a form
+                            <a href="#request-forms-create-a-form"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Create a form, you can only give either a pdf or a link. The link should start with &ldquo;https://&ldquo;. If you are adding a pdf, use &ldquo;path&rdquo; field, otherwise use &ldquo;link&rdquo;.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-forms-create-a-form-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-forms-create-a-form-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-forms-create-a-form-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST "{{url}}{{baseUrl}}/forms"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-forms-create-a-form-example-http">
+                                    <pre><code class="hljs http">POST %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/forms HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-forms-get-one-form-for-pdfs-only">
+                            Get one Form (for PDFs only)
+                            <a href="#request-forms-get-one-form-for-pdfs-only"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Get a form PDF using its id. Only for PDFs.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-forms-get-one-form-for-pdfs-only-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-forms-get-one-form-for-pdfs-only-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-forms-get-one-form-for-pdfs-only-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/forms/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-forms-get-one-form-for-pdfs-only-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/forms/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-forms-edit-form">
+                            Edit form
+                            <a href="#request-forms-edit-form"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Edit a form based on its id. You can only add a pdf or a link. If you are adding a pdf, use &ldquo;path&rdquo; field, otherwise use &ldquo;link&rdquo;.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-forms-edit-form-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-forms-edit-form-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-forms-edit-form-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT "{{url}}{{baseUrl}}/forms/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-forms-edit-form-example-http">
+                                    <pre><code class="hljs http">PUT %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/forms/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-forms-delete-form">
+                            Delete form
+                            <a href="#request-forms-delete-form"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete a form using its id.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-forms-delete-form-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-forms-delete-form-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-forms-delete-form-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "{{url}}{{baseUrl}}/forms/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-forms-delete-form-example-http">
+                                    <pre><code class="hljs http">DELETE %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/forms/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-users">
+                        Users
+                        <a href="#folder-users"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-users-get-all-users">
+                            Get all users
+                            <a href="#request-users-get-all-users"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-users-get-all-users-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-users-get-all-users-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-users-get-all-users-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET "{{url}}{{baseUrl}}/users"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-users-get-all-users-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/users HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-users-change-admin">
+                            Change admin
+                            <a href="#request-users-change-admin"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Change the admin status of user using his/her id. No need of body.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-users-change-admin-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-users-change-admin-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-users-change-admin-example-curl">
+                                    <pre><code class="hljs curl">curl -X PUT "{{url}}{{baseUrl}}/users/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-users-change-admin-example-http">
+                                    <pre><code class="hljs http">PUT %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/users/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-users-delete-user">
+                            Delete user
+                            <a href="#request-users-delete-user"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Delete a user using his/her id.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-users-delete-user-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-users-delete-user-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-users-delete-user-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE "{{url}}{{baseUrl}}/users/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-users-delete-user-example-http">
+                                    <pre><code class="hljs http">DELETE %7B%7Burl%7D%7D%7B%7BbaseUrl%7D%7D/users/:id HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-scholarship">
+                        Scholarship
+                        <a href="#folder-scholarship"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-about-us">
+                        About Us
+                        <a href="#folder-about-us"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-about-us-new-request">
+                            New Request
+                            <a href="#request-about-us-new-request"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-about-us-new-request-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-about-us-new-request-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-about-us-new-request-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET ""</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-about-us-new-request-example-http">
+                                    <pre><code class="hljs http">GET / HTTP/1.1
+Host: </code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("table:not(.table)").addClass('table table-bordered');
+    });
+</script>
+</body>
+</html>

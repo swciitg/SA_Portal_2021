@@ -38,7 +38,7 @@ function Announcement() {
       </div>
       <Swiper direction={'vertical'} slidesPerView={4} mousewheel={true} pagination={{
         "clickable": true
-      }} className="mySwiper h-96 px-5">
+      }} className="mySwiper h-96 px-8">
         {/* <SwiperSlide> */}
         <div className="annoucement_card_container w-full ">
           {renderCards(announcements, aCategory)}
