@@ -1,0 +1,35 @@
+.extraClass {
+  font-size: 0.9rem !important;
+  pointer-events: auto !important;
+  width: 500px !important;
+  background-color: rgba(80, 147, 255, 0.377) !important;
+}
+
+.extraClass:hover {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.annoucement_card_container {
+  overflow-y: hidden;
+  max-height: 55vh;
+}
+
+.announceScroll {
+  overflow-y: scroll !important;
+}
+
+.announceScroll::-webkit-scrollbar {
+  width: 4px !important;
+}
+
+.announceScroll::-webkit-scrollbar-thumb {
+  background: gray !important;
+}
+
+@media only screen and (max-width: 640px) {
+  .extraClass {
+    font-size: 0.9rem !important;
+    width: 300px !important;
+  }
+}
