@@ -39,6 +39,12 @@ passport.use(
         });
         if (refresh_token) newUser.refreshToken = refresh_token;
 
+        const users = await User.find({});
+        if (users.length == 0) {
+          newUser.isAdmin = true;
+        }
+        
+
         await newUser.save();
         return done(null, newUser);
       } catch (error) {

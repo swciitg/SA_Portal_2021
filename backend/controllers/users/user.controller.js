@@ -9,6 +9,7 @@ exports.getUsers=async (req,res)=>{
         var lists = users.filter(x => {
             return x.id != id;
           });
+          
 
     res.status(200).json({
         status: "success",
