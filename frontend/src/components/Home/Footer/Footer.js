@@ -12,7 +12,7 @@ const Footer = () => {
           <img
             src={swclogo}
             alt="swc-logo"
-            className="mr-3 transform scale-110"
+            className="mr-3 transform scale-90"
           />
           <span className="text-xl text-white">IITG Student Affairs Board</span>
         </a>
