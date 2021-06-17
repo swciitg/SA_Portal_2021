@@ -46,6 +46,6 @@ export const eventallCards = (events, allCategory) => {
       );
     }
   } else {
-    return <span className="text-3xl text-red-600">No Events</span>;
+    return <span className="text-3xl text-grey-600">No Events</span>;
   }
 };

@@ -9,11 +9,11 @@ const EventCard = ({ title, _id, eventDate, link }) => {
     <div>
       <div class="p-1 md:p-3 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-1">
         <div
-          className="rounded-md relative"
+          className="rounded-md relative w-72 md:w-full h-80 md:h-full"
           style={{ backgroundColor: "#2164E8" }}
         >
           <img
-            className="rounded-md w-full md:w-60 lg:w-96 h-36 md:h-60 lg:h-80"
+            className="rounded-md w-72 md:w-60 lg:w-96 h-48 md:h-60 lg:h-80"
             src={`${BASEAPI}/home/events/${_id}`}
             alt="Event_Image"
           />
