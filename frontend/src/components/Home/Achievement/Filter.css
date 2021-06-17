@@ -1,0 +1,25 @@
+#ach_cat {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 12%;
+  font-family: Red Hat Display;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 19px;
+  letter-spacing: 0.08em;
+  color: #1e2532;
+  background: url(../../../assets/ArrowDown.svg) 97% center no-repeat !important;
+}
+
+#ach_cat:active,
+#ach_cat:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 640px) {
+  #ach_cat {
+    width: 25%;
+  }
+}

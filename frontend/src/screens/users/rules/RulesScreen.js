@@ -37,7 +37,7 @@ const RulesScreen = () => {
               {path.indexOf("https://") === -1 ? (
                 <a
                   className={`${
-                    format === "Link" ? "text-blue-500" : "text-indigo-500"
+                    format === "Link" ? "text-blue-500" : "text-red-500"
                   } hover:text-blue-900`}
                   href={`${BASEAPI}/rules/${_id}`}
                   rel="noreferrer"
@@ -49,7 +49,7 @@ const RulesScreen = () => {
               ) : (
                 <a
                   className={`${
-                    format === "Link" ? "text-blue-500" : "text-indigo-500"
+                    format === "Link" ? "text-blue-500" : "text-red-500"
                   } hover:text-blue-900`}
                   href={path}
                   rel="noreferrer"
