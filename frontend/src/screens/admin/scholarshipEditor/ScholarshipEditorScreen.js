@@ -13,7 +13,6 @@ const ScholarshipEditorScreen = () => {
       axios
         .get(`${BASEAPI}/scholarship/editor`)
         .then(({ data }) => {
-          console.log("Scholar editor data", data);
           data.data && setEditorContent(data.data.HTMLString);
         })
         .catch((err) => console.log(err));

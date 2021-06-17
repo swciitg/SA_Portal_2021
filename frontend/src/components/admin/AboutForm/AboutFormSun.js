@@ -12,12 +12,10 @@ const AboutFormSun = ({ type, formData }) => {
   const history = useHistory();
 
   const changeHandler = (content) => {
-    console.log(content);
     setEditorHtmlString(JSON.stringify(content));
   };
 
   const submitHandler = () => {
-    console.log("Clicked");
     const url = `${BASEAPI}/home/about/`;
     const formData = {
       HTMLString: editorHtmlString,
@@ -31,7 +29,6 @@ const AboutFormSun = ({ type, formData }) => {
     axios
       .post(url, formData, config)
       .then((res) => {
-        console.log(res);
         history.push(`${BASEURL}/admin/about`);
         //window.location.replace(`${BASEURL}/admin/about`);
       })

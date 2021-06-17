@@ -38,7 +38,7 @@ const GalleryCart = () => {
   };
 
   return (
-    <div class="main_img_gallery_container bg-blue-50">
+    <div className="main_img_gallery_container bg-blue-50">
       <Gallery photos={photos} margin={5} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (

@@ -6,7 +6,6 @@ import { BASEURL } from "../../../constants";
 import { boardsArr } from "./constants";
 const NavigationScreen = () => {
   const navigations = useSelector((state) => state.navigations);
-  console.log(navigations);
   const dispatch = useDispatch();
 
   useEffect(() => {

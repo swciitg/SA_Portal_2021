@@ -24,7 +24,6 @@ export const renderCards = (announcements, aCategory) => {
       const filteredAnn = [...announcements].filter((a) => {
         return a.category.toLowerCase() === aCategory.toLowerCase();
       });
-      //console.log("filtered", filteredAnn);
       return filteredAnn.length !== 0 ? (
         filteredAnn.map((announcement, i) => {
           const { creation, title, description, _id, link, category } =

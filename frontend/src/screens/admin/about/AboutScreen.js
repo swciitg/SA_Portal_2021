@@ -16,7 +16,6 @@ const AboutScreen = () => {
       axios
         .get(`${BASEAPI}/home/about/`)
         .then(({ data }) => {
-          console.log(data);
           data.data && setEditorContent(data.data.HTMLString);
         })
         .catch((err) => console.log(err));

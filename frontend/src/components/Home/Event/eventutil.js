@@ -28,7 +28,6 @@ export const eventallCards = (events, allCategory) => {
         const filteredEve = [...events].filter((e) => {
           return e.category.toLowerCase() === allCategory.toLowerCase();
         });
-        console.log("filtered", filteredEve);
         return filteredEve.length !== 0 ? (
             filteredEve.map((event, i) => {
             const {

@@ -9,7 +9,6 @@ import * as api from "../api";
 export const listNavs = () => async (dispatch) => {
   try {
     const { data } = await api.fetchNavigation();
-    console.log(data.data);
     dispatch({ type: NAVIGATION_LIST_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -19,7 +18,6 @@ export const listNavs = () => async (dispatch) => {
 export const createNav = (nav) => async (dispatch) => {
   try {
     const { data } = await api.createNavigation(nav);
-    console.log(data.data);
     dispatch({ type: NAVIGATION_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -29,7 +27,6 @@ export const createNav = (nav) => async (dispatch) => {
 export const editNav = (id, nav) => async (dispatch) => {
   try {
     const { data } = await api.editNavigation(id, nav);
-    console.log(data.data);
     dispatch({ type: NAVIGATION_EDIT_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);

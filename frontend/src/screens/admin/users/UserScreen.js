@@ -8,7 +8,6 @@ import {
 
 const UserScreen = () => {
   const users = useSelector((state) => state.users);
-  console.log(users);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listUsers());

@@ -34,7 +34,6 @@ export const deleteLink = (id) => async (dispatch) => {
 export const createLink = (formData) => async (dispatch) => {
   try {
     const { data } = await api.createLink(formData);
-    console.log(data);
     dispatch({ type: LINK_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -44,7 +43,6 @@ export const createLink = (formData) => async (dispatch) => {
 export const editLink = (id, formData) => async (dispatch) => {
   try {
     const { data } = await api.editLink(id, formData);
-    console.log(data);
     dispatch({ type: LINK_EDIT_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -54,7 +52,6 @@ export const editLink = (id, formData) => async (dispatch) => {
 export const listSublinks = (link_id) => async (dispatch) => {
   try {
     const { data } = await api.fetchSublinks(link_id);
-    console.log(data.data.sublinks);
     dispatch({
       type: SUBLINK_LIST_REQUEST,
       payload: data.data.sublinks,
@@ -76,7 +73,6 @@ export const deleteSublink = (id, sublink_id) => async (dispatch) => {
 export const createSublink = (id, formData) => async (dispatch) => {
   try {
     const { data } = await api.createSublink(id, formData);
-    console.log(data);
     dispatch({ type: SUBLINK_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -87,7 +83,6 @@ export const editSublink =
   (link_id, sublink_id, formData) => async (dispatch) => {
     try {
       const { data } = await api.editSublink(link_id, sublink_id, formData);
-      console.log(data);
       dispatch({ type: SUBLINK_EDIT_REQUEST, payload: data.data });
     } catch (error) {
       console.log(error.message);

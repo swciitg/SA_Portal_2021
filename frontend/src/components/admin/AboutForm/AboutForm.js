@@ -10,10 +10,6 @@ const AboutForm = ({ type, formData }) => {
   //const [htmlString, setHtmlString] = useState("");
 
   const onEditorStateChange = (editorState) => {
-    console.log(
-      "Changed state",
-      JSON.stringify(draftToHtml(convertToRaw(editorState.getCurrentContent())))
-    );
     window.localStorage.setItem(
       "aboutContentHtml",
       JSON.stringify(draftToHtml(convertToRaw(editorState.getCurrentContent())))

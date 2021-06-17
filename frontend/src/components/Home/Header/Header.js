@@ -7,8 +7,8 @@ function Header() {
         <span className="float-left ">
           <img src={logo} alt="1200px-IIT-Guwahati-Logo-1" border="0" />
         </span>
-        <span className="float-left pl-4">
-          <h1 className="text-sm pt-1.5 sm:pt-2.5">
+        <span className="float-left pl-2 flex items-center">
+          <h1 className="text-sm ">
             INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI
           </h1>
         </span>
