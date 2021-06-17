@@ -57,7 +57,6 @@ exports.getAllEvents = async (req, res) => {
     /**
      *All console logs are for api testing
      */
-    console.log("[Success, getting all events...]");
     return res.status(200).json({ status: "Success", data: events });
   } catch (err) {
     return res
