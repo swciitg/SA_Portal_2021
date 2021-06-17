@@ -37,7 +37,7 @@ const Event = () => {
             breakpoints: {
               768: {
                   slidesPerView: 3,
-                  spaceBetween: 20
+                  spaceBetween: 10
               },
               
           },
@@ -59,7 +59,7 @@ const Event = () => {
           <CatFilter categories={categories} filterHandler={filterHandler} />
         </div>
       </div>
-      <div className="px-4 md:px-16">
+      <div className="px-4 md:px-10">
         <Swiper {...swiperParams} className="mySwiper">
 
           <div className=" overflow-x-auto mx-10 md:mx-32  flex gap-4 pb-10">

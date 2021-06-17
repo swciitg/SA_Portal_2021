@@ -9,11 +9,11 @@ const EventCard = ({ title, _id, eventDate, link }) => {
     <div>
       <div class="p-1 md:p-3 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-1">
         <div
-          className="rounded-md relative w-72 md:w-full h-80 md:h-full"
+          className="rounded-md relative w-72 md:w-full h-80 md:h-96"
           style={{ backgroundColor: "#2164E8" }}
         >
           <img
-            className="rounded-md w-72 md:w-60 lg:w-96 h-48 md:h-60 lg:h-80"
+            className="rounded-md w-72 md:w-full h-48 md:h-60 lg:h-60"
             src={`${BASEAPI}/home/events/${_id}`}
             alt="Event_Image"
           />
@@ -21,7 +21,7 @@ const EventCard = ({ title, _id, eventDate, link }) => {
             <div className="mt-4 text-base font-normal">
               {moment(eventDate).format("DD MMM YYYY")}
             </div>
-            <div className="w-10/12 text-base md:text-lg font-semibold pb-8">
+            <div className="w-10/12 text-base md:text-lg font-semibold pb-8 h-12 md:h-14 overflow-hidden">
               {title}
             </div>
             <a
