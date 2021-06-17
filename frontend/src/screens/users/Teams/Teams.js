@@ -41,7 +41,7 @@ const Teams = () => {
           </div>
         </div>
       </div>
-      <div className="block sm:hidden flex justify-between pt-8">
+      <div className="block sm:hidden flex justify-between pt-8 mx-4">
         <div class=" text-xl  font-semibold py-2 ">Team Structure</div>
         <div class="relative inline-block  ">
           <select
