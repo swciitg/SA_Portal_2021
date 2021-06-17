@@ -22,7 +22,7 @@ export const pages = [
     path: `${BASEURL}/sac`,
   },
   {
-    name: "SA Courses",
+    name: "SA_Courses",
     path: `${BASEURL}/sa_courses`,
   },
   {
