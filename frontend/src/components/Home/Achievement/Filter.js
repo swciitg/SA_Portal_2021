@@ -1,4 +1,5 @@
 import React from "react";
+import "./Filter.css";
 
 const Filter = ({ years, filterHandler }) => {
   const sortedYrs = [...years].sort((a, b) => b - a);

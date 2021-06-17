@@ -51,7 +51,7 @@ const FormScreen = () => {
                     <td className="w-1/8 ">
                       {path.indexOf("https://") === -1 ? (
                         <a
-                          className="hover:text-blue-500"
+                          className="hover:text-blue-500 text-blue-500 underline"
                           href={`${BASEAPI}/forms/${_id}`}
                           rel="noreferrer"
                           target="_blank"
@@ -60,7 +60,7 @@ const FormScreen = () => {
                         </a>
                       ) : (
                         <a
-                          className="hover:text-blue-500"
+                          className="hover:text-blue-900 text-blue-500 underline"
                           href={path}
                           rel="noreferrer"
                           target="_blank"

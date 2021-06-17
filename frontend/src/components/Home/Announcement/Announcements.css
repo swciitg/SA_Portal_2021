@@ -16,7 +16,7 @@
 }
 
 .announceScroll {
-  overflow-y: scroll !important;
+  overflow-y: auto !important;
 }
 
 .announceScroll::-webkit-scrollbar {

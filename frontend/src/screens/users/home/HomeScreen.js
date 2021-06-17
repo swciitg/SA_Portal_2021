@@ -22,7 +22,6 @@ const HomeScreen = () => {
 
   return (
     <div>
-      <SideNavBar showSideNav={sideNavVisibility} />
       <About />
       <Announcement />
       <Achievement />
