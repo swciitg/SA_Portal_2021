@@ -27,6 +27,21 @@ const Event = () => {
     setAllCategory(selectedCat);
   };
 
+   const swiperParams = {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            freeMode: true,
+            pagination: {
+                clickable: true
+            },
+            breakpoints: {
+              768: {
+                  slidesPerView: 3,
+                  spaceBetween: 20
+              },
+              
+          },
+        }
   return (
     <div
       id="home_events"
@@ -45,9 +60,7 @@ const Event = () => {
         </div>
       </div>
       <div className="px-4 md:px-16">
-        <Swiper slidesPerView={3} spaceBetween={1} freeMode={true} pagination={{
-          "clickable": true
-          }} className="mySwiper">
+        <Swiper {...swiperParams} className="mySwiper">
 
           <div className=" overflow-x-auto mx-10 md:mx-32  flex gap-4 pb-10">
             {eventallCards(events, allCategory)}
