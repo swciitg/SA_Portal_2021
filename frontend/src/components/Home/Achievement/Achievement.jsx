@@ -40,9 +40,9 @@ function Achievement() {
         <div className="flex flex-wrap justify-between">
           {[...achievements].splice(0, 4).map((achievement, idx) => {
             const { HTMLString, _id } = achievement;
-            const newString = HTMLString.replace('"', "");
-            const newString1 = newString.replace('"', "");
-            return <AchievementCard key={_id} str={newString1} />;
+            //const newString = HTMLString.replace('"', "");
+            //const newString1 = newString.replace('"', "");
+            return <AchievementCard key={_id} str={JSON.parse(HTMLString)} />;
           })}
         </div>
       </div>
