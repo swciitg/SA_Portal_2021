@@ -30,7 +30,6 @@ export const deleteCourse = (id) => async (dispatch) => {
 export const createCourse = (formData) => async (dispatch) => {
   try {
     const { data } = await api.createCourse(formData);
-    console.log(data);
     dispatch({ type: COURSE_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -40,7 +39,6 @@ export const createCourse = (formData) => async (dispatch) => {
 export const editCourse = (id, formData) => async (dispatch) => {
   try {
     const { data } = await api.editCourse(id, formData);
-    console.log(data);
     dispatch({ type: COURSE_EDIT_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);

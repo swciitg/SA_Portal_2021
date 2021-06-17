@@ -20,9 +20,10 @@ const UtilitiesForm = ({ type, formData }) => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    if (type === "Add") dispatch(createLink({ name, priority_number })).then(() => {
-      history.push(`${BASEURL}/admin/utilities`);
-    });
+    if (type === "Add")
+      dispatch(createLink({ name, priority_number })).then(() => {
+        history.push(`${BASEURL}/admin/utilities`);
+      });
     else
       dispatch(
         editLink(link_id, {
@@ -37,10 +38,10 @@ const UtilitiesForm = ({ type, formData }) => {
 
   return (
     <>
-      <h1 class="text-3xl text-black pb-6">{type} Links</h1>
+      <h1 className="text-3xl text-black pb-6">{type} Links</h1>
 
-      <div class="flex flex-wrap justify-center">
-        <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
+      <div className="flex flex-wrap justify-center">
+        <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
           <p className="text-xl pb-6 flex items-center">
             <i className="fas fa-list mr-3"></i> {type} Links
           </p>

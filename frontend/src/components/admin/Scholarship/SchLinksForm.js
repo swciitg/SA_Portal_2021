@@ -24,35 +24,36 @@ const SchLinksForm = ({ type, formData }) => {
     formData.append("path", file);
     formData.append("name", name);
 
-    //console.log(formData, form_id);
-
-    if (type === "Add") dispatch(createSchLink(formData)).then(() => {
-      history.push(`${BASEURL}/admin/scholarshipLinks`);
-    });
-    else dispatch(editSchLink(form_id, formData)).then(() => {
-      history.push(`${BASEURL}/admin/scholarshipLinks`);
-    });
+    if (type === "Add")
+      dispatch(createSchLink(formData)).then(() => {
+        history.push(`${BASEURL}/admin/scholarshipLinks`);
+      });
+    else
+      dispatch(editSchLink(form_id, formData)).then(() => {
+        history.push(`${BASEURL}/admin/scholarshipLinks`);
+      });
     //window.location.replace(`${BASEURL}/admin/scholarshipLinks`);
   };
 
   return (
     <>
-      <h1 class="text-3xl text-black pb-6">
+      <h1 className="text-3xl text-black pb-6">
         {type} Scholarship Links{`(PDFs)`}
       </h1>
 
-      <div class="flex flex-wrap justify-center">
-        <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
-          <p class="text-xl pb-6 flex items-center">
-            <i class="fas fa-list mr-3"></i> {type} Scholarship Links{`(PDFs)`}
+      <div className="flex flex-wrap justify-center">
+        <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
+          <p className="text-xl pb-6 flex items-center">
+            <i className="fas fa-list mr-3"></i> {type} Scholarship Links
+            {`(PDFs)`}
           </p>
           {type === "Add" && (
             <div
-              class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3"
+              className="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3"
               role="alert"
             >
               <svg
-                class="w-4 h-4 mr-2"
+                className="w-4 h-4 mr-2"
                 fill="white"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -64,11 +65,11 @@ const SchLinksForm = ({ type, formData }) => {
           )}
           {type === "Edit" && (
             <div
-              class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3"
+              className="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3"
               role="alert"
             >
               <svg
-                class="w-4 h-4 mr-2"
+                className="w-4 h-4 mr-2"
                 fill="white"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"

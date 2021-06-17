@@ -23,14 +23,14 @@ const Teams = () => {
     <>
       <div className="hidden sm:block">
         <div style={mystyle} className="pb-20 h-96">
-          <div class=" text-xl sm:text-2xl sm:ml-8 md:text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28 ">
+          <div className=" text-xl sm:text-2xl sm:ml-8 md:text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28 ">
             Team Structure
           </div>
           <div className=" sm:ml-10 md:ml-36 pt-4">
             {pages.map((page) => (
               <button
                 id={page.ts}
-                class={`${
+                className={`${
                   ts === page.ts ? "bg-black text-white" : "bg-white text-black"
                 }  px-4 h-9 rounded-lg text-xs md:text-sm m-1.5 focus:outline-none`}
                 onClick={() => pageHandler(page.ts)}
@@ -42,10 +42,10 @@ const Teams = () => {
         </div>
       </div>
       <div className="block sm:hidden flex justify-between pt-8 mx-4">
-        <div class=" text-xl  font-semibold py-2 ">Team Structure</div>
-        <div class="relative inline-block  ">
+        <div className=" text-xl  font-semibold py-2 ">Team Structure</div>
+        <div className="relative inline-block  ">
           <select
-            class=" border-2 bg-black text-white rounded-md py-2"
+            className=" border-2 bg-black text-white rounded-md py-2"
             onChange={(e) => {
               pageHandler(JSON.parse(e.target.value));
             }}

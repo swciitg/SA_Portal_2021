@@ -15,7 +15,6 @@ const NavigationFormScreen = ({ location }) => {
   const type = boardData ? "Edit" : "Add";
 
   const boardId = boardData && boardData._id;
-  //console.log("[boardId]", boardId);
 
   const [chairmanName, setChairman] = useState(
     boardData && boardData.chairmanName ? boardData.chairmanName : ""
@@ -53,7 +52,6 @@ const NavigationFormScreen = ({ location }) => {
     formData.append("announcements", announcements);
     formData.append("notices", notices);
 
-    console.log(formData);
 
     if (type === "Add") 
       dispatch(createNav(formData)).then(() => {

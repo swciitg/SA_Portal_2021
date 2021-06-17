@@ -29,32 +29,32 @@ const SACsForm = ({ type, formData }) => {
     formData.append("name", name);
     formData.append("link", link);
 
-    //console.log(formData, form_id);
-
-    if (type === "Add") dispatch(createSAC(formData)).then(() => {
-      history.push(`${BASEURL}/admin/sac`);
-    });
-    else dispatch(editSAC(form_id, formData)).then(() => {
-      history.push(`${BASEURL}/admin/sac`);
-    });
+    if (type === "Add")
+      dispatch(createSAC(formData)).then(() => {
+        history.push(`${BASEURL}/admin/sac`);
+      });
+    else
+      dispatch(editSAC(form_id, formData)).then(() => {
+        history.push(`${BASEURL}/admin/sac`);
+      });
     //window.location.replace(`${BASEURL}/admin/sac`);
   };
 
   return (
     <>
-      <h1 class="text-3xl text-black pb-6">{type} SACs</h1>
+      <h1 className="text-3xl text-black pb-6">{type} SACs</h1>
 
-      <div class="flex flex-wrap justify-center">
-        <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
-          <p class="text-xl pb-6 flex items-center">
-            <i class="fas fa-list mr-3"></i> {type} SACs
+      <div className="flex flex-wrap justify-center">
+        <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
+          <p className="text-xl pb-6 flex items-center">
+            <i className="fas fa-list mr-3"></i> {type} SACs
           </p>
           <div
-            class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3"
+            className="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3"
             role="alert"
           >
             <svg
-              class="w-4 h-4 mr-2"
+              className="w-4 h-4 mr-2"
               fill="white"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -64,11 +64,11 @@ const SACsForm = ({ type, formData }) => {
             <p>You need to add form pdf or link</p>
           </div>
           <div
-            class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 mt-2"
+            className="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 mt-2"
             role="alert"
           >
             <svg
-              class="w-4 h-4 mr-2"
+              className="w-4 h-4 mr-2"
               fill="white"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"

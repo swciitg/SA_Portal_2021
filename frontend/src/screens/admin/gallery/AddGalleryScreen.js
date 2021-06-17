@@ -19,21 +19,21 @@ const AddGalleryScreen = () => {
   };
   return (
     <>
-      <h1 class="text-3xl text-black pb-6">Upload</h1>
+      <h1 className="text-3xl text-black pb-6">Upload</h1>
 
-      <div class="flex flex-wrap justify-center">
-        <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
-          <div class="leading-loose">
+      <div className="flex flex-wrap justify-center">
+        <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
+          <div className="leading-loose">
             <form
-              class="p-10 bg-white rounded shadow-xl"
+              className="p-10 bg-white rounded shadow-xl"
               onSubmit={(e) => formSubmitHandler(e)}
             >
-              <div class="mt-2">
-                <label class="block text-sm text-gray-600" for="file">
+              <div className="mt-2">
+                <label className="block text-sm text-gray-600" for="file">
                   Image
                 </label>
                 <input
-                  class="w-full px-5 py-4 text-gray-700 bg-gray-200 rounded"
+                  className="w-full px-5 py-4 text-gray-700 bg-gray-200 rounded"
                   type="file"
                   id="file"
                   onChange={(e) => setFile(e.target.files[0])}
@@ -42,8 +42,8 @@ const AddGalleryScreen = () => {
                 />
               </div>
 
-              <div class="mt-6">
-                <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded">
+              <div className="mt-6">
+                <button className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded">
                   Upload
                 </button>
               </div>

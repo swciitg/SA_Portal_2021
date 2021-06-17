@@ -30,7 +30,6 @@ export const deleteAnnouncement = (id) => async (dispatch) => {
 export const createAnnouncement = (formData) => async (dispatch) => {
   try {
     const { data } = await api.createAnnouncement(formData);
-    console.log(data);
     dispatch({ type: ANNOUNCEMENT_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -40,7 +39,6 @@ export const createAnnouncement = (formData) => async (dispatch) => {
 export const editAnnouncement = (id, formData) => async (dispatch) => {
   try {
     const { data } = await api.editAnnouncement(id, formData);
-    console.log(data);
     dispatch({ type: ANNOUNCEMENT_EDIT_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);

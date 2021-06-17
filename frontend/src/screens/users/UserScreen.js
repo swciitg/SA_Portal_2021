@@ -19,7 +19,7 @@ const UserScreen = ({ location }) => {
     <>
       <Header />
       <TopNav />
-      {/* <div class="min-h-screen bg-gray-400"></div> */}
+      {/* <div className="min-h-screen bg-gray-400"></div> */}
       <GalleryCart />
       <MiddleNav activePath={location.pathname} />
       <Switch>

@@ -16,7 +16,6 @@ import { BASEURL } from "../constants";
 const AdminRoute = ({ component: Component, ...rest }) => {
   let loginBool = document.cookie.includes("sa-portal-session");
   let { authData } = useSelector((state) => state.auth);
-  console.log(authData);
   let isAdmin = authData && authData.isAdmin;
   return (
     <Route

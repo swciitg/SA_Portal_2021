@@ -15,7 +15,7 @@ const EventCard = ({ title, _id, eventDate, link }) => {
           <img
             className="rounded-md w-full md:w-60 lg:w-96 h-36 md:h-60 lg:h-80"
             src={`${BASEAPI}/home/events/${_id}`}
-            alt="img"
+            alt="Event_Image"
           />
           <div className="ml-6 text-white mb-8">
             <div className="mt-4 text-base font-normal">

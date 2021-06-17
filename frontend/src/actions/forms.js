@@ -30,7 +30,6 @@ export const deleteForm = (id) => async (dispatch) => {
 export const createForm = (formData) => async (dispatch) => {
   try {
     const { data } = await api.createForm(formData);
-    console.log(data);
     dispatch({ type: FORM_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -40,7 +39,6 @@ export const createForm = (formData) => async (dispatch) => {
 export const editForm = (id, formData) => async (dispatch) => {
   try {
     const { data } = await api.editForm(id, formData);
-    console.log(data);
     dispatch({ type: FORM_EDIT_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);

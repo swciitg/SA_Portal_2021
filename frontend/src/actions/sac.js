@@ -30,7 +30,6 @@ import {
   export const createSAC = (formData) => async (dispatch) => {
     try {
       const { data } = await api.createSAC(formData);
-      console.log(data);
       dispatch({ type: SAC_CREATE_REQUEST, payload: data.data });
     } catch (error) {
       console.log(error.message);
@@ -40,7 +39,6 @@ import {
   export const editSAC = (id, formData) => async (dispatch) => {
     try {
       const { data } = await api.editSAC(id, formData);
-      console.log(data);
       dispatch({ type: SAC_EDIT_REQUEST, payload: data.data });
     } catch (error) {
       console.log(error.message);
