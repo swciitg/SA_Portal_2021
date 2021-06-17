@@ -3,7 +3,7 @@ import { BASEURL } from "../../../constants/index";
 export const pages = [
   {
     name: "Home",
-    path: `${BASEURL}`,
+    path: `${BASEURL}/`,
   },
   {
     name: "Rules",
@@ -22,7 +22,7 @@ export const pages = [
     path: `${BASEURL}/sac`,
   },
   {
-    name: "SA Courses",
+    name: "SA_Courses",
     path: `${BASEURL}/sa_courses`,
   },
   {

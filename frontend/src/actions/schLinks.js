@@ -9,7 +9,6 @@ import * as api from "../api";
 export const listSchLinks = () => async (dispatch) => {
   try {
     const { data } = await api.fetchSchLink();
-    console.log(data.data);
     dispatch({
       type: SCHLINK_LIST_REQUEST,
       payload: data.data,
@@ -31,7 +30,6 @@ export const deleteSchLink = (id) => async (dispatch) => {
 export const createSchLink = (formData) => async (dispatch) => {
   try {
     const { data } = await api.createSchLink(formData);
-    console.log(data);
     dispatch({ type: SCHLINK_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -41,7 +39,6 @@ export const createSchLink = (formData) => async (dispatch) => {
 export const editSchLink = (id, formData) => async (dispatch) => {
   try {
     const { data } = await api.editSchLink(id, formData);
-    console.log(data);
     dispatch({ type: SCHLINK_EDIT_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);

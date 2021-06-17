@@ -1,5 +1,4 @@
 import AnnounceCard from "./AnnouceCard";
-import { SwiperSlide } from "swiper/react";
 
 export const renderCards = (announcements, aCategory) => {
   if (announcements && announcements.length !== 0) {
@@ -8,7 +7,25 @@ export const renderCards = (announcements, aCategory) => {
         const { creation, title, description, _id, link, category } =
           announcement;
         return (
-          <SwiperSlide>
+          <AnnounceCard
+            key={_id}
+            creation={creation}
+            description={description}
+            title={title}
+            link={link}
+            category={category}
+          />
+        );
+      });
+    } else {
+      const filteredAnn = [...announcements].filter((a) => {
+        return a.category.toLowerCase() === aCategory.toLowerCase();
+      });
+      return filteredAnn.length !== 0 ? (
+        filteredAnn.map((announcement, i) => {
+          const { creation, title, description, _id, link, category } =
+            announcement;
+          return (
             <AnnounceCard
               key={_id}
               creation={creation}
@@ -17,29 +34,6 @@ export const renderCards = (announcements, aCategory) => {
               link={link}
               category={category}
             />
-          </SwiperSlide>
-        );
-      });
-    } else {
-      const filteredAnn = [...announcements].filter((a) => {
-        return a.category.toLowerCase() === aCategory.toLowerCase();
-      });
-      //console.log("filtered", filteredAnn);
-      return filteredAnn.length !== 0 ? (
-        filteredAnn.map((announcement, i) => {
-          const { creation, title, description, _id, link, category } =
-            announcement;
-          return (
-            <SwiperSlide>
-              <AnnounceCard
-                key={_id}
-                creation={creation}
-                description={description}
-                title={title}
-                link={link}
-                category={category}
-              />
-            </SwiperSlide>
           );
         })
       ) : (

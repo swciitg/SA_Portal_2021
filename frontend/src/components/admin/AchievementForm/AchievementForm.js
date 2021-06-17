@@ -19,12 +19,10 @@ const AchievementForm = ({ type, formData }) => {
   const achievement_id = formData && formData._id;
 
   const changeHandler = (content) => {
-    //console.log(content);
     setEditorHtmlString(JSON.stringify(content));
   };
 
   const submitHandler = () => {
-    //console.log("Clicked");
     const formData = {
       HTMLString: editorHtmlString,
     };

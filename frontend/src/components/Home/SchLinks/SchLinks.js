@@ -5,7 +5,7 @@ const SchLinks = ({ schLinks }) => {
   return (
     <div>
       {schLinks.map((schLink, idx) => {
-        const { _id, name, path } = schLink;
+        const { _id, name } = schLink;
         return (
           <div
             key={_id}

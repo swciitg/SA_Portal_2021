@@ -10,7 +10,6 @@ import { BASEURL } from "../../../constants";
 const AnnouncementForm = ({ type, formData }) => {
   const categories = useSelector((state) => state.categories);
   //const categories = [{ name: "c" }, { name: "b" }, { name: "a" }];
-  console.log(categories);
   const [title, setTitle] = useState(
     formData && formData.title ? formData.title : ""
   );

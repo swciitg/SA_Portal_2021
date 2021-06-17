@@ -33,60 +33,61 @@ const Sidebar = ({ children }) => {
             Admin
           </Link>
         </div>
-
-        <nav className="text-white text-base font-semibold pt-3">
-          <Link to={`${BASEURL}/admin/about`} className={linkSidebar}>
-            About
-          </Link>
-          <Link to={`${BASEURL}/admin/announcements`} className={linkSidebar}>
-            Announcements
-          </Link>
-          <Link to={`${BASEURL}/admin/achievements`} className={linkSidebar}>
-            Achievements
-          </Link>
-          <Link to={`${BASEURL}/admin/forms`} className={linkSidebar}>
-            Forms
-          </Link>
-          <Link to={`${BASEURL}/admin/gallery`} className={linkSidebar}>
-            Gallery
-          </Link>
-          <Link to={`${BASEURL}/admin/sac`} className={linkSidebar}>
-            SAC
-          </Link>
-          <Link to={`${BASEURL}/admin/events`} className={linkSidebar}>
-            Events
-          </Link>
-          <Link to={`${BASEURL}/admin/navigation`} className={linkSidebar}>
-            Navigation
-          </Link>
-          <Link
-            to={`${BASEURL}/admin/scholarshipEditor`}
-            className={linkSidebar}
-          >
-            Scholarships{`(R&O)`}
-          </Link>
-          <Link
-            to={`${BASEURL}/admin/scholarshipLinks`}
-            className={linkSidebar}
-          >
-            Scholarship Links{`(PDFs)`}
-          </Link>
-          <Link to={`${BASEURL}/admin/rules`} className={linkSidebar}>
-            Rules
-          </Link>
-          <Link to={`${BASEURL}/admin/courses`} className={linkSidebar}>
-            SA Courses
-          </Link>
-          <Link to={`${BASEURL}/admin/utilities`} className={linkSidebar}>
-            Utilities
-          </Link>
-          <Link to={`${BASEURL}/admin/team`} className={linkSidebar}>
-            Team
-          </Link>
-          <Link to={`${BASEURL}/admin/users`} className={linkSidebar}>
-            Users
-          </Link>
-        </nav>
+        {loginBool && (
+          <nav className="text-white text-base font-semibold pt-3">
+            <Link to={`${BASEURL}/admin/about`} className={linkSidebar}>
+              About
+            </Link>
+            <Link to={`${BASEURL}/admin/announcements`} className={linkSidebar}>
+              Announcements
+            </Link>
+            <Link to={`${BASEURL}/admin/achievements`} className={linkSidebar}>
+              Achievements
+            </Link>
+            <Link to={`${BASEURL}/admin/forms`} className={linkSidebar}>
+              Forms
+            </Link>
+            <Link to={`${BASEURL}/admin/gallery`} className={linkSidebar}>
+              Gallery
+            </Link>
+            <Link to={`${BASEURL}/admin/sac`} className={linkSidebar}>
+              SAC
+            </Link>
+            <Link to={`${BASEURL}/admin/events`} className={linkSidebar}>
+              Events
+            </Link>
+            <Link to={`${BASEURL}/admin/navigation`} className={linkSidebar}>
+              Navigation
+            </Link>
+            <Link
+              to={`${BASEURL}/admin/scholarshipEditor`}
+              className={linkSidebar}
+            >
+              Scholarships{`(R&O)`}
+            </Link>
+            <Link
+              to={`${BASEURL}/admin/scholarshipLinks`}
+              className={linkSidebar}
+            >
+              Scholarship Links{`(PDFs)`}
+            </Link>
+            <Link to={`${BASEURL}/admin/rules`} className={linkSidebar}>
+              Rules
+            </Link>
+            <Link to={`${BASEURL}/admin/courses`} className={linkSidebar}>
+              SA Courses
+            </Link>
+            <Link to={`${BASEURL}/admin/utilities`} className={linkSidebar}>
+              Utilities
+            </Link>
+            <Link to={`${BASEURL}/admin/team`} className={linkSidebar}>
+              Team
+            </Link>
+            <Link to={`${BASEURL}/admin/users`} className={linkSidebar}>
+              Users
+            </Link>
+          </nav>
+        )}
       </aside>
 
       <div className="relative w-full flex flex-col overflow-y-hidden">
@@ -120,57 +121,70 @@ const Sidebar = ({ children }) => {
                 : "hidden flex flex-col pt-4"
             }
           >
-            <Link to={`${BASEURL}/admin/about`} className={linkDropdown}>
-              About
-            </Link>
-            <Link
-              to={`${BASEURL}/admin/announcements`}
-              className={linkDropdown}
-            >
-              Announcements
-            </Link>
-            <Link to={`${BASEURL}/admin/achievements`} className={linkDropdown}>
-              Achievements
-            </Link>
-            <Link to={`${BASEURL}/admin/forms`} className={linkDropdown}>
-              Forms
-            </Link>
-            <Link to={`${BASEURL}/admin/gallery`} className={linkDropdown}>
-              Gallery
-            </Link>
-            <Link to={`${BASEURL}/admin/events`} className={linkDropdown}>
-              Events
-            </Link>
-            <Link to={`${BASEURL}/admin/navigation`} className={linkDropdown}>
-              Navigation
-            </Link>
-            <Link to={`${BASEURL}/admin/courses`} className={linkDropdown}>
-              SA Courses
-            </Link>
-            <Link
-              to={`${BASEURL}/admin/scholarshipEditor`}
-              className={linkDropdown}
-            >
-              Scholarships{`(R&O)`}
-            </Link>
-            <Link
-              to={`${BASEURL}/admin/scholarshipLinks`}
-              className={linkDropdown}
-            >
-              Scholarship Links{`(PDFs)`}
-            </Link>
-            <Link to={`${BASEURL}/admin/rules`} className={linkDropdown}>
-              Rules
-            </Link>
-            <Link to={`${BASEURL}/admin/utilities`} className={linkDropdown}>
-              Utilities
-            </Link>
-            <Link to={`${BASEURL}/admin/team`} className={linkDropdown}>
-              Teams
-            </Link>
-            <Link to={`${BASEURL}/admin/users`} className={linkSidebar}>
-              Users
-            </Link>
+            {loginBool && (
+              <>
+                <Link to={`${BASEURL}/admin/about`} className={linkDropdown}>
+                  About
+                </Link>
+                <Link
+                  to={`${BASEURL}/admin/announcements`}
+                  className={linkDropdown}
+                >
+                  Announcements
+                </Link>
+                <Link
+                  to={`${BASEURL}/admin/achievements`}
+                  className={linkDropdown}
+                >
+                  Achievements
+                </Link>
+                <Link to={`${BASEURL}/admin/forms`} className={linkDropdown}>
+                  Forms
+                </Link>
+                <Link to={`${BASEURL}/admin/gallery`} className={linkDropdown}>
+                  Gallery
+                </Link>
+                <Link to={`${BASEURL}/admin/events`} className={linkDropdown}>
+                  Events
+                </Link>
+                <Link
+                  to={`${BASEURL}/admin/navigation`}
+                  className={linkDropdown}
+                >
+                  Navigation
+                </Link>
+                <Link to={`${BASEURL}/admin/courses`} className={linkDropdown}>
+                  SA Courses
+                </Link>
+                <Link
+                  to={`${BASEURL}/admin/scholarshipEditor`}
+                  className={linkDropdown}
+                >
+                  Scholarships{`(R&O)`}
+                </Link>
+                <Link
+                  to={`${BASEURL}/admin/scholarshipLinks`}
+                  className={linkDropdown}
+                >
+                  Scholarship Links{`(PDFs)`}
+                </Link>
+                <Link to={`${BASEURL}/admin/rules`} className={linkDropdown}>
+                  Rules
+                </Link>
+                <Link
+                  to={`${BASEURL}/admin/utilities`}
+                  className={linkDropdown}
+                >
+                  Utilities
+                </Link>
+                <Link to={`${BASEURL}/admin/team`} className={linkDropdown}>
+                  Teams
+                </Link>
+                <Link to={`${BASEURL}/admin/users`} className={linkDropdown}>
+                  Users
+                </Link>
+              </>
+            )}
             {authBtn}
           </nav>
         </header>

@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./SideNavBar.scss";
 import { navItemList } from "./constants";
 import ContentsIcon from "./ContentsIcon";
 

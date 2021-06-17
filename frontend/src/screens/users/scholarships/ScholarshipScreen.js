@@ -19,7 +19,6 @@ function ScholarshipScreen() {
     const getTables = async () => {
       try {
         const { data } = await fetchScholarshipEdtr();
-        //console.log(data.data);
         data.data && setSchTables(`${JSON.parse(data.data.HTMLString)}`);
       } catch (error) {
         console.log(error);
@@ -29,7 +28,6 @@ function ScholarshipScreen() {
   }, []);
 
   useEffect(() => {
-    //console.log(schTables);
     document.getElementById("scholarship_tables").innerHTML = schTables;
   }, [schTables]);
 

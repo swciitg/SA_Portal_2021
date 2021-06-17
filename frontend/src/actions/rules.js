@@ -30,7 +30,6 @@ export const deleteRule = (id) => async (dispatch) => {
 export const createRule = (formData) => async (dispatch) => {
   try {
     const { data } = await api.createRule(formData);
-    console.log(data);
     dispatch({ type: RULE_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -40,7 +39,6 @@ export const createRule = (formData) => async (dispatch) => {
 export const editRule = (id, formData) => async (dispatch) => {
   try {
     const { data } = await api.editRule(id, formData);
-    console.log(data);
     dispatch({ type: RULE_EDIT_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);

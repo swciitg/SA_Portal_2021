@@ -8,7 +8,6 @@ import { useHistory } from "react-router-dom";
 
 const EventForm = ({ type, formData }) => {
   const categories = useSelector((state) => state.categories);
-  console.log(categories);
   const history = useHistory();
 
   const [title, setTitle] = useState(
@@ -45,14 +44,6 @@ const EventForm = ({ type, formData }) => {
     formData.append("link", link);
     formData.append("category", category);
     formData.append("image", imgPath);
-
-    console.log(formData);
-
-    // if (type === "Add")
-    //   dispatch(createEvent(formData));
-    // else dispatch(editEvent(event_id, formData));
-
-    // window.location.replace(`${BASEURL}/admin/events`);
     if (type === "Add")
       dispatch(createEvent(formData)).then(() => {
         history.push(`${BASEURL}/admin/events`);
@@ -65,11 +56,11 @@ const EventForm = ({ type, formData }) => {
 
   return (
     <>
-      <h1 class="text-3xl text-black pb-6">{type} Event</h1>
-      <div class="flex flex-wrap justify-center">
-        <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
-          <p class="text-xl pb-6 flex items-center">
-            <i class="fas fa-list mr-3"></i> {type} Events
+      <h1 className="text-3xl text-black pb-6">{type} Event</h1>
+      <div className="flex flex-wrap justify-center">
+        <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
+          <p className="text-xl pb-6 flex items-center">
+            <i className="fas fa-list mr-3"></i> {type} Events
           </p>
 
           <div className="leading-loose">

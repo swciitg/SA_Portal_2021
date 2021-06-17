@@ -9,7 +9,6 @@ import {
   export const createEvent = (formData) => async (dispatch) => {
     try {
       const { data } = await api.createEvent(formData);
-      console.log(data);
       dispatch({ type: EVENT_CREATE_REQUEST, payload: data.data });
     } catch (error) {
       console.log(error.message);
@@ -19,7 +18,6 @@ import {
   export const listEvent = () => async (dispatch) => {
     try {
       const { data } = await api.fetchEvent();
-      // console.log(data.data);
       dispatch({
         type: EVENT_LIST_REQUEST,
         payload: data.data,
@@ -43,7 +41,6 @@ import {
   export const editEvent = (id, formData) => async (dispatch) => {
     try {
       const { data } = await api.editEvent(id, formData);
-      console.log(data);
       dispatch({ type: EVENT_EDIT_REQUEST, payload: data.data });
     } catch (error) {
       console.log(error.message);

@@ -8,7 +8,6 @@ import * as api from "../api";
 export const listImages = () => async (dispatch) => {
   try {
     const { data } = await api.fetchImages();
-    console.log(data.data);
     dispatch({ type: GALLERY_LIST_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
@@ -27,7 +26,6 @@ export const deleteImage = (id) => async (dispatch) => {
 export const createImage = (formData) => async (dispatch) => {
   try {
     const { data } = await api.createImage(formData);
-    console.log(data);
     dispatch({ type: GALLERY_CREATE_REQUEST, payload: data.data });
   } catch (error) {
     console.log(error.message);
