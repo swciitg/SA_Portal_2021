@@ -1,5 +1,4 @@
 import AnnounceCard from "./AnnouceCard";
-import { SwiperSlide } from "swiper/react";
 
 export const renderCards = (announcements, aCategory) => {
   if (announcements && announcements.length !== 0) {
@@ -8,16 +7,14 @@ export const renderCards = (announcements, aCategory) => {
         const { creation, title, description, _id, link, category } =
           announcement;
         return (
-          <SwiperSlide>
-            <AnnounceCard
-              key={_id}
-              creation={creation}
-              description={description}
-              title={title}
-              link={link}
-              category={category}
-            />
-          </SwiperSlide>
+          <AnnounceCard
+            key={_id}
+            creation={creation}
+            description={description}
+            title={title}
+            link={link}
+            category={category}
+          />
         );
       });
     } else {
@@ -30,16 +27,14 @@ export const renderCards = (announcements, aCategory) => {
           const { creation, title, description, _id, link, category } =
             announcement;
           return (
-            <SwiperSlide>
-              <AnnounceCard
-                key={_id}
-                creation={creation}
-                description={description}
-                title={title}
-                link={link}
-                category={category}
-              />
-            </SwiperSlide>
+            <AnnounceCard
+              key={_id}
+              creation={creation}
+              description={description}
+              title={title}
+              link={link}
+              category={category}
+            />
           );
         })
       ) : (

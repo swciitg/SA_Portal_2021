@@ -3,7 +3,7 @@ import { BASEURL } from "../../../constants/index";
 export const pages = [
   {
     name: "Home",
-    path: `${BASEURL}`,
+    path: `${BASEURL}/`,
   },
   {
     name: "Rules",
