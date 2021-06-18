@@ -7,7 +7,7 @@ export const eventallCards = (events, allCategory) => {
       return [...events].map((event, i) => {
         const { title, _id, imgPath, eventDate, category, link } = event;
         return (
-          <SwiperSlide>
+          <SwiperSlide key={_id}>
             <EventCard
               _id={_id}
               title={title}

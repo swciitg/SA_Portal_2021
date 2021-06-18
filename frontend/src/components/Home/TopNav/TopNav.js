@@ -78,6 +78,7 @@ const TopNav = () => {
           className={`${isScrolled ? "sticky_nav_topTab" : null} topNavTab ${
             item.boardShort === "sa" ? sabTabClassName : otherTabClassName
           }`}
+          key={id}
           boardName={item.boardName}
           handleClick={() => handleClick(item)}
           handleMouseEnter={() => handleMouseEnter(item)}

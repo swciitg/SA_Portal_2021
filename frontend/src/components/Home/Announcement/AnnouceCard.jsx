@@ -1,8 +1,8 @@
 import React from "react";
-import { isoToDate } from "./util";
 import arrow from "../../../assets/ArrowRight.svg";
 import ReactTooltip from "react-tooltip";
 import "./Announcements.css";
+import moment from "moment";
 
 const AnnouceCard = ({ id, creation, title, description, link, category }) => {
   return (
@@ -16,7 +16,7 @@ const AnnouceCard = ({ id, creation, title, description, link, category }) => {
       <a href={link} rel="noreferrer" target="_blank">
         <a data-for={id} data-tip={description}>
           <p className="text-xs mb-0.5" style={{ color: "#111" }}>
-            {isoToDate(creation)}
+            {moment(creation).format("DD MMM YYYY")}
           </p>
           <div className="flex w-full">
             <p
