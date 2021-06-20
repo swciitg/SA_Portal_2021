@@ -37,7 +37,7 @@ const DropDownMenu = ({
       <div className="infoDiv">
         <span className="name text-2xl font-semibold">{boardName}</span>
         <p className="description text-sm leading-6 pr-4 mt-5">
-          {boardDescription.substr(0, 350)}...
+          {boardDescription.substr(0, 400)}...
         </p>
       </div>
       <div className="externalLinksDiv">

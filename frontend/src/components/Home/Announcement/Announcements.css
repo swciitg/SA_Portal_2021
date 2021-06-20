@@ -2,7 +2,7 @@
   font-size: 0.9rem !important;
   pointer-events: auto !important;
   width: 500px !important;
-  background-color: rgba(80, 147, 255, 0.377) !important;
+  /* background-color: rgba(80, 147, 255, 0.377) !important; */
 }
 
 .extraClass:hover {

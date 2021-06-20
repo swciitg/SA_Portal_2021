@@ -30,7 +30,7 @@ function Achievement() {
   return (
     <>
       <div
-        id="home"
+        id="home_achievements"
         className="w-full sm:w-8/12 p-5 sm:pl-32 mt-3 sm:mt-5 flex flex-col items-center"
       >
         <div className="flex justify-between w-full">

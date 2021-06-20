@@ -1,0 +1,12 @@
+.home_sidenav_cont {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.home_sidenav_cont .sidenav_layout {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5rem;
+}

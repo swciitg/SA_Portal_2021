@@ -1,9 +1,10 @@
 import React from "react";
 import { navItemList } from "./constants";
+import "./SideNavBar.scss";
 import ContentsIcon from "./ContentsIcon";
 
 const SideNavBar = ({ showSideNav = true }) => {
-  return showSideNav ? (
+  return true ? (
     <div className="sncontainer">
       <div className="snseparator"></div>
       <div className="sncontent">
