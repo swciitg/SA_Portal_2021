@@ -5,16 +5,31 @@ const factory = require("../handlerFactory");
 exports.getUsers=async (req,res)=>{
     try{
         const users= await User.find({});
+        
     const id=req.user.id;
         var lists = users.filter(x => {
             return x.id != id;
           });
           
+          
+         
+         let final= [];
+         let i=0;
+         let j=lists.length -1 ;
+          lists.forEach(x => {
+              if(x.isAdmin){
+                final[i]=x;
+                i++;
+              }else{
+                  final[j]=x;
+                  j--;
+              }
+          });
 
     res.status(200).json({
         status: "success",
         data: {
-            lists,
+            final,
         },
       });
     }catch (err) {

@@ -6,6 +6,7 @@ const TeamSchema = new mongoose.Schema({
     email: {type : String, required : true},
     contactNo : {type: String, required : true},
     post : {type : String, required : true},
+    postdesc : {type : String, required : true},
     team : {type : String, required : true},
     priority_number : {type : String, required : true}
 });
