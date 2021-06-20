@@ -4,14 +4,14 @@
   z-index: 5;
   overflow: auto;
   height: 380px;
-  width: 95%;
+  width: 80%;
   left: 30px;
   background: #0b0f0a;
-  opacity: 0.9;
+  opacity: 0.95;
   border-radius: 8px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
 
   .infoDiv {
     display: flex;
@@ -21,7 +21,7 @@
 
     .name {
       width: auto;
-      font-family: Basier Circle;
+      font-family: Red Hat Display;
       font-style: normal;
       font-weight: 600;
       font-size: 24px;
@@ -30,12 +30,8 @@
       color: #ffffff;
     }
     .description {
-      margin-top: 24px;
       font-family: Red Hat Display;
       font-style: normal;
-      font-weight: normal;
-      font-size: 18px;
-      line-height: 28px;
       letter-spacing: 0.62px;
       color: #ffffff;
     }
@@ -53,7 +49,7 @@
       width: auto;
       cursor: pointer;
       .caption {
-        font-family: Basier Circle;
+        font-family: Red Hat Display;
         font-style: normal;
         font-weight: 600;
         font-size: 18px;
@@ -87,19 +83,20 @@
     display: flex;
     flex-direction: column;
     margin-top: 52px;
-    width: 330px;
+    width: 250px;
 
     .image {
       height: 240px;
       width: 234px;
       border-radius: 2px;
+      object-fit: contain;
     }
     .name {
       margin-top: 24px;
-      font-family: Basier Circle;
+      font-family: Red Hat Display;
       font-style: normal;
       font-weight: bold;
-      font-size: 12px;
+      font-size: 14px;
       line-height: 15px;
       letter-spacing: 0.1538em;
       text-transform: uppercase;
@@ -107,10 +104,10 @@
     }
     .description {
       margin-top: 8px;
-      font-family: Basier Circle;
+      font-family: Red Hat Display;
       font-style: normal;
       font-weight: normal;
-      font-size: 8px;
+      font-size: 11px;
       line-height: 10px;
       letter-spacing: 0.1188em;
       text-transform: uppercase;

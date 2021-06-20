@@ -31,10 +31,10 @@ function Achievement() {
     <>
       <div
         id="home"
-        className="w-full sm:w-8/12 p-5 sm:pl-32 flex flex-col items-center"
+        className="w-full sm:w-8/12 p-5 sm:pl-32 mt-3 sm:mt-5 flex flex-col items-center"
       >
         <div className="flex justify-between w-full">
-          <p className=" font-bold text-xl sm:text-3xl">Student Achievements</p>
+          <p className="font-bold text-xl sm:text-3xl">Student Achievements</p>
           <Filter years={years} filterHandler={filterChange} />
         </div>
         <div className="flex flex-wrap justify-between">

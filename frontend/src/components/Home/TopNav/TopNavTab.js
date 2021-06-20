@@ -15,7 +15,15 @@ const TopNavTab = ({
       onMouseLeave={handleMouseLeave}
       style={{ cursor: "pointer" }}
     >
-      <p className="text-center">{boardName}</p>
+      <p
+        className={`text-center ${
+          boardName === "Students Affair Board"
+            ? "text-base"
+            : "text-sm text-blue-600"
+        }`}
+      >
+        {boardName.toUpperCase()}
+      </p>
     </div>
   );
 };

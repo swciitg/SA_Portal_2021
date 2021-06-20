@@ -8,11 +8,11 @@
 }
 
 #home_about h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+#home_about h2,
+#home_about h3,
+#home_about h4,
+#home_about h5,
+#home_about h6 {
   /* font-family: "Raleway", sans-serif !important; */
   font-style: normal !important;
   font-weight: 700 !important;
@@ -39,4 +39,16 @@ h6 {
   font-size: 34px;
   line-height: 131%;
   letter-spacing: 0.0038em;
+}
+
+@media only screen and (max-width: 640px) {
+  #home_about h1,
+  #home_about h2,
+  #home_about h3,
+  #home_about h4,
+  #home_about h5,
+  #home_about h6 {
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+  }
 }

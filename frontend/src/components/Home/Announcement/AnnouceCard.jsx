@@ -7,10 +7,11 @@ import "./Announcements.css";
 const AnnouceCard = ({ id, creation, title, description, link, category }) => {
   return (
     <div
-      className="w-full px-5 py-3 bg-white rounded mb-3"
+      className="w-full px-5 py-3 bg-white rounded mt-1 mb-2.5"
       style={{
         boxShadow: "0px 2px 12px rgba(30, 37, 50, 0.14)",
         width: "98%",
+        marginLeft: "5px",
       }}
     >
       <a href={link} rel="noreferrer" target="_blank">
