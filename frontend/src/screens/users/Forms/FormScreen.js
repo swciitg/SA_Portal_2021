@@ -8,7 +8,7 @@ const FormScreen = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listForms());
-  });
+  }, []);
   return (
     <div className="container mx-auto p-6 sm:py-12 sm:px-36">
       <div className="flex justify-between w-full mb-4 sm:mb-6">
