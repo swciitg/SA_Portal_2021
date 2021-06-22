@@ -21,7 +21,7 @@ const Teams = () => {
   };
   return (
     <>
-      <div className="hidden sm:block">
+      <div className="hidden md:block">
         <div style={mystyle} className="pb-20 h-96">
           <div className=" text-xl sm:text-2xl sm:ml-8 md:text-4xl md:ml-32 font-semibold text-white pt-8 md:pt-28 ">
             Team Structure
@@ -41,7 +41,7 @@ const Teams = () => {
           </div>
         </div>
       </div>
-      <div className="block sm:hidden flex justify-between pt-8 mx-4">
+      <div className="block md:hidden flex justify-between pt-8 mx-4">
         <div className=" text-xl  font-semibold py-2 ">Team Structure</div>
         <div className="relative inline-block  ">
           <select
@@ -67,27 +67,29 @@ const Teams = () => {
 
         return (
           <>
-            <div className="sm:relative sm:-top-40">
-              <div className=" text-black ml-5 text-xl md:text-4xl md:ml-32 font-semibold">
+            <div className="md:relative md:-top-20 lg:-top-32">
+              <div className=" text-black text-xl md:text-4xl font-semibold flex justify-center mb-4">
                 {pages[0].tk[idx]}
               </div>
-              {(idx === 0 || idx === 3) && ts === pages[0].ts ? (
+              {idx === 3 && ts === pages[0].ts ? (
                 <>
-                  <div>
+                  <div className="">
                     {dean ? (
-                      <TeamCard
-                        key={dean._id}
-                        id={dean._id}
-                        name={dean.name}
-                        post={dean.post}
-                        imagePath={dean.imagePath}
-                        contactNo={dean.contactNo}
-                        email={dean.email}
-                      />
+                      <div className="flex justify-center">
+                        <TeamCard
+                          key={dean._id}
+                          id={dean._id}
+                          name={dean.name}
+                          post={dean.post}
+                          imagePath={dean.imagePath}
+                          contactNo={dean.contactNo}
+                          email={dean.email}
+                        />
+                      </div>
                     ) : (
                       ""
                     )}
-                    <div className="md:flex md:flex-wrap  mb-8">
+                    <div className="md:flex md:flex-wrap justify-center space-x-8 mb-8">
                       {team.data.splice(1).map((team1) => {
                         const { _id, name, post, imagePath, contactNo, email } =
                           team1;
@@ -109,7 +111,7 @@ const Teams = () => {
                   </div>
                 </>
               ) : (
-                <div className="md:flex md:flex-wrap  mb-8">
+                <div className="md:flex md:flex-wrap justify-center">
                   {team.data.map((team1) => {
                     const { _id, name, post, imagePath, contactNo, email } =
                       team1;
