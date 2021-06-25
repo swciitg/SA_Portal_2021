@@ -48,6 +48,9 @@ const TeamScreen = () => {
                 <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
                   Post
                 </th>
+                <th className="text-left py-3 px-4 uppercase font-semibold text-sm">
+                  Post Desc.
+                </th>
                 <th className="text-center py-3 px-4 uppercase font-semibold text-sm">
                   Priority No.
                 </th>
@@ -73,6 +76,7 @@ const TeamScreen = () => {
                     contactNo,
                     imagePath,
                     post,
+                    postdesc,
                     priority_number,
                     _id,
                   },
@@ -84,6 +88,7 @@ const TeamScreen = () => {
                       <td className="text-left py-3 px-4">{email}</td>
                       <td className="text-left py-3 px-4">{contactNo}</td>
                       <td className="text-left py-3 px-4">{post}</td>
+                      <td className="text-left py-3 px-4 ">{postdesc}</td>
                       <td className="text-center py-3 px-4">
                         {priority_number}
                       </td>
@@ -116,6 +121,7 @@ const TeamScreen = () => {
                               contactNo,
                               imagePath,
                               post,
+                              postdesc,
                               priority_number,
                               _id,
                             },

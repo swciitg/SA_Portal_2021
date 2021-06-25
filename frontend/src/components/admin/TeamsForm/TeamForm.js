@@ -17,6 +17,9 @@ const TeamForm = ({ type, team, formData }) => {
   const [post, setpost] = useState(
     formData && formData.post ? formData.post : ""
   );
+  const [postdesc, setpostdesc] = useState(
+    formData && formData.postdesc ? formData.postdesc : ""
+  );
   const [priority_number, setpriority_number] = useState(
     formData && formData.priority_number ? formData.priority_number : ""
   );
@@ -37,6 +40,7 @@ const TeamForm = ({ type, team, formData }) => {
     formData.append("name", name);
     formData.append("email", email);
     formData.append("post", post);
+    formData.append("postdesc", postdesc);
     formData.append("contactNo", contactNo);
     formData.append("priority_number", priority_number);
     formData.append("image", imagePath);
@@ -114,6 +118,22 @@ const TeamForm = ({ type, team, formData }) => {
                   value={post}
                   onChange={(e) => setpost(e.target.value)}
                   placeholder="Post"
+                  required
+                />
+              </div>
+              <div className="mt-2">
+                <label className="block text-sm text-gray-600" htmlFor="postdesc">
+                  Post Description
+                </label>
+                <input
+                  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+                  id="postdesc"
+                  name="postdesc"
+                  type="textarea"
+                  
+                  value={postdesc}
+                  onChange={(e) => setpostdesc(e.target.value)}
+                  placeholder="Post Description"
                   required
                 />
               </div>

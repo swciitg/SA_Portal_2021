@@ -49,9 +49,9 @@ exports.postMember = async (req, res) => {
                 .json({status:"Failed", message:"No File Provided"});
         }
         const { team } = req.params;
-        const {name, email, contactNo, post, priority_number} = req.body;
+        const {name, email, contactNo, post, priority_number, postdesc} = req.body;
         const imagePath = req.file.filename;
-        const newTeamData = new Team({name, imagePath, email, contactNo, post, team, priority_number});
+        const newTeamData = new Team({name, imagePath, email, contactNo, post, team, priority_number, postdesc});
         const MemberData = await newTeamData.save();
         return res.status(200).json({ status: "Success", data: MemberData });
     }
@@ -67,12 +67,12 @@ exports.editMember = async (req, res) => {
     try{
         const {team, id} = req.params;
         const TeamData = await Team.findById(id);
-        const {name, email, contactNo, post, priority_number} = req.body;
+        const {name, email, contactNo, post, priority_number, postdesc} = req.body;
         let imagePath;
-        let data = {name, email, contactNo, post, team , priority_number};
+        let data = {name, email, contactNo, post, team , priority_number, postdesc};
         if(req.file){
             imagePath = req.file.filename;
-            data =  {name, imagePath, email, contactNo, post, team , priority_number};
+            data =  {name, imagePath, email, contactNo, post, team , priority_number, postdesc};
         }
         const UpdatedMemberData = await Team.findByIdAndUpdate(id, data);
         if(req.file){

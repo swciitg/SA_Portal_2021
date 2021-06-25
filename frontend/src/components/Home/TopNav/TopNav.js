@@ -22,7 +22,7 @@ const TopNav = () => {
     announcements: "",
   });
   const sabTabClassName =
-    "flex-grow md:flex items-center justify-center text-sm font-mono h-20 px-2 text-white bg-blue-400 hover:bg-blue-600 font-bold  text-xs";
+    "flex-grow flex items-center justify-center text-sm font-mono h-20 px-2 text-white bg-blue-600 hover:bg-blue-600 font-bold  text-xs";
   const otherTabClassName =
     "hidden flex-grow md:flex items-center justify-center text-sm font-mono text-black hover:bg-gray-100 h-20 font-bold px-2 text-xs";
   useEffect(() => {
@@ -73,7 +73,14 @@ const TopNav = () => {
 
   const renderTabNode = () => {
     let node = navigations.map((item, id) => {
-      return (
+      return item.boardShort === "sa" ? (
+        <TopNavTab
+          className={`${
+            isScrolled ? "sticky_nav_topTab" : null
+          } ${sabTabClassName}`}
+          boardName={item.boardName}
+        />
+      ) : (
         <TopNavTab
           className={`${isScrolled ? "sticky_nav_topTab" : null} topNavTab ${
             item.boardShort === "sa" ? sabTabClassName : otherTabClassName

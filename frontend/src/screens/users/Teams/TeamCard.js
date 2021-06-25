@@ -2,31 +2,26 @@ import React from "react";
 import { BASEAPI } from "../../../constants";
 const TeamCard = (props) => {
   const teamcardwidth = {
-    width: "460px",
-    height: "480px",
+    height: "450px",
   };
   const mobileCardWidth = {
     width: "320px",
   };
   return (
     <>
-      <div className="hidden sm:block overflow-hidden">
-        <div
-          style={teamcardwidth}
-          className="bg-blue-600  rounded-md  mt-16 mx-24"
-        >
-          <div className="bg-gray-200 rounded-md ">
-            <img
+      <div style={teamcardwidth} className="md:w-1/2 lg:w-1/4 hidden md:block overflow-hidden bg-blue-600 rounded-md mb-24 mx-4">
+          <div  className="bg-gray-200 rounded-md ">
+            <img style={{height: "300px",}}
               src={`${BASEAPI}/team/sa/${props.id}`}
               alt="ProfilePic"
-              className="h-80  w-full object-contain "
+              className="w-full object-contain "
             />
           </div>
-          <div className="ml-8 text-2xl text-white mt-2">{props.name}</div>
-          <div className="ml-8 text-lg text-white mt-1 mb-4">{props.post}</div>
+          <div className="ml-3.5 text-2xl text-white font-semibold mt-4">{props.name}</div>
+          <div className="ml-3.5 text-lg text-white mt-2 mb-2">{props.post}</div>
           <svg
             className="w-full"
-            width="420"
+            width="200"
             height="1"
             viewBox="0 0 420 1"
             fill="none"
@@ -41,13 +36,11 @@ const TeamCard = (props) => {
               stroke-linecap="round"
             />
           </svg>
-          <div className="flex justify-between mx-8 my-2">
-            <div className="text-lg text-white">{props.email}</div>
-            <div className="text-lg text-white">{props.contactNo}</div>
-          </div>
-        </div>
-      </div>
-      <div className="block sm:hidden flex justify-center">
+          <div className="flex justify-between mx-3.5 my-2">
+            <div className="text-sm text-white">{props.email}</div>
+            <div className="text-sm text-white">{props.contactNo}</div>
+          </div></div>
+      <div className="block md:hidden flex justify-center">
         <div style={mobileCardWidth} className="bg-blue-600  mt-8 rounded-md ">
           <div className="bg-gray-200 flex justify-center">
             <img
