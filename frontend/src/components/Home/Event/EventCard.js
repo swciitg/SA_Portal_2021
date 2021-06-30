@@ -7,7 +7,7 @@ import { BASEAPI } from "../../../constants";
 const EventCard = ({ title, _id, eventDate, link }) => {
   return (
     <div>
-      <div class="p-1 md:p-3 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-1">
+      <div className="p-1 md:p-3 lg:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-1">
         <div
           className="rounded-md relative w-72 md:w-96 h-80 md:h-96"
           style={{ backgroundColor: "#2164E8" }}
