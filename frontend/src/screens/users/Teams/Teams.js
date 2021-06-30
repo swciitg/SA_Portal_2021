@@ -84,6 +84,7 @@ const Teams = () => {
                           imagePath={dean.imagePath}
                           contactNo={dean.contactNo}
                           email={dean.email}
+                          postdesc={dean.postdesc}
                         />
                       </div>
                     ) : (
@@ -91,8 +92,15 @@ const Teams = () => {
                     )}
                     <div className="md:flex md:flex-wrap justify-center space-x-8 mb-8">
                       {team.data.splice(1).map((team1) => {
-                        const { _id, name, post, imagePath, contactNo, email } =
-                          team1;
+                        const {
+                          _id,
+                          name,
+                          post,
+                          imagePath,
+                          contactNo,
+                          email,
+                          postdesc,
+                        } = team1;
                         return (
                           <>
                             <TeamCard
@@ -103,6 +111,7 @@ const Teams = () => {
                               imagePath={imagePath}
                               contactNo={contactNo}
                               email={email}
+                              postdesc={postdesc}
                             />
                           </>
                         );
@@ -113,8 +122,15 @@ const Teams = () => {
               ) : (
                 <div className="md:flex md:flex-wrap justify-center">
                   {team.data.map((team1) => {
-                    const { _id, name, post, imagePath, contactNo, email } =
-                      team1;
+                    const {
+                      _id,
+                      name,
+                      post,
+                      imagePath,
+                      contactNo,
+                      email,
+                      postdesc,
+                    } = team1;
                     return (
                       <>
                         <TeamCard
@@ -125,6 +141,7 @@ const Teams = () => {
                           imagePath={imagePath}
                           contactNo={contactNo}
                           email={email}
+                          postdesc={postdesc}
                         />
                       </>
                     );
