@@ -29,7 +29,7 @@ const TeamModal = (props) => {
           </span>
           <div className="inline-block align-bottom md:align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all  mb-2  w-full sm:w-9/12 md:w-3/4 lg:w-1/2">
             <div className="hidden md:block">
-              <div className="flex justify-center space-x-14 m-7">
+              <div className="flex justify-center space-x-5 m-7">
                 <div
                   style={{ height: "450px" }}
                   className="overflow-hidden text-black rounded-md w-1/2"
@@ -68,8 +68,8 @@ const TeamModal = (props) => {
                     <div className="text-sm">{props.contactNo}</div>
                   </div>
                 </div>
-                <div className="w-1/2 hidden md:block overflow-hidden mx-4">
-                  <div className="flex justify-end mb-2 text-lg">
+                <div className="w-1/2 hidden md:block overflow-hidden mx-4 text-sm">
+                  <div className="flex justify-end mb-2 text-sm">
                     <button onClick={() => closeModal(props.id)}>
                       <svg
                         width="32"
@@ -146,7 +146,7 @@ const TeamModal = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center mt-2 text-sm">
+              <div className="flex justify-center mt-2 text-sm text-center">
                 {props.postdesc}
               </div>
             </div>
