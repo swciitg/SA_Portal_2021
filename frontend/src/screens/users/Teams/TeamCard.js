@@ -26,7 +26,7 @@ const TeamCard = (props) => {
       />
       <div
         style={teamcardwidth}
-        className="md:w-1/2 lg:w-1/4 hidden md:block overflow-hidden bg-blue-600 rounded-md mb-24 mx-4"
+        className="md:w-1/2 lg:w-1/4 hidden md:block overflow-hidden bg-blue-600 rounded-md mb-24 mx-4 cursor-pointer"
         onClick={() => {
           modalOpen(props.id);
         }}
@@ -71,7 +71,10 @@ const TeamCard = (props) => {
           modalOpen(props.id);
         }}
       >
-        <div style={mobileCardWidth} className="bg-blue-600  mt-8 rounded-md ">
+        <div
+          style={mobileCardWidth}
+          className="bg-blue-600  mt-8 rounded-md cursor-pointer"
+        >
           <div className="bg-gray-200 flex justify-center">
             <img
               src={`${BASEAPI}/team/sa/${props.id}`}
