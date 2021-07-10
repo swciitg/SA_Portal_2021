@@ -10,3 +10,9 @@
   justify-content: flex-end;
   padding: 5rem;
 }
+
+@media only screen and (max-width: 640px) {
+  .home_sidenav_cont .sidenav_layout {
+    display: none;
+  }
+}
