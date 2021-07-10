@@ -14,9 +14,11 @@ const TeamModal = (props) => {
         aria-labelledby="modal-title"
         role="dialog"
         aria-modal="true"
+        style={{ zIndex: 5000 }}
       >
         <div className="flex justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <div
+            onClick={() => closeModal(props.id)}
             className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
             aria-hidden="true"
           ></div>
