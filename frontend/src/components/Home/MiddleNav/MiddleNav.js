@@ -24,7 +24,7 @@ function MiddleNav({ activePath }) {
   }, [isScrolled, setIsScrolled]);
 
   return (
-    <div id="MidNav" class={`scroll sm:px-14 flex overflow-x-scroll`}>
+    <div id="MidNav" className={`scroll sm:px-14 flex overflow-x-scroll`}>
       {pages.map((page, idx) => {
         const { name, path } = page;
         return (
