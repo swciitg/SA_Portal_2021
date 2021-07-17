@@ -59,7 +59,7 @@ const AnnouncementForm = ({ type, formData }) => {
 
   return (
     <>
-      <h1 class="text-3xl text-black pb-6">{type} Forms</h1>
+      <h1 class="text-3xl text-black pb-6">{type} Announcement</h1>
 
       <div class="flex flex-wrap justify-center">
         <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">

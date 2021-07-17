@@ -15,7 +15,11 @@ router.get(
   }),
   function (req, res) {
     // Successful authentication, redirect home.
-    return res.redirect(CLIENT_HOME_PAGE_URL + "/admin");
+    if (req.user.isAdmin) {
+      return res.redirect(CLIENT_HOME_PAGE_URL + "/admin");
+    } else {
+      return res.redirect(CLIENT_HOME_PAGE_URL);
+    }
   }
 );
 
@@ -30,7 +34,7 @@ router.get("/auth/logout", function (req, res) {
   req.session = null;
   req.logout();
   console.log("Logout route hit");
-  return res.redirect(CLIENT_HOME_PAGE_URL + "/admin/");
+  return res.redirect(CLIENT_HOME_PAGE_URL + "/admin");
   // res.status(200).json({ msg: "Logged out successfully" });
 });
 

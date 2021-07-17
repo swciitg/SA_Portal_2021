@@ -15,6 +15,7 @@ const NavigationScreen = () => {
 
   return (
     <>
+      <h1 className="text-3xl text-black pb-6">Navigation</h1>
       <div className="w-auto mt-6 overflow-auto">
         <div className="bg-white">
           <table className="min-w-full bg-white">

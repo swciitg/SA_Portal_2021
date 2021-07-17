@@ -11,25 +11,42 @@ const storage = multer.diskStorage({
   },
 });
 const ScholarshipController = require("../../controllers/scholarship/scholarship.controller");
-const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
- 
+const { isLoggedIn, isAdmin, isStudent } = require("../../middlewares/auth");
+
 const upload = multer({ storage: storage });
 
 router.get("/", ScholarshipController.getScholarshipData);
 router.get("/editor", ScholarshipController.getScholarshipEditorData);
-router.get("/pdf" , ScholarshipController.getScholarshipPdfData);
-router.get("/pdf/:id" , ScholarshipController.getOneScholarshipPdf);
+router.get("/pdf", ScholarshipController.getScholarshipPdfData);
+router.get("/pdf/:id", isStudent, ScholarshipController.getOneScholarshipPdf);
 
-router.post("/editor",isLoggedIn, isAdmin,ScholarshipController.postScholarshipEditor);
-router.post("/pdf",isLoggedIn, isAdmin, upload.single("path"), ScholarshipController.postScholarshipPdf);
+router.post(
+  "/editor",
+  isLoggedIn,
+  isAdmin,
+  ScholarshipController.postScholarshipEditor
+);
+router.post(
+  "/pdf",
+  isLoggedIn,
+  isAdmin,
+  upload.single("path"),
+  ScholarshipController.postScholarshipPdf
+);
 
+router.put(
+  "/pdf/:id",
+  isLoggedIn,
+  isAdmin,
+  upload.single("path"),
+  ScholarshipController.editScholarshipPdf
+);
 
-router.put("/pdf/:id",isLoggedIn, isAdmin, upload.single("path"), ScholarshipController.editScholarshipPdf);
-
-router.delete("/pdf/:id",isLoggedIn, isAdmin, ScholarshipController.deleteScholarshipPdf);
-
-const compare = (a, b) => {
-  return b.creation - a.creation;
-};
+router.delete(
+  "/pdf/:id",
+  isLoggedIn,
+  isAdmin,
+  ScholarshipController.deleteScholarshipPdf
+);
 
 module.exports = router;

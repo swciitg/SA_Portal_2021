@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
   },
 });
 const sacController = require("../../controllers/SAC/sac.controller");
-const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
+const { isLoggedIn, isAdmin, isStudent } = require("../../middlewares/auth");
 
 const upload = multer({ storage: storage });
 
@@ -19,24 +19,22 @@ router.get("/", sacController.getSac);
 
 router.post(
   "/",
-  isLoggedIn, isAdmin ,
+  isLoggedIn,
+  isAdmin,
   upload.single("path"),
   sacController.postSac
 );
 
-router.get("/:id", sacController.getOneSac); //only for rules with pdfs
+router.get("/:id", isStudent, sacController.getOneSac); //only for rules with pdfs
 
 router.put(
   "/:id",
-  isLoggedIn, isAdmin ,
+  isLoggedIn,
+  isAdmin,
   upload.single("path"),
   sacController.editSac
 );
 
-router.delete("/:id",isLoggedIn, isAdmin ,  sacController.deleteSac);
-
-const compare = (a, b) => {
-  return b.creation - a.creation;
-};
+router.delete("/:id", isLoggedIn, isAdmin, sacController.deleteSac);
 
 module.exports = router;

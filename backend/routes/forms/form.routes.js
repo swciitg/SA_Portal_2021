@@ -11,24 +11,30 @@ const storage = multer.diskStorage({
   },
 });
 const formController = require("../../controllers/forms/form.controller");
-const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
-
+const { isLoggedIn, isAdmin, isStudent } = require("../../middlewares/auth");
 
 const upload = multer({ storage: storage });
 
 router.get("/", formController.getForms);
 
-router.post("/",isLoggedIn,isAdmin, upload.single("path"), formController.postForm);
+router.post(
+  "/",
+  isLoggedIn,
+  isAdmin,
+  upload.single("path"),
+  formController.postForm
+);
 
+router.get("/:id", isStudent, formController.getOneForm);
 
-router.get("/:id", formController.getOneForm);
+router.put(
+  "/:id",
+  isLoggedIn,
+  isAdmin,
+  upload.single("path"),
+  formController.editForm
+);
 
-router.put("/:id",isLoggedIn,isAdmin, upload.single("path"), formController.editForm);
-
-router.delete("/:id",isLoggedIn,isAdmin, formController.deleteForm);
-
-const compare = (a, b) => {
-  return b.creation - a.creation;
-};
+router.delete("/:id", isLoggedIn, isAdmin, formController.deleteForm);
 
 module.exports = router;
