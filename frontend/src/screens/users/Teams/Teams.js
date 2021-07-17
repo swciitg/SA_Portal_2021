@@ -63,91 +63,39 @@ const Teams = () => {
         </div>
       </div>
       {teamm.map((team, idx) => {
-        const dean = team.data[0];
-
         return (
           <>
             <div className="md:relative md:-top-20 lg:-top-32">
               <div className=" text-black text-xl md:text-4xl font-semibold flex justify-center mb-4">
                 {pages[0].tk[idx]}
               </div>
-              {idx === 3 && ts === pages[0].ts ? (
-                <>
-                  <div className="">
-                    {dean ? (
-                      <div className="flex justify-center">
-                        <TeamCard
-                          key={dean._id}
-                          id={dean._id}
-                          name={dean.name}
-                          post={dean.post}
-                          imagePath={dean.imagePath}
-                          contactNo={dean.contactNo}
-                          email={dean.email}
-                          postdesc={dean.postdesc}
-                        />
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                    <div className="md:flex md:flex-wrap justify-center space-x-8 mb-8">
-                      {team.data.splice(1).map((team1) => {
-                        const {
-                          _id,
-                          name,
-                          post,
-                          imagePath,
-                          contactNo,
-                          email,
-                          postdesc,
-                        } = team1;
-                        return (
-                          <>
-                            <TeamCard
-                              key={_id}
-                              id={_id}
-                              name={name}
-                              post={post}
-                              imagePath={imagePath}
-                              contactNo={contactNo}
-                              email={email}
-                              postdesc={postdesc}
-                            />
-                          </>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <div className="md:flex md:flex-wrap justify-center">
-                  {team.data.map((team1) => {
-                    const {
-                      _id,
-                      name,
-                      post,
-                      imagePath,
-                      contactNo,
-                      email,
-                      postdesc,
-                    } = team1;
-                    return (
-                      <>
-                        <TeamCard
-                          key={_id}
-                          id={_id}
-                          name={name}
-                          post={post}
-                          imagePath={imagePath}
-                          contactNo={contactNo}
-                          email={email}
-                          postdesc={postdesc}
-                        />
-                      </>
-                    );
-                  })}
-                </div>
-              )}
+              <div className="md:flex md:flex-wrap justify-center">
+                {team.data.map((team1) => {
+                  const {
+                    _id,
+                    name,
+                    post,
+                    imagePath,
+                    contactNo,
+                    email,
+                    postdesc,
+                  } = team1;
+                  return (
+                    <>
+                      <TeamCard
+                        key={_id}
+                        id={_id}
+                        name={name}
+                        post={post}
+                        imagePath={imagePath}
+                        contactNo={contactNo}
+                        email={email}
+                        postdesc={postdesc}
+                      />
+                    </>
+                  );
+                })}
+              </div>
             </div>
           </>
         );
