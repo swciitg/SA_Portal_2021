@@ -1,32 +1,80 @@
-const Sac = require("../../models/SAC/sac");
-const fs = require("fs");
+const SAC = require("../../models/SAC/sac");
 
-exports.getSac = async (req, res) => {
+exports.getAllLinks = async (req, res) => {
   try {
-    let query = Sac.find({}).sort("-updatedAt");
-    const doc = await query;
+    const links = await SAC.find({}).sort("priority_number");
     res.status(200).json({
       status: "success",
-      results: doc.length,
-      data: doc,
+      data: {
+        data: links,
+      },
     });
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
     return res
       .status(424)
       .json({ status: "Failed", message: "Request failed" });
   }
 };
 
-exports.postSac = async (req, res) => {
+exports.postLink = async (req, res) => {
   try {
-    const { name,link } = req.body;
-    const path = req.file ? req.file.filename : link;
-    const format = req.file ? "PDF" : "Link";
-    const newSac = new Sac({ name, path, format });
-    const sac = await newSac.save();
+    const { name, priority_number } = req.body;
+    const data = { name, priority_number: Number(priority_number) };
+    const newLink = new SAC(data);
+    const link = await newLink.save();
+    if (!link) {
+      return res
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
+    }
+    res.status(200).json({
+      status: "success",
+      data: {
+        data: link,
+      },
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(424)
+      .json({ status: "Failed", message: "Request failed" });
+  }
+};
 
-    if (sac) return res.status(200).json({ status: "Success", data: sac });
+exports.editLink = async (req, res) => {
+  try {
+    const { name, priority_number } = req.body;
+    const update = { name, priority_number: Number(priority_number) };
+    const link = await SAC.findByIdAndUpdate(req.params.link_id, update);
+    if (!link) {
+      return res
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
+    }
+    const link_id = req.params.link_id;
+    const newLink = await SAC.findById(link_id);
+    res.status(200).json({
+      status: "success",
+      data: {
+        data: newLink,
+      },
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(424)
+      .json({ status: "Failed", message: "Request failed" });
+  }
+};
+
+exports.deleteLink = async (req, res) => {
+  try {
+    const deletedLink = await SAC.findByIdAndRemove(req.params.link_id);
+    if (deletedLink)
+      return res
+        .status(200)
+        .json({ status: "Success", message: "Successfully deleted" });
     else res.status(424).json({ status: "Failed", message: "Invalid Data" });
   } catch (error) {
     console.log(error.message);
@@ -36,22 +84,24 @@ exports.postSac = async (req, res) => {
   }
 };
 
-exports.editSac = async (req, res) => {
+exports.getAllSublinks = async (req, res) => {
   try {
-    const { name, link } = req.body;
-    const path = req.file ? req.file.filename : link;
-    const format = req.file ? "PDF" : "Link";
-    const data = { name, path, format };
-    const { id } = req.params;
-
-    const oldSac = await Sac.findById(id);
-    if (oldSac.path.indexOf("https://") == -1) {
-      fs.unlinkSync(`${__dirname}/../../uploads/Sac/${oldSac.path}`);
+    const link_id = req.params.link_id;
+    const link = await SAC.findById(link_id);
+    if (!link) {
+      return res
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
     }
-
-    const sac = await Sac.findByIdAndUpdate(id, data);
-    if (sac) return res.status(200).json({ status: "Success", data: sac });
-    else res.status(424).json({ status: "Failed", message: "Invalid Data" });
+    const sublinks = link.sublinks;
+    sublinks.sort(compare);
+    res.status(200).json({
+      status: "success",
+      data: {
+        link,
+        sublinks,
+      },
+    });
   } catch (error) {
     console.log(error.message);
     return res
@@ -60,22 +110,33 @@ exports.editSac = async (req, res) => {
   }
 };
 
-exports.getOneSac = async (req, res) => {
+exports.postSublink = async (req, res) => {
   try {
-    const { id } = req.params;
-    const sac = await Sac.findById(id);
-    if (sac.path.indexOf("https://") == -1) {
-      const filePath = `${__dirname}/../../uploads/Sac/` + sac.path;
-      fs.readFile(filePath, (err, data) => {
-        res.contentType("application/pdf");
-        return res.send(data);
-      });
-    } else {
-      return res.status(400).json({
-        status: "Failed",
-        message: "Bad request!",
-      });
+    const link_id = req.params.link_id;
+    const { name, url, priority_number } = req.body;
+    const link = await SAC.findById(link_id);
+    if (!link) {
+      return res
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
     }
+    const sublink = { name, url, priority_number };
+    let newSublink = link.sublinks.create(sublink);
+    //console.log(newSublink);
+    link.sublinks.push(newSublink);
+    const updatedLink = await link.save();
+
+    if (!updatedLink) {
+      return res
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
+    }
+    res.status(200).json({
+      status: "success",
+      data: {
+        updatedLink,
+      },
+    });
   } catch (error) {
     console.log(error.message);
     return res
@@ -84,20 +145,63 @@ exports.getOneSac = async (req, res) => {
   }
 };
 
-exports.deleteSac = async (req, res) => {
+exports.editSublink = async (req, res) => {
   try {
-    const { id } = req.params;
-    const sac = await Sac.findById(id);
+    const link_id = req.params.link_id;
+    const sublink_id = req.params.sublink_id;
+    const { name, url, priority_number } = req.body;
 
-    if (sac.path.indexOf("https://") == -1) {
-      fs.unlinkSync(`${__dirname}/../../uploads/Sac/${sac.path}`);
-      console.log("successfully deleted file");
+    const link = await SAC.findById(link_id);
+
+    if (!link) {
+      return res
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
     }
-    await Sac.findByIdAndRemove(id);
-    return res.status(200).json({ status: "Success" });
-  } catch (err) {
-    // handle the error
-    console.log(err);
+
+    let sublinks = link.sublinks;
+
+    sublinks.forEach((sublink) => {
+      if (sublink.id === sublink_id) {
+        sublink.name = name;
+        sublink.url = url;
+        sublink.priority_number = priority_number;
+      }
+    });
+    link.sublinks = sublinks;
+    await link.save();
+    res.status(200).json({
+      status: "success",
+    });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(424)
+      .json({ status: "Failed", message: "Request failed" });
+  }
+};
+
+exports.deleteSublink = async (req, res) => {
+  try {
+    const link_id = req.params.link_id;
+    const sublink_id = req.params.sublink_id;
+
+    const link = await SAC.findById(link_id);
+    if (!link) {
+      return res
+        .status(424)
+        .json({ status: "Failed", message: "Invalid data" });
+    }
+    let sublinks = link.sublinks;
+    sublinks = sublinks.filter((sublink) => sublink.id != sublink_id);
+    link.sublinks = sublinks;
+    await link.save();
+    res.status(200).json({
+      status: "success",
+      message: "successfully deleted",
+    });
+  } catch (error) {
+    console.log(error.message);
     return res
       .status(424)
       .json({ status: "Failed", message: "Request failed" });
@@ -105,5 +209,6 @@ exports.deleteSac = async (req, res) => {
 };
 
 const compare = (a, b) => {
-  return b.creation - a.creation;
+  //console.log(a, b);
+  return a.priority_number - b.priority_number;
 };

@@ -1,40 +1,35 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
-const multer = require("multer");
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, `${__dirname}/../../uploads/Sac`);
-  },
-  filename: (req, file, cb) => {
-    const fileName = file.originalname.replace(/\s/g, "");
-    cb(null, Date.now().toString() + fileName);
-  },
-});
-const sacController = require("../../controllers/SAC/sac.controller");
-const { isLoggedIn, isAdmin, isStudent } = require("../../middlewares/auth");
+const linkController = require("../../controllers/SAC/sac.controller");
+const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
-const upload = multer({ storage: storage });
 
-router.get("/", sacController.getSac);
+router.get("/", linkController.getAllLinks);
+router.post("/",isLoggedIn,isAdmin, linkController.postLink);
+
+router.put("/:link_id",isLoggedIn,isAdmin,  linkController.editLink);
+router.delete("/:link_id",isLoggedIn,isAdmin, linkController.deleteLink);
+
+router.get(
+  "/:link_id/sublinks",
+  linkController.getAllSublinks
+);
 
 router.post(
-  "/",
-  isLoggedIn,
-  isAdmin,
-  upload.single("path"),
-  sacController.postSac
+  "/:link_id/sublinks",
+  isLoggedIn,isAdmin,
+  linkController.postSublink
 );
-
-router.get("/:id", isStudent, sacController.getOneSac); //only for rules with pdfs
 
 router.put(
-  "/:id",
-  isLoggedIn,
-  isAdmin,
-  upload.single("path"),
-  sacController.editSac
+  "/:link_id/sublinks/:sublink_id",
+  isLoggedIn,isAdmin,
+  linkController.editSublink
 );
-
-router.delete("/:id", isLoggedIn, isAdmin, sacController.deleteSac);
+router.delete(
+  "/:link_id/sublinks/:sublink_id",
+  isLoggedIn,isAdmin,
+  linkController.deleteSublink
+);
 
 module.exports = router;

@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 
-const SacSchema = new mongoose.Schema(
-  {
-    name: { type:String, required:true},
-    path: { type: String, required: true },
-    format: { type: String, required: true },
-  },
-  { timestamps: true }
-);
+const sublinkSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  url: { type: String, required: true },
+  priority_number: { type: Number, required: true },
+});
 
-module.exports = mongoose.model("Sac", SacSchema);
+const LinkSchema = new mongoose.Schema({
+  name: { type: String, required: true, unique: true },
+  priority_number: { type: Number, required: true },
+  sublinks: [sublinkSchema],
+});
+
+module.exports = mongoose.model("SAC", LinkSchema);
