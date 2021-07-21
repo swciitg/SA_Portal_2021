@@ -41,12 +41,12 @@ const SublinksForm = ({ type, formData }) => {
 
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">{type} Links</h1>
+      <h1 className="text-3xl text-black pb-6">{type} SAC Sublinks</h1>
 
       <div className="flex flex-wrap justify-center">
         <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
           <p className="text-xl pb-6 flex items-center">
-            <i className="fas fa-list mr-3"></i> {type} Sublinks
+            <i className="fas fa-list mr-3"></i> {type} SAC Sublinks
           </p>
           <div
             className="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3 mt-2"

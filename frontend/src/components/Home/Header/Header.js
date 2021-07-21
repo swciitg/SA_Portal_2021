@@ -9,7 +9,7 @@ function Header() {
         </span>
         <span className="float-left pl-2 flex items-center">
           <h1 className="text-sm ">
-            INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI
+            STUDENTS' AFFAIRS SECTION, INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI
           </h1>
         </span>
       </div>

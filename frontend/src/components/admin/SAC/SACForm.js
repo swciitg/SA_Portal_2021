@@ -38,12 +38,12 @@ const SACForm = ({ type, formData }) => {
 
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">{type} Links</h1>
+      <h1 className="text-3xl text-black pb-6">{type} SAC Links</h1>
 
       <div className="flex flex-wrap justify-center">
         <div className="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
           <p className="text-xl pb-6 flex items-center">
-            <i className="fas fa-list mr-3"></i> {type} Links
+            <i className="fas fa-list mr-3"></i> {type} SAC Links
           </p>
           <div className="leading-loose">
             <form

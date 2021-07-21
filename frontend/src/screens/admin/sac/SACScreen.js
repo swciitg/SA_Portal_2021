@@ -14,14 +14,14 @@ const SacScreen = () => {
 
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">Links</h1>
+      <h1 className="text-3xl text-black pb-6">SAC Links</h1>
 
       <div className="mt-6">
         <Link
           className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
           to={`${BASEURL}/admin/sac/add`}
         >
-          Add Links
+          Add SAC Links
         </Link>
       </div>
 

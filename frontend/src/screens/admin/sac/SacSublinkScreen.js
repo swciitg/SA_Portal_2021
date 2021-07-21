@@ -13,14 +13,14 @@ const SacSublinkScreen = () => {
   });
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">Sublinks</h1>
+      <h1 className="text-3xl text-black pb-6">SAC Sublinks</h1>
 
       <div className="mt-6">
         <Link
           className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
           to={`${BASEURL}/admin/sac/${link_id}/add`}
         >
-          Add Sublinks
+          Add SAC Sublinks
         </Link>
       </div>
 

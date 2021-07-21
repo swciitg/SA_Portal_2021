@@ -1,6 +1,6 @@
 export const navItemList = [
   {
-    name: "About SAB",
+    name: "About Students' Affairs",
     src: "home_about",
   },
   {

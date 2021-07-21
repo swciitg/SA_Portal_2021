@@ -1,6 +1,6 @@
 export const pages = [
   {
-    name: "Student Affairs Office",
+    name: "Students' Affairs Functionaries",
     ts: ["sa", "wellbeing", "personality", "acf"],
     ts1: "sa",
     tk: [
@@ -11,7 +11,7 @@ export const pages = [
     ],
   },
   {
-    name: "Student Affairs Staff",
+    name: "Students' Affairs Staff",
     ts: ["saf"],
     ts1: "saf",
   },
