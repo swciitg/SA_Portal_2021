@@ -24,6 +24,7 @@ const NavigationSchema = new mongoose.Schema(
     notices: { type: String, required: true },
     events: { type: String, required: true },
     announcements: { type: String, required: true },
+    priority_number : {type : String, required : true},
   },
   { timestamps: true }
 );

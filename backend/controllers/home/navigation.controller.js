@@ -2,6 +2,13 @@ const Navigation = require("../../models/home/navigation");
 const fs = require("fs");
 const path = require("path");
 
+const disctionary = {
+  "HOSTEL AFFAIRS BOARD":"1",
+  "TECHNICAL BOARD":"2",
+  "CULTURAL BOARD":"3",
+  "WELFARE BOARD":"4",
+  "SPORTS BOARD":"5"
+};
 exports.createNavigation = async (req, res) => {
   const {
     boardName,
@@ -12,7 +19,7 @@ exports.createNavigation = async (req, res) => {
     announcements,
     boardShort,
   } = req.body;
-
+  const priority_number = disctionary[boardName];
   console.log("[request body]");
   console.log(req.body);
 
@@ -28,6 +35,7 @@ exports.createNavigation = async (req, res) => {
         announcements,
         path,
         boardShort,
+        priority_number
       });
 
       /**
@@ -50,7 +58,7 @@ exports.createNavigation = async (req, res) => {
 
 exports.getAllNavigations = async (req, res) => {
   try {
-    const navigations = await Navigation.find({}).sort("-updatedAt");
+    const navigations = await Navigation.find({}).sort("priority_number");
     /**
      *All console logs are for api testing
      */
@@ -89,7 +97,7 @@ exports.findNavigation = async (req, res) => {
 
     const navigation = await Navigation.find({
       boardShort,
-    }).sort("-updatedAt");
+    }).sort("priority_number");
 
     res.status(200).json({
       status: "Success",
@@ -134,7 +142,7 @@ exports.updateNavigation = async (req, res) => {
       announcements,
       boardShort,
     } = req.body;
-
+    const priority_number = disctionary[boardName];
     const imgPath = req.file && req.file.filename;
     const oldImage = await Navigation.findById(id);
 
@@ -146,6 +154,7 @@ exports.updateNavigation = async (req, res) => {
       events,
       announcements,
       boardShort,
+      priority_number
     };
 
     if (imgPath) {
