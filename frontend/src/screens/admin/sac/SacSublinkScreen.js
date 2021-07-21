@@ -1,27 +1,26 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BASEURL } from "../../../constants";
 import { useDispatch, useSelector } from "react-redux";
-import { listsacLinks, deletesacLink } from "../../../actions/sac";
+import { listsacSublinks, deletesacSublink } from "../../../actions/sac";
 
-const SacScreen = () => {
-  const links = useSelector((state) => state.sacs);
+const SacSublinkScreen = () => {
+  let { link_id } = useParams();
   const dispatch = useDispatch();
-
+  const sublinks = useSelector((state) => state.sacsublinks);
   useEffect(() => {
-    dispatch(listsacLinks());
-  }, [dispatch]);
-
+    dispatch(listsacSublinks(link_id));
+  });
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">Links</h1>
+      <h1 className="text-3xl text-black pb-6">Sublinks</h1>
 
       <div className="mt-6">
         <Link
           className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
-          to={`${BASEURL}/admin/sac/add`}
+          to={`${BASEURL}/admin/sac/${link_id}/add`}
         >
-          Add Links
+          Add Sublinks
         </Link>
       </div>
 
@@ -31,10 +30,10 @@ const SacScreen = () => {
             <thead className="bg-gray-800 text-white">
               <tr>
                 <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                  Link Name
+                  SubLink Name
                 </th>
                 <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
-                  Sublinks
+                  URL
                 </th>
                 <th className="px-5 py-3 border-b-2 text-left text-sm font-semibold uppercase tracking-wider">
                   Edit
@@ -46,36 +45,35 @@ const SacScreen = () => {
             </thead>
 
             <tbody className="text-gray-700">
-              {links.map(({ _id, name, priority_number }) => {
+              {sublinks.map(({ _id, name, url, priority_number }) => {
                 return (
-                  <tr key={_id}>
+                  <tr>
                     <td className="text-left py-3 px-4"> {name} </td>
                     <td className="text-left py-3 px-4">
-                      <Link
+                      <a
                         className="hover:text-blue-500"
-                        to={`${BASEURL}/admin/sac/${_id}`}
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer"
                       >
                         View
-                      </Link>
+                      </a>
                     </td>
                     <td className="text-left py-3 px-4">
                       <Link
+                        className="hover:text-blue-500"
                         to={{
-                          pathname: `${BASEURL}/admin/sac/edit/${_id}`,
-                          formData: {
-                            name,
-                            priority_number,
-                            _id,
-                          },
+                          pathname: `${BASEURL}/admin/sac/${link_id}/edit/${_id}`,
+                          formData: { name, url, priority_number, _id },
                         }}
                       >
-                        <button className="hover:text-blue-500">Edit</button>
+                        Edit
                       </Link>
                     </td>
                     <td className="text-left py-3 px-4">
                       <button
                         className="hover:text-red-500"
-                        onClick={() => dispatch(deletesacLink(_id))}
+                        onClick={() => dispatch(deletesacSublink(link_id, _id))}
                       >
                         Delete
                       </button>
@@ -91,4 +89,4 @@ const SacScreen = () => {
   );
 };
 
-export default SacScreen;
+export default SacSublinkScreen;

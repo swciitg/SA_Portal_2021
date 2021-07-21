@@ -109,7 +109,16 @@ export const editNavigation = (id, updatedNav) =>
 export const deleteNavigation = (id) => API.delete(`/home/navigation/${id}`);
 
 //SAC Routes
-export const fetchSAC = () => API.get("/sac");
-export const createSAC = (newForm) => API.post("/sac", newForm);
-export const editSAC = (id, updatedForm) => API.put(`/sac/${id}`, updatedForm);
-export const deleteSAC = (id) => API.delete(`/sac/${id}`);
+export const fetchsacLinks = () => API.get("/sac");
+export const createsacLink = (newRule) => API.post("/sac", newRule);
+export const editsacLink = (id, updatedRule) =>
+  API.put(`/sac/${id}`, updatedRule);
+export const deletesacLink = (id) => API.delete(`/sac/${id}`);
+
+export const fetchsacSublinks = (id) => API.get(`/sac/${id}/sublinks`);
+export const createsacSublink = (id, newSublink) =>
+  API.post(`/sac/${id}/sublinks`, newSublink);
+export const editsacSublink = (id, sublink_id, newSublink) =>
+  API.put(`/sac/${id}/sublinks/${sublink_id}`, newSublink);
+export const deletesacSublink = (id, sublink_id) =>
+  API.delete(`/sac/${id}/sublinks/${sublink_id}`);

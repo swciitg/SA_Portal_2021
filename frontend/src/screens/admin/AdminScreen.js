@@ -26,15 +26,21 @@ import EditRulesScreen from "./rules/EditRulesScreen";
 import CoursesScreen from "./courses/CoursesScreen";
 import AddCoursesScreen from "./courses/AddCoursesScreen";
 import EditCoursesScreen from "./courses/EditCoursesScreen";
+
 import UtilitiesScreen from "./utilities/UtilitiesScreen";
 import AddUtilitiesScreen from "./utilities/AddUtilitiesScreen";
 import EditUtilitiesScreen from "./utilities/EditUtilitiesScreen";
 import SublinkScreen from "./utilities/SublinkScreen";
 import AddSublinkScreen from "./utilities/AddSublinkScreen";
 import EditSublinkScreen from "./utilities/EditSublinkScreen";
-import SACScreen from "./sac/SACScreen";
-import AddSACScreen from "./sac/AddSACScreen";
-import EditSACScreen from "./sac/EditSACScreen";
+
+
+import SacScreen from "./sac/SACScreen";
+import AddSacScreen from "./sac/AddSACScreen";
+import EditSacScreen from "./sac/EditSACScreen";
+import SacSublinkScreen from "./sac/SacSublinkScreen";
+import AddSacSublinkScreen from "./sac/AddSacSublinkScreen";
+import EditSacSublinkScreen from "./sac/EditSacSublinkScreen";
 
 import TeamsScreen from "./Teams/TeamScreen/TeamScreen";
 import { AddTeamForm } from "./Teams/TeamScreen/AddTeamScreen";
@@ -158,20 +164,34 @@ const AdminScreen = () => {
             <AdminRoute
               exact
               path={`${BASEURL}/admin/sac`}
-              component={SACScreen}
+              component={SacScreen}
             />
-
             <AdminRoute
               exact
               path={`${BASEURL}/admin/sac/add`}
-              component={AddSACScreen}
+              component={AddSacScreen}
             />
-
             <AdminRoute
               exact
-              path={`${BASEURL}/admin/sac/:sac_id`}
-              component={EditSACScreen}
+              path={`${BASEURL}/admin/sac/edit/:link_id`}
+              component={EditSacScreen}
             />
+            <AdminRoute
+              exact
+              path={`${BASEURL}/admin/sac/:link_id`}
+              component={SacSublinkScreen}
+            />
+            <AdminRoute
+              exact
+              path={`${BASEURL}/admin/sac/:link_id/add`}
+              component={AddSacSublinkScreen}
+            />
+            <AdminRoute
+              exact
+              path={`${BASEURL}/admin/sac/:link_id/edit/:sublink_id`}
+              component={EditSacSublinkScreen}
+            />
+
 
             {/* Courses Routes */}
             <AdminRoute
