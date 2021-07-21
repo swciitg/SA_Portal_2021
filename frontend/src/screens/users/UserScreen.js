@@ -9,11 +9,14 @@ import HomeScreen from "./home/HomeScreen";
 import FormScreen from "./Forms/FormScreen";
 import ScholarshipScreen from "./scholarships/ScholarshipScreen";
 import RulesScreen from "./rules/RulesScreen";
-import SACScreen from "./sac/SACScreen";
 import CoursesScreen from "./courses/CoursesScreen";
 import Teams from "./Teams/Teams";
 import GalleryCart from "../../components/Home/GalleryCart/GalleryCart";
-import UtilitiesScreen from "./utilities/UtilitiesScreen";
+import NestedLinksScreen from "./nestedLinks/NestedLinksScreen";
+
+import { listLinks } from "../../actions/utilities";
+import { listsacLinks } from "../../actions/sac";
+
 const UserScreen = ({ location }) => {
   return (
     <>
@@ -27,17 +30,37 @@ const UserScreen = ({ location }) => {
         <Route exact path={`${BASEURL}/forms`} component={FormScreen} />
         <Route exact path={`${BASEURL}/rules`} component={RulesScreen} />
         <Route exact path={`${BASEURL}/sa_courses`} component={CoursesScreen} />
-        <Route exact path={`${BASEURL}/sac`} component={SACScreen} />
+        {/* SAC Route */}
+        <Route
+          exact
+          path={`${BASEURL}/sac`}
+          render={(props) => (
+            <NestedLinksScreen
+              {...props}
+              name="SAC"
+              resourseName="sacs"
+              fetchData={listsacLinks}
+            />
+          )}
+        />
         <Route exact path={`${BASEURL}/team`} component={Teams} />
         <Route
           exact
           path={`${BASEURL}/scholarships`}
           component={ScholarshipScreen}
         />
+        {/* Utilities Route */}
         <Route
           exact
           path={`${BASEURL}/utilities`}
-          component={UtilitiesScreen}
+          render={(props) => (
+            <NestedLinksScreen
+              {...props}
+              name="Utilities"
+              resourseName="links"
+              fetchData={listLinks}
+            />
+          )}
         />
       </Switch>
       <Footer />

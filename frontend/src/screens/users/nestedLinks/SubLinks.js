@@ -1,5 +1,5 @@
 import React from "react";
-import "./UtilitiesScreen.css";
+import "./NestedLinksScreen.css";
 import rArrow from "../../../assets/ArrowRight2.svg";
 
 const SubLinks = ({ sublinks }) => {
