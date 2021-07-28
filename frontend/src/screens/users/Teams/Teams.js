@@ -66,9 +66,9 @@ const Teams = () => {
         return (
           <>
             <div className="md:relative md:-top-20 lg:-top-32">
-              <div className=" text-black text-xl md:text-4xl font-semibold flex justify-center mb-4">
+              {/* <div className=" text-black text-xl md:text-4xl font-semibold flex justify-center mb-4">
                 {pages[0].tk[idx]}
-              </div>
+              </div> */}
               <div className="md:flex md:flex-wrap justify-center">
                 {team.data.map((team1) => {
                   const {

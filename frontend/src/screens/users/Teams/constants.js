@@ -26,7 +26,7 @@ export const pages = [
     ts1: "counselling",
   },
   {
-    name: "Visiting Artists-in-residence",
+    name: "Board Functionaries",
     ts: ["visitart"],
     ts1: "visitart",
   },
