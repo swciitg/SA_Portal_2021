@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
   },
 });
 const courseController = require("../../controllers/saCourses/saCourses.controller");
-const { isLoggedIn, isAdmin, isStudent } = require("../../middlewares/auth");
+const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
 const upload = multer({ storage: storage });
 
@@ -25,7 +25,7 @@ router.post(
   courseController.postCourse
 );
 
-router.get("/:id", isStudent, courseController.getOneCourse); //only for courses with pdfs
+router.get("/:id", courseController.getOneCourse); //only for courses with pdfs
 
 router.put(
   "/:id",

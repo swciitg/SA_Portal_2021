@@ -16,11 +16,23 @@ const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
 const upload = multer({ storage: storage });
 
-router.get("/:team",teamController.getTeamMembers);
-router.get("/:team/:id",teamController.getOneMemberImage);
-router.post("/:team/",isLoggedIn, isAdmin, upload.single("image") , teamController.postMember);
+router.get("/:team", teamController.getTeamMembers);
+router.get("/:team/:id", teamController.getOneMemberImage);
+router.post(
+  "/:team/",
+  isLoggedIn,
+  isAdmin,
+  upload.single("image"),
+  teamController.postMember
+);
 
-router.put("/:team/:id",isLoggedIn, isAdmin, upload.single("image") , teamController.editMember);
-router.delete("/:team/:id",isLoggedIn, isAdmin, teamController.deleteMember);
+router.put(
+  "/:team/:id",
+  isLoggedIn,
+  isAdmin,
+  upload.single("image"),
+  teamController.editMember
+);
+router.delete("/:team/:id", isLoggedIn, isAdmin, teamController.deleteMember);
 
 module.exports = router;

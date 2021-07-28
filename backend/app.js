@@ -2,14 +2,12 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
-const session = require("express-session");
 const mongoSanitize = require("express-mongo-sanitize");
 
 const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 require("dotenv").config();
 //const MONGO_URL = "mongodb://localhost/SA_DB";
 const { MONGO_URL, BASECLIENT } = process.env;
@@ -67,12 +65,7 @@ app.use((req, res, next) => {
 });
 
 app.use(cookieParser());
-app.use(
-  bodyParser.json({
-    limit: "50mb",
-  })
-);
-app.use(express.json());
+app.use(express.json({ limit: "50mb" }));
 app.use(express.static(__dirname + "./uploads"));
 
 app.use(methodOverride("_method"));

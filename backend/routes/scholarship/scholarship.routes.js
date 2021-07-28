@@ -11,14 +11,14 @@ const storage = multer.diskStorage({
   },
 });
 const ScholarshipController = require("../../controllers/scholarship/scholarship.controller");
-const { isLoggedIn, isAdmin, isStudent } = require("../../middlewares/auth");
+const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
 const upload = multer({ storage: storage });
 
 router.get("/", ScholarshipController.getScholarshipData);
 router.get("/editor", ScholarshipController.getScholarshipEditorData);
 router.get("/pdf", ScholarshipController.getScholarshipPdfData);
-router.get("/pdf/:id", isStudent, ScholarshipController.getOneScholarshipPdf);
+router.get("/pdf/:id", ScholarshipController.getOneScholarshipPdf);
 
 router.post(
   "/editor",
