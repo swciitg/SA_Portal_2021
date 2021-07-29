@@ -11,6 +11,16 @@ export const pages = [
     ],
   },
   {
+    name: "Board Functionaries",
+    ts: ["visitart"],
+    ts1: "visitart",
+  },
+  {
+    name: "Students' Gymkhana",
+    ts: ["sgym"],
+    ts1: "sgym",
+  },
+  {
     name: "Students' Affairs Staff",
     ts: ["saf"],
     ts1: "saf",
@@ -25,16 +35,13 @@ export const pages = [
     ts: ["counselling"],
     ts1: "counselling",
   },
-  {
-    name: "Board Functionaries",
-    ts: ["visitart"],
-    ts1: "visitart",
-  },
+
   {
     name: "New SAC Building",
     ts: ["newsac"],
     ts1: "newsac",
   },
+
   {
     name: "Hostels",
     ts: ["hostels"],

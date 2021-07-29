@@ -8,6 +8,10 @@ export const teams = [
     ts: "saf",
   },
   {
+    team: "Students' Gymkhana",
+    ts: "sgym",
+  },
+  {
     team: "Well Being",
     ts: "wellbeing",
   },
