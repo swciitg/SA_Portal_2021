@@ -30,7 +30,7 @@ const Sidebar = ({ children }) => {
             to="index.html"
             className="text-white text-3xl font-semibold uppercase hover:text-gray-300"
           >
-            Admin
+            SA ADMIN
           </Link>
         </div>
         {loginBool && (
