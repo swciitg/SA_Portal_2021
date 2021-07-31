@@ -2,13 +2,28 @@ const Navigation = require("../../models/home/navigation");
 const fs = require("fs");
 const path = require("path");
 
-const disctionary = {
-  "HOSTEL AFFAIRS BOARD":"1",
-  "TECHNICAL BOARD":"2",
-  "CULTURAL BOARD":"3",
-  "WELFARE BOARD":"4",
-  "SPORTS BOARD":"5"
+// const dictionary = {
+//   "Students Affair Board": "1",
+//   "Hostel Affair Board": "2",
+//   "Technical Board": "3",
+//   "Cultural Board": "4",
+//   "Welfare Board	": "5",
+//   "Sports Board": "6",
+//   SAIL: "7",
+//   SWC: "8",
+// };
+
+const dictionary = {
+  sa: "1",
+  hab: "2",
+  sports_board: "3",
+  tech_board: "4",
+  cult_board: "5",
+  welfare_board: "6",
+  sail: "7",
+  swc: "8",
 };
+
 exports.createNavigation = async (req, res) => {
   const {
     boardName,
@@ -19,7 +34,7 @@ exports.createNavigation = async (req, res) => {
     announcements,
     boardShort,
   } = req.body;
-  const priority_number = disctionary[boardName];
+  const priority_number = dictionary[boardShort];
   console.log("[request body]");
   console.log(req.body);
 
@@ -35,7 +50,7 @@ exports.createNavigation = async (req, res) => {
         announcements,
         path,
         boardShort,
-        priority_number
+        priority_number,
       });
 
       /**
@@ -142,7 +157,7 @@ exports.updateNavigation = async (req, res) => {
       announcements,
       boardShort,
     } = req.body;
-    const priority_number = disctionary[boardName];
+    const priority_number = dictionary[boardShort];
     const imgPath = req.file && req.file.filename;
     const oldImage = await Navigation.findById(id);
 
@@ -154,7 +169,7 @@ exports.updateNavigation = async (req, res) => {
       events,
       announcements,
       boardShort,
-      priority_number
+      priority_number,
     };
 
     if (imgPath) {
