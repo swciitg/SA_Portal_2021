@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
   },
 });
 const formController = require("../../controllers/forms/form.controller");
-const { isLoggedIn, isAdmin, isStudent } = require("../../middlewares/auth");
+const { isLoggedIn, isAdmin } = require("../../middlewares/auth");
 
 const upload = multer({ storage: storage });
 
@@ -25,7 +25,7 @@ router.post(
   formController.postForm
 );
 
-router.get("/:id", isStudent, formController.getOneForm);
+router.get("/:id", formController.getOneForm);
 
 router.put(
   "/:id",
