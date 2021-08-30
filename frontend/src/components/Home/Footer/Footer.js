@@ -14,7 +14,7 @@ const Footer = () => {
             alt="swc-logo"
             className="mr-3 transform scale-90"
           />
-          <span className="text-xl text-white">IITG Student Affairs Board</span>
+          <span className="text-xl text-white">Student Affairs Section IIT Guwahati</span>
         </a>
         <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-400 sm:py-2 sm:mt-0 mt-4">
           © 2021 SWC —
