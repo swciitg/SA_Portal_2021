@@ -17,7 +17,7 @@ const TopNavTab = ({
     >
       <p
         className={`text-center ${
-          boardName === "Students Affair Board"
+          boardName === "Students Affair Section"
             ? "text-base"
             : "text-sm text-blue-600"
         }`}
