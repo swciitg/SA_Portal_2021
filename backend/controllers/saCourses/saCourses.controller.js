@@ -50,7 +50,10 @@ exports.editCourse = async (req, res) => {
       const id = req.params.id;
 
       const oldCourse = await Course.findById(id);
-      if (oldCourse.path.indexOf("https://") == -1) {
+      if (
+        oldCourse.path.indexOf("https://") == -1 &&
+        oldCourse.path.indexOf("http://") == -1
+      ) {
         fs.unlinkSync(`${__dirname}/../../uploads/saCourses/${oldCourse.path}`);
       }
     }
@@ -71,7 +74,10 @@ exports.getOneCourse = async (req, res) => {
   try {
     const { id } = req.params;
     const course = await Course.findById(id);
-    if (course.path.indexOf("https://") == -1) {
+    if (
+      course.path.indexOf("https://") == -1 &&
+      course.path.indexOf("http://") == -1
+    ) {
       const filePath = `${__dirname}/../../uploads/saCourses/` + course.path;
       fs.readFile(filePath, (err, data) => {
         res.contentType("application/pdf");
@@ -94,7 +100,7 @@ exports.deleteCourse = async (req, res) => {
     const course = await Course.findById(id);
 
     if (
-      course.path.indexOf("https://") == -1 ||
+      course.path.indexOf("https://") == -1 &&
       course.path.indexOf("http://") == -1
     ) {
       fs.unlinkSync(`${__dirname}/../../uploads/saCourses/${course.path}`);

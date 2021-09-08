@@ -50,7 +50,7 @@ exports.editRule = async (req, res) => {
 
       const oldRule = await Rule.findById(id);
       if (
-        oldRule.path.indexOf("https://") == -1 ||
+        oldRule.path.indexOf("https://") == -1 &&
         oldRule.path.indexOf("http://") == -1
       ) {
         fs.unlinkSync(`${__dirname}/../../uploads/rules/${oldRule.path}`);
@@ -73,7 +73,7 @@ exports.getOneRule = async (req, res) => {
     const { id } = req.params;
     const rule = await Rule.findById(id);
     if (
-      rule.path.indexOf("https://") == -1 ||
+      rule.path.indexOf("https://") == -1 &&
       rule.path.indexOf("http://") == -1
     ) {
       const filePath = `${__dirname}/../../uploads/rules/` + rule.path;
@@ -98,7 +98,7 @@ exports.deleteRule = async (req, res) => {
     const rule = await Rule.findById(id);
 
     if (
-      rule.path.indexOf("https://") == -1 ||
+      rule.path.indexOf("https://") == -1 &&
       rule.path.indexOf("http://") == -1
     ) {
       fs.unlinkSync(`${__dirname}/../../uploads/rules/${rule.path}`);

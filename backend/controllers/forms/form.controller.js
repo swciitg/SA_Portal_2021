@@ -51,7 +51,7 @@ exports.editForm = async (req, res) => {
       const id = req.params.id;
       const form = await Form.findById(id);
       if (
-        form.path.indexOf("https://") == -1 ||
+        form.path.indexOf("https://") == -1 &&
         form.path.indexOf("http://") == -1
       ) {
         fs.unlinkSync(`${__dirname}/../../uploads/forms/${form.path}`);
@@ -89,7 +89,7 @@ exports.deleteForm = async (req, res) => {
     const form = await Form.findById(id);
 
     if (
-      form.path.indexOf("https://") == -1 ||
+      form.path.indexOf("https://") == -1 &&
       form.path.indexOf("http://") == -1
     ) {
       fs.unlinkSync(`${__dirname}/../../uploads/forms/${form.path}`);
