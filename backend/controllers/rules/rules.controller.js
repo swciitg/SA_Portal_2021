@@ -49,7 +49,10 @@ exports.editRule = async (req, res) => {
       const id = req.params.id;
 
       const oldRule = await Rule.findById(id);
-      if (oldRule.path.indexOf("https://") == -1) {
+      if (
+        oldRule.path.indexOf("https://") == -1 ||
+        oldRule.path.indexOf("http://") == -1
+      ) {
         fs.unlinkSync(`${__dirname}/../../uploads/rules/${oldRule.path}`);
       }
     }
@@ -69,7 +72,10 @@ exports.getOneRule = async (req, res) => {
   try {
     const { id } = req.params;
     const rule = await Rule.findById(id);
-    if (rule.path.indexOf("https://") == -1) {
+    if (
+      rule.path.indexOf("https://") == -1 ||
+      rule.path.indexOf("http://") == -1
+    ) {
       const filePath = `${__dirname}/../../uploads/rules/` + rule.path;
       fs.readFile(filePath, (err, data) => {
         res.contentType("application/pdf");
@@ -91,7 +97,10 @@ exports.deleteRule = async (req, res) => {
     const { id } = req.params;
     const rule = await Rule.findById(id);
 
-    if (rule.path.indexOf("https://") == -1) {
+    if (
+      rule.path.indexOf("https://") == -1 ||
+      rule.path.indexOf("http://") == -1
+    ) {
       fs.unlinkSync(`${__dirname}/../../uploads/rules/${rule.path}`);
       console.log("successfully deleted file");
     }
@@ -104,8 +113,4 @@ exports.deleteRule = async (req, res) => {
       .status(424)
       .json({ status: "Failed", message: "Request failed" });
   }
-};
-
-const compare = (a, b) => {
-  return b.creation - a.creation;
 };

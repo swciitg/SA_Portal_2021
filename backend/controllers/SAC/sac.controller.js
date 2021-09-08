@@ -209,6 +209,5 @@ exports.deleteSublink = async (req, res) => {
 };
 
 const compare = (a, b) => {
-  //console.log(a, b);
   return a.priority_number - b.priority_number;
 };

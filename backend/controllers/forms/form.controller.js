@@ -1,6 +1,5 @@
 const Form = require("../../models/forms/form");
 const fs = require("fs");
-const factory = require("../handlerFactory");
 
 exports.getForms = async (req, res, next) => {
   try {
@@ -51,7 +50,10 @@ exports.editForm = async (req, res) => {
       data = { formNo, subject, path, format };
       const id = req.params.id;
       const form = await Form.findById(id);
-      if (form.path.indexOf("https://") == -1) {
+      if (
+        form.path.indexOf("https://") == -1 ||
+        form.path.indexOf("http://") == -1
+      ) {
         fs.unlinkSync(`${__dirname}/../../uploads/forms/${form.path}`);
       }
     }
@@ -86,7 +88,10 @@ exports.deleteForm = async (req, res) => {
     const id = req.params.id;
     const form = await Form.findById(id);
 
-    if (form.path.indexOf("https://") == -1) {
+    if (
+      form.path.indexOf("https://") == -1 ||
+      form.path.indexOf("http://") == -1
+    ) {
       fs.unlinkSync(`${__dirname}/../../uploads/forms/${form.path}`);
       console.log("successfully deleted /tmp/hello");
     }
@@ -99,8 +104,4 @@ exports.deleteForm = async (req, res) => {
       .status(424)
       .json({ status: "Failed", message: "Request failed" });
   }
-};
-
-const compare = (a, b) => {
-  return b.creation - a.creation;
 };

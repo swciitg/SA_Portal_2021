@@ -32,17 +32,16 @@ exports.getOneScholarshipPdf = async (req, res) => {
   try {
     const { id } = req.params;
     const Pdf = await ScholarshipPdf.findById(id);
-    if(Pdf){
+    if (Pdf) {
       const PdfPath = `${__dirname}/../../uploads/scholarship/${Pdf.path}`;
-      fs.readFile(PdfPath,(err, data) => {
+      fs.readFile(PdfPath, (err, data) => {
         res.contentType("application/pdf");
         return res.send(data);
       });
-    }
-    else{
+    } else {
       return res
-      .status(424)
-      .json({ status: "Failed", message: "Request failed" });
+        .status(424)
+        .json({ status: "Failed", message: "Request failed" });
     }
   } catch (err) {
     console.log(err);
@@ -56,13 +55,11 @@ exports.getScholarshipData = async (req, res) => {
   try {
     const EditorData = await SchlolershipEditor.find({});
     const doc = await ScholarshipPdf.find({}).sort("-creation");
-    return res
-      .status(200)
-      .json({
-        status: "Success",
-        Pdfs: { results: doc.length, data: EditorData },
-        Editor: { data: EditorData },
-      });
+    return res.status(200).json({
+      status: "Success",
+      Pdfs: { results: doc.length, data: EditorData },
+      Editor: { data: EditorData },
+    });
   } catch (err) {
     console.log(err);
     return res
@@ -93,9 +90,9 @@ exports.postScholarshipPdf = async (req, res) => {
         .status(424)
         .json({ status: "Failed", message: "No File Provided" });
     }
-    const {name} = req.body;
+    const { name } = req.body;
     const path = req.file.filename;
-    const newPdfData = new ScholarshipPdf({name, path });
+    const newPdfData = new ScholarshipPdf({ name, path });
     const PdfData = await newPdfData.save();
     return res.status(200).json({ status: "Success", data: PdfData });
   } catch (err) {
@@ -113,11 +110,14 @@ exports.editScholarshipPdf = async (req, res) => {
         .status(424)
         .json({ status: "Failed", message: "No File Provided" });
     }
-    const {name} = req.body;
+    const { name } = req.body;
     const path = req.file.filename;
     const id = req.params.id;
     const Pdf = await ScholarshipPdf.findById(id);
-    const UpdatedPdf = await ScholarshipPdf.findByIdAndUpdate(id, {name, path });
+    const UpdatedPdf = await ScholarshipPdf.findByIdAndUpdate(id, {
+      name,
+      path,
+    });
     fs.unlinkSync(`${__dirname}/../../uploads/scholarship/${Pdf.path}`);
     return res.status(200).json({ status: "Success", data: UpdatedPdf });
   } catch (err) {
@@ -141,8 +141,4 @@ exports.deleteScholarshipPdf = async (req, res) => {
       .status(424)
       .json({ status: "Failed", message: "Request failed" });
   }
-};
-
-const compare = (a, b) => {
-  return b.creation - a.creation;
 };

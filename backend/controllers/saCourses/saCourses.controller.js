@@ -93,7 +93,10 @@ exports.deleteCourse = async (req, res) => {
     const { id } = req.params;
     const course = await Course.findById(id);
 
-    if (course.path.indexOf("https://") == -1) {
+    if (
+      course.path.indexOf("https://") == -1 ||
+      course.path.indexOf("http://") == -1
+    ) {
       fs.unlinkSync(`${__dirname}/../../uploads/saCourses/${course.path}`);
       console.log("successfully deleted file");
     }
@@ -106,8 +109,4 @@ exports.deleteCourse = async (req, res) => {
       .status(424)
       .json({ status: "Failed", message: "Request failed" });
   }
-};
-
-const compare = (a, b) => {
-  return b.creation - a.creation;
 };
