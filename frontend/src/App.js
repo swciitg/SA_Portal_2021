@@ -9,6 +9,7 @@ import { fetchUserAction } from "./actions/auth";
 import NotFound from "./components/NotFound";
 
 import { BASEURL } from "./constants/index";
+import { Toaster } from "react-hot-toast";
 const App = () => {
   const dispatch = useDispatch();
 
@@ -17,13 +18,16 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path={`${BASEURL}/admin`} component={AdminScreen} />
-        <Route path={`${BASEURL}`} component={UserScreen} />
-        <Route path="*" exact={true} component={NotFound} />
-      </Switch>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route path={`${BASEURL}/admin`} component={AdminScreen} />
+          <Route path={`${BASEURL}`} component={UserScreen} />
+          <Route path="*" exact={true} component={NotFound} />
+        </Switch>
+      </BrowserRouter>
+      <Toaster />
+    </>
   );
 };
 
