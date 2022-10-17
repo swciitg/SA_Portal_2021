@@ -80,7 +80,7 @@ const DropDownMenu = ({
       <div className="imageDiv">
         <img src={imageURL} className="image" alt="" />
         <span className="name font-sm">{chairPersonName}</span>
-        <span className="description font-xs">{`Chairman ${boardName}`}</span>
+        <span className="description font-xs">{`Chairperson ${boardName}`}</span>
       </div>
     </div>
   );
