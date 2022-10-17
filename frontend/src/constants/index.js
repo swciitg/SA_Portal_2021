@@ -1,5 +1,5 @@
 export const BASEURL = "/sa";
-export const BASEAPI = "http://localhost:8080/sa/api";
+export const BASEAPI = "https://intranet.iitg.ac.in/sa/api";
 
 export const LOGIN_URL = `${BASEAPI}/auth/azureadoauth2`;
 export const LOGOUT_URL = `${BASEAPI}/auth/logout`;

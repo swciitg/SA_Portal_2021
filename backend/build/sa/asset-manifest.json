@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/sa/static/css/main.ce7ea586.chunk.css",
+    "main.js": "/sa/static/js/main.f6e95bc9.chunk.js",
+    "main.js.map": "/sa/static/js/main.f6e95bc9.chunk.js.map",
+    "runtime-main.js": "/sa/static/js/runtime-main.d5da5e67.js",
+    "runtime-main.js.map": "/sa/static/js/runtime-main.d5da5e67.js.map",
+    "static/css/2.1126ba08.chunk.css": "/sa/static/css/2.1126ba08.chunk.css",
+    "static/js/2.ca55c741.chunk.js": "/sa/static/js/2.ca55c741.chunk.js",
+    "static/js/2.ca55c741.chunk.js.map": "/sa/static/js/2.ca55c741.chunk.js.map",
+    "index.html": "/sa/index.html",
+    "static/css/2.1126ba08.chunk.css.map": "/sa/static/css/2.1126ba08.chunk.css.map",
+    "static/css/main.ce7ea586.chunk.css.map": "/sa/static/css/main.ce7ea586.chunk.css.map",
+    "static/js/2.ca55c741.chunk.js.LICENSE.txt": "/sa/static/js/2.ca55c741.chunk.js.LICENSE.txt",
+    "static/media/CatFilter.css": "/sa/static/media/ArrowDown.bc998f15.svg",
+    "static/media/EventCatfilter.css": "/sa/static/media/ArrowDown2.ddee9f18.svg",
+    "static/media/ArrowRight.a08f3106.svg": "/sa/static/media/ArrowRight.a08f3106.svg",
+    "static/media/ArrowRight2.379aad3b.svg": "/sa/static/media/ArrowRight2.379aad3b.svg",
+    "static/media/ArrowUp.29c666fb.svg": "/sa/static/media/ArrowUp.29c666fb.svg",
+    "static/media/arrow-right-solid.23627521.svg": "/sa/static/media/arrow-right-solid.23627521.svg",
+    "static/media/swc-logo.1a2803ce.svg": "/sa/static/media/swc-logo.1a2803ce.svg",
+    "static/media/teamsbg.bc478f16.png": "/sa/static/media/teamsbg.bc478f16.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d5da5e67.js",
+    "static/css/2.1126ba08.chunk.css",
+    "static/js/2.ca55c741.chunk.js",
+    "static/css/main.ce7ea586.chunk.css",
+    "static/js/main.f6e95bc9.chunk.js"
+  ]
+}

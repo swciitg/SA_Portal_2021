@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const mongoSanitize = require("express-mongo-sanitize");
-
+const path=require("path")
 const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
@@ -15,7 +15,7 @@ console.log({ MONGO_URL, BASECLIENT });
 // console.log("[Mongodb Url]", MONGO_URL);
 const helmet = require("helmet");
 
-const PORT = 8080 || process.env.PORT;
+const PORT = process.env.PORT;
 require("./config/passportAzure");
 
 const scholarshipRoutes = require("./routes/scholarship/scholarship.routes");
@@ -113,6 +113,15 @@ app.use("/sa/api/saCourse", courseRoutes);
 app.use("/sa/api", authRoutes);
 
 app.use(helmet({ contentSecurityPolicy: false }));
+
+if (process.env.NODE_ENV === "production") {
+  app.use("/sa",express.static("build"));
+  app.get("/sa/*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "build","sa", "index.html"));
+  });
+}
+
+
 
 app.listen(PORT, () => {
   console.log(`Server running at PORT ${PORT}`);
