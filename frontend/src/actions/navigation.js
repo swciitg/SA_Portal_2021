@@ -5,6 +5,7 @@ import {
   NAVIGATION_EDIT_REQUEST,
 } from "../constants";
 import * as api from "../api";
+import showToast from "../utils/showToast";
 
 export const listNavs = () => async (dispatch) => {
   try {
@@ -19,8 +20,10 @@ export const createNav = (nav) => async (dispatch) => {
   try {
     const { data } = await api.createNavigation(nav);
     dispatch({ type: NAVIGATION_CREATE_REQUEST, payload: data.data });
+    showToast({ msg:"navigation created successfully", type:"success" });
   } catch (error) {
     console.log(error.message);
+    showToast({ msg: "something went wrong", type: "error" });
   }
 };
 
