@@ -80,6 +80,9 @@ const Sidebar = ({ children }) => {
             <Link to={`${BASEURL}/admin/utilities`} className={linkSidebar}>
               Utilities
             </Link>
+            <Link to={`${BASEURL}/admin/useful-links`} className={linkSidebar}>
+              Useful Links
+            </Link>
             <Link to={`${BASEURL}/admin/team`} className={linkSidebar}>
               Team
             </Link>

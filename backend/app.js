@@ -29,6 +29,7 @@ const courseRoutes = require("./routes/saCourses/saCourses.routes");
 const achievementRoutes = require("./routes/home/achievement.routes");
 const aboutRoutes = require("./routes/home/about.routes");
 const teamRoutes = require("./routes/team/team.routes");
+const usefulLinksRoutes = require("./routes/usefulLinks/useful.links");
 const formRoutes = require("./routes/forms/form.routes");
 const utilityRoutes = require("./routes/utilities/link.routes");
 const userRoutes = require("./routes/users/user.routes");
@@ -108,6 +109,7 @@ app.use("/sa/api/gallery", galleryRoutes);
 app.use("/sa/api/users", userRoutes);
 
 app.use("/sa/api/sac", sacRoutes);
+app.use("/sa/api/useful-links", usefulLinksRoutes);
 app.use("/sa/api/saCourse", courseRoutes);
 
 app.use("/sa/api", authRoutes);

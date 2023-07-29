@@ -57,6 +57,14 @@ import NavigationScreen from "./navigation/NavigationScreen";
 import NavigationFormScreen from "./navigation/NavigationFormScreen";
 
 import { LOGIN_URL } from "../../constants/index";
+
+import UsefulLinksScreen from "./usefulLinks/UsefulLinksScreen";
+import AddUsefulLinksScreen from "./usefulLinks/AddUsefulLinksScreen";
+import EditUsefulLinksScreen from "./usefulLinks/EditUsefulLinkScreen";
+import UsefulSublinkScreen from "./usefulLinks/UsefulSublinkScreen";
+import AddUsefulSublinksScreen from "./usefulLinks/AddUsefulSublinkScreen";
+import EditUsefulSublinkScreen from "./usefulLinks/EditSacSublinkScreen";
+
 const AdminScreen = () => {
   let loginBool = document.cookie.includes("sa-portal-session");
 
@@ -190,6 +198,38 @@ const AdminScreen = () => {
               exact
               path={`${BASEURL}/admin/sac/:link_id/edit/:sublink_id`}
               component={EditSacSublinkScreen}
+            />
+
+            {/* Useful Links Routes */}
+            <AdminRoute
+              exact
+              path={`${BASEURL}/admin/useful-links`}
+              component={UsefulLinksScreen}
+            />
+            <AdminRoute
+              exact
+              path={`${BASEURL}/admin/useful-links/add`}
+              component={AddUsefulLinksScreen}
+            />
+            <AdminRoute
+              exact
+              path={`${BASEURL}/admin/useful-links/edit/:link_id`}
+              component={EditUsefulLinksScreen}
+            />
+            <AdminRoute
+              exact
+              path={`${BASEURL}/admin/useful-links/:link_id`}
+              component={UsefulSublinkScreen}
+            />
+            <AdminRoute
+              exact
+              path={`${BASEURL}/admin/useful-links/:link_id/add`}
+              component={AddUsefulSublinksScreen}
+            />
+            <AdminRoute
+              exact
+              path={`${BASEURL}/admin/sac/:link_id/edit/:sublink_id`}
+              component={EditUsefulSublinkScreen}
             />
 
 

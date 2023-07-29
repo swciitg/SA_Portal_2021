@@ -22,6 +22,10 @@ import images from "./reducers/gallery";
 import achievements from "./reducers/achievements";
 
 import navigations from "./reducers/navigation";
+
+import usefulLinks from "./reducers/usefulLinks";
+import usefulsublinks from "./reducers/usefulSublinks";
+
 const reducer = combineReducers({
   auth,
   announcements,
@@ -39,6 +43,8 @@ const reducer = combineReducers({
   sublinks,
   teams,
   users,
+  usefulLinks,
+  usefulsublinks,
   images,
   achievements,
   navigations,

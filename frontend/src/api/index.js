@@ -122,3 +122,18 @@ export const editsacSublink = (id, sublink_id, newSublink) =>
   API.put(`/sac/${id}/sublinks/${sublink_id}`, newSublink);
 export const deletesacSublink = (id, sublink_id) =>
   API.delete(`/sac/${id}/sublinks/${sublink_id}`);
+
+//UsefulLinks Routes
+export const fetchUsefulLinks = () => API.get("/useful-links");
+export const createUsefulLink = (newRule) => API.post("/useful-links", newRule);
+export const editUsefulLink = (id, updatedRule) =>
+  API.put(`/useful-links/${id}`, updatedRule);
+export const deleteUsefulLink = (id) => API.delete(`/useful-links/${id}`);
+
+export const fetchUsefulSublinks = (id) => API.get(`/useful-links/${id}/sublinks`);
+export const createUsefulSublink = (id, newSublink) =>
+  API.post(`/useful-links/${id}/sublinks`, newSublink);
+export const editUsefulSublink = (id, sublink_id, newSublink) =>
+  API.put(`/useful-links/${id}/sublinks/${sublink_id}`, newSublink);
+export const deleteUsefulSublink = (id, sublink_id) =>
+  API.delete(`/useful-links/${id}/sublinks/${sublink_id}`);

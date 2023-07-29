@@ -16,6 +16,7 @@ import NestedLinksScreen from "./nestedLinks/NestedLinksScreen";
 
 import { listLinks } from "../../actions/utilities";
 import { listsacLinks } from "../../actions/sac";
+import { listUsefulLinks } from "../../actions/useful.links";
 
 const UserScreen = ({ location }) => {
   return (
@@ -59,6 +60,19 @@ const UserScreen = ({ location }) => {
               name="Utilities"
               resourseName="links"
               fetchData={listLinks}
+            />
+          )}
+        />
+        {/* Useful Links Route */}
+        <Route
+          exact
+          path={`${BASEURL}/useful-links`}
+          render={(props) => (
+            <NestedLinksScreen
+              {...props}
+              name="Useful Links"
+              resourseName="usefulLinks"
+              fetchData={listUsefulLinks}
             />
           )}
         />

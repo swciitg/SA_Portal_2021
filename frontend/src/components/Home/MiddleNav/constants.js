@@ -33,4 +33,8 @@ export const pages = [
     name: "Team",
     path: `${BASEURL}/team`,
   },
+  {
+    name: "Useful Links",
+    path: `${BASEURL}/useful-links`,
+  },
 ];
